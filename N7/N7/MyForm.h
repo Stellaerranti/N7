@@ -46,15 +46,21 @@ namespace N7 {
 			}
 		}
 	private: System::Windows::Forms::OpenFileDialog^  openFileDialog1;
-	private: System::Windows::Forms::Button^  button1;
-	private: System::Windows::Forms::TextBox^  path_box;
+
+
 
 
 
 	private: System::Windows::Forms::DataVisualization::Charting::Chart^  z1;
-	private: System::Windows::Forms::DataVisualization::Charting::Chart^  chart2;
-	private: System::Windows::Forms::DataVisualization::Charting::Chart^  chart3;
-	private: System::Windows::Forms::GroupBox^  groupBox1;
+	private: System::Windows::Forms::DataVisualization::Charting::Chart^  z2;
+	private: System::Windows::Forms::DataVisualization::Charting::Chart^  mh;
+
+
+
+	private: System::Windows::Forms::ToolStrip^  toolStrip1;
+	private: System::Windows::Forms::ToolStripButton^  toolStripButton1;
+
+
 	protected:
 
 	private:
@@ -80,42 +86,20 @@ namespace N7 {
 			System::Windows::Forms::DataVisualization::Charting::Legend^  legend3 = (gcnew System::Windows::Forms::DataVisualization::Charting::Legend());
 			System::Windows::Forms::DataVisualization::Charting::Series^  series3 = (gcnew System::Windows::Forms::DataVisualization::Charting::Series());
 			this->openFileDialog1 = (gcnew System::Windows::Forms::OpenFileDialog());
-			this->button1 = (gcnew System::Windows::Forms::Button());
-			this->path_box = (gcnew System::Windows::Forms::TextBox());
 			this->z1 = (gcnew System::Windows::Forms::DataVisualization::Charting::Chart());
-			this->chart2 = (gcnew System::Windows::Forms::DataVisualization::Charting::Chart());
-			this->chart3 = (gcnew System::Windows::Forms::DataVisualization::Charting::Chart());
-			this->groupBox1 = (gcnew System::Windows::Forms::GroupBox());
+			this->z2 = (gcnew System::Windows::Forms::DataVisualization::Charting::Chart());
+			this->mh = (gcnew System::Windows::Forms::DataVisualization::Charting::Chart());
+			this->toolStrip1 = (gcnew System::Windows::Forms::ToolStrip());
+			this->toolStripButton1 = (gcnew System::Windows::Forms::ToolStripButton());
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->z1))->BeginInit();
-			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->chart2))->BeginInit();
-			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->chart3))->BeginInit();
-			this->groupBox1->SuspendLayout();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->z2))->BeginInit();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->mh))->BeginInit();
+			this->toolStrip1->SuspendLayout();
 			this->SuspendLayout();
 			// 
 			// openFileDialog1
 			// 
 			this->openFileDialog1->FileName = L"openFileDialog1";
-			// 
-			// button1
-			// 
-			this->button1->Cursor = System::Windows::Forms::Cursors::Hand;
-			this->button1->Location = System::Drawing::Point(6, 47);
-			this->button1->Name = L"button1";
-			this->button1->Size = System::Drawing::Size(63, 28);
-			this->button1->TabIndex = 0;
-			this->button1->Text = L"File";
-			this->button1->TextAlign = System::Drawing::ContentAlignment::TopCenter;
-			this->button1->TextImageRelation = System::Windows::Forms::TextImageRelation::TextAboveImage;
-			this->button1->UseMnemonic = false;
-			this->button1->UseVisualStyleBackColor = true;
-			this->button1->Click += gcnew System::EventHandler(this, &MyForm::button1_Click);
-			// 
-			// path_box
-			// 
-			this->path_box->Location = System::Drawing::Point(6, 19);
-			this->path_box->Name = L"path_box";
-			this->path_box->Size = System::Drawing::Size(504, 20);
-			this->path_box->TabIndex = 1;
 			// 
 			// z1
 			// 
@@ -123,7 +107,7 @@ namespace N7 {
 			this->z1->ChartAreas->Add(chartArea1);
 			legend1->Name = L"Legend1";
 			this->z1->Legends->Add(legend1);
-			this->z1->Location = System::Drawing::Point(11, 127);
+			this->z1->Location = System::Drawing::Point(4, 28);
 			this->z1->Name = L"z1";
 			series1->ChartArea = L"ChartArea1";
 			series1->ChartType = System::Windows::Forms::DataVisualization::Charting::SeriesChartType::Spline;
@@ -134,82 +118,92 @@ namespace N7 {
 			this->z1->TabIndex = 4;
 			this->z1->Text = L"chart1";
 			// 
-			// chart2
+			// z2
 			// 
 			chartArea2->Name = L"ChartArea1";
-			this->chart2->ChartAreas->Add(chartArea2);
+			this->z2->ChartAreas->Add(chartArea2);
 			legend2->Name = L"Legend1";
-			this->chart2->Legends->Add(legend2);
-			this->chart2->Location = System::Drawing::Point(317, 127);
-			this->chart2->Name = L"chart2";
+			this->z2->Legends->Add(legend2);
+			this->z2->Location = System::Drawing::Point(310, 28);
+			this->z2->Name = L"z2";
 			series2->ChartArea = L"ChartArea1";
+			series2->ChartType = System::Windows::Forms::DataVisualization::Charting::SeriesChartType::Spline;
 			series2->Legend = L"Legend1";
 			series2->Name = L"Series1";
-			this->chart2->Series->Add(series2);
-			this->chart2->Size = System::Drawing::Size(300, 300);
-			this->chart2->TabIndex = 5;
-			this->chart2->Text = L"chart2";
+			this->z2->Series->Add(series2);
+			this->z2->Size = System::Drawing::Size(300, 300);
+			this->z2->TabIndex = 5;
+			this->z2->Text = L"chart2";
 			// 
-			// chart3
+			// mh
 			// 
 			chartArea3->Name = L"ChartArea1";
-			this->chart3->ChartAreas->Add(chartArea3);
+			this->mh->ChartAreas->Add(chartArea3);
 			legend3->Name = L"Legend1";
-			this->chart3->Legends->Add(legend3);
-			this->chart3->Location = System::Drawing::Point(623, 127);
-			this->chart3->Name = L"chart3";
+			this->mh->Legends->Add(legend3);
+			this->mh->Location = System::Drawing::Point(616, 28);
+			this->mh->Name = L"mh";
 			series3->ChartArea = L"ChartArea1";
+			series3->ChartType = System::Windows::Forms::DataVisualization::Charting::SeriesChartType::Spline;
 			series3->Legend = L"Legend1";
 			series3->Name = L"Series1";
-			this->chart3->Series->Add(series3);
-			this->chart3->Size = System::Drawing::Size(300, 300);
-			this->chart3->TabIndex = 6;
-			this->chart3->Text = L"chart3";
+			this->mh->Series->Add(series3);
+			this->mh->Size = System::Drawing::Size(300, 300);
+			this->mh->TabIndex = 6;
+			this->mh->Text = L"chart3";
 			// 
-			// groupBox1
+			// toolStrip1
 			// 
-			this->groupBox1->BackgroundImageLayout = System::Windows::Forms::ImageLayout::None;
-			this->groupBox1->Controls->Add(this->path_box);
-			this->groupBox1->Controls->Add(this->button1);
-			this->groupBox1->Location = System::Drawing::Point(7, 12);
-			this->groupBox1->Name = L"groupBox1";
-			this->groupBox1->RightToLeft = System::Windows::Forms::RightToLeft::No;
-			this->groupBox1->Size = System::Drawing::Size(518, 85);
-			this->groupBox1->TabIndex = 7;
-			this->groupBox1->TabStop = false;
-			this->groupBox1->Text = L"File path";
+			this->toolStrip1->ImageScalingSize = System::Drawing::Size(17, 17);
+			this->toolStrip1->Items->AddRange(gcnew cli::array< System::Windows::Forms::ToolStripItem^  >(1) { this->toolStripButton1 });
+			this->toolStrip1->Location = System::Drawing::Point(0, 0);
+			this->toolStrip1->Name = L"toolStrip1";
+			this->toolStrip1->Size = System::Drawing::Size(1008, 25);
+			this->toolStrip1->TabIndex = 8;
+			this->toolStrip1->Text = L"toolStrip1";
+			// 
+			// toolStripButton1
+			// 
+			this->toolStripButton1->DisplayStyle = System::Windows::Forms::ToolStripItemDisplayStyle::Text;
+			this->toolStripButton1->ImageTransparentColor = System::Drawing::Color::Magenta;
+			this->toolStripButton1->Name = L"toolStripButton1";
+			this->toolStripButton1->Size = System::Drawing::Size(31, 22);
+			this->toolStripButton1->Text = L"File";
+			this->toolStripButton1->Click += gcnew System::EventHandler(this, &MyForm::toolStripButton1_Click);
 			// 
 			// MyForm
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
-			this->ClientSize = System::Drawing::Size(1008, 497);
-			this->Controls->Add(this->groupBox1);
-			this->Controls->Add(this->chart3);
-			this->Controls->Add(this->chart2);
+			this->ClientSize = System::Drawing::Size(1008, 352);
+			this->Controls->Add(this->toolStrip1);
+			this->Controls->Add(this->mh);
+			this->Controls->Add(this->z2);
 			this->Controls->Add(this->z1);
 			this->Name = L"MyForm";
 			this->Text = L"MyForm";
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->z1))->EndInit();
-			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->chart2))->EndInit();
-			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->chart3))->EndInit();
-			this->groupBox1->ResumeLayout(false);
-			this->groupBox1->PerformLayout();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->z2))->EndInit();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->mh))->EndInit();
+			this->toolStrip1->ResumeLayout(false);
+			this->toolStrip1->PerformLayout();
 			this->ResumeLayout(false);
+			this->PerformLayout();
 
 		}
 #pragma endregion
-		
+		//Что бы русская кодировка работала делаем это
 	void MarshalString(String ^ s, string& os) 
 	{	
 	const char* chars = (const char*)(Marshal::StringToHGlobalAnsi(s)).ToPointer();
 	os = chars;
 	Marshal::FreeHGlobal(IntPtr((void*)chars));
 	}
-
-	private: System::Void button1_Click(System::Object^  sender, System::EventArgs^  e)
+	double **data = (double**)malloc(1 * sizeof(double));
+	private: System::Void toolStripButton1_Click(System::Object^  sender, System::EventArgs^  e)
 	{
 		setlocale(LC_ALL, "Russian");
+		//Открываем файловый диалог
 		openFileDialog1->ShowDialog();
 		System::String^ path_f = openFileDialog1->FileName;
 		string s2 = "";
@@ -220,13 +214,84 @@ namespace N7 {
 		}
 		else 
 		{
-			path_box->Text = path_f;
+			
+			string str;
+			int flag_count = 0;
+			int column_counter;
+			int line_counter = 0;
+			while (getline(fin, str))
+			{ // пока не достигнут конец файла класть очередную строку в переменную 
+				//Крайне неприятно и криво переводим строку в массив
+				char p[255];
+				double *line;
+				int flag = 0;
 
+				double *values = NULL;
+				strcpy(p, str.c_str());		//Как иначе перевести string в char я без понятия		
+				char *buf = strtok(p, " ,=");
+				column_counter = 0;
+
+				while (buf != NULL) //переводим все числа из символов-чисел в числа-числа
+				{
+
+					if ((buf != NULL))
+					{
+
+						double d2 = strtod(buf, NULL);
+						if ((d2 != NULL) || (isdigit(buf[0])))
+						{
+							column_counter++;
+							line = (double*)realloc(values, column_counter * sizeof(double));
+							if (line != NULL)
+							{
+								flag = 1;
+
+								values = line;
+								values[column_counter - 1] = d2;                      // добавить к массиву только что введённое число
+							}
+							else
+							{
+								free(values);                                   // удалить массив
+								std::cout << "Error code 5. Wrong format!";
+								exit(5);                                          // завершить работу программы
+							}
+						}
+					}
+					buf = strtok(NULL, " ,=");
+
+				}
+				line_counter++;
+				if (line_counter == 1)
+				{
+					data[0] = (double*)malloc(column_counter * sizeof(double));
+					for (int i = 0; i < column_counter; i++)
+					{
+						data[line_counter - 1][i] = values[i];
+					}
+				}
+				else
+				{
+					data = (double**)realloc(data, line_counter * sizeof(double*));
+					data[line_counter - 1] = (double*)malloc(column_counter * sizeof(double));
+					for (int i = 0; i < column_counter; i++)
+					{
+						data[line_counter - 1][i] = values[i];
+					}
+				}
+			}
+			//Конец цикла 
+			fin.close();
 
 		}
+		
+
+
 	}
 
 	
+
+
+
 
 };
 }
