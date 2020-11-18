@@ -24,4 +24,9 @@
       <Filter>Файлы заголовков</Filter>
     </ClInclude>
   </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="MyForm.resx">
+      <Filter>Файлы ресурсов</Filter>
+    </EmbeddedResource>
+  </ItemGroup>
 </Project>
