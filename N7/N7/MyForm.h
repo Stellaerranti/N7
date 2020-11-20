@@ -115,11 +115,13 @@ namespace N7 {
 			series1->ChartType = System::Windows::Forms::DataVisualization::Charting::SeriesChartType::Spline;
 			series1->LabelBorderWidth = 5;
 			series1->Legend = L"Legend1";
+			series1->LegendText = L"X,Y";
 			series1->MarkerSize = 1;
 			series1->Name = L"XY";
 			series2->ChartArea = L"ChartArea1";
 			series2->ChartType = System::Windows::Forms::DataVisualization::Charting::SeriesChartType::Spline;
 			series2->Legend = L"Legend1";
+			series2->LegendText = L"Z.X";
 			series2->Name = L"ZY";
 			this->z1->Series->Add(series1);
 			this->z1->Series->Add(series2);
@@ -138,10 +140,12 @@ namespace N7 {
 			series3->ChartArea = L"ChartArea1";
 			series3->ChartType = System::Windows::Forms::DataVisualization::Charting::SeriesChartType::Spline;
 			series3->Legend = L"Legend1";
+			series3->LegendText = L"X,Y";
 			series3->Name = L"XZ";
 			series4->ChartArea = L"ChartArea1";
 			series4->ChartType = System::Windows::Forms::DataVisualization::Charting::SeriesChartType::Spline;
 			series4->Legend = L"Legend1";
+			series4->LegendText = L"Z,Y";
 			series4->Name = L"YZ";
 			this->z2->Series->Add(series3);
 			this->z2->Series->Add(series4);
@@ -196,6 +200,7 @@ namespace N7 {
 			this->Controls->Add(this->z1);
 			this->Name = L"MyForm";
 			this->Text = L"MyForm";
+			this->FormClosing += gcnew System::Windows::Forms::FormClosingEventHandler(this, &MyForm::MyForm_FormClosing);
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->z1))->EndInit();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->z2))->EndInit();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->mh))->EndInit();
@@ -214,15 +219,27 @@ namespace N7 {
 	Marshal::FreeHGlobal(IntPtr((void*)chars));
 	}
 	double **data = (double**)malloc(1 * sizeof(double));
+	void draw(double **data, int line_counter)
+	{
+		for (int i = 1; i < line_counter; i++)
+		{
+			z1->Series["XY"]->Points->AddXY(data[i][2], data[i][1]);
+			z1->Series["ZY"]->Points->AddXY((-1.)*data[i][3], data[i][1]);
+			z2->Series["XZ"]->Points->AddXY(data[i][2], data[i][1]);
+			z2->Series["YZ"]->Points->AddXY(data[i][2], (-1.)*data[i][3]);
+			mh->Series["MH"]->Points->AddXY(data[i][0], data[i][4]);
+		}
+	}
 	private: System::Void toolStripButton1_Click(System::Object^  sender, System::EventArgs^  e)
 	{
-		setlocale(LC_ALL, "Russian");
+		//setlocale(LC_ALL, "Russian");
 		//Открываем файловый диалог
 		openFileDialog1->ShowDialog();
 		System::String^ path_f = openFileDialog1->FileName;
 		string s2 = "";
 		MarshalString(path_f, s2);
 		ifstream fin(s2);
+		//ofstream fout("testout.txt");//удолить после тестирований
 		int column_counter=0;
 		int line_counter = 0;
 		if (!fin.is_open()) {
@@ -233,27 +250,37 @@ namespace N7 {
 			
 			string str;
 			int flag_count = 0;
-			
+			int flag = 0;
 			while (getline(fin, str))
 			{ // пока не достигнут конец файла класть очередную строку в переменную 
 				//Крайне неприятно и криво переводим строку в массив
+				if (((str[0] == 'M')||(str[0] == 'T'))&&(line_counter >= 1))//А это удоляем М и Т что бы удобнее перевести значение напряженности
+				{
+					str.erase(0,1);
+				}
+
 				char p[255];
 				double *line;
-				int flag = 0;
+				flag = 0;
 
 				double *values = NULL;
-				strcpy(p, str.c_str());		//Как иначе перевести string в char я без понятия		
+				strcpy(p, str.c_str());		//Как иначе перевести string в char я без понятия	
+
 				char *buf = strtok(p, " ,=");
 				column_counter = 0;
 
 				while (buf != NULL) //переводим все числа из символов-чисел в числа-числа
 				{
 
+					//cout << buf << endl;
+
+					//if ((buf != NULL) && (isdigit(buf[0])))
 					if ((buf != NULL))
 					{
 
 						double d2 = strtod(buf, NULL);
-						if ((d2 != NULL) || (isdigit(buf[0])))
+						
+						if ((d2 != NULL) || (isdigit(buf[0])))						
 						{
 							column_counter++;
 							line = (double*)realloc(values, column_counter * sizeof(double));
@@ -266,9 +293,9 @@ namespace N7 {
 							}
 							else
 							{
-								free(values);                                   // удалить массив
+								/*free(values);                                   // удалить массив
 								std::cout << "Error code 5. Wrong format!";
-								exit(5);                                          // завершить работу программы
+								exit(5);           */                               // завершить работу программы
 							}
 						}
 					}
@@ -280,43 +307,40 @@ namespace N7 {
 					line_counter++;
 					if (line_counter == 1)
 					{
-						data[0] = (double*)malloc(column_counter * sizeof(double));
-						for (int i = 0; i < column_counter; i++)
+						data[0] = (double*)malloc(5 * sizeof(double));
+						for (int i = 0; i <5; i++)
 						{
 							data[line_counter - 1][i] = values[i];
+							
 						}
+						
 					}
 					else
 					{
 						data = (double**)realloc(data, line_counter * sizeof(double*));
-						data[line_counter - 1] = (double*)malloc(column_counter * sizeof(double));
-						for (int i = 0; i < column_counter; i++)
+						data[line_counter - 1] = (double*)malloc(5 * sizeof(double));
+						for (int i = 0; i < 5; i++)
 						{
 							data[line_counter - 1][i] = values[i];
+							
 						}
+						
 					}
 				}
 			}
 			//Конец цикла 
 			fin.close();
-
+			draw(data, line_counter);
 		}
 		
-		for (int i = 1; i < line_counter; i++)
-		{
-			z1->Series["XY"]->Points->AddXY(data[i][2], data[i][1]);
-			z1->Series["ZY"]->Points->AddXY(data[i][2], data[i][3]);
-			z2->Series["XZ"]->Points->AddXY(data[i][1], data[i][3]);
-			z2->Series["YZ"]->Points->AddXY(data[i][1], data[i][2]);
-			mh->Series["MH"]->Points->AddXY(data[i][0], data[i][4]);
-		}
-		free(data);
+		
+		
 	}
-
 	
-
-
-
+private: System::Void MyForm_FormClosing(System::Object^  sender, System::Windows::Forms::FormClosingEventArgs^  e) 
+{
+	free(data);
+}
 
 };
 }
