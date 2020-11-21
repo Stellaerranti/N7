@@ -1,4 +1,5 @@
 #pragma once
+
 #include <iostream>              
 #include <string>
 #include <fstream>
@@ -9,6 +10,8 @@
 #include <iomanip>
 #include <direct.h>
 #include <clocale> 
+
+#define _CRT_SECURE_NO_WARNINGS
 namespace N7 {
 
 	using namespace System;
@@ -58,7 +61,18 @@ namespace N7 {
 
 
 	private: System::Windows::Forms::ToolStrip^  toolStrip1;
-	private: System::Windows::Forms::ToolStripButton^  toolStripButton1;
+
+	private: System::Windows::Forms::ToolStripDropDownButton^  toolStripDropDownButton1;
+	private: System::Windows::Forms::ToolStripMenuItem^  openpmdToolStripMenuItem;
+	private: System::Windows::Forms::ToolStripMenuItem^  openrmgToolStripMenuItem;
+	private: System::Windows::Forms::DataGridView^  dataGridView1;
+	private: System::Windows::Forms::DataGridViewTextBoxColumn^  H;
+	private: System::Windows::Forms::DataGridViewTextBoxColumn^  X;
+	private: System::Windows::Forms::TableLayoutPanel^  tableLayoutPanel1;
+	private: System::Windows::Forms::FlowLayoutPanel^  flowLayoutPanel1;
+	private: System::Windows::Forms::Button^  button1;
+	private: System::Windows::Forms::Button^  button2;
+	private: System::Windows::Forms::Button^  button3;
 
 
 	protected:
@@ -87,16 +101,30 @@ namespace N7 {
 			System::Windows::Forms::DataVisualization::Charting::ChartArea^  chartArea3 = (gcnew System::Windows::Forms::DataVisualization::Charting::ChartArea());
 			System::Windows::Forms::DataVisualization::Charting::Legend^  legend3 = (gcnew System::Windows::Forms::DataVisualization::Charting::Legend());
 			System::Windows::Forms::DataVisualization::Charting::Series^  series5 = (gcnew System::Windows::Forms::DataVisualization::Charting::Series());
+			System::ComponentModel::ComponentResourceManager^  resources = (gcnew System::ComponentModel::ComponentResourceManager(MyForm::typeid));
 			this->openFileDialog1 = (gcnew System::Windows::Forms::OpenFileDialog());
 			this->z1 = (gcnew System::Windows::Forms::DataVisualization::Charting::Chart());
 			this->z2 = (gcnew System::Windows::Forms::DataVisualization::Charting::Chart());
 			this->mh = (gcnew System::Windows::Forms::DataVisualization::Charting::Chart());
 			this->toolStrip1 = (gcnew System::Windows::Forms::ToolStrip());
-			this->toolStripButton1 = (gcnew System::Windows::Forms::ToolStripButton());
+			this->toolStripDropDownButton1 = (gcnew System::Windows::Forms::ToolStripDropDownButton());
+			this->openpmdToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
+			this->openrmgToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
+			this->dataGridView1 = (gcnew System::Windows::Forms::DataGridView());
+			this->H = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
+			this->X = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
+			this->tableLayoutPanel1 = (gcnew System::Windows::Forms::TableLayoutPanel());
+			this->flowLayoutPanel1 = (gcnew System::Windows::Forms::FlowLayoutPanel());
+			this->button1 = (gcnew System::Windows::Forms::Button());
+			this->button2 = (gcnew System::Windows::Forms::Button());
+			this->button3 = (gcnew System::Windows::Forms::Button());
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->z1))->BeginInit();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->z2))->BeginInit();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->mh))->BeginInit();
 			this->toolStrip1->SuspendLayout();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->dataGridView1))->BeginInit();
+			this->tableLayoutPanel1->SuspendLayout();
+			this->flowLayoutPanel1->SuspendLayout();
 			this->SuspendLayout();
 			// 
 			// openFileDialog1
@@ -107,9 +135,10 @@ namespace N7 {
 			// 
 			chartArea1->Name = L"ChartArea1";
 			this->z1->ChartAreas->Add(chartArea1);
+			this->z1->Dock = System::Windows::Forms::DockStyle::Fill;
 			legend1->Name = L"Legend1";
 			this->z1->Legends->Add(legend1);
-			this->z1->Location = System::Drawing::Point(4, 28);
+			this->z1->Location = System::Drawing::Point(3, 3);
 			this->z1->Name = L"z1";
 			series1->ChartArea = L"ChartArea1";
 			series1->ChartType = System::Windows::Forms::DataVisualization::Charting::SeriesChartType::Spline;
@@ -125,7 +154,7 @@ namespace N7 {
 			series2->Name = L"ZY";
 			this->z1->Series->Add(series1);
 			this->z1->Series->Add(series2);
-			this->z1->Size = System::Drawing::Size(500, 500);
+			this->z1->Size = System::Drawing::Size(401, 258);
 			this->z1->TabIndex = 4;
 			this->z1->Text = L"chart1";
 			// 
@@ -133,9 +162,10 @@ namespace N7 {
 			// 
 			chartArea2->Name = L"ChartArea1";
 			this->z2->ChartAreas->Add(chartArea2);
+			this->z2->Dock = System::Windows::Forms::DockStyle::Fill;
 			legend2->Name = L"Legend1";
 			this->z2->Legends->Add(legend2);
-			this->z2->Location = System::Drawing::Point(510, 28);
+			this->z2->Location = System::Drawing::Point(410, 3);
 			this->z2->Name = L"z2";
 			series3->ChartArea = L"ChartArea1";
 			series3->ChartType = System::Windows::Forms::DataVisualization::Charting::SeriesChartType::Spline;
@@ -149,7 +179,7 @@ namespace N7 {
 			series4->Name = L"YZ";
 			this->z2->Series->Add(series3);
 			this->z2->Series->Add(series4);
-			this->z2->Size = System::Drawing::Size(500, 500);
+			this->z2->Size = System::Drawing::Size(402, 258);
 			this->z2->TabIndex = 5;
 			this->z2->Text = L"chart2";
 			// 
@@ -157,47 +187,149 @@ namespace N7 {
 			// 
 			chartArea3->Name = L"ChartArea1";
 			this->mh->ChartAreas->Add(chartArea3);
+			this->mh->Dock = System::Windows::Forms::DockStyle::Fill;
 			legend3->Name = L"Legend1";
 			this->mh->Legends->Add(legend3);
-			this->mh->Location = System::Drawing::Point(1016, 28);
+			this->mh->Location = System::Drawing::Point(818, 3);
 			this->mh->Name = L"mh";
 			series5->ChartArea = L"ChartArea1";
 			series5->ChartType = System::Windows::Forms::DataVisualization::Charting::SeriesChartType::Spline;
 			series5->Legend = L"Legend1";
 			series5->Name = L"MH";
 			this->mh->Series->Add(series5);
-			this->mh->Size = System::Drawing::Size(500, 500);
+			this->mh->Size = System::Drawing::Size(403, 258);
 			this->mh->TabIndex = 6;
 			this->mh->Text = L"chart3";
 			// 
 			// toolStrip1
 			// 
 			this->toolStrip1->ImageScalingSize = System::Drawing::Size(17, 17);
-			this->toolStrip1->Items->AddRange(gcnew cli::array< System::Windows::Forms::ToolStripItem^  >(1) { this->toolStripButton1 });
+			this->toolStrip1->Items->AddRange(gcnew cli::array< System::Windows::Forms::ToolStripItem^  >(1) { this->toolStripDropDownButton1 });
 			this->toolStrip1->Location = System::Drawing::Point(0, 0);
 			this->toolStrip1->Name = L"toolStrip1";
-			this->toolStrip1->Size = System::Drawing::Size(1524, 25);
+			this->toolStrip1->Size = System::Drawing::Size(1224, 25);
 			this->toolStrip1->TabIndex = 8;
 			this->toolStrip1->Text = L"toolStrip1";
 			// 
-			// toolStripButton1
+			// toolStripDropDownButton1
 			// 
-			this->toolStripButton1->DisplayStyle = System::Windows::Forms::ToolStripItemDisplayStyle::Text;
-			this->toolStripButton1->ImageTransparentColor = System::Drawing::Color::Magenta;
-			this->toolStripButton1->Name = L"toolStripButton1";
-			this->toolStripButton1->Size = System::Drawing::Size(65, 22);
-			this->toolStripButton1->Text = L"Open file";
-			this->toolStripButton1->Click += gcnew System::EventHandler(this, &MyForm::toolStripButton1_Click);
+			this->toolStripDropDownButton1->DisplayStyle = System::Windows::Forms::ToolStripItemDisplayStyle::Text;
+			this->toolStripDropDownButton1->DropDownItems->AddRange(gcnew cli::array< System::Windows::Forms::ToolStripItem^  >(2) {
+				this->openpmdToolStripMenuItem,
+					this->openrmgToolStripMenuItem
+			});
+			this->toolStripDropDownButton1->Image = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"toolStripDropDownButton1.Image")));
+			this->toolStripDropDownButton1->ImageTransparentColor = System::Drawing::Color::Magenta;
+			this->toolStripDropDownButton1->Name = L"toolStripDropDownButton1";
+			this->toolStripDropDownButton1->Size = System::Drawing::Size(40, 22);
+			this->toolStripDropDownButton1->Text = L"File";
+			// 
+			// openpmdToolStripMenuItem
+			// 
+			this->openpmdToolStripMenuItem->Name = L"openpmdToolStripMenuItem";
+			this->openpmdToolStripMenuItem->Size = System::Drawing::Size(143, 24);
+			this->openpmdToolStripMenuItem->Text = L"Open .pmd";
+			this->openpmdToolStripMenuItem->Click += gcnew System::EventHandler(this, &MyForm::openpmdToolStripMenuItem_Click);
+			// 
+			// openrmgToolStripMenuItem
+			// 
+			this->openrmgToolStripMenuItem->Name = L"openrmgToolStripMenuItem";
+			this->openrmgToolStripMenuItem->Size = System::Drawing::Size(143, 24);
+			this->openrmgToolStripMenuItem->Text = L"Open .rmg";
+			// 
+			// dataGridView1
+			// 
+			this->dataGridView1->ColumnHeadersHeightSizeMode = System::Windows::Forms::DataGridViewColumnHeadersHeightSizeMode::AutoSize;
+			this->dataGridView1->Columns->AddRange(gcnew cli::array< System::Windows::Forms::DataGridViewColumn^  >(2) { this->H, this->X });
+			this->tableLayoutPanel1->SetColumnSpan(this->dataGridView1, 2);
+			this->dataGridView1->Dock = System::Windows::Forms::DockStyle::Fill;
+			this->dataGridView1->Location = System::Drawing::Point(3, 267);
+			this->dataGridView1->Name = L"dataGridView1";
+			this->dataGridView1->Size = System::Drawing::Size(809, 259);
+			this->dataGridView1->TabIndex = 9;
+			// 
+			// H
+			// 
+			this->H->HeaderText = L"H";
+			this->H->Name = L"H";
+			// 
+			// X
+			// 
+			this->X->HeaderText = L"X";
+			this->X->Name = L"X";
+			// 
+			// tableLayoutPanel1
+			// 
+			this->tableLayoutPanel1->AutoSize = true;
+			this->tableLayoutPanel1->ColumnCount = 3;
+			this->tableLayoutPanel1->ColumnStyles->Add((gcnew System::Windows::Forms::ColumnStyle(System::Windows::Forms::SizeType::Percent,
+				33.33333F)));
+			this->tableLayoutPanel1->ColumnStyles->Add((gcnew System::Windows::Forms::ColumnStyle(System::Windows::Forms::SizeType::Percent,
+				33.33334F)));
+			this->tableLayoutPanel1->ColumnStyles->Add((gcnew System::Windows::Forms::ColumnStyle(System::Windows::Forms::SizeType::Percent,
+				33.33334F)));
+			this->tableLayoutPanel1->Controls->Add(this->z1, 0, 0);
+			this->tableLayoutPanel1->Controls->Add(this->dataGridView1, 0, 1);
+			this->tableLayoutPanel1->Controls->Add(this->z2, 1, 0);
+			this->tableLayoutPanel1->Controls->Add(this->mh, 2, 0);
+			this->tableLayoutPanel1->Controls->Add(this->flowLayoutPanel1, 2, 1);
+			this->tableLayoutPanel1->Dock = System::Windows::Forms::DockStyle::Fill;
+			this->tableLayoutPanel1->Location = System::Drawing::Point(0, 25);
+			this->tableLayoutPanel1->Name = L"tableLayoutPanel1";
+			this->tableLayoutPanel1->RowCount = 2;
+			this->tableLayoutPanel1->RowStyles->Add((gcnew System::Windows::Forms::RowStyle(System::Windows::Forms::SizeType::Percent, 50)));
+			this->tableLayoutPanel1->RowStyles->Add((gcnew System::Windows::Forms::RowStyle(System::Windows::Forms::SizeType::Percent, 50)));
+			this->tableLayoutPanel1->RowStyles->Add((gcnew System::Windows::Forms::RowStyle(System::Windows::Forms::SizeType::Absolute, 20)));
+			this->tableLayoutPanel1->Size = System::Drawing::Size(1224, 529);
+			this->tableLayoutPanel1->TabIndex = 10;
+			// 
+			// flowLayoutPanel1
+			// 
+			this->flowLayoutPanel1->Controls->Add(this->button1);
+			this->flowLayoutPanel1->Controls->Add(this->button2);
+			this->flowLayoutPanel1->Controls->Add(this->button3);
+			this->flowLayoutPanel1->Dock = System::Windows::Forms::DockStyle::Fill;
+			this->flowLayoutPanel1->Location = System::Drawing::Point(818, 267);
+			this->flowLayoutPanel1->Name = L"flowLayoutPanel1";
+			this->flowLayoutPanel1->Size = System::Drawing::Size(403, 259);
+			this->flowLayoutPanel1->TabIndex = 10;
+			// 
+			// button1
+			// 
+			this->button1->Location = System::Drawing::Point(3, 3);
+			this->button1->Name = L"button1";
+			this->button1->Size = System::Drawing::Size(75, 23);
+			this->button1->TabIndex = 0;
+			this->button1->Text = L"Add row";
+			this->button1->UseVisualStyleBackColor = true;
+			this->button1->Click += gcnew System::EventHandler(this, &MyForm::button1_Click);
+			// 
+			// button2
+			// 
+			this->button2->Location = System::Drawing::Point(84, 3);
+			this->button2->Name = L"button2";
+			this->button2->Size = System::Drawing::Size(75, 23);
+			this->button2->TabIndex = 1;
+			this->button2->Text = L"Delete row";
+			this->button2->UseVisualStyleBackColor = true;
+			this->button2->Click += gcnew System::EventHandler(this, &MyForm::button2_Click);
+			// 
+			// button3
+			// 
+			this->button3->Location = System::Drawing::Point(165, 3);
+			this->button3->Name = L"button3";
+			this->button3->Size = System::Drawing::Size(75, 23);
+			this->button3->TabIndex = 2;
+			this->button3->Text = L"button3";
+			this->button3->UseVisualStyleBackColor = true;
 			// 
 			// MyForm
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
-			this->ClientSize = System::Drawing::Size(1524, 538);
+			this->ClientSize = System::Drawing::Size(1224, 554);
+			this->Controls->Add(this->tableLayoutPanel1);
 			this->Controls->Add(this->toolStrip1);
-			this->Controls->Add(this->mh);
-			this->Controls->Add(this->z2);
-			this->Controls->Add(this->z1);
 			this->Name = L"MyForm";
 			this->Text = L"MyForm";
 			this->FormClosing += gcnew System::Windows::Forms::FormClosingEventHandler(this, &MyForm::MyForm_FormClosing);
@@ -206,6 +338,9 @@ namespace N7 {
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->mh))->EndInit();
 			this->toolStrip1->ResumeLayout(false);
 			this->toolStrip1->PerformLayout();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->dataGridView1))->EndInit();
+			this->tableLayoutPanel1->ResumeLayout(false);
+			this->flowLayoutPanel1->ResumeLayout(false);
 			this->ResumeLayout(false);
 			this->PerformLayout();
 
@@ -230,7 +365,7 @@ namespace N7 {
 			mh->Series["MH"]->Points->AddXY(data[i][0], data[i][4]);
 		}
 	}
-	private: System::Void toolStripButton1_Click(System::Object^  sender, System::EventArgs^  e)
+	private: System::Void openpmdToolStripMenuItem_Click(System::Object^  sender, System::EventArgs^  e)
 	{
 		//setlocale(LC_ALL, "Russian");
 		//Открываем файловый диалог
@@ -342,5 +477,45 @@ private: System::Void MyForm_FormClosing(System::Object^  sender, System::Window
 	free(data);
 }
 
+ void fill()
+{
+
+}
+ //Добавление строк
+private: System::Void button1_Click(System::Object^  sender, System::EventArgs^  e)
+{
+	if (!dataGridView1->ColumnCount) { MessageBox::Show("No colums"); return; }
+	DataGridViewRow ^r = gcnew DataGridViewRow();
+	r->HeaderCell->Value = "R"+dataGridView1->RowCount;
+	r->CreateCells(dataGridView1);
+	cli::array <String ^> ^Values = gcnew cli::array <String ^>(dataGridView1->ColumnCount);
+	dataGridView1->Rows->Add(r);
+	dataGridView1->RowHeadersWidth = 100;
+}
+
+//удоление строк
+private: System::Void button2_Click(System::Object^  sender, System::EventArgs^  e)
+{
+	if (!dataGridView1->RowCount) { MessageBox::Show("There are no rows in the table!"); return; }
+	if (dataGridView1->SelectedRows->Count > 0) {
+		for (int i = 0; i < dataGridView1->SelectedRows->Count; i++) {
+			int index = dataGridView1->SelectedRows[i]->Index;
+			try { dataGridView1->Rows->RemoveAt(index); }
+			catch (...) { MessageBox::Show("Unable to delete this row "); }
+		}
+	}
+	else {
+		int index;
+		try { index = dataGridView1->CurrentCell->RowIndex; }
+		catch (...) {}
+		if (index != -1) {
+			try { dataGridView1->Rows->RemoveAt(index); }
+			catch (...) { MessageBox::Show("Unable to delete this row "); }
+		}
+		else	MessageBox::Show("Select the rows/cell to delete");
+	}
+}
 };
+
+
 }
