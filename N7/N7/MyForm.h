@@ -66,13 +66,67 @@ namespace N7 {
 	private: System::Windows::Forms::ToolStripMenuItem^  openpmdToolStripMenuItem;
 	private: System::Windows::Forms::ToolStripMenuItem^  openrmgToolStripMenuItem;
 	private: System::Windows::Forms::DataGridView^  dataGridView1;
-	private: System::Windows::Forms::DataGridViewTextBoxColumn^  H;
-	private: System::Windows::Forms::DataGridViewTextBoxColumn^  X;
+
+
 	private: System::Windows::Forms::TableLayoutPanel^  tableLayoutPanel1;
 	private: System::Windows::Forms::FlowLayoutPanel^  flowLayoutPanel1;
 	private: System::Windows::Forms::Button^  button1;
 	private: System::Windows::Forms::Button^  button2;
 	private: System::Windows::Forms::Button^  button3;
+	private: System::Windows::Forms::DataGridViewTextBoxColumn^  H;
+	private: System::Windows::Forms::DataGridViewTextBoxColumn^  X;
+	private: System::Windows::Forms::DataGridViewTextBoxColumn^  Y;
+	private: System::Windows::Forms::DataGridViewTextBoxColumn^  Z;
+	private: System::Windows::Forms::DataGridViewTextBoxColumn^  M;
+	private: System::Windows::Forms::DataGridViewTextBoxColumn^  ARM;
+	private: System::Windows::Forms::DataGridViewTextBoxColumn^  M_ARM;
+	private: System::Windows::Forms::DataGridViewTextBoxColumn^  AFZ;
+	private: System::Windows::Forms::DataGridViewTextBoxColumn^  M_AFz;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 	protected:
@@ -113,6 +167,13 @@ namespace N7 {
 			this->dataGridView1 = (gcnew System::Windows::Forms::DataGridView());
 			this->H = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
 			this->X = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
+			this->Y = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
+			this->Z = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
+			this->M = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
+			this->ARM = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
+			this->M_ARM = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
+			this->AFZ = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
+			this->M_AFz = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
 			this->tableLayoutPanel1 = (gcnew System::Windows::Forms::TableLayoutPanel());
 			this->flowLayoutPanel1 = (gcnew System::Windows::Forms::FlowLayoutPanel());
 			this->button1 = (gcnew System::Windows::Forms::Button());
@@ -141,20 +202,20 @@ namespace N7 {
 			this->z1->Location = System::Drawing::Point(3, 3);
 			this->z1->Name = L"z1";
 			series1->ChartArea = L"ChartArea1";
-			series1->ChartType = System::Windows::Forms::DataVisualization::Charting::SeriesChartType::Spline;
+			series1->ChartType = System::Windows::Forms::DataVisualization::Charting::SeriesChartType::Point;
 			series1->LabelBorderWidth = 5;
 			series1->Legend = L"Legend1";
 			series1->LegendText = L"X,Y";
-			series1->MarkerSize = 1;
 			series1->Name = L"XY";
 			series2->ChartArea = L"ChartArea1";
-			series2->ChartType = System::Windows::Forms::DataVisualization::Charting::SeriesChartType::Spline;
+			series2->ChartType = System::Windows::Forms::DataVisualization::Charting::SeriesChartType::Point;
+			series2->LabelBorderWidth = 5;
 			series2->Legend = L"Legend1";
 			series2->LegendText = L"Z.X";
 			series2->Name = L"ZY";
 			this->z1->Series->Add(series1);
 			this->z1->Series->Add(series2);
-			this->z1->Size = System::Drawing::Size(401, 258);
+			this->z1->Size = System::Drawing::Size(468, 258);
 			this->z1->TabIndex = 4;
 			this->z1->Text = L"chart1";
 			// 
@@ -165,7 +226,7 @@ namespace N7 {
 			this->z2->Dock = System::Windows::Forms::DockStyle::Fill;
 			legend2->Name = L"Legend1";
 			this->z2->Legends->Add(legend2);
-			this->z2->Location = System::Drawing::Point(410, 3);
+			this->z2->Location = System::Drawing::Point(477, 3);
 			this->z2->Name = L"z2";
 			series3->ChartArea = L"ChartArea1";
 			series3->ChartType = System::Windows::Forms::DataVisualization::Charting::SeriesChartType::Spline;
@@ -179,7 +240,7 @@ namespace N7 {
 			series4->Name = L"YZ";
 			this->z2->Series->Add(series3);
 			this->z2->Series->Add(series4);
-			this->z2->Size = System::Drawing::Size(402, 258);
+			this->z2->Size = System::Drawing::Size(469, 258);
 			this->z2->TabIndex = 5;
 			this->z2->Text = L"chart2";
 			// 
@@ -190,14 +251,14 @@ namespace N7 {
 			this->mh->Dock = System::Windows::Forms::DockStyle::Fill;
 			legend3->Name = L"Legend1";
 			this->mh->Legends->Add(legend3);
-			this->mh->Location = System::Drawing::Point(818, 3);
+			this->mh->Location = System::Drawing::Point(952, 3);
 			this->mh->Name = L"mh";
 			series5->ChartArea = L"ChartArea1";
 			series5->ChartType = System::Windows::Forms::DataVisualization::Charting::SeriesChartType::Spline;
 			series5->Legend = L"Legend1";
 			series5->Name = L"MH";
 			this->mh->Series->Add(series5);
-			this->mh->Size = System::Drawing::Size(403, 258);
+			this->mh->Size = System::Drawing::Size(470, 258);
 			this->mh->TabIndex = 6;
 			this->mh->Text = L"chart3";
 			// 
@@ -207,7 +268,7 @@ namespace N7 {
 			this->toolStrip1->Items->AddRange(gcnew cli::array< System::Windows::Forms::ToolStripItem^  >(1) { this->toolStripDropDownButton1 });
 			this->toolStrip1->Location = System::Drawing::Point(0, 0);
 			this->toolStrip1->Name = L"toolStrip1";
-			this->toolStrip1->Size = System::Drawing::Size(1224, 25);
+			this->toolStrip1->Size = System::Drawing::Size(1425, 25);
 			this->toolStrip1->TabIndex = 8;
 			this->toolStrip1->Text = L"toolStrip1";
 			// 
@@ -236,27 +297,82 @@ namespace N7 {
 			this->openrmgToolStripMenuItem->Name = L"openrmgToolStripMenuItem";
 			this->openrmgToolStripMenuItem->Size = System::Drawing::Size(143, 24);
 			this->openrmgToolStripMenuItem->Text = L"Open .rmg";
+			this->openrmgToolStripMenuItem->Click += gcnew System::EventHandler(this, &MyForm::openrmgToolStripMenuItem_Click);
 			// 
 			// dataGridView1
 			// 
 			this->dataGridView1->ColumnHeadersHeightSizeMode = System::Windows::Forms::DataGridViewColumnHeadersHeightSizeMode::AutoSize;
-			this->dataGridView1->Columns->AddRange(gcnew cli::array< System::Windows::Forms::DataGridViewColumn^  >(2) { this->H, this->X });
+			this->dataGridView1->Columns->AddRange(gcnew cli::array< System::Windows::Forms::DataGridViewColumn^  >(9) {
+				this->H, this->X,
+					this->Y, this->Z, this->M, this->ARM, this->M_ARM, this->AFZ, this->M_AFz
+			});
 			this->tableLayoutPanel1->SetColumnSpan(this->dataGridView1, 2);
 			this->dataGridView1->Dock = System::Windows::Forms::DockStyle::Fill;
 			this->dataGridView1->Location = System::Drawing::Point(3, 267);
 			this->dataGridView1->Name = L"dataGridView1";
-			this->dataGridView1->Size = System::Drawing::Size(809, 259);
+			this->dataGridView1->RowHeadersBorderStyle = System::Windows::Forms::DataGridViewHeaderBorderStyle::Sunken;
+			this->dataGridView1->Size = System::Drawing::Size(943, 259);
 			this->dataGridView1->TabIndex = 9;
 			// 
 			// H
 			// 
+			this->H->AutoSizeMode = System::Windows::Forms::DataGridViewAutoSizeColumnMode::Fill;
 			this->H->HeaderText = L"H";
 			this->H->Name = L"H";
 			// 
 			// X
 			// 
+			this->X->AutoSizeMode = System::Windows::Forms::DataGridViewAutoSizeColumnMode::Fill;
 			this->X->HeaderText = L"X";
 			this->X->Name = L"X";
+			// 
+			// Y
+			// 
+			this->Y->AutoSizeMode = System::Windows::Forms::DataGridViewAutoSizeColumnMode::Fill;
+			this->Y->HeaderText = L"Y";
+			this->Y->Name = L"Y";
+			// 
+			// Z
+			// 
+			this->Z->AutoSizeMode = System::Windows::Forms::DataGridViewAutoSizeColumnMode::Fill;
+			this->Z->HeaderText = L"Z";
+			this->Z->Name = L"Z";
+			// 
+			// M
+			// 
+			this->M->AutoSizeMode = System::Windows::Forms::DataGridViewAutoSizeColumnMode::Fill;
+			this->M->HeaderText = L"M";
+			this->M->Name = L"M";
+			// 
+			// ARM
+			// 
+			this->ARM->AutoSizeMode = System::Windows::Forms::DataGridViewAutoSizeColumnMode::ColumnHeader;
+			this->ARM->HeaderText = L"ARM";
+			this->ARM->Name = L"ARM";
+			this->ARM->ReadOnly = true;
+			this->ARM->Resizable = System::Windows::Forms::DataGridViewTriState::False;
+			this->ARM->Width = 59;
+			// 
+			// M_ARM
+			// 
+			this->M_ARM->AutoSizeMode = System::Windows::Forms::DataGridViewAutoSizeColumnMode::Fill;
+			this->M_ARM->HeaderText = L"M";
+			this->M_ARM->Name = L"M_ARM";
+			// 
+			// AFZ
+			// 
+			this->AFZ->AutoSizeMode = System::Windows::Forms::DataGridViewAutoSizeColumnMode::ColumnHeader;
+			this->AFZ->HeaderText = L"AFZ";
+			this->AFZ->Name = L"AFZ";
+			this->AFZ->ReadOnly = true;
+			this->AFZ->Resizable = System::Windows::Forms::DataGridViewTriState::False;
+			this->AFZ->Width = 53;
+			// 
+			// M_AFz
+			// 
+			this->M_AFz->AutoSizeMode = System::Windows::Forms::DataGridViewAutoSizeColumnMode::Fill;
+			this->M_AFz->HeaderText = L"M";
+			this->M_AFz->Name = L"M_AFz";
 			// 
 			// tableLayoutPanel1
 			// 
@@ -280,7 +396,7 @@ namespace N7 {
 			this->tableLayoutPanel1->RowStyles->Add((gcnew System::Windows::Forms::RowStyle(System::Windows::Forms::SizeType::Percent, 50)));
 			this->tableLayoutPanel1->RowStyles->Add((gcnew System::Windows::Forms::RowStyle(System::Windows::Forms::SizeType::Percent, 50)));
 			this->tableLayoutPanel1->RowStyles->Add((gcnew System::Windows::Forms::RowStyle(System::Windows::Forms::SizeType::Absolute, 20)));
-			this->tableLayoutPanel1->Size = System::Drawing::Size(1224, 529);
+			this->tableLayoutPanel1->Size = System::Drawing::Size(1425, 529);
 			this->tableLayoutPanel1->TabIndex = 10;
 			// 
 			// flowLayoutPanel1
@@ -289,9 +405,9 @@ namespace N7 {
 			this->flowLayoutPanel1->Controls->Add(this->button2);
 			this->flowLayoutPanel1->Controls->Add(this->button3);
 			this->flowLayoutPanel1->Dock = System::Windows::Forms::DockStyle::Fill;
-			this->flowLayoutPanel1->Location = System::Drawing::Point(818, 267);
+			this->flowLayoutPanel1->Location = System::Drawing::Point(952, 267);
 			this->flowLayoutPanel1->Name = L"flowLayoutPanel1";
-			this->flowLayoutPanel1->Size = System::Drawing::Size(403, 259);
+			this->flowLayoutPanel1->Size = System::Drawing::Size(470, 259);
 			this->flowLayoutPanel1->TabIndex = 10;
 			// 
 			// button1
@@ -320,14 +436,15 @@ namespace N7 {
 			this->button3->Name = L"button3";
 			this->button3->Size = System::Drawing::Size(75, 23);
 			this->button3->TabIndex = 2;
-			this->button3->Text = L"button3";
+			this->button3->Text = L"Clear table";
 			this->button3->UseVisualStyleBackColor = true;
+			this->button3->Click += gcnew System::EventHandler(this, &MyForm::button3_Click);
 			// 
 			// MyForm
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
-			this->ClientSize = System::Drawing::Size(1224, 554);
+			this->ClientSize = System::Drawing::Size(1425, 554);
 			this->Controls->Add(this->tableLayoutPanel1);
 			this->Controls->Add(this->toolStrip1);
 			this->Name = L"MyForm";
@@ -354,8 +471,15 @@ namespace N7 {
 	Marshal::FreeHGlobal(IntPtr((void*)chars));
 	}
 	double **data = (double**)malloc(1 * sizeof(double));
+	double **dataRMG=(double**)malloc(1 * sizeof(double));
 	void draw(double **data, int line_counter)
 	{
+		z1->Series["XY"]->Points->Clear();
+		z1->Series["ZY"]->Points->Clear();
+		z2->Series["XZ"]->Points->Clear();
+		z2->Series["YZ"]->Points->Clear();
+		mh->Series["MH"]->Points->Clear();
+		
 		for (int i = 1; i < line_counter; i++)
 		{
 			z1->Series["XY"]->Points->AddXY(data[i][2], data[i][1]);
@@ -365,11 +489,15 @@ namespace N7 {
 			mh->Series["MH"]->Points->AddXY(data[i][0], data[i][4]);
 		}
 	}
+	//Открываем pmd
 	private: System::Void openpmdToolStripMenuItem_Click(System::Object^  sender, System::EventArgs^  e)
 	{
+		
 		//setlocale(LC_ALL, "Russian");
 		//Открываем файловый диалог
-		openFileDialog1->ShowDialog();
+		openFileDialog1->RestoreDirectory = true;
+		this->openFileDialog1->Filter = "paleo files|*.pmd";
+		openFileDialog1->ShowDialog();		
 		System::String^ path_f = openFileDialog1->FileName;
 		string s2 = "";
 		MarshalString(path_f, s2);
@@ -382,7 +510,8 @@ namespace N7 {
 		}
 		else 
 		{
-			
+			this->Cursor = System::Windows::Forms::Cursors::WaitCursor;
+
 			string str;
 			int flag_count = 0;
 			int flag = 0;
@@ -466,21 +595,219 @@ namespace N7 {
 			//Конец цикла 
 			fin.close();
 			draw(data, line_counter);
+			fillGridPMD(data, line_counter);
+			this->Cursor = System::Windows::Forms::Cursors::Default;
+
 		}
 		
 		
 		
 	}
-	
+	//открываем rmg
+	private: System::Void openrmgToolStripMenuItem_Click(System::Object^  sender, System::EventArgs^  e)
+	{
+		//setlocale(LC_ALL, "Russian");
+	//Открываем файловый диалог
+		openFileDialog1->RestoreDirectory = true;
+		this->openFileDialog1->Filter = "some|*.rmg";
+		openFileDialog1->ShowDialog();
+		System::String^ path_f = openFileDialog1->FileName;
+		string s2 = "";
+		MarshalString(path_f, s2);
+		ifstream fin(s2);
+		//ofstream fout("testout.txt");//удолить после тестирований
+		int column_counter = 0;
+		int line_counter_RMG = 0;
+		if (!fin.is_open()) {
+			MessageBox::Show("Unable to open file");
+		}
+		else
+		{
+			this->Cursor = System::Windows::Forms::Cursors::WaitCursor;
+
+			string str;
+			int flag_count = 0;
+			int flagRMG = 0;
+			int flagline = 0;
+			int line_AFz = 0;
+			string ARM = "ARM";
+			string AFz = "AFz";
+
+			while (getline(fin, str))
+			{ // пока не достигнут конец файла класть очередную строку в переменную 
+				//Крайне неприятно и криво переводим строку в массив
+
+				char p[1024];
+				double *line;
+				
+				
+				double *values = NULL;
+				strcpy(p, str.c_str());		//Как иначе перевести string в char я без понятия	
+				string bi = str.substr(0, 3);
+				
+			
+				column_counter = 0;
+
+				if ((flagline >0)&&((bi==ARM)||(bi==AFz)))
+				{
+					char *buf = strtok(p, " ,=");
+					while ((column_counter == 0) && (buf != NULL)) //переводим все числа из символов-чисел в числа-числа
+					{
+
+						//cout << buf << endl;
+
+						//if ((buf != NULL) && (isdigit(buf[0])))
+						if ((buf != NULL))
+						{
+
+							double d2 = strtod(buf, NULL);
+
+							if ((d2 != NULL) || (isdigit(buf[0])))
+							{
+								column_counter++;
+								line = (double*)realloc(values, column_counter * sizeof(double));
+								if (line != NULL)
+								{
+									flagRMG ++;
+									values = line;
+									values[column_counter - 1] = d2;                      // добавить к массиву только что введённое число
+								}
+								else
+								{
+									/*free(values);                                   // удалить массив
+									std::cout << "Error code 5. Wrong format!";
+									exit(5);           */                               // завершить работу программы
+								}
+							}
+						}
+
+						buf = strtok(NULL, " ,=");
+
+					}
+
+					
+
+					
+					if (flagRMG == 1)
+					{
+						line_counter_RMG++;
+						dataRMG[0] = (double*)malloc(2 * sizeof(double));
+						dataRMG[line_counter_RMG - 1][0] = 0;
+						line_counter_RMG++;
+						dataRMG = (double**)realloc(dataRMG, (line_counter_RMG + 1) * sizeof(double*));
+						dataRMG[line_counter_RMG - 1] = (double*)malloc(2 * sizeof(double));
+						dataRMG[line_counter_RMG - 1][0] = values[0];
+					}
+					else
+					{
+						if (bi == ARM)
+						{
+							line_counter_RMG++;
+							dataRMG = (double**)realloc(dataRMG, (line_counter_RMG +1)* sizeof(double*));
+							dataRMG[line_counter_RMG - 1] = (double*)malloc(2 * sizeof(double));
+							dataRMG[line_counter_RMG - 1][0] = values[0];
+						}
+						if (bi == AFz)
+						{
+							if (line_AFz == 0)
+							{
+								dataRMG[line_AFz][1] = dataRMG[line_counter_RMG - 1][0];
+								line_AFz++;
+								dataRMG[line_AFz][1] = values[0];
+								line_AFz++;
+							}
+							else
+							{
+								
+								dataRMG[line_AFz][1] = values[0];
+								line_AFz++;
+								
+							}
+
+						}
+
+
+					}
+
+				}
+
+					flagline++;
+			}
+			//Конец цикла 
+			fin.close();
+			
+			fillGridRMG(dataRMG, line_counter_RMG);
+			this->Cursor = System::Windows::Forms::Cursors::Default;
+
+		}
+
+	}
 private: System::Void MyForm_FormClosing(System::Object^  sender, System::Windows::Forms::FormClosingEventArgs^  e) 
 {
 	free(data);
+	free(dataRMG);
 }
+//заполняем то что получили в PMD файле
+ void fillGridPMD(double **data, int line_count)
 
- void fill()
-{
+ {
+	 dataGridView1->Columns[5]->DefaultCellStyle->BackColor = Color::Yellow;
+	 dataGridView1->Columns[7]->DefaultCellStyle->BackColor = Color::Yellow;
+	 
+		 while (line_count > dataGridView1->RowCount)
+		 {
+			 DataGridViewRow ^r = gcnew DataGridViewRow();
+			 r->HeaderCell->Value = "R" + dataGridView1->RowCount;
+			 //r->HeaderCell->Value = (char)i;
+			 r->CreateCells(dataGridView1);
+			 //cli::array <String ^> ^Values = gcnew cli::array <String ^>(dataGridView1->ColumnCount);
+			 dataGridView1->Rows->Add(r);
+			 dataGridView1->RowHeadersWidth = 75;
+			 //int rowIndex = dataGridView1->Rows->Add();				 
+			 
+			 
 
-}
+		 }
+
+	 for(int i =1; i< line_count; i++)
+	 {
+		 dataGridView1->Rows[i - 1]->Cells[0]->Value = (data[i][0]);
+		 dataGridView1->Rows[i - 1]->Cells[1]->Value = (data[i][1]);
+		 dataGridView1->Rows[i - 1]->Cells[2]->Value = (data[i][2]);
+		 dataGridView1->Rows[i - 1]->Cells[3]->Value = (data[i][3]);
+		 dataGridView1->Rows[i - 1]->Cells[4]->Value = (data[i][4]);
+	 }
+
+ }
+ //заполняем то что получили в RMG файле
+ void fillGridRMG(double **dataRMG, int line_count)
+
+ {
+	 dataGridView1->Columns[5]->DefaultCellStyle->BackColor = Color::Yellow;
+	 dataGridView1->Columns[7]->DefaultCellStyle->BackColor = Color::Yellow;
+
+	 while (line_count > (dataGridView1->RowCount - 1))
+	 {
+		 DataGridViewRow ^r = gcnew DataGridViewRow();
+		 r->HeaderCell->Value = "R" + dataGridView1->RowCount;
+		 //r->HeaderCell->Value = (char)i;
+		 r->CreateCells(dataGridView1);
+		 //cli::array <String ^> ^Values = gcnew cli::array <String ^>(dataGridView1->ColumnCount);
+		 dataGridView1->Rows->Add(r);
+		 dataGridView1->RowHeadersWidth = 75;
+		 //int rowIndex = dataGridView1->Rows->Add();		 
+	 }
+
+	 for (int i = 0; i < line_count; i++)
+	 {
+		// if
+		 dataGridView1->Rows[i]->Cells[6]->Value = (dataRMG[i][0]);
+		 dataGridView1->Rows[i]->Cells[8]->Value = (dataRMG[i][1]);
+
+	 }
+
+ }
+ 
  //Добавление строк
 private: System::Void button1_Click(System::Object^  sender, System::EventArgs^  e)
 {
@@ -514,6 +841,12 @@ private: System::Void button2_Click(System::Object^  sender, System::EventArgs^ 
 		}
 		else	MessageBox::Show("Select the rows/cell to delete");
 	}
+}
+
+private: System::Void button3_Click(System::Object^  sender, System::EventArgs^  e)
+{
+	dataGridView1->Rows->Clear();
+	
 }
 };
 
