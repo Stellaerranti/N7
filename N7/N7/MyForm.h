@@ -129,6 +129,15 @@ namespace N7 {
 
 
 
+
+
+
+
+
+
+
+
+
 	protected:
 
 	private:
@@ -215,7 +224,7 @@ namespace N7 {
 			series2->Name = L"ZY";
 			this->z1->Series->Add(series1);
 			this->z1->Series->Add(series2);
-			this->z1->Size = System::Drawing::Size(468, 258);
+			this->z1->Size = System::Drawing::Size(409, 258);
 			this->z1->TabIndex = 4;
 			this->z1->Text = L"chart1";
 			// 
@@ -226,7 +235,7 @@ namespace N7 {
 			this->z2->Dock = System::Windows::Forms::DockStyle::Fill;
 			legend2->Name = L"Legend1";
 			this->z2->Legends->Add(legend2);
-			this->z2->Location = System::Drawing::Point(477, 3);
+			this->z2->Location = System::Drawing::Point(418, 3);
 			this->z2->Name = L"z2";
 			series3->ChartArea = L"ChartArea1";
 			series3->ChartType = System::Windows::Forms::DataVisualization::Charting::SeriesChartType::Spline;
@@ -240,7 +249,7 @@ namespace N7 {
 			series4->Name = L"YZ";
 			this->z2->Series->Add(series3);
 			this->z2->Series->Add(series4);
-			this->z2->Size = System::Drawing::Size(469, 258);
+			this->z2->Size = System::Drawing::Size(410, 258);
 			this->z2->TabIndex = 5;
 			this->z2->Text = L"chart2";
 			// 
@@ -251,14 +260,14 @@ namespace N7 {
 			this->mh->Dock = System::Windows::Forms::DockStyle::Fill;
 			legend3->Name = L"Legend1";
 			this->mh->Legends->Add(legend3);
-			this->mh->Location = System::Drawing::Point(952, 3);
+			this->mh->Location = System::Drawing::Point(834, 3);
 			this->mh->Name = L"mh";
 			series5->ChartArea = L"ChartArea1";
 			series5->ChartType = System::Windows::Forms::DataVisualization::Charting::SeriesChartType::Spline;
 			series5->Legend = L"Legend1";
 			series5->Name = L"MH";
 			this->mh->Series->Add(series5);
-			this->mh->Size = System::Drawing::Size(470, 258);
+			this->mh->Size = System::Drawing::Size(411, 258);
 			this->mh->TabIndex = 6;
 			this->mh->Text = L"chart3";
 			// 
@@ -268,7 +277,7 @@ namespace N7 {
 			this->toolStrip1->Items->AddRange(gcnew cli::array< System::Windows::Forms::ToolStripItem^  >(1) { this->toolStripDropDownButton1 });
 			this->toolStrip1->Location = System::Drawing::Point(0, 0);
 			this->toolStrip1->Name = L"toolStrip1";
-			this->toolStrip1->Size = System::Drawing::Size(1425, 25);
+			this->toolStrip1->Size = System::Drawing::Size(1248, 25);
 			this->toolStrip1->TabIndex = 8;
 			this->toolStrip1->Text = L"toolStrip1";
 			// 
@@ -311,7 +320,7 @@ namespace N7 {
 			this->dataGridView1->Location = System::Drawing::Point(3, 267);
 			this->dataGridView1->Name = L"dataGridView1";
 			this->dataGridView1->RowHeadersBorderStyle = System::Windows::Forms::DataGridViewHeaderBorderStyle::Sunken;
-			this->dataGridView1->Size = System::Drawing::Size(943, 259);
+			this->dataGridView1->Size = System::Drawing::Size(825, 259);
 			this->dataGridView1->TabIndex = 9;
 			// 
 			// H
@@ -319,30 +328,35 @@ namespace N7 {
 			this->H->AutoSizeMode = System::Windows::Forms::DataGridViewAutoSizeColumnMode::Fill;
 			this->H->HeaderText = L"H";
 			this->H->Name = L"H";
+			this->H->SortMode = System::Windows::Forms::DataGridViewColumnSortMode::NotSortable;
 			// 
 			// X
 			// 
 			this->X->AutoSizeMode = System::Windows::Forms::DataGridViewAutoSizeColumnMode::Fill;
 			this->X->HeaderText = L"X";
 			this->X->Name = L"X";
+			this->X->SortMode = System::Windows::Forms::DataGridViewColumnSortMode::NotSortable;
 			// 
 			// Y
 			// 
 			this->Y->AutoSizeMode = System::Windows::Forms::DataGridViewAutoSizeColumnMode::Fill;
 			this->Y->HeaderText = L"Y";
 			this->Y->Name = L"Y";
+			this->Y->SortMode = System::Windows::Forms::DataGridViewColumnSortMode::NotSortable;
 			// 
 			// Z
 			// 
 			this->Z->AutoSizeMode = System::Windows::Forms::DataGridViewAutoSizeColumnMode::Fill;
 			this->Z->HeaderText = L"Z";
 			this->Z->Name = L"Z";
+			this->Z->SortMode = System::Windows::Forms::DataGridViewColumnSortMode::NotSortable;
 			// 
 			// M
 			// 
 			this->M->AutoSizeMode = System::Windows::Forms::DataGridViewAutoSizeColumnMode::Fill;
 			this->M->HeaderText = L"M";
 			this->M->Name = L"M";
+			this->M->SortMode = System::Windows::Forms::DataGridViewColumnSortMode::NotSortable;
 			// 
 			// ARM
 			// 
@@ -351,13 +365,15 @@ namespace N7 {
 			this->ARM->Name = L"ARM";
 			this->ARM->ReadOnly = true;
 			this->ARM->Resizable = System::Windows::Forms::DataGridViewTriState::False;
-			this->ARM->Width = 59;
+			this->ARM->SortMode = System::Windows::Forms::DataGridViewColumnSortMode::NotSortable;
+			this->ARM->Width = 40;
 			// 
 			// M_ARM
 			// 
 			this->M_ARM->AutoSizeMode = System::Windows::Forms::DataGridViewAutoSizeColumnMode::Fill;
 			this->M_ARM->HeaderText = L"M";
 			this->M_ARM->Name = L"M_ARM";
+			this->M_ARM->SortMode = System::Windows::Forms::DataGridViewColumnSortMode::NotSortable;
 			// 
 			// AFZ
 			// 
@@ -366,13 +382,15 @@ namespace N7 {
 			this->AFZ->Name = L"AFZ";
 			this->AFZ->ReadOnly = true;
 			this->AFZ->Resizable = System::Windows::Forms::DataGridViewTriState::False;
-			this->AFZ->Width = 53;
+			this->AFZ->SortMode = System::Windows::Forms::DataGridViewColumnSortMode::NotSortable;
+			this->AFZ->Width = 34;
 			// 
 			// M_AFz
 			// 
 			this->M_AFz->AutoSizeMode = System::Windows::Forms::DataGridViewAutoSizeColumnMode::Fill;
 			this->M_AFz->HeaderText = L"M";
 			this->M_AFz->Name = L"M_AFz";
+			this->M_AFz->SortMode = System::Windows::Forms::DataGridViewColumnSortMode::NotSortable;
 			// 
 			// tableLayoutPanel1
 			// 
@@ -396,7 +414,7 @@ namespace N7 {
 			this->tableLayoutPanel1->RowStyles->Add((gcnew System::Windows::Forms::RowStyle(System::Windows::Forms::SizeType::Percent, 50)));
 			this->tableLayoutPanel1->RowStyles->Add((gcnew System::Windows::Forms::RowStyle(System::Windows::Forms::SizeType::Percent, 50)));
 			this->tableLayoutPanel1->RowStyles->Add((gcnew System::Windows::Forms::RowStyle(System::Windows::Forms::SizeType::Absolute, 20)));
-			this->tableLayoutPanel1->Size = System::Drawing::Size(1425, 529);
+			this->tableLayoutPanel1->Size = System::Drawing::Size(1248, 529);
 			this->tableLayoutPanel1->TabIndex = 10;
 			// 
 			// flowLayoutPanel1
@@ -405,16 +423,16 @@ namespace N7 {
 			this->flowLayoutPanel1->Controls->Add(this->button2);
 			this->flowLayoutPanel1->Controls->Add(this->button3);
 			this->flowLayoutPanel1->Dock = System::Windows::Forms::DockStyle::Fill;
-			this->flowLayoutPanel1->Location = System::Drawing::Point(952, 267);
+			this->flowLayoutPanel1->Location = System::Drawing::Point(834, 267);
 			this->flowLayoutPanel1->Name = L"flowLayoutPanel1";
-			this->flowLayoutPanel1->Size = System::Drawing::Size(470, 259);
+			this->flowLayoutPanel1->Size = System::Drawing::Size(411, 259);
 			this->flowLayoutPanel1->TabIndex = 10;
 			// 
 			// button1
 			// 
 			this->button1->Location = System::Drawing::Point(3, 3);
 			this->button1->Name = L"button1";
-			this->button1->Size = System::Drawing::Size(75, 23);
+			this->button1->Size = System::Drawing::Size(100, 30);
 			this->button1->TabIndex = 0;
 			this->button1->Text = L"Add row";
 			this->button1->UseVisualStyleBackColor = true;
@@ -422,9 +440,9 @@ namespace N7 {
 			// 
 			// button2
 			// 
-			this->button2->Location = System::Drawing::Point(84, 3);
+			this->button2->Location = System::Drawing::Point(109, 3);
 			this->button2->Name = L"button2";
-			this->button2->Size = System::Drawing::Size(75, 23);
+			this->button2->Size = System::Drawing::Size(100, 30);
 			this->button2->TabIndex = 1;
 			this->button2->Text = L"Delete row";
 			this->button2->UseVisualStyleBackColor = true;
@@ -432,9 +450,9 @@ namespace N7 {
 			// 
 			// button3
 			// 
-			this->button3->Location = System::Drawing::Point(165, 3);
+			this->button3->Location = System::Drawing::Point(215, 3);
 			this->button3->Name = L"button3";
-			this->button3->Size = System::Drawing::Size(75, 23);
+			this->button3->Size = System::Drawing::Size(100, 30);
 			this->button3->TabIndex = 2;
 			this->button3->Text = L"Clear table";
 			this->button3->UseVisualStyleBackColor = true;
@@ -444,7 +462,7 @@ namespace N7 {
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
-			this->ClientSize = System::Drawing::Size(1425, 554);
+			this->ClientSize = System::Drawing::Size(1248, 554);
 			this->Controls->Add(this->tableLayoutPanel1);
 			this->Controls->Add(this->toolStrip1);
 			this->Name = L"MyForm";
@@ -472,6 +490,7 @@ namespace N7 {
 	}
 	double **data = (double**)malloc(1 * sizeof(double));
 	double **dataRMG=(double**)malloc(1 * sizeof(double));
+	
 	void draw(double **data, int line_counter)
 	{
 		z1->Series["XY"]->Points->Clear();
@@ -481,6 +500,23 @@ namespace N7 {
 		mh->Series["MH"]->Points->Clear();
 		
 		for (int i = 1; i < line_counter; i++)
+		{
+			z1->Series["XY"]->Points->AddXY(data[i][2], data[i][1]);
+			z1->Series["ZY"]->Points->AddXY((-1.)*data[i][3], data[i][1]);
+			z2->Series["XZ"]->Points->AddXY(data[i][2], data[i][1]);
+			z2->Series["YZ"]->Points->AddXY(data[i][2], (-1.)*data[i][3]);
+			mh->Series["MH"]->Points->AddXY(data[i][0], data[i][4]);
+		}
+	}
+	void drawTable(double **data, int line_counter)
+	{
+		z1->Series["XY"]->Points->Clear();
+		z1->Series["ZY"]->Points->Clear();
+		z2->Series["XZ"]->Points->Clear();
+		z2->Series["YZ"]->Points->Clear();
+		mh->Series["MH"]->Points->Clear();
+
+		for (int i = 0; i < line_counter; i++)
 		{
 			z1->Series["XY"]->Points->AddXY(data[i][2], data[i][1]);
 			z1->Series["ZY"]->Points->AddXY((-1.)*data[i][3], data[i][1]);
@@ -807,7 +843,10 @@ private: System::Void MyForm_FormClosing(System::Object^  sender, System::Window
 	 }
 
  }
- 
+ void readFromTable()
+ {
+
+ }
  //Добавление строк
 private: System::Void button1_Click(System::Object^  sender, System::EventArgs^  e)
 {
@@ -823,25 +862,77 @@ private: System::Void button1_Click(System::Object^  sender, System::EventArgs^ 
 //удоление строк
 private: System::Void button2_Click(System::Object^  sender, System::EventArgs^  e)
 {
-	if (!dataGridView1->RowCount) { MessageBox::Show("There are no rows in the table!"); return; }
+	
+	button2->Enabled = false;
 	if (dataGridView1->SelectedRows->Count > 0) {
 		for (int i = 0; i < dataGridView1->SelectedRows->Count; i++) {
 			int index = dataGridView1->SelectedRows[i]->Index;
-			try { dataGridView1->Rows->RemoveAt(index); }
+			try {dataGridView1->Rows->RemoveAt(index);}
 			catch (...) { MessageBox::Show("Unable to delete this row "); }
 		}
+		double **comp_ore = new double*[dataGridView1->RowCount-1]; // создание динамического массива 
+		int number = dataGridView1->CurrentRow->Index;
+		for (int count = 0; count < dataGridView1->RowCount; count++)
+			comp_ore[count] = new double[dataGridView1->ColumnCount];
+
+		for (int i = 0; i < dataGridView1->RowCount; i++)
+			
+			for (int j = 0; j < dataGridView1->ColumnCount; j++) {
+				String ^ st2;
+				st2 = dataGridView1->Rows[i]->Cells[j]->FormattedValue->ToString();
+				if (st2)
+				{
+					double::TryParse(st2, comp_ore[i][j]);
+				}
+			}
+		drawTable(comp_ore, dataGridView1->RowCount-1);
+		//delete[] comp_ore;
+		//free(comp_ore);
 	}
 	else {
 		int index;
 		try { index = dataGridView1->CurrentCell->RowIndex; }
 		catch (...) {}
 		if (index != -1) {
-			try { dataGridView1->Rows->RemoveAt(index); }
+			try { 
+				dataGridView1->Rows->RemoveAt(index); 
+			
+			
+			}
 			catch (...) { MessageBox::Show("Unable to delete this row "); }
+
+			double **dataTable = new double*[dataGridView1->RowCount];
+			for (int i = 0; i < dataGridView1->RowCount ; i++)
+			{
+				dataTable[i] = new double[dataGridView1->ColumnCount];
+			}
+			double **comp_ore = new double*[dataGridView1->RowCount - 1]; // создание динамического массива 
+			int number = dataGridView1->CurrentRow->Index;
+			for (int count = 0; count < dataGridView1->RowCount; count++)
+				comp_ore[count] = new double[dataGridView1->ColumnCount];
+
+			for (int i = 0; i < dataGridView1->RowCount; i++)
+
+				for (int j = 0; j < dataGridView1->ColumnCount; j++) {
+					String ^ st2;
+					st2 = dataGridView1->Rows[i]->Cells[j]->FormattedValue->ToString();
+					if (st2)
+					{
+						double::TryParse(st2, comp_ore[i][j]);
+					}
+				}
+			drawTable(comp_ore, dataGridView1->RowCount-1);
+			//delete[] comp_ore;
+			//free(comp_ore);
+
 		}
 		else	MessageBox::Show("Select the rows/cell to delete");
 	}
+	
+	button2->Enabled = true;
+
 }
+		 
 
 private: System::Void button3_Click(System::Object^  sender, System::EventArgs^  e)
 {
