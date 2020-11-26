@@ -66,7 +66,12 @@ namespace N7 {
 	private: System::Windows::Forms::ToolStripMenuItem^  openpmdToolStripMenuItem;
 	private: System::Windows::Forms::ToolStripMenuItem^  openrmgToolStripMenuItem;
 	private: System::Windows::Forms::DataGridView^  dataGridView1;
-
+			 System::Windows::Forms::DataVisualization::Charting::DataPoint^ a_point;
+			 System::Windows::Forms::DataVisualization::Charting::DataPoint^ ZY_point;
+			 System::Windows::Forms::DataVisualization::Charting::DataPoint^ XZ_point;
+			 System::Windows::Forms::DataVisualization::Charting::DataPoint^ YZ_point;
+			 System::Windows::Forms::DataVisualization::Charting::DataPoint^ MH_point;
+			 System::Windows::Forms::DataVisualization::Charting::Series^ series1 =	 (gcnew System::Windows::Forms::DataVisualization::Charting::Series());
 
 	private: System::Windows::Forms::TableLayoutPanel^  tableLayoutPanel1;
 	private: System::Windows::Forms::FlowLayoutPanel^  flowLayoutPanel1;
@@ -82,57 +87,6 @@ namespace N7 {
 	private: System::Windows::Forms::DataGridViewTextBoxColumn^  M_ARM;
 	private: System::Windows::Forms::DataGridViewTextBoxColumn^  AFZ;
 	private: System::Windows::Forms::DataGridViewTextBoxColumn^  M_AFz;
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
@@ -238,12 +192,12 @@ namespace N7 {
 			this->z2->Location = System::Drawing::Point(418, 3);
 			this->z2->Name = L"z2";
 			series3->ChartArea = L"ChartArea1";
-			series3->ChartType = System::Windows::Forms::DataVisualization::Charting::SeriesChartType::Spline;
+			series3->ChartType = System::Windows::Forms::DataVisualization::Charting::SeriesChartType::Point;
 			series3->Legend = L"Legend1";
 			series3->LegendText = L"X,Y";
 			series3->Name = L"XZ";
 			series4->ChartArea = L"ChartArea1";
-			series4->ChartType = System::Windows::Forms::DataVisualization::Charting::SeriesChartType::Spline;
+			series4->ChartType = System::Windows::Forms::DataVisualization::Charting::SeriesChartType::Point;
 			series4->Legend = L"Legend1";
 			series4->LegendText = L"Z,Y";
 			series4->Name = L"YZ";
@@ -263,7 +217,7 @@ namespace N7 {
 			this->mh->Location = System::Drawing::Point(834, 3);
 			this->mh->Name = L"mh";
 			series5->ChartArea = L"ChartArea1";
-			series5->ChartType = System::Windows::Forms::DataVisualization::Charting::SeriesChartType::Spline;
+			series5->ChartType = System::Windows::Forms::DataVisualization::Charting::SeriesChartType::Point;
 			series5->Legend = L"Legend1";
 			series5->Name = L"MH";
 			this->mh->Series->Add(series5);
@@ -468,6 +422,7 @@ namespace N7 {
 			this->Name = L"MyForm";
 			this->Text = L"MyForm";
 			this->FormClosing += gcnew System::Windows::Forms::FormClosingEventHandler(this, &MyForm::MyForm_FormClosing);
+			this->Load += gcnew System::EventHandler(this, &MyForm::MyForm_Load);
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->z1))->EndInit();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->z2))->EndInit();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->mh))->EndInit();
@@ -490,9 +445,12 @@ namespace N7 {
 	}
 	double **data = (double**)malloc(1 * sizeof(double));
 	double **dataRMG=(double**)malloc(1 * sizeof(double));
-	
+	int *deletedRows = new int[200];
+
+	int deletedRowsCounter = 0;
 	void draw(double **data, int line_counter)
 	{
+
 		z1->Series["XY"]->Points->Clear();
 		z1->Series["ZY"]->Points->Clear();
 		z2->Series["XZ"]->Points->Clear();
@@ -501,28 +459,96 @@ namespace N7 {
 		
 		for (int i = 1; i < line_counter; i++)
 		{
-			z1->Series["XY"]->Points->AddXY(data[i][2], data[i][1]);
-			z1->Series["ZY"]->Points->AddXY((-1.)*data[i][3], data[i][1]);
-			z2->Series["XZ"]->Points->AddXY(data[i][2], data[i][1]);
-			z2->Series["YZ"]->Points->AddXY(data[i][2], (-1.)*data[i][3]);
-			mh->Series["MH"]->Points->AddXY(data[i][0], data[i][4]);
+			a_point = (gcnew System::Windows::Forms::DataVisualization::Charting::DataPoint());
+			a_point->SetValueXY(data[i][2], data[i][1]);
+			a_point->Label = i.ToString();
+			a_point->LabelForeColor = System::Drawing::Color::Gray;
+			z1->Series["XY"]->Points->Add(a_point);
+					
+			ZY_point = (gcnew System::Windows::Forms::DataVisualization::Charting::DataPoint());
+			ZY_point->SetValueXY((-1.)*data[i][3], data[i][1]);
+			ZY_point->Label = i.ToString();
+			ZY_point->LabelForeColor = System::Drawing::Color::Gray;
+			z1->Series["ZY"]->Points->Add(ZY_point);
+			
+			XZ_point = (gcnew System::Windows::Forms::DataVisualization::Charting::DataPoint());
+			XZ_point->SetValueXY(data[i][2], data[i][1]);
+			XZ_point->Label = i.ToString();
+			XZ_point->LabelForeColor = System::Drawing::Color::Gray;
+			z2->Series["XZ"]->Points->Add(XZ_point);
+
+			YZ_point = (gcnew System::Windows::Forms::DataVisualization::Charting::DataPoint());
+			YZ_point->SetValueXY(data[i][2], (-1.)*data[i][3]);
+			YZ_point->Label = i.ToString();
+			YZ_point->LabelForeColor = System::Drawing::Color::Gray;
+			z2->Series["YZ"]->Points->Add(YZ_point);
+
+			MH_point = (gcnew System::Windows::Forms::DataVisualization::Charting::DataPoint());
+			MH_point->SetValueXY(data[i][0], data[i][4]);
+			MH_point->Label = i.ToString();
+			MH_point->LabelForeColor = System::Drawing::Color::Gray;
+			mh->Series["MH"]->Points->Add(MH_point);
 		}
 	}
-	void drawTable(double **data, int line_counter)
+
+	int findDel(int number, int*index, int line_count)
+	{
+		for (int i = number; i < line_count; i++)
+		{
+			if (index[i] == 0)
+			{
+				return i;
+			}
+		}
+	}
+
+	void drawTable(double **data, int line_counter, int *index)
 	{
 		z1->Series["XY"]->Points->Clear();
 		z1->Series["ZY"]->Points->Clear();
 		z2->Series["XZ"]->Points->Clear();
 		z2->Series["YZ"]->Points->Clear();
 		mh->Series["MH"]->Points->Clear();
+		int flag = 0;
 
 		for (int i = 0; i < line_counter; i++)
 		{
-			z1->Series["XY"]->Points->AddXY(data[i][2], data[i][1]);
-			z1->Series["ZY"]->Points->AddXY((-1.)*data[i][3], data[i][1]);
-			z2->Series["XZ"]->Points->AddXY(data[i][2], data[i][1]);
-			z2->Series["YZ"]->Points->AddXY(data[i][2], (-1.)*data[i][3]);
-			mh->Series["MH"]->Points->AddXY(data[i][0], data[i][4]);
+			if(index[i] == 1)
+			{
+				flag++;
+			}
+			
+				a_point = (gcnew System::Windows::Forms::DataVisualization::Charting::DataPoint());
+				a_point->SetValueXY(data[i][2], data[i][1]);
+				a_point->Label = (i+1+flag).ToString();
+				a_point->LabelForeColor = System::Drawing::Color::Gray;
+				z1->Series["XY"]->Points->Add(a_point);
+
+				ZY_point = (gcnew System::Windows::Forms::DataVisualization::Charting::DataPoint());
+				ZY_point->SetValueXY((-1.)*data[i][3], data[i][1]);
+				ZY_point->Label = (i + 1 + flag).ToString();
+				ZY_point->LabelForeColor = System::Drawing::Color::Gray;
+				z1->Series["ZY"]->Points->Add(ZY_point);
+
+				XZ_point = (gcnew System::Windows::Forms::DataVisualization::Charting::DataPoint());
+				XZ_point->SetValueXY(data[i][2], data[i][1]);
+				XZ_point->Label = (i + 1 + flag).ToString();
+				XZ_point->LabelForeColor = System::Drawing::Color::Gray;
+				z2->Series["XZ"]->Points->Add(XZ_point);
+
+				YZ_point = (gcnew System::Windows::Forms::DataVisualization::Charting::DataPoint());
+				YZ_point->SetValueXY(data[i][2], (-1.)*data[i][3]);
+				YZ_point->Label = (i + 1 + flag).ToString();
+				YZ_point->LabelForeColor = System::Drawing::Color::Gray;
+				z2->Series["YZ"]->Points->Add(YZ_point);
+
+				MH_point = (gcnew System::Windows::Forms::DataVisualization::Charting::DataPoint());
+				MH_point->SetValueXY(data[i][0], data[i][4]);
+				MH_point->Label = (i + 1 + flag).ToString();
+				MH_point->LabelForeColor = System::Drawing::Color::Gray;
+				mh->Series["MH"]->Points->Add(MH_point);
+
+			
 		}
 	}
 	//ќткрываем pmd
@@ -782,6 +808,7 @@ private: System::Void MyForm_FormClosing(System::Object^  sender, System::Window
 {
 	free(data);
 	free(dataRMG);
+	free(deletedRows);
 }
 //заполн€ем то что получили в PMD файле
  void fillGridPMD(double **data, int line_count)
@@ -843,10 +870,7 @@ private: System::Void MyForm_FormClosing(System::Object^  sender, System::Window
 	 }
 
  }
- void readFromTable()
- {
 
- }
  //ƒобавление строк
 private: System::Void button1_Click(System::Object^  sender, System::EventArgs^  e)
 {
@@ -862,7 +886,7 @@ private: System::Void button1_Click(System::Object^  sender, System::EventArgs^ 
 //удоление строк
 private: System::Void button2_Click(System::Object^  sender, System::EventArgs^  e)
 {
-	
+	int number = dataGridView1->SelectedCells[0]->RowIndex;
 	button2->Enabled = false;
 	if (dataGridView1->SelectedRows->Count > 0) {
 		for (int i = 0; i < dataGridView1->SelectedRows->Count; i++) {
@@ -871,12 +895,15 @@ private: System::Void button2_Click(System::Object^  sender, System::EventArgs^ 
 			catch (...) { MessageBox::Show("Unable to delete this row "); }
 		}
 		double **comp_ore = new double*[dataGridView1->RowCount-1]; // создание динамического массива 
-		int number = dataGridView1->CurrentRow->Index;
+		
+
 		for (int count = 0; count < dataGridView1->RowCount; count++)
 			comp_ore[count] = new double[dataGridView1->ColumnCount];
+		deletedRows[number] = 1;
+		deletedRowsCounter++;
+		
+		for (int i = 0; i < dataGridView1->RowCount; i++) {
 
-		for (int i = 0; i < dataGridView1->RowCount; i++)
-			
 			for (int j = 0; j < dataGridView1->ColumnCount; j++) {
 				String ^ st2;
 				st2 = dataGridView1->Rows[i]->Cells[j]->FormattedValue->ToString();
@@ -884,14 +911,20 @@ private: System::Void button2_Click(System::Object^  sender, System::EventArgs^ 
 				{
 					double::TryParse(st2, comp_ore[i][j]);
 				}
+				
 			}
-		drawTable(comp_ore, dataGridView1->RowCount-1);
+			
+		}
+		drawTable(comp_ore, dataGridView1->RowCount-1, deletedRows);
 		//delete[] comp_ore;
 		//free(comp_ore);
 	}
 	else {
 		int index;
-		try { index = dataGridView1->CurrentCell->RowIndex; }
+		int number = dataGridView1->SelectedCells[0]->RowIndex;
+		try {
+			
+			index = dataGridView1->CurrentCell->RowIndex; }
 		catch (...) {}
 		if (index != -1) {
 			try { 
@@ -901,17 +934,13 @@ private: System::Void button2_Click(System::Object^  sender, System::EventArgs^ 
 			}
 			catch (...) { MessageBox::Show("Unable to delete this row "); }
 
-			double **dataTable = new double*[dataGridView1->RowCount];
-			for (int i = 0; i < dataGridView1->RowCount ; i++)
-			{
-				dataTable[i] = new double[dataGridView1->ColumnCount];
-			}
 			double **comp_ore = new double*[dataGridView1->RowCount - 1]; // создание динамического массива 
-			int number = dataGridView1->CurrentRow->Index;
+			
 			for (int count = 0; count < dataGridView1->RowCount; count++)
 				comp_ore[count] = new double[dataGridView1->ColumnCount];
-
-			for (int i = 0; i < dataGridView1->RowCount; i++)
+			deletedRows[number] = 1;
+			deletedRowsCounter++;
+			for (int i = 0; i < dataGridView1->RowCount; i++) {
 
 				for (int j = 0; j < dataGridView1->ColumnCount; j++) {
 					String ^ st2;
@@ -921,7 +950,9 @@ private: System::Void button2_Click(System::Object^  sender, System::EventArgs^ 
 						double::TryParse(st2, comp_ore[i][j]);
 					}
 				}
-			drawTable(comp_ore, dataGridView1->RowCount-1);
+				
+			}
+			drawTable(comp_ore, dataGridView1->RowCount-1, deletedRows);
 			//delete[] comp_ore;
 			//free(comp_ore);
 
@@ -938,6 +969,13 @@ private: System::Void button3_Click(System::Object^  sender, System::EventArgs^ 
 {
 	dataGridView1->Rows->Clear();
 	
+}
+private: System::Void MyForm_Load(System::Object^  sender, System::EventArgs^  e) 
+{
+	for (int i = 0; i < 200; i++)
+	{
+		deletedRows[i] = 0;
+	}
 }
 };
 
