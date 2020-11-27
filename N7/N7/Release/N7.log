@@ -1,16 +1,17 @@
 ﻿  MyForm.cpp
-i:\smartgit\smartgit\rep\n7\n7\myform.h(593): warning C4996: 'strcpy': This function or variable may be unsafe. Consider using strcpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+i:\smartgit\smartgit\rep\n7\n7\myform.h(590): warning C4996: 'strcpy': This function or variable may be unsafe. Consider using strcpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
   c:\program files (x86)\windows kits\10\include\10.0.17763.0\ucrt\string.h(133): note:  см. объявление "strcpy"
-i:\smartgit\smartgit\rep\n7\n7\myform.h(595): warning C4996: 'strtok': This function or variable may be unsafe. Consider using strtok_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+i:\smartgit\smartgit\rep\n7\n7\myform.h(592): warning C4996: 'strtok': This function or variable may be unsafe. Consider using strtok_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
   c:\program files (x86)\windows kits\10\include\10.0.17763.0\ucrt\string.h(440): note:  см. объявление "strtok"
-i:\smartgit\smartgit\rep\n7\n7\myform.h(628): warning C4996: 'strtok': This function or variable may be unsafe. Consider using strtok_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+i:\smartgit\smartgit\rep\n7\n7\myform.h(625): warning C4996: 'strtok': This function or variable may be unsafe. Consider using strtok_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
   c:\program files (x86)\windows kits\10\include\10.0.17763.0\ucrt\string.h(440): note:  см. объявление "strtok"
-i:\smartgit\smartgit\rep\n7\n7\myform.h(707): warning C4996: 'strcpy': This function or variable may be unsafe. Consider using strcpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+i:\smartgit\smartgit\rep\n7\n7\myform.h(704): warning C4996: 'strcpy': This function or variable may be unsafe. Consider using strcpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
   c:\program files (x86)\windows kits\10\include\10.0.17763.0\ucrt\string.h(133): note:  см. объявление "strcpy"
-i:\smartgit\smartgit\rep\n7\n7\myform.h(715): warning C4996: 'strtok': This function or variable may be unsafe. Consider using strtok_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+i:\smartgit\smartgit\rep\n7\n7\myform.h(712): warning C4996: 'strtok': This function or variable may be unsafe. Consider using strtok_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
   c:\program files (x86)\windows kits\10\include\10.0.17763.0\ucrt\string.h(440): note:  см. объявление "strtok"
-i:\smartgit\smartgit\rep\n7\n7\myform.h(746): warning C4996: 'strtok': This function or variable may be unsafe. Consider using strtok_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+i:\smartgit\smartgit\rep\n7\n7\myform.h(743): warning C4996: 'strtok': This function or variable may be unsafe. Consider using strtok_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
   c:\program files (x86)\windows kits\10\include\10.0.17763.0\ucrt\string.h(440): note:  см. объявление "strtok"
 i:\smartgit\smartgit\rep\n7\n7\myform.cpp(5): warning C4829: Возможно, неправильные параметры функции main. Рекомендуемый вариант - "int main(Platform::Array<Platform::String^>^ argv)"
-i:\smartgit\smartgit\rep\n7\n7\myform.h(503): warning C4715: N7::MyForm::findDel: значение возвращается не при всех путях выполнения
+i:\smartgit\smartgit\rep\n7\n7\myform.h(502): warning C4715: N7::MyForm::findDel: значение возвращается не при всех путях выполнения
+  .NETFramework,Version=v4.6.1.AssemblyAttributes.cpp
   N7.vcxproj -> I:\SmartGit\SmartGit\rep\N7\Release\N7.exe

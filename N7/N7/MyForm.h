@@ -445,9 +445,8 @@ namespace N7 {
 	}
 	double **data = (double**)malloc(1 * sizeof(double));
 	double **dataRMG=(double**)malloc(1 * sizeof(double));
-	int *deletedRows = new int[200];
+	
 
-	int deletedRowsCounter = 0;
 	void draw(double **data, int line_counter)
 	{
 
@@ -502,49 +501,47 @@ namespace N7 {
 		}
 	}
 
-	void drawTable(double **data, int line_counter, int *index)
+	void drawTable(double **data, int line_counter)
 	{
 		z1->Series["XY"]->Points->Clear();
 		z1->Series["ZY"]->Points->Clear();
 		z2->Series["XZ"]->Points->Clear();
 		z2->Series["YZ"]->Points->Clear();
 		mh->Series["MH"]->Points->Clear();
-		int flag = 0;
-
+		
+		
 		for (int i = 0; i < line_counter; i++)
 		{
-			if(index[i] == 1)
-			{
-				flag++;
-			}
+		
+
 			
 				a_point = (gcnew System::Windows::Forms::DataVisualization::Charting::DataPoint());
 				a_point->SetValueXY(data[i][2], data[i][1]);
-				a_point->Label = (i+1+flag).ToString();
+				a_point->Label = dataGridView1->Rows[i]->HeaderCell->Value->ToString();
 				a_point->LabelForeColor = System::Drawing::Color::Gray;
 				z1->Series["XY"]->Points->Add(a_point);
 
 				ZY_point = (gcnew System::Windows::Forms::DataVisualization::Charting::DataPoint());
 				ZY_point->SetValueXY((-1.)*data[i][3], data[i][1]);
-				ZY_point->Label = (i + 1 + flag).ToString();
+				ZY_point->Label = dataGridView1->Rows[i]->HeaderCell->Value->ToString();
 				ZY_point->LabelForeColor = System::Drawing::Color::Gray;
 				z1->Series["ZY"]->Points->Add(ZY_point);
 
 				XZ_point = (gcnew System::Windows::Forms::DataVisualization::Charting::DataPoint());
 				XZ_point->SetValueXY(data[i][2], data[i][1]);
-				XZ_point->Label = (i + 1 + flag).ToString();
+				XZ_point->Label = dataGridView1->Rows[i]->HeaderCell->Value->ToString();
 				XZ_point->LabelForeColor = System::Drawing::Color::Gray;
 				z2->Series["XZ"]->Points->Add(XZ_point);
 
 				YZ_point = (gcnew System::Windows::Forms::DataVisualization::Charting::DataPoint());
 				YZ_point->SetValueXY(data[i][2], (-1.)*data[i][3]);
-				YZ_point->Label = (i + 1 + flag).ToString();
+				YZ_point->Label = dataGridView1->Rows[i]->HeaderCell->Value->ToString();
 				YZ_point->LabelForeColor = System::Drawing::Color::Gray;
 				z2->Series["YZ"]->Points->Add(YZ_point);
 
 				MH_point = (gcnew System::Windows::Forms::DataVisualization::Charting::DataPoint());
 				MH_point->SetValueXY(data[i][0], data[i][4]);
-				MH_point->Label = (i + 1 + flag).ToString();
+				MH_point->Label = dataGridView1->Rows[i]->HeaderCell->Value->ToString();
 				MH_point->LabelForeColor = System::Drawing::Color::Gray;
 				mh->Series["MH"]->Points->Add(MH_point);
 
@@ -808,24 +805,25 @@ private: System::Void MyForm_FormClosing(System::Object^  sender, System::Window
 {
 	free(data);
 	free(dataRMG);
-	free(deletedRows);
+	
 }
 //заполняем то что получили в PMD файле
  void fillGridPMD(double **data, int line_count)
 
  {
+
 	 dataGridView1->Columns[5]->DefaultCellStyle->BackColor = Color::Yellow;
 	 dataGridView1->Columns[7]->DefaultCellStyle->BackColor = Color::Yellow;
 	 
 		 while (line_count > dataGridView1->RowCount)
 		 {
 			 DataGridViewRow ^r = gcnew DataGridViewRow();
-			 r->HeaderCell->Value = "R" + dataGridView1->RowCount;
+			 r->HeaderCell->Value = (dataGridView1->RowCount).ToString();
 			 //r->HeaderCell->Value = (char)i;
 			 r->CreateCells(dataGridView1);
 			 //cli::array <String ^> ^Values = gcnew cli::array <String ^>(dataGridView1->ColumnCount);
 			 dataGridView1->Rows->Add(r);
-			 dataGridView1->RowHeadersWidth = 75;
+			 dataGridView1->RowHeadersWidth = 50;
 			 //int rowIndex = dataGridView1->Rows->Add();				 
 			 
 			 
@@ -852,12 +850,12 @@ private: System::Void MyForm_FormClosing(System::Object^  sender, System::Window
 	 while (line_count > (dataGridView1->RowCount - 1))
 	 {
 		 DataGridViewRow ^r = gcnew DataGridViewRow();
-		 r->HeaderCell->Value = "R" + dataGridView1->RowCount;
+		 r->HeaderCell->Value = (dataGridView1->RowCount).ToString();
 		 //r->HeaderCell->Value = (char)i;
 		 r->CreateCells(dataGridView1);
 		 //cli::array <String ^> ^Values = gcnew cli::array <String ^>(dataGridView1->ColumnCount);
 		 dataGridView1->Rows->Add(r);
-		 dataGridView1->RowHeadersWidth = 75;
+		 dataGridView1->RowHeadersWidth = 50;
 		 //int rowIndex = dataGridView1->Rows->Add();		 
 	 }
 
@@ -876,17 +874,17 @@ private: System::Void button1_Click(System::Object^  sender, System::EventArgs^ 
 {
 	if (!dataGridView1->ColumnCount) { MessageBox::Show("No colums"); return; }
 	DataGridViewRow ^r = gcnew DataGridViewRow();
-	r->HeaderCell->Value = "R"+dataGridView1->RowCount;
+	r->HeaderCell->Value = (dataGridView1->RowCount).ToString();
 	r->CreateCells(dataGridView1);
 	cli::array <String ^> ^Values = gcnew cli::array <String ^>(dataGridView1->ColumnCount);
 	dataGridView1->Rows->Add(r);
-	dataGridView1->RowHeadersWidth = 100;
+	dataGridView1->RowHeadersWidth = 50;
 }
 
 //удоление строк
 private: System::Void button2_Click(System::Object^  sender, System::EventArgs^  e)
 {
-	int number = dataGridView1->SelectedCells[0]->RowIndex;
+	
 	button2->Enabled = false;
 	if (dataGridView1->SelectedRows->Count > 0) {
 		for (int i = 0; i < dataGridView1->SelectedRows->Count; i++) {
@@ -896,14 +894,16 @@ private: System::Void button2_Click(System::Object^  sender, System::EventArgs^ 
 		}
 		double **comp_ore = new double*[dataGridView1->RowCount-1]; // создание динамического массива 
 		
-
+		
 		for (int count = 0; count < dataGridView1->RowCount; count++)
 			comp_ore[count] = new double[dataGridView1->ColumnCount];
-		deletedRows[number] = 1;
-		deletedRowsCounter++;
 		
-		for (int i = 0; i < dataGridView1->RowCount; i++) {
-
+		
+		
+		for (int i = 0; i < dataGridView1->RowCount; i++) 
+		{
+			
+			
 			for (int j = 0; j < dataGridView1->ColumnCount; j++) {
 				String ^ st2;
 				st2 = dataGridView1->Rows[i]->Cells[j]->FormattedValue->ToString();
@@ -912,16 +912,19 @@ private: System::Void button2_Click(System::Object^  sender, System::EventArgs^ 
 					double::TryParse(st2, comp_ore[i][j]);
 				}
 				
+				
+				
 			}
 			
+			
 		}
-		drawTable(comp_ore, dataGridView1->RowCount-1, deletedRows);
+		drawTable(comp_ore, dataGridView1->RowCount-1);
 		//delete[] comp_ore;
 		//free(comp_ore);
 	}
 	else {
 		int index;
-		int number = dataGridView1->SelectedCells[0]->RowIndex;
+
 		try {
 			
 			index = dataGridView1->CurrentCell->RowIndex; }
@@ -933,15 +936,15 @@ private: System::Void button2_Click(System::Object^  sender, System::EventArgs^ 
 			
 			}
 			catch (...) { MessageBox::Show("Unable to delete this row "); }
-
-			double **comp_ore = new double*[dataGridView1->RowCount - 1]; // создание динамического массива 
+			
+			double **comp_ore = new double*[dataGridView1->RowCount ]; // создание динамического массива 
 			
 			for (int count = 0; count < dataGridView1->RowCount; count++)
 				comp_ore[count] = new double[dataGridView1->ColumnCount];
-			deletedRows[number] = 1;
-			deletedRowsCounter++;
+			
+			
 			for (int i = 0; i < dataGridView1->RowCount; i++) {
-
+				
 				for (int j = 0; j < dataGridView1->ColumnCount; j++) {
 					String ^ st2;
 					st2 = dataGridView1->Rows[i]->Cells[j]->FormattedValue->ToString();
@@ -949,10 +952,11 @@ private: System::Void button2_Click(System::Object^  sender, System::EventArgs^ 
 					{
 						double::TryParse(st2, comp_ore[i][j]);
 					}
+					
 				}
 				
 			}
-			drawTable(comp_ore, dataGridView1->RowCount-1, deletedRows);
+			drawTable(comp_ore, dataGridView1->RowCount-1);
 			//delete[] comp_ore;
 			//free(comp_ore);
 
@@ -972,10 +976,7 @@ private: System::Void button3_Click(System::Object^  sender, System::EventArgs^ 
 }
 private: System::Void MyForm_Load(System::Object^  sender, System::EventArgs^  e) 
 {
-	for (int i = 0; i < 200; i++)
-	{
-		deletedRows[i] = 0;
-	}
+
 }
 };
 
