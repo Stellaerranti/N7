@@ -55,7 +55,7 @@ namespace N7 {
 
 
 	private: System::Windows::Forms::DataVisualization::Charting::Chart^  z1;
-	private: System::Windows::Forms::DataVisualization::Charting::Chart^  z2;
+
 	private: System::Windows::Forms::DataVisualization::Charting::Chart^  mh;
 
 
@@ -74,10 +74,10 @@ namespace N7 {
 			 System::Windows::Forms::DataVisualization::Charting::Series^ series1 =	 (gcnew System::Windows::Forms::DataVisualization::Charting::Series());
 
 	private: System::Windows::Forms::TableLayoutPanel^  tableLayoutPanel1;
-	private: System::Windows::Forms::FlowLayoutPanel^  flowLayoutPanel1;
-	private: System::Windows::Forms::Button^  button1;
-	private: System::Windows::Forms::Button^  button2;
-	private: System::Windows::Forms::Button^  button3;
+
+
+
+
 	private: System::Windows::Forms::DataGridViewTextBoxColumn^  H;
 	private: System::Windows::Forms::DataGridViewTextBoxColumn^  X;
 	private: System::Windows::Forms::DataGridViewTextBoxColumn^  Y;
@@ -87,6 +87,14 @@ namespace N7 {
 	private: System::Windows::Forms::DataGridViewTextBoxColumn^  M_ARM;
 	private: System::Windows::Forms::DataGridViewTextBoxColumn^  AFZ;
 	private: System::Windows::Forms::DataGridViewTextBoxColumn^  M_AFz;
+	private: System::Windows::Forms::TableLayoutPanel^  tableLayoutPanel2;
+	private: System::Windows::Forms::Button^  button2;
+	private: System::Windows::Forms::Button^  button1;
+	private: System::Windows::Forms::Button^  button3;
+	private: System::Windows::Forms::TextBox^  textBox1;
+	private: System::Windows::Forms::Button^  button4;
+
+
 
 
 
@@ -108,20 +116,18 @@ namespace N7 {
 		void InitializeComponent(void)
 		{
 			System::Windows::Forms::DataVisualization::Charting::ChartArea^  chartArea1 = (gcnew System::Windows::Forms::DataVisualization::Charting::ChartArea());
+			System::Windows::Forms::DataVisualization::Charting::ChartArea^  chartArea2 = (gcnew System::Windows::Forms::DataVisualization::Charting::ChartArea());
 			System::Windows::Forms::DataVisualization::Charting::Legend^  legend1 = (gcnew System::Windows::Forms::DataVisualization::Charting::Legend());
 			System::Windows::Forms::DataVisualization::Charting::Series^  series1 = (gcnew System::Windows::Forms::DataVisualization::Charting::Series());
 			System::Windows::Forms::DataVisualization::Charting::Series^  series2 = (gcnew System::Windows::Forms::DataVisualization::Charting::Series());
-			System::Windows::Forms::DataVisualization::Charting::ChartArea^  chartArea2 = (gcnew System::Windows::Forms::DataVisualization::Charting::ChartArea());
-			System::Windows::Forms::DataVisualization::Charting::Legend^  legend2 = (gcnew System::Windows::Forms::DataVisualization::Charting::Legend());
 			System::Windows::Forms::DataVisualization::Charting::Series^  series3 = (gcnew System::Windows::Forms::DataVisualization::Charting::Series());
 			System::Windows::Forms::DataVisualization::Charting::Series^  series4 = (gcnew System::Windows::Forms::DataVisualization::Charting::Series());
 			System::Windows::Forms::DataVisualization::Charting::ChartArea^  chartArea3 = (gcnew System::Windows::Forms::DataVisualization::Charting::ChartArea());
-			System::Windows::Forms::DataVisualization::Charting::Legend^  legend3 = (gcnew System::Windows::Forms::DataVisualization::Charting::Legend());
+			System::Windows::Forms::DataVisualization::Charting::Legend^  legend2 = (gcnew System::Windows::Forms::DataVisualization::Charting::Legend());
 			System::Windows::Forms::DataVisualization::Charting::Series^  series5 = (gcnew System::Windows::Forms::DataVisualization::Charting::Series());
 			System::ComponentModel::ComponentResourceManager^  resources = (gcnew System::ComponentModel::ComponentResourceManager(MyForm::typeid));
 			this->openFileDialog1 = (gcnew System::Windows::Forms::OpenFileDialog());
 			this->z1 = (gcnew System::Windows::Forms::DataVisualization::Charting::Chart());
-			this->z2 = (gcnew System::Windows::Forms::DataVisualization::Charting::Chart());
 			this->mh = (gcnew System::Windows::Forms::DataVisualization::Charting::Chart());
 			this->toolStrip1 = (gcnew System::Windows::Forms::ToolStrip());
 			this->toolStripDropDownButton1 = (gcnew System::Windows::Forms::ToolStripDropDownButton());
@@ -138,17 +144,18 @@ namespace N7 {
 			this->AFZ = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
 			this->M_AFz = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
 			this->tableLayoutPanel1 = (gcnew System::Windows::Forms::TableLayoutPanel());
-			this->flowLayoutPanel1 = (gcnew System::Windows::Forms::FlowLayoutPanel());
+			this->tableLayoutPanel2 = (gcnew System::Windows::Forms::TableLayoutPanel());
 			this->button1 = (gcnew System::Windows::Forms::Button());
+			this->textBox1 = (gcnew System::Windows::Forms::TextBox());
+			this->button4 = (gcnew System::Windows::Forms::Button());
 			this->button2 = (gcnew System::Windows::Forms::Button());
 			this->button3 = (gcnew System::Windows::Forms::Button());
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->z1))->BeginInit();
-			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->z2))->BeginInit();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->mh))->BeginInit();
 			this->toolStrip1->SuspendLayout();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->dataGridView1))->BeginInit();
 			this->tableLayoutPanel1->SuspendLayout();
-			this->flowLayoutPanel1->SuspendLayout();
+			this->tableLayoutPanel2->SuspendLayout();
 			this->SuspendLayout();
 			// 
 			// openFileDialog1
@@ -158,11 +165,14 @@ namespace N7 {
 			// z1
 			// 
 			chartArea1->Name = L"ChartArea1";
+			chartArea2->Name = L"ChartArea2";
+			chartArea2->Visible = false;
 			this->z1->ChartAreas->Add(chartArea1);
+			this->z1->ChartAreas->Add(chartArea2);
 			this->z1->Dock = System::Windows::Forms::DockStyle::Fill;
 			legend1->Name = L"Legend1";
 			this->z1->Legends->Add(legend1);
-			this->z1->Location = System::Drawing::Point(3, 3);
+			this->z1->Location = System::Drawing::Point(6, 6);
 			this->z1->Name = L"z1";
 			series1->ChartArea = L"ChartArea1";
 			series1->ChartType = System::Windows::Forms::DataVisualization::Charting::SeriesChartType::Point;
@@ -175,53 +185,41 @@ namespace N7 {
 			series2->LabelBorderWidth = 5;
 			series2->Legend = L"Legend1";
 			series2->LegendText = L"Z.X";
-			series2->Name = L"ZY";
-			this->z1->Series->Add(series1);
-			this->z1->Series->Add(series2);
-			this->z1->Size = System::Drawing::Size(409, 258);
-			this->z1->TabIndex = 4;
-			this->z1->Text = L"chart1";
-			// 
-			// z2
-			// 
-			chartArea2->Name = L"ChartArea1";
-			this->z2->ChartAreas->Add(chartArea2);
-			this->z2->Dock = System::Windows::Forms::DockStyle::Fill;
-			legend2->Name = L"Legend1";
-			this->z2->Legends->Add(legend2);
-			this->z2->Location = System::Drawing::Point(418, 3);
-			this->z2->Name = L"z2";
-			series3->ChartArea = L"ChartArea1";
+			series2->Name = L"ZX";
+			series3->ChartArea = L"ChartArea2";
 			series3->ChartType = System::Windows::Forms::DataVisualization::Charting::SeriesChartType::Point;
 			series3->Legend = L"Legend1";
 			series3->LegendText = L"X,Y";
-			series3->Name = L"XZ";
-			series4->ChartArea = L"ChartArea1";
+			series3->Name = L"XY2";
+			series4->ChartArea = L"ChartArea2";
 			series4->ChartType = System::Windows::Forms::DataVisualization::Charting::SeriesChartType::Point;
 			series4->Legend = L"Legend1";
 			series4->LegendText = L"Z,Y";
-			series4->Name = L"YZ";
-			this->z2->Series->Add(series3);
-			this->z2->Series->Add(series4);
-			this->z2->Size = System::Drawing::Size(410, 258);
-			this->z2->TabIndex = 5;
-			this->z2->Text = L"chart2";
+			series4->Name = L"ZY";
+			this->z1->Series->Add(series1);
+			this->z1->Series->Add(series2);
+			this->z1->Series->Add(series3);
+			this->z1->Series->Add(series4);
+			this->z1->Size = System::Drawing::Size(405, 254);
+			this->z1->TabIndex = 4;
+			this->z1->Text = L"chart1";
+			this->z1->Click += gcnew System::EventHandler(this, &MyForm::z1_Click);
 			// 
 			// mh
 			// 
 			chartArea3->Name = L"ChartArea1";
 			this->mh->ChartAreas->Add(chartArea3);
 			this->mh->Dock = System::Windows::Forms::DockStyle::Fill;
-			legend3->Name = L"Legend1";
-			this->mh->Legends->Add(legend3);
-			this->mh->Location = System::Drawing::Point(834, 3);
+			legend2->Name = L"Legend1";
+			this->mh->Legends->Add(legend2);
+			this->mh->Location = System::Drawing::Point(420, 6);
 			this->mh->Name = L"mh";
 			series5->ChartArea = L"ChartArea1";
 			series5->ChartType = System::Windows::Forms::DataVisualization::Charting::SeriesChartType::Point;
 			series5->Legend = L"Legend1";
 			series5->Name = L"MH";
 			this->mh->Series->Add(series5);
-			this->mh->Size = System::Drawing::Size(411, 258);
+			this->mh->Size = System::Drawing::Size(406, 254);
 			this->mh->TabIndex = 6;
 			this->mh->Text = L"chart3";
 			// 
@@ -271,10 +269,10 @@ namespace N7 {
 			});
 			this->tableLayoutPanel1->SetColumnSpan(this->dataGridView1, 2);
 			this->dataGridView1->Dock = System::Windows::Forms::DockStyle::Fill;
-			this->dataGridView1->Location = System::Drawing::Point(3, 267);
+			this->dataGridView1->Location = System::Drawing::Point(6, 269);
 			this->dataGridView1->Name = L"dataGridView1";
 			this->dataGridView1->RowHeadersBorderStyle = System::Windows::Forms::DataGridViewHeaderBorderStyle::Sunken;
-			this->dataGridView1->Size = System::Drawing::Size(825, 259);
+			this->dataGridView1->Size = System::Drawing::Size(820, 254);
 			this->dataGridView1->TabIndex = 9;
 			// 
 			// H
@@ -349,6 +347,7 @@ namespace N7 {
 			// tableLayoutPanel1
 			// 
 			this->tableLayoutPanel1->AutoSize = true;
+			this->tableLayoutPanel1->CellBorderStyle = System::Windows::Forms::TableLayoutPanelCellBorderStyle::InsetDouble;
 			this->tableLayoutPanel1->ColumnCount = 3;
 			this->tableLayoutPanel1->ColumnStyles->Add((gcnew System::Windows::Forms::ColumnStyle(System::Windows::Forms::SizeType::Percent,
 				33.33333F)));
@@ -358,45 +357,78 @@ namespace N7 {
 				33.33334F)));
 			this->tableLayoutPanel1->Controls->Add(this->z1, 0, 0);
 			this->tableLayoutPanel1->Controls->Add(this->dataGridView1, 0, 1);
-			this->tableLayoutPanel1->Controls->Add(this->z2, 1, 0);
-			this->tableLayoutPanel1->Controls->Add(this->mh, 2, 0);
-			this->tableLayoutPanel1->Controls->Add(this->flowLayoutPanel1, 2, 1);
+			this->tableLayoutPanel1->Controls->Add(this->tableLayoutPanel2, 1, 1);
+			this->tableLayoutPanel1->Controls->Add(this->mh, 1, 0);
 			this->tableLayoutPanel1->Dock = System::Windows::Forms::DockStyle::Fill;
+			this->tableLayoutPanel1->ForeColor = System::Drawing::SystemColors::ActiveCaptionText;
 			this->tableLayoutPanel1->Location = System::Drawing::Point(0, 25);
 			this->tableLayoutPanel1->Name = L"tableLayoutPanel1";
 			this->tableLayoutPanel1->RowCount = 2;
 			this->tableLayoutPanel1->RowStyles->Add((gcnew System::Windows::Forms::RowStyle(System::Windows::Forms::SizeType::Percent, 50)));
 			this->tableLayoutPanel1->RowStyles->Add((gcnew System::Windows::Forms::RowStyle(System::Windows::Forms::SizeType::Percent, 50)));
-			this->tableLayoutPanel1->RowStyles->Add((gcnew System::Windows::Forms::RowStyle(System::Windows::Forms::SizeType::Absolute, 20)));
 			this->tableLayoutPanel1->Size = System::Drawing::Size(1248, 529);
 			this->tableLayoutPanel1->TabIndex = 10;
 			// 
-			// flowLayoutPanel1
+			// tableLayoutPanel2
 			// 
-			this->flowLayoutPanel1->Controls->Add(this->button1);
-			this->flowLayoutPanel1->Controls->Add(this->button2);
-			this->flowLayoutPanel1->Controls->Add(this->button3);
-			this->flowLayoutPanel1->Dock = System::Windows::Forms::DockStyle::Fill;
-			this->flowLayoutPanel1->Location = System::Drawing::Point(834, 267);
-			this->flowLayoutPanel1->Name = L"flowLayoutPanel1";
-			this->flowLayoutPanel1->Size = System::Drawing::Size(411, 259);
-			this->flowLayoutPanel1->TabIndex = 10;
+			this->tableLayoutPanel2->AutoSize = true;
+			this->tableLayoutPanel2->ColumnCount = 3;
+			this->tableLayoutPanel2->ColumnStyles->Add((gcnew System::Windows::Forms::ColumnStyle()));
+			this->tableLayoutPanel2->ColumnStyles->Add((gcnew System::Windows::Forms::ColumnStyle()));
+			this->tableLayoutPanel2->ColumnStyles->Add((gcnew System::Windows::Forms::ColumnStyle()));
+			this->tableLayoutPanel2->Controls->Add(this->button1, 0, 0);
+			this->tableLayoutPanel2->Controls->Add(this->textBox1, 0, 1);
+			this->tableLayoutPanel2->Controls->Add(this->button4, 2, 1);
+			this->tableLayoutPanel2->Controls->Add(this->button2, 2, 0);
+			this->tableLayoutPanel2->Controls->Add(this->button3, 1, 0);
+			this->tableLayoutPanel2->Dock = System::Windows::Forms::DockStyle::Top;
+			this->tableLayoutPanel2->Location = System::Drawing::Point(835, 269);
+			this->tableLayoutPanel2->Name = L"tableLayoutPanel2";
+			this->tableLayoutPanel2->RowCount = 2;
+			this->tableLayoutPanel2->RowStyles->Add((gcnew System::Windows::Forms::RowStyle()));
+			this->tableLayoutPanel2->RowStyles->Add((gcnew System::Windows::Forms::RowStyle()));
+			this->tableLayoutPanel2->Size = System::Drawing::Size(407, 86);
+			this->tableLayoutPanel2->TabIndex = 11;
 			// 
 			// button1
 			// 
+			this->button1->Dock = System::Windows::Forms::DockStyle::Fill;
 			this->button1->Location = System::Drawing::Point(3, 3);
 			this->button1->Name = L"button1";
-			this->button1->Size = System::Drawing::Size(100, 30);
+			this->button1->Size = System::Drawing::Size(100, 44);
 			this->button1->TabIndex = 0;
-			this->button1->Text = L"Add row";
+			this->button1->Text = L"Change projection";
 			this->button1->UseVisualStyleBackColor = true;
 			this->button1->Click += gcnew System::EventHandler(this, &MyForm::button1_Click);
 			// 
+			// textBox1
+			// 
+			this->tableLayoutPanel2->SetColumnSpan(this->textBox1, 2);
+			this->textBox1->Dock = System::Windows::Forms::DockStyle::Fill;
+			this->textBox1->Location = System::Drawing::Point(3, 53);
+			this->textBox1->Name = L"textBox1";
+			this->textBox1->Size = System::Drawing::Size(206, 20);
+			this->textBox1->TabIndex = 3;
+			this->textBox1->Visible = false;
+			// 
+			// button4
+			// 
+			this->button4->Dock = System::Windows::Forms::DockStyle::Fill;
+			this->button4->Location = System::Drawing::Point(215, 53);
+			this->button4->Name = L"button4";
+			this->button4->Size = System::Drawing::Size(193, 30);
+			this->button4->TabIndex = 4;
+			this->button4->Text = L"Delete rows";
+			this->button4->UseVisualStyleBackColor = true;
+			this->button4->Visible = false;
+			this->button4->Click += gcnew System::EventHandler(this, &MyForm::button4_Click);
+			// 
 			// button2
 			// 
-			this->button2->Location = System::Drawing::Point(109, 3);
+			this->button2->Dock = System::Windows::Forms::DockStyle::Fill;
+			this->button2->Location = System::Drawing::Point(215, 3);
 			this->button2->Name = L"button2";
-			this->button2->Size = System::Drawing::Size(100, 30);
+			this->button2->Size = System::Drawing::Size(193, 44);
 			this->button2->TabIndex = 1;
 			this->button2->Text = L"Delete row";
 			this->button2->UseVisualStyleBackColor = true;
@@ -404,9 +436,10 @@ namespace N7 {
 			// 
 			// button3
 			// 
-			this->button3->Location = System::Drawing::Point(215, 3);
+			this->button3->Dock = System::Windows::Forms::DockStyle::Fill;
+			this->button3->Location = System::Drawing::Point(109, 3);
 			this->button3->Name = L"button3";
-			this->button3->Size = System::Drawing::Size(100, 30);
+			this->button3->Size = System::Drawing::Size(100, 44);
 			this->button3->TabIndex = 2;
 			this->button3->Text = L"Clear table";
 			this->button3->UseVisualStyleBackColor = true;
@@ -424,13 +457,14 @@ namespace N7 {
 			this->FormClosing += gcnew System::Windows::Forms::FormClosingEventHandler(this, &MyForm::MyForm_FormClosing);
 			this->Load += gcnew System::EventHandler(this, &MyForm::MyForm_Load);
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->z1))->EndInit();
-			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->z2))->EndInit();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->mh))->EndInit();
 			this->toolStrip1->ResumeLayout(false);
 			this->toolStrip1->PerformLayout();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->dataGridView1))->EndInit();
 			this->tableLayoutPanel1->ResumeLayout(false);
-			this->flowLayoutPanel1->ResumeLayout(false);
+			this->tableLayoutPanel1->PerformLayout();
+			this->tableLayoutPanel2->ResumeLayout(false);
+			this->tableLayoutPanel2->PerformLayout();
 			this->ResumeLayout(false);
 			this->PerformLayout();
 
@@ -446,16 +480,38 @@ namespace N7 {
 	double **data = (double**)malloc(1 * sizeof(double));
 	double **dataRMG=(double**)malloc(1 * sizeof(double));
 	
-
+	/*double maximumX(double **data, int counter)
+	{
+		double max = data[0][3];
+		for (int i = 0; i < counter; i++)
+		{
+			if(data)
+		}
+	}*/
 	void draw(double **data, int line_counter)
 	{
 
 		z1->Series["XY"]->Points->Clear();
+		z1->Series["ZX"]->Points->Clear();
+		z1->Series["XY2"]->Points->Clear();
 		z1->Series["ZY"]->Points->Clear();
-		z2->Series["XZ"]->Points->Clear();
-		z2->Series["YZ"]->Points->Clear();
 		mh->Series["MH"]->Points->Clear();
-		
+
+		z1->ChartAreas[0]->AxisX->MajorGrid->Enabled = false;
+		z1->ChartAreas[0]->AxisY->MajorGrid->Enabled = false;
+		z1->ChartAreas[0]->AxisY->Crossing = 0;
+		z1->ChartAreas[0]->AxisX->Crossing = 0;
+
+		z1->ChartAreas[1]->AxisX->MajorGrid->Enabled = false;
+		z1->ChartAreas[1]->AxisY->MajorGrid->Enabled = false;
+		z1->ChartAreas[1]->AxisY->Crossing = 0;
+		z1->ChartAreas[1]->AxisX->Crossing = 0;
+
+		mh->ChartAreas[0]->AxisX->MajorGrid->Enabled = false;
+		mh->ChartAreas[0]->AxisY->MajorGrid->Enabled = false;
+		mh->ChartAreas[0]->AxisY->Crossing = 0;
+		mh->ChartAreas[0]->AxisX->Crossing = 0;
+
 		for (int i = 1; i < line_counter; i++)
 		{
 			a_point = (gcnew System::Windows::Forms::DataVisualization::Charting::DataPoint());
@@ -468,19 +524,19 @@ namespace N7 {
 			ZY_point->SetValueXY((-1.)*data[i][3], data[i][1]);
 			ZY_point->Label = i.ToString();
 			ZY_point->LabelForeColor = System::Drawing::Color::Gray;
-			z1->Series["ZY"]->Points->Add(ZY_point);
+			z1->Series["ZX"]->Points->Add(ZY_point);
 			
 			XZ_point = (gcnew System::Windows::Forms::DataVisualization::Charting::DataPoint());
 			XZ_point->SetValueXY(data[i][2], data[i][1]);
 			XZ_point->Label = i.ToString();
 			XZ_point->LabelForeColor = System::Drawing::Color::Gray;
-			z2->Series["XZ"]->Points->Add(XZ_point);
+			z1->Series["XY2"]->Points->Add(XZ_point);
 
 			YZ_point = (gcnew System::Windows::Forms::DataVisualization::Charting::DataPoint());
 			YZ_point->SetValueXY(data[i][2], (-1.)*data[i][3]);
 			YZ_point->Label = i.ToString();
 			YZ_point->LabelForeColor = System::Drawing::Color::Gray;
-			z2->Series["YZ"]->Points->Add(YZ_point);
+			z1->Series["ZY"]->Points->Add(YZ_point);
 
 			MH_point = (gcnew System::Windows::Forms::DataVisualization::Charting::DataPoint());
 			MH_point->SetValueXY(data[i][0], data[i][4]);
@@ -488,56 +544,63 @@ namespace N7 {
 			MH_point->LabelForeColor = System::Drawing::Color::Gray;
 			mh->Series["MH"]->Points->Add(MH_point);
 		}
-	}
 
-	int findDel(int number, int*index, int line_count)
-	{
-		for (int i = number; i < line_count; i++)
-		{
-			if (index[i] == 0)
-			{
-				return i;
-			}
-		}
 	}
 
 	void drawTable(double **data, int line_counter)
 	{
 		z1->Series["XY"]->Points->Clear();
+		z1->Series["ZX"]->Points->Clear();
+		z1->Series["XY2"]->Points->Clear();
 		z1->Series["ZY"]->Points->Clear();
-		z2->Series["XZ"]->Points->Clear();
-		z2->Series["YZ"]->Points->Clear();
+		
 		mh->Series["MH"]->Points->Clear();
 		
-		
-		for (int i = 0; i < line_counter; i++)
-		{
-		
+		z1->ChartAreas[0]->AxisX->MajorGrid->Enabled = false;
+		z1->ChartAreas[0]->AxisY->MajorGrid->Enabled = false;
+		z1->ChartAreas[0]->AxisY->Crossing = 0;
+		z1->ChartAreas[0]->AxisX->Crossing = 0;
 
-			
+		z1->ChartAreas[1]->AxisX->MajorGrid->Enabled = false;
+		z1->ChartAreas[1]->AxisY->MajorGrid->Enabled = false;
+		z1->ChartAreas[1]->AxisY->Crossing = 0;
+		z1->ChartAreas[1]->AxisX->Crossing = 0;
+
+		mh->ChartAreas[0]->AxisX->MajorGrid->Enabled = false;
+		mh->ChartAreas[0]->AxisY->MajorGrid->Enabled = false;
+		mh->ChartAreas[0]->AxisY->Crossing = 0;
+		mh->ChartAreas[0]->AxisX->Crossing = 0;
+
+
+		
+			for (int i = 0; i < line_counter; i++)
+			{
+
+
+
 				a_point = (gcnew System::Windows::Forms::DataVisualization::Charting::DataPoint());
 				a_point->SetValueXY(data[i][2], data[i][1]);
-				a_point->Label = dataGridView1->Rows[i]->HeaderCell->Value->ToString();
+				a_point->Label = i.ToString();
 				a_point->LabelForeColor = System::Drawing::Color::Gray;
 				z1->Series["XY"]->Points->Add(a_point);
 
 				ZY_point = (gcnew System::Windows::Forms::DataVisualization::Charting::DataPoint());
 				ZY_point->SetValueXY((-1.)*data[i][3], data[i][1]);
-				ZY_point->Label = dataGridView1->Rows[i]->HeaderCell->Value->ToString();
+				ZY_point->Label = i.ToString();
 				ZY_point->LabelForeColor = System::Drawing::Color::Gray;
-				z1->Series["ZY"]->Points->Add(ZY_point);
+				z1->Series["ZX"]->Points->Add(ZY_point);
 
 				XZ_point = (gcnew System::Windows::Forms::DataVisualization::Charting::DataPoint());
 				XZ_point->SetValueXY(data[i][2], data[i][1]);
-				XZ_point->Label = dataGridView1->Rows[i]->HeaderCell->Value->ToString();
+				XZ_point->Label = i.ToString();
 				XZ_point->LabelForeColor = System::Drawing::Color::Gray;
-				z2->Series["XZ"]->Points->Add(XZ_point);
+				z1->Series["XY2"]->Points->Add(XZ_point);
 
 				YZ_point = (gcnew System::Windows::Forms::DataVisualization::Charting::DataPoint());
 				YZ_point->SetValueXY(data[i][2], (-1.)*data[i][3]);
-				YZ_point->Label = dataGridView1->Rows[i]->HeaderCell->Value->ToString();
+				YZ_point->Label = i.ToString();
 				YZ_point->LabelForeColor = System::Drawing::Color::Gray;
-				z2->Series["YZ"]->Points->Add(YZ_point);
+				z1->Series["ZY"]->Points->Add(YZ_point);
 
 				MH_point = (gcnew System::Windows::Forms::DataVisualization::Charting::DataPoint());
 				MH_point->SetValueXY(data[i][0], data[i][4]);
@@ -545,8 +608,10 @@ namespace N7 {
 				MH_point->LabelForeColor = System::Drawing::Color::Gray;
 				mh->Series["MH"]->Points->Add(MH_point);
 
+
+			}
+		
 			
-		}
 	}
 	//Открываем pmd
 	private: System::Void openpmdToolStripMenuItem_Click(System::Object^  sender, System::EventArgs^  e)
@@ -555,7 +620,7 @@ namespace N7 {
 		//setlocale(LC_ALL, "Russian");
 		//Открываем файловый диалог
 		openFileDialog1->RestoreDirectory = true;
-		this->openFileDialog1->Filter = "paleo files|*.pmd";
+		this->openFileDialog1->Filter = "NRM data|*.pmd";
 		openFileDialog1->ShowDialog();		
 		System::String^ path_f = openFileDialog1->FileName;
 		string s2 = "";
@@ -587,7 +652,7 @@ namespace N7 {
 				flag = 0;
 
 				double *values = NULL;
-				strcpy(p, str.c_str());		//Как иначе перевести string в char я без понятия	
+				strcpy_s(p, str.c_str());		//Как иначе перевести string в char я без понятия	
 
 				char *buf = strtok(p, " ,=");
 				column_counter = 0;
@@ -668,7 +733,7 @@ namespace N7 {
 		//setlocale(LC_ALL, "Russian");
 	//Открываем файловый диалог
 		openFileDialog1->RestoreDirectory = true;
-		this->openFileDialog1->Filter = "some|*.rmg";
+		this->openFileDialog1->Filter = "ARM and AFz data|*.rmg";
 		openFileDialog1->ShowDialog();
 		System::String^ path_f = openFileDialog1->FileName;
 		string s2 = "";
@@ -691,6 +756,7 @@ namespace N7 {
 			int line_AFz = 0;
 			string ARM = "ARM";
 			string AFz = "AFz";
+			string NRM = "NRM";
 
 			while (getline(fin, str))
 			{ // пока не достигнут конец файла класть очередную строку в переменную 
@@ -701,16 +767,16 @@ namespace N7 {
 				
 				
 				double *values = NULL;
-				strcpy(p, str.c_str());		//Как иначе перевести string в char я без понятия	
+				strcpy_s(p, str.c_str());		//Как иначе перевести string в char я без понятия	
 				string bi = str.substr(0, 3);
 				
 			
 				column_counter = 0;
 
-				if ((flagline >0)&&((bi==ARM)||(bi==AFz)))
+				if ((flagline >0)&&((bi==ARM)||(bi==AFz)||(bi == NRM)))
 				{
 					char *buf = strtok(p, " ,=");
-					while ((column_counter == 0) && (buf != NULL)) //переводим все числа из символов-чисел в числа-числа
+					while ((column_counter < 5) && (buf != NULL)) //переводим все числа из символов-чисел в числа-числа
 					{
 
 						//cout << buf << endl;
@@ -755,16 +821,16 @@ namespace N7 {
 						line_counter_RMG++;
 						dataRMG = (double**)realloc(dataRMG, (line_counter_RMG + 1) * sizeof(double*));
 						dataRMG[line_counter_RMG - 1] = (double*)malloc(2 * sizeof(double));
-						dataRMG[line_counter_RMG - 1][0] = values[0];
+						dataRMG[line_counter_RMG - 1][0] = values[4];
 					}
 					else
 					{
-						if (bi == ARM)
+						if ((bi == ARM)||(bi ==NRM))
 						{
 							line_counter_RMG++;
 							dataRMG = (double**)realloc(dataRMG, (line_counter_RMG +1)* sizeof(double*));
 							dataRMG[line_counter_RMG - 1] = (double*)malloc(2 * sizeof(double));
-							dataRMG[line_counter_RMG - 1][0] = values[0];
+							dataRMG[line_counter_RMG - 1][0] = values[4];
 						}
 						if (bi == AFz)
 						{
@@ -772,13 +838,13 @@ namespace N7 {
 							{
 								dataRMG[line_AFz][1] = dataRMG[line_counter_RMG - 1][0];
 								line_AFz++;
-								dataRMG[line_AFz][1] = values[0];
+								dataRMG[line_AFz][1] = values[4];
 								line_AFz++;
 							}
 							else
 							{
 								
-								dataRMG[line_AFz][1] = values[0];
+								dataRMG[line_AFz][1] = values[4];
 								line_AFz++;
 								
 							}
@@ -832,11 +898,11 @@ private: System::Void MyForm_FormClosing(System::Object^  sender, System::Window
 
 	 for(int i =1; i< line_count; i++)
 	 {
-		 dataGridView1->Rows[i - 1]->Cells[0]->Value = (data[i][0]);
-		 dataGridView1->Rows[i - 1]->Cells[1]->Value = (data[i][1]);
-		 dataGridView1->Rows[i - 1]->Cells[2]->Value = (data[i][2]);
-		 dataGridView1->Rows[i - 1]->Cells[3]->Value = (data[i][3]);
-		 dataGridView1->Rows[i - 1]->Cells[4]->Value = (data[i][4]);
+		 dataGridView1->Rows[i - 1]->Cells[0]->Value = (data[i][0]).ToString("E3");
+		 dataGridView1->Rows[i - 1]->Cells[1]->Value = (data[i][1]).ToString("E3");
+		 dataGridView1->Rows[i - 1]->Cells[2]->Value = (data[i][2]).ToString("E3");
+		 dataGridView1->Rows[i - 1]->Cells[3]->Value = (data[i][3]).ToString("E3");
+		 dataGridView1->Rows[i - 1]->Cells[4]->Value = (data[i][4]).ToString("E3");
 	 }
 
  }
@@ -846,6 +912,7 @@ private: System::Void MyForm_FormClosing(System::Object^  sender, System::Window
  {
 	 dataGridView1->Columns[5]->DefaultCellStyle->BackColor = Color::Yellow;
 	 dataGridView1->Columns[7]->DefaultCellStyle->BackColor = Color::Yellow;
+	 
 
 	 while (line_count > (dataGridView1->RowCount - 1))
 	 {
@@ -862,23 +929,38 @@ private: System::Void MyForm_FormClosing(System::Object^  sender, System::Window
 	 for (int i = 0; i < line_count; i++)
 	 {
 		// if
-		 dataGridView1->Rows[i]->Cells[6]->Value = (dataRMG[i][0]);
-		 dataGridView1->Rows[i]->Cells[8]->Value = (dataRMG[i][1]);
+
+		 dataGridView1->Rows[i]->Cells[6]->Value = (dataRMG[i][0]).ToString("E3");
+		 dataGridView1->Rows[i]->Cells[8]->Value = (dataRMG[i][1]).ToString("E3");
 
 	 }
 
  }
 
- //Добавление строк
+ //изменение типа графика
 private: System::Void button1_Click(System::Object^  sender, System::EventArgs^  e)
 {
-	if (!dataGridView1->ColumnCount) { MessageBox::Show("No colums"); return; }
+	/*if (!dataGridView1->ColumnCount) { MessageBox::Show("No colums"); return; }
 	DataGridViewRow ^r = gcnew DataGridViewRow();
 	r->HeaderCell->Value = (dataGridView1->RowCount).ToString();
 	r->CreateCells(dataGridView1);
 	cli::array <String ^> ^Values = gcnew cli::array <String ^>(dataGridView1->ColumnCount);
 	dataGridView1->Rows->Add(r);
-	dataGridView1->RowHeadersWidth = 50;
+	dataGridView1->RowHeadersWidth = 50;*/
+	if(z1->ChartAreas[0]->Visible)
+	{
+		z1->ChartAreas[0]->Visible = false;
+		z1->ChartAreas[1]->Visible = true;
+	}
+	else
+	{
+		z1->ChartAreas[0]->Visible = true;
+		z1->ChartAreas[1]->Visible = false;
+		
+	}
+	
+	
+	
 }
 
 //удоление строк
@@ -892,7 +974,7 @@ private: System::Void button2_Click(System::Object^  sender, System::EventArgs^ 
 			try {dataGridView1->Rows->RemoveAt(index);}
 			catch (...) { MessageBox::Show("Unable to delete this row "); }
 		}
-		double **comp_ore = new double*[dataGridView1->RowCount-1]; // создание динамического массива 
+		double **comp_ore = new double*[dataGridView1->RowCount]; // создание динамического массива 
 		
 		
 		for (int count = 0; count < dataGridView1->RowCount; count++)
@@ -915,7 +997,7 @@ private: System::Void button2_Click(System::Object^  sender, System::EventArgs^ 
 				
 				
 			}
-			
+			dataGridView1->Rows[i]->HeaderCell->Value = (i + 1).ToString();
 			
 		}
 		drawTable(comp_ore, dataGridView1->RowCount-1);
@@ -954,7 +1036,7 @@ private: System::Void button2_Click(System::Object^  sender, System::EventArgs^ 
 					}
 					
 				}
-				
+				dataGridView1->Rows[i]->HeaderCell->Value = (i + 1).ToString();
 			}
 			drawTable(comp_ore, dataGridView1->RowCount-1);
 			//delete[] comp_ore;
@@ -977,6 +1059,26 @@ private: System::Void button3_Click(System::Object^  sender, System::EventArgs^ 
 private: System::Void MyForm_Load(System::Object^  sender, System::EventArgs^  e) 
 {
 
+}
+
+		 //удоление строк, номера которых введены в строке
+private: System::Void button4_Click(System::Object^  sender, System::EventArgs^  e) 
+{
+
+}
+private: System::Void z1_Click(System::Object^  sender, System::EventArgs^  e) 
+{
+	if (z1->ChartAreas[0]->Visible)
+	{
+		z1->ChartAreas[0]->Visible = false;
+		z1->ChartAreas[1]->Visible = true;
+	}
+	else
+	{
+		z1->ChartAreas[0]->Visible = true;
+		z1->ChartAreas[1]->Visible = false;
+
+	}
 }
 };
 
