@@ -93,6 +93,8 @@ namespace N7 {
 	private: System::Windows::Forms::Button^  button3;
 	private: System::Windows::Forms::TextBox^  textBox1;
 	private: System::Windows::Forms::Button^  button4;
+	private: System::Windows::Forms::ToolStripMenuItem^  saveAsToolStripMenuItem;
+	private: System::Windows::Forms::SaveFileDialog^  saveFileDialog1;
 
 
 
@@ -133,6 +135,7 @@ namespace N7 {
 			this->toolStripDropDownButton1 = (gcnew System::Windows::Forms::ToolStripDropDownButton());
 			this->openpmdToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
 			this->openrmgToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
+			this->saveAsToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
 			this->dataGridView1 = (gcnew System::Windows::Forms::DataGridView());
 			this->H = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
 			this->X = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
@@ -146,10 +149,11 @@ namespace N7 {
 			this->tableLayoutPanel1 = (gcnew System::Windows::Forms::TableLayoutPanel());
 			this->tableLayoutPanel2 = (gcnew System::Windows::Forms::TableLayoutPanel());
 			this->button1 = (gcnew System::Windows::Forms::Button());
-			this->textBox1 = (gcnew System::Windows::Forms::TextBox());
-			this->button4 = (gcnew System::Windows::Forms::Button());
-			this->button2 = (gcnew System::Windows::Forms::Button());
 			this->button3 = (gcnew System::Windows::Forms::Button());
+			this->button4 = (gcnew System::Windows::Forms::Button());
+			this->textBox1 = (gcnew System::Windows::Forms::TextBox());
+			this->button2 = (gcnew System::Windows::Forms::Button());
+			this->saveFileDialog1 = (gcnew System::Windows::Forms::SaveFileDialog());
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->z1))->BeginInit();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->mh))->BeginInit();
 			this->toolStrip1->SuspendLayout();
@@ -200,7 +204,7 @@ namespace N7 {
 			this->z1->Series->Add(series2);
 			this->z1->Series->Add(series3);
 			this->z1->Series->Add(series4);
-			this->z1->Size = System::Drawing::Size(405, 254);
+			this->z1->Size = System::Drawing::Size(545, 254);
 			this->z1->TabIndex = 4;
 			this->z1->Text = L"chart1";
 			this->z1->Click += gcnew System::EventHandler(this, &MyForm::z1_Click);
@@ -212,14 +216,14 @@ namespace N7 {
 			this->mh->Dock = System::Windows::Forms::DockStyle::Fill;
 			legend2->Name = L"Legend1";
 			this->mh->Legends->Add(legend2);
-			this->mh->Location = System::Drawing::Point(420, 6);
+			this->mh->Location = System::Drawing::Point(560, 6);
 			this->mh->Name = L"mh";
 			series5->ChartArea = L"ChartArea1";
 			series5->ChartType = System::Windows::Forms::DataVisualization::Charting::SeriesChartType::Point;
 			series5->Legend = L"Legend1";
 			series5->Name = L"MH";
 			this->mh->Series->Add(series5);
-			this->mh->Size = System::Drawing::Size(406, 254);
+			this->mh->Size = System::Drawing::Size(545, 254);
 			this->mh->TabIndex = 6;
 			this->mh->Text = L"chart3";
 			// 
@@ -229,16 +233,16 @@ namespace N7 {
 			this->toolStrip1->Items->AddRange(gcnew cli::array< System::Windows::Forms::ToolStripItem^  >(1) { this->toolStripDropDownButton1 });
 			this->toolStrip1->Location = System::Drawing::Point(0, 0);
 			this->toolStrip1->Name = L"toolStrip1";
-			this->toolStrip1->Size = System::Drawing::Size(1248, 25);
+			this->toolStrip1->Size = System::Drawing::Size(1390, 25);
 			this->toolStrip1->TabIndex = 8;
 			this->toolStrip1->Text = L"toolStrip1";
 			// 
 			// toolStripDropDownButton1
 			// 
 			this->toolStripDropDownButton1->DisplayStyle = System::Windows::Forms::ToolStripItemDisplayStyle::Text;
-			this->toolStripDropDownButton1->DropDownItems->AddRange(gcnew cli::array< System::Windows::Forms::ToolStripItem^  >(2) {
+			this->toolStripDropDownButton1->DropDownItems->AddRange(gcnew cli::array< System::Windows::Forms::ToolStripItem^  >(3) {
 				this->openpmdToolStripMenuItem,
-					this->openrmgToolStripMenuItem
+					this->openrmgToolStripMenuItem, this->saveAsToolStripMenuItem
 			});
 			this->toolStripDropDownButton1->Image = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"toolStripDropDownButton1.Image")));
 			this->toolStripDropDownButton1->ImageTransparentColor = System::Drawing::Color::Magenta;
@@ -260,6 +264,13 @@ namespace N7 {
 			this->openrmgToolStripMenuItem->Text = L"Open .rmg";
 			this->openrmgToolStripMenuItem->Click += gcnew System::EventHandler(this, &MyForm::openrmgToolStripMenuItem_Click);
 			// 
+			// saveAsToolStripMenuItem
+			// 
+			this->saveAsToolStripMenuItem->Name = L"saveAsToolStripMenuItem";
+			this->saveAsToolStripMenuItem->Size = System::Drawing::Size(143, 24);
+			this->saveAsToolStripMenuItem->Text = L"Save as";
+			this->saveAsToolStripMenuItem->Click += gcnew System::EventHandler(this, &MyForm::saveAsToolStripMenuItem_Click);
+			// 
 			// dataGridView1
 			// 
 			this->dataGridView1->ColumnHeadersHeightSizeMode = System::Windows::Forms::DataGridViewColumnHeadersHeightSizeMode::AutoSize;
@@ -272,7 +283,7 @@ namespace N7 {
 			this->dataGridView1->Location = System::Drawing::Point(6, 269);
 			this->dataGridView1->Name = L"dataGridView1";
 			this->dataGridView1->RowHeadersBorderStyle = System::Windows::Forms::DataGridViewHeaderBorderStyle::Sunken;
-			this->dataGridView1->Size = System::Drawing::Size(820, 254);
+			this->dataGridView1->Size = System::Drawing::Size(1099, 254);
 			this->dataGridView1->TabIndex = 9;
 			// 
 			// H
@@ -350,11 +361,11 @@ namespace N7 {
 			this->tableLayoutPanel1->CellBorderStyle = System::Windows::Forms::TableLayoutPanelCellBorderStyle::InsetDouble;
 			this->tableLayoutPanel1->ColumnCount = 3;
 			this->tableLayoutPanel1->ColumnStyles->Add((gcnew System::Windows::Forms::ColumnStyle(System::Windows::Forms::SizeType::Percent,
-				33.33333F)));
+				40)));
 			this->tableLayoutPanel1->ColumnStyles->Add((gcnew System::Windows::Forms::ColumnStyle(System::Windows::Forms::SizeType::Percent,
-				33.33334F)));
+				40)));
 			this->tableLayoutPanel1->ColumnStyles->Add((gcnew System::Windows::Forms::ColumnStyle(System::Windows::Forms::SizeType::Percent,
-				33.33334F)));
+				20)));
 			this->tableLayoutPanel1->Controls->Add(this->z1, 0, 0);
 			this->tableLayoutPanel1->Controls->Add(this->dataGridView1, 0, 1);
 			this->tableLayoutPanel1->Controls->Add(this->tableLayoutPanel2, 1, 1);
@@ -366,28 +377,30 @@ namespace N7 {
 			this->tableLayoutPanel1->RowCount = 2;
 			this->tableLayoutPanel1->RowStyles->Add((gcnew System::Windows::Forms::RowStyle(System::Windows::Forms::SizeType::Percent, 50)));
 			this->tableLayoutPanel1->RowStyles->Add((gcnew System::Windows::Forms::RowStyle(System::Windows::Forms::SizeType::Percent, 50)));
-			this->tableLayoutPanel1->Size = System::Drawing::Size(1248, 529);
+			this->tableLayoutPanel1->Size = System::Drawing::Size(1390, 529);
 			this->tableLayoutPanel1->TabIndex = 10;
 			// 
 			// tableLayoutPanel2
 			// 
 			this->tableLayoutPanel2->AutoSize = true;
-			this->tableLayoutPanel2->ColumnCount = 3;
-			this->tableLayoutPanel2->ColumnStyles->Add((gcnew System::Windows::Forms::ColumnStyle()));
-			this->tableLayoutPanel2->ColumnStyles->Add((gcnew System::Windows::Forms::ColumnStyle()));
-			this->tableLayoutPanel2->ColumnStyles->Add((gcnew System::Windows::Forms::ColumnStyle()));
+			this->tableLayoutPanel2->ColumnCount = 2;
+			this->tableLayoutPanel2->ColumnStyles->Add((gcnew System::Windows::Forms::ColumnStyle(System::Windows::Forms::SizeType::Percent,
+				50)));
+			this->tableLayoutPanel2->ColumnStyles->Add((gcnew System::Windows::Forms::ColumnStyle(System::Windows::Forms::SizeType::Percent,
+				50)));
 			this->tableLayoutPanel2->Controls->Add(this->button1, 0, 0);
-			this->tableLayoutPanel2->Controls->Add(this->textBox1, 0, 1);
-			this->tableLayoutPanel2->Controls->Add(this->button4, 2, 1);
-			this->tableLayoutPanel2->Controls->Add(this->button2, 2, 0);
 			this->tableLayoutPanel2->Controls->Add(this->button3, 1, 0);
+			this->tableLayoutPanel2->Controls->Add(this->button4, 1, 1);
+			this->tableLayoutPanel2->Controls->Add(this->textBox1, 0, 1);
+			this->tableLayoutPanel2->Controls->Add(this->button2, 0, 2);
 			this->tableLayoutPanel2->Dock = System::Windows::Forms::DockStyle::Top;
-			this->tableLayoutPanel2->Location = System::Drawing::Point(835, 269);
+			this->tableLayoutPanel2->Location = System::Drawing::Point(1114, 269);
 			this->tableLayoutPanel2->Name = L"tableLayoutPanel2";
-			this->tableLayoutPanel2->RowCount = 2;
-			this->tableLayoutPanel2->RowStyles->Add((gcnew System::Windows::Forms::RowStyle()));
-			this->tableLayoutPanel2->RowStyles->Add((gcnew System::Windows::Forms::RowStyle()));
-			this->tableLayoutPanel2->Size = System::Drawing::Size(407, 86);
+			this->tableLayoutPanel2->RowCount = 3;
+			this->tableLayoutPanel2->RowStyles->Add((gcnew System::Windows::Forms::RowStyle(System::Windows::Forms::SizeType::Percent, 33.33333F)));
+			this->tableLayoutPanel2->RowStyles->Add((gcnew System::Windows::Forms::RowStyle(System::Windows::Forms::SizeType::Percent, 33.33333F)));
+			this->tableLayoutPanel2->RowStyles->Add((gcnew System::Windows::Forms::RowStyle(System::Windows::Forms::SizeType::Percent, 33.33333F)));
+			this->tableLayoutPanel2->Size = System::Drawing::Size(270, 156);
 			this->tableLayoutPanel2->TabIndex = 11;
 			// 
 			// button1
@@ -395,61 +408,61 @@ namespace N7 {
 			this->button1->Dock = System::Windows::Forms::DockStyle::Fill;
 			this->button1->Location = System::Drawing::Point(3, 3);
 			this->button1->Name = L"button1";
-			this->button1->Size = System::Drawing::Size(100, 44);
+			this->button1->Size = System::Drawing::Size(129, 46);
 			this->button1->TabIndex = 0;
 			this->button1->Text = L"Change projection";
 			this->button1->UseVisualStyleBackColor = true;
 			this->button1->Click += gcnew System::EventHandler(this, &MyForm::button1_Click);
 			// 
-			// textBox1
+			// button3
 			// 
-			this->tableLayoutPanel2->SetColumnSpan(this->textBox1, 2);
-			this->textBox1->Dock = System::Windows::Forms::DockStyle::Fill;
-			this->textBox1->Location = System::Drawing::Point(3, 53);
-			this->textBox1->Name = L"textBox1";
-			this->textBox1->Size = System::Drawing::Size(206, 20);
-			this->textBox1->TabIndex = 3;
-			this->textBox1->Visible = false;
+			this->button3->Dock = System::Windows::Forms::DockStyle::Fill;
+			this->button3->Location = System::Drawing::Point(138, 3);
+			this->button3->Name = L"button3";
+			this->button3->Size = System::Drawing::Size(129, 46);
+			this->button3->TabIndex = 2;
+			this->button3->Text = L"Clear table";
+			this->button3->UseVisualStyleBackColor = true;
+			this->button3->Click += gcnew System::EventHandler(this, &MyForm::button3_Click);
 			// 
 			// button4
 			// 
 			this->button4->Dock = System::Windows::Forms::DockStyle::Fill;
-			this->button4->Location = System::Drawing::Point(215, 53);
+			this->button4->Location = System::Drawing::Point(3, 107);
 			this->button4->Name = L"button4";
-			this->button4->Size = System::Drawing::Size(193, 30);
+			this->button4->Size = System::Drawing::Size(129, 46);
 			this->button4->TabIndex = 4;
 			this->button4->Text = L"Delete rows";
 			this->button4->UseVisualStyleBackColor = true;
 			this->button4->Visible = false;
 			this->button4->Click += gcnew System::EventHandler(this, &MyForm::button4_Click);
 			// 
+			// textBox1
+			// 
+			this->tableLayoutPanel2->SetColumnSpan(this->textBox1, 2);
+			this->textBox1->Dock = System::Windows::Forms::DockStyle::Fill;
+			this->textBox1->Location = System::Drawing::Point(3, 55);
+			this->textBox1->Name = L"textBox1";
+			this->textBox1->Size = System::Drawing::Size(264, 20);
+			this->textBox1->TabIndex = 3;
+			this->textBox1->Visible = false;
+			// 
 			// button2
 			// 
 			this->button2->Dock = System::Windows::Forms::DockStyle::Fill;
-			this->button2->Location = System::Drawing::Point(215, 3);
+			this->button2->Location = System::Drawing::Point(138, 107);
 			this->button2->Name = L"button2";
-			this->button2->Size = System::Drawing::Size(193, 44);
+			this->button2->Size = System::Drawing::Size(129, 46);
 			this->button2->TabIndex = 1;
 			this->button2->Text = L"Delete row";
 			this->button2->UseVisualStyleBackColor = true;
 			this->button2->Click += gcnew System::EventHandler(this, &MyForm::button2_Click);
 			// 
-			// button3
-			// 
-			this->button3->Dock = System::Windows::Forms::DockStyle::Fill;
-			this->button3->Location = System::Drawing::Point(109, 3);
-			this->button3->Name = L"button3";
-			this->button3->Size = System::Drawing::Size(100, 44);
-			this->button3->TabIndex = 2;
-			this->button3->Text = L"Clear table";
-			this->button3->UseVisualStyleBackColor = true;
-			this->button3->Click += gcnew System::EventHandler(this, &MyForm::button3_Click);
-			// 
 			// MyForm
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
-			this->ClientSize = System::Drawing::Size(1248, 554);
+			this->ClientSize = System::Drawing::Size(1390, 554);
 			this->Controls->Add(this->tableLayoutPanel1);
 			this->Controls->Add(this->toolStrip1);
 			this->Name = L"MyForm";
@@ -580,25 +593,25 @@ namespace N7 {
 
 				a_point = (gcnew System::Windows::Forms::DataVisualization::Charting::DataPoint());
 				a_point->SetValueXY(data[i][2], data[i][1]);
-				a_point->Label = i.ToString();
+				a_point->Label = dataGridView1->Rows[i]->HeaderCell->Value->ToString();
 				a_point->LabelForeColor = System::Drawing::Color::Gray;
 				z1->Series["XY"]->Points->Add(a_point);
 
 				ZY_point = (gcnew System::Windows::Forms::DataVisualization::Charting::DataPoint());
 				ZY_point->SetValueXY((-1.)*data[i][3], data[i][1]);
-				ZY_point->Label = i.ToString();
+				ZY_point->Label = dataGridView1->Rows[i]->HeaderCell->Value->ToString();
 				ZY_point->LabelForeColor = System::Drawing::Color::Gray;
 				z1->Series["ZX"]->Points->Add(ZY_point);
 
 				XZ_point = (gcnew System::Windows::Forms::DataVisualization::Charting::DataPoint());
 				XZ_point->SetValueXY(data[i][2], data[i][1]);
-				XZ_point->Label = i.ToString();
+				XZ_point->Label = dataGridView1->Rows[i]->HeaderCell->Value->ToString();
 				XZ_point->LabelForeColor = System::Drawing::Color::Gray;
 				z1->Series["XY2"]->Points->Add(XZ_point);
 
 				YZ_point = (gcnew System::Windows::Forms::DataVisualization::Charting::DataPoint());
 				YZ_point->SetValueXY(data[i][2], (-1.)*data[i][3]);
-				YZ_point->Label = i.ToString();
+				YZ_point->Label = dataGridView1->Rows[i]->HeaderCell->Value->ToString();
 				YZ_point->LabelForeColor = System::Drawing::Color::Gray;
 				z1->Series["ZY"]->Points->Add(YZ_point);
 
@@ -940,13 +953,7 @@ private: System::Void MyForm_FormClosing(System::Object^  sender, System::Window
  //изменение типа графика
 private: System::Void button1_Click(System::Object^  sender, System::EventArgs^  e)
 {
-	/*if (!dataGridView1->ColumnCount) { MessageBox::Show("No colums"); return; }
-	DataGridViewRow ^r = gcnew DataGridViewRow();
-	r->HeaderCell->Value = (dataGridView1->RowCount).ToString();
-	r->CreateCells(dataGridView1);
-	cli::array <String ^> ^Values = gcnew cli::array <String ^>(dataGridView1->ColumnCount);
-	dataGridView1->Rows->Add(r);
-	dataGridView1->RowHeadersWidth = 50;*/
+
 	if(z1->ChartAreas[0]->Visible)
 	{
 		z1->ChartAreas[0]->Visible = false;
@@ -1080,6 +1087,53 @@ private: System::Void z1_Click(System::Object^  sender, System::EventArgs^  e)
 
 	}
 }
+// сохранение в файл
+private: System::Void saveAsToolStripMenuItem_Click(System::Object^  sender, System::EventArgs^  e)
+{
+	saveFileDialog1->Filter = "Telie file|*.pst";
+	saveFileDialog1->ShowDialog();
+	saveFileDialog1->FilterIndex = 2;
+	saveFileDialog1->RestoreDirectory = true;
+	// получаем выбранный файл
+	System::String^ path_f  = saveFileDialog1->FileName;
+	string s2 = "";
+	MarshalString(path_f, s2);
+
+	double **comp_ore = new double*[dataGridView1->RowCount]; // создание динамического массива 
+
+	for (int count = 0; count < dataGridView1->RowCount; count++)
+		comp_ore[count] = new double[dataGridView1->ColumnCount];
+	   
+	for (int i = 0; i < dataGridView1->RowCount; i++)
+	{
+
+
+		for (int j = 0; j < dataGridView1->ColumnCount; j++) {
+			String ^ st2;
+			st2 = dataGridView1->Rows[i]->Cells[j]->FormattedValue->ToString();
+			if (st2)
+			{
+				double::TryParse(st2, comp_ore[i][j]);
+			}
+
+
+
+		}
+	}
+
+	ofstream fout;
+	 
+	fout.open(s2);
+
+	for (int i = 0; i < dataGridView1->RowCount-1; i++)
+	{
+		fout << comp_ore[i][0] << char(32) << comp_ore[i][1] << char(32) << comp_ore[i][2] << char(32) << comp_ore[i][3] << char(32) << comp_ore[i][4] <<char(32)<<"ARM"<< char(32) << comp_ore[i][6] <<char(32)<<"AFz"<< char(32) << comp_ore[i][8] << endl;
+	}
+	fout.close();
+
+}
+
+
 };
 
 
