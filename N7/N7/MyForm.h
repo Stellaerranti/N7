@@ -10,6 +10,7 @@
 #include <iomanip>
 #include <direct.h>
 #include <clocale> 
+#include "MyForm2.h"
 
 #define _CRT_SECURE_NO_WARNINGS
 namespace N7 {
@@ -95,6 +96,8 @@ namespace N7 {
 	private: System::Windows::Forms::Button^  button4;
 	private: System::Windows::Forms::ToolStripMenuItem^  saveAsToolStripMenuItem;
 	private: System::Windows::Forms::SaveFileDialog^  saveFileDialog1;
+	private: System::Windows::Forms::TableLayoutPanel^  tableLayoutPanel3;
+	private: System::Windows::Forms::Button^  button5;
 
 
 
@@ -153,6 +156,8 @@ namespace N7 {
 			this->button4 = (gcnew System::Windows::Forms::Button());
 			this->textBox1 = (gcnew System::Windows::Forms::TextBox());
 			this->button2 = (gcnew System::Windows::Forms::Button());
+			this->tableLayoutPanel3 = (gcnew System::Windows::Forms::TableLayoutPanel());
+			this->button5 = (gcnew System::Windows::Forms::Button());
 			this->saveFileDialog1 = (gcnew System::Windows::Forms::SaveFileDialog());
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->z1))->BeginInit();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->mh))->BeginInit();
@@ -160,6 +165,7 @@ namespace N7 {
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->dataGridView1))->BeginInit();
 			this->tableLayoutPanel1->SuspendLayout();
 			this->tableLayoutPanel2->SuspendLayout();
+			this->tableLayoutPanel3->SuspendLayout();
 			this->SuspendLayout();
 			// 
 			// openFileDialog1
@@ -370,6 +376,7 @@ namespace N7 {
 			this->tableLayoutPanel1->Controls->Add(this->dataGridView1, 0, 1);
 			this->tableLayoutPanel1->Controls->Add(this->tableLayoutPanel2, 1, 1);
 			this->tableLayoutPanel1->Controls->Add(this->mh, 1, 0);
+			this->tableLayoutPanel1->Controls->Add(this->tableLayoutPanel3, 2, 0);
 			this->tableLayoutPanel1->Dock = System::Windows::Forms::DockStyle::Fill;
 			this->tableLayoutPanel1->ForeColor = System::Drawing::SystemColors::ActiveCaptionText;
 			this->tableLayoutPanel1->Location = System::Drawing::Point(0, 25);
@@ -458,6 +465,34 @@ namespace N7 {
 			this->button2->UseVisualStyleBackColor = true;
 			this->button2->Click += gcnew System::EventHandler(this, &MyForm::button2_Click);
 			// 
+			// tableLayoutPanel3
+			// 
+			this->tableLayoutPanel3->ColumnCount = 2;
+			this->tableLayoutPanel3->ColumnStyles->Add((gcnew System::Windows::Forms::ColumnStyle(System::Windows::Forms::SizeType::Percent,
+				50)));
+			this->tableLayoutPanel3->ColumnStyles->Add((gcnew System::Windows::Forms::ColumnStyle(System::Windows::Forms::SizeType::Percent,
+				50)));
+			this->tableLayoutPanel3->Controls->Add(this->button5, 0, 1);
+			this->tableLayoutPanel3->Dock = System::Windows::Forms::DockStyle::Top;
+			this->tableLayoutPanel3->Location = System::Drawing::Point(1114, 6);
+			this->tableLayoutPanel3->Name = L"tableLayoutPanel3";
+			this->tableLayoutPanel3->RowCount = 2;
+			this->tableLayoutPanel3->RowStyles->Add((gcnew System::Windows::Forms::RowStyle(System::Windows::Forms::SizeType::Percent, 50)));
+			this->tableLayoutPanel3->RowStyles->Add((gcnew System::Windows::Forms::RowStyle(System::Windows::Forms::SizeType::Percent, 50)));
+			this->tableLayoutPanel3->Size = System::Drawing::Size(270, 100);
+			this->tableLayoutPanel3->TabIndex = 12;
+			// 
+			// button5
+			// 
+			this->button5->Dock = System::Windows::Forms::DockStyle::Fill;
+			this->button5->Location = System::Drawing::Point(3, 53);
+			this->button5->Name = L"button5";
+			this->button5->Size = System::Drawing::Size(129, 44);
+			this->button5->TabIndex = 0;
+			this->button5->Text = L"Calculate";
+			this->button5->UseVisualStyleBackColor = true;
+			this->button5->Click += gcnew System::EventHandler(this, &MyForm::button5_Click);
+			// 
 			// MyForm
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
@@ -465,10 +500,10 @@ namespace N7 {
 			this->ClientSize = System::Drawing::Size(1390, 554);
 			this->Controls->Add(this->tableLayoutPanel1);
 			this->Controls->Add(this->toolStrip1);
+			this->Icon = (cli::safe_cast<System::Drawing::Icon^>(resources->GetObject(L"$this.Icon")));
 			this->Name = L"MyForm";
-			this->Text = L"MyForm";
+			this->Text = L"pseudo Tellier";
 			this->FormClosing += gcnew System::Windows::Forms::FormClosingEventHandler(this, &MyForm::MyForm_FormClosing);
-			this->Load += gcnew System::EventHandler(this, &MyForm::MyForm_Load);
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->z1))->EndInit();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->mh))->EndInit();
 			this->toolStrip1->ResumeLayout(false);
@@ -478,6 +513,7 @@ namespace N7 {
 			this->tableLayoutPanel1->PerformLayout();
 			this->tableLayoutPanel2->ResumeLayout(false);
 			this->tableLayoutPanel2->PerformLayout();
+			this->tableLayoutPanel3->ResumeLayout(false);
 			this->ResumeLayout(false);
 			this->PerformLayout();
 
@@ -492,7 +528,7 @@ namespace N7 {
 	}
 	double **data = (double**)malloc(1 * sizeof(double));
 	double **dataRMG=(double**)malloc(1 * sizeof(double));
-	
+	int line_PMD, line_RMG;
 	/*double maximumX(double **data, int counter)
 	{
 		double max = data[0][3];
@@ -734,7 +770,7 @@ namespace N7 {
 			draw(data, line_counter);
 			fillGridPMD(data, line_counter);
 			this->Cursor = System::Windows::Forms::Cursors::Default;
-
+			line_PMD = line_counter-1;
 		}
 		
 		
@@ -876,6 +912,7 @@ namespace N7 {
 			
 			fillGridRMG(dataRMG, line_counter_RMG);
 			this->Cursor = System::Windows::Forms::Cursors::Default;
+			line_RMG = line_counter_RMG;
 
 		}
 
@@ -1056,19 +1093,13 @@ private: System::Void button2_Click(System::Object^  sender, System::EventArgs^ 
 	button2->Enabled = true;
 
 }
-		 
-
+ 
 private: System::Void button3_Click(System::Object^  sender, System::EventArgs^  e)
 {
 	dataGridView1->Rows->Clear();
 	
 }
-private: System::Void MyForm_Load(System::Object^  sender, System::EventArgs^  e) 
-{
-
-}
-
-		 //удоление строк, номера которых введены в строке
+//удоление строк, номера которых введены в строке
 private: System::Void button4_Click(System::Object^  sender, System::EventArgs^  e) 
 {
 
@@ -1133,7 +1164,38 @@ private: System::Void saveAsToolStripMenuItem_Click(System::Object^  sender, Sys
 
 }
 
+//Ќачало рассчЄта
+private: System::Void button5_Click(System::Object^  sender, System::EventArgs^  e) 
+{
+	if (line_PMD != line_RMG)
+	{
+		MessageBox::Show("Different amount of data for NRM and ARM");
+	}
+	else
+	{
+		double **comp_ore = new double*[dataGridView1->RowCount]; // создание динамического массива 
+		for (int count = 0; count < dataGridView1->RowCount; count++)
+			comp_ore[count] = new double[dataGridView1->ColumnCount];
 
+		for (int i = 0; i < dataGridView1->RowCount; i++)
+		{
+			for (int j = 0; j < dataGridView1->ColumnCount; j++) {
+				String ^ st2;
+				st2 = dataGridView1->Rows[i]->Cells[j]->FormattedValue->ToString();
+				if (st2)
+				{
+					double::TryParse(st2, comp_ore[i][j]);
+				}
+
+
+
+			}
+		}
+		MyForm2 ^F2 = gcnew MyForm2;
+		F2->Do(comp_ore, line_PMD);
+		F2->Show();
+	}
+}
 };
 
 
