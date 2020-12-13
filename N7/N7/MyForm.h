@@ -98,6 +98,12 @@ namespace N7 {
 	private: System::Windows::Forms::SaveFileDialog^  saveFileDialog1;
 	private: System::Windows::Forms::TableLayoutPanel^  tableLayoutPanel3;
 	private: System::Windows::Forms::Button^  button5;
+	private: System::Windows::Forms::Label^  label1;
+	private: System::Windows::Forms::Label^  labelNRM;
+
+	private: System::Windows::Forms::Label^  label3;
+	private: System::Windows::Forms::Label^  labelARM;
+
 
 
 
@@ -159,6 +165,10 @@ namespace N7 {
 			this->tableLayoutPanel3 = (gcnew System::Windows::Forms::TableLayoutPanel());
 			this->button5 = (gcnew System::Windows::Forms::Button());
 			this->saveFileDialog1 = (gcnew System::Windows::Forms::SaveFileDialog());
+			this->label1 = (gcnew System::Windows::Forms::Label());
+			this->labelNRM = (gcnew System::Windows::Forms::Label());
+			this->label3 = (gcnew System::Windows::Forms::Label());
+			this->labelARM = (gcnew System::Windows::Forms::Label());
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->z1))->BeginInit();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->mh))->BeginInit();
 			this->toolStrip1->SuspendLayout();
@@ -472,26 +482,71 @@ namespace N7 {
 				50)));
 			this->tableLayoutPanel3->ColumnStyles->Add((gcnew System::Windows::Forms::ColumnStyle(System::Windows::Forms::SizeType::Percent,
 				50)));
-			this->tableLayoutPanel3->Controls->Add(this->button5, 0, 1);
+			this->tableLayoutPanel3->Controls->Add(this->button5, 0, 2);
+			this->tableLayoutPanel3->Controls->Add(this->label1, 0, 0);
+			this->tableLayoutPanel3->Controls->Add(this->labelNRM, 1, 0);
+			this->tableLayoutPanel3->Controls->Add(this->label3, 0, 1);
+			this->tableLayoutPanel3->Controls->Add(this->labelARM, 1, 1);
 			this->tableLayoutPanel3->Dock = System::Windows::Forms::DockStyle::Top;
 			this->tableLayoutPanel3->Location = System::Drawing::Point(1114, 6);
 			this->tableLayoutPanel3->Name = L"tableLayoutPanel3";
-			this->tableLayoutPanel3->RowCount = 2;
-			this->tableLayoutPanel3->RowStyles->Add((gcnew System::Windows::Forms::RowStyle(System::Windows::Forms::SizeType::Percent, 50)));
-			this->tableLayoutPanel3->RowStyles->Add((gcnew System::Windows::Forms::RowStyle(System::Windows::Forms::SizeType::Percent, 50)));
+			this->tableLayoutPanel3->RowCount = 3;
+			this->tableLayoutPanel3->RowStyles->Add((gcnew System::Windows::Forms::RowStyle(System::Windows::Forms::SizeType::Percent, 26.31579F)));
+			this->tableLayoutPanel3->RowStyles->Add((gcnew System::Windows::Forms::RowStyle(System::Windows::Forms::SizeType::Percent, 21.05263F)));
+			this->tableLayoutPanel3->RowStyles->Add((gcnew System::Windows::Forms::RowStyle(System::Windows::Forms::SizeType::Percent, 52.63158F)));
 			this->tableLayoutPanel3->Size = System::Drawing::Size(270, 100);
 			this->tableLayoutPanel3->TabIndex = 12;
 			// 
 			// button5
 			// 
 			this->button5->Dock = System::Windows::Forms::DockStyle::Fill;
-			this->button5->Location = System::Drawing::Point(3, 53);
+			this->button5->Location = System::Drawing::Point(3, 50);
 			this->button5->Name = L"button5";
-			this->button5->Size = System::Drawing::Size(129, 44);
+			this->button5->Size = System::Drawing::Size(129, 47);
 			this->button5->TabIndex = 0;
 			this->button5->Text = L"Calculate";
 			this->button5->UseVisualStyleBackColor = true;
 			this->button5->Click += gcnew System::EventHandler(this, &MyForm::button5_Click);
+			// 
+			// label1
+			// 
+			this->label1->AutoSize = true;
+			this->label1->Dock = System::Windows::Forms::DockStyle::Fill;
+			this->label1->Location = System::Drawing::Point(3, 0);
+			this->label1->Name = L"label1";
+			this->label1->Size = System::Drawing::Size(129, 26);
+			this->label1->TabIndex = 1;
+			this->label1->Text = L"NRM file";
+			// 
+			// labelNRM
+			// 
+			this->labelNRM->AutoSize = true;
+			this->labelNRM->Dock = System::Windows::Forms::DockStyle::Fill;
+			this->labelNRM->Location = System::Drawing::Point(138, 0);
+			this->labelNRM->Name = L"labelNRM";
+			this->labelNRM->Size = System::Drawing::Size(129, 26);
+			this->labelNRM->TabIndex = 2;
+			this->labelNRM->Text = L"label2";
+			// 
+			// label3
+			// 
+			this->label3->AutoSize = true;
+			this->label3->Dock = System::Windows::Forms::DockStyle::Fill;
+			this->label3->Location = System::Drawing::Point(3, 26);
+			this->label3->Name = L"label3";
+			this->label3->Size = System::Drawing::Size(129, 21);
+			this->label3->TabIndex = 3;
+			this->label3->Text = L"ARM file";
+			// 
+			// labelARM
+			// 
+			this->labelARM->AutoSize = true;
+			this->labelARM->Dock = System::Windows::Forms::DockStyle::Fill;
+			this->labelARM->Location = System::Drawing::Point(138, 26);
+			this->labelARM->Name = L"labelARM";
+			this->labelARM->Size = System::Drawing::Size(129, 21);
+			this->labelARM->TabIndex = 4;
+			this->labelARM->Text = L"label4";
 			// 
 			// MyForm
 			// 
@@ -514,6 +569,7 @@ namespace N7 {
 			this->tableLayoutPanel2->ResumeLayout(false);
 			this->tableLayoutPanel2->PerformLayout();
 			this->tableLayoutPanel3->ResumeLayout(false);
+			this->tableLayoutPanel3->PerformLayout();
 			this->ResumeLayout(false);
 			this->PerformLayout();
 
@@ -529,14 +585,8 @@ namespace N7 {
 	double **data = (double**)malloc(1 * sizeof(double));
 	double **dataRMG=(double**)malloc(1 * sizeof(double));
 	int line_PMD, line_RMG;
-	/*double maximumX(double **data, int counter)
-	{
-		double max = data[0][3];
-		for (int i = 0; i < counter; i++)
-		{
-			if(data)
-		}
-	}*/
+	
+
 	void draw(double **data, int line_counter)
 	{
 
@@ -595,6 +645,8 @@ namespace N7 {
 		}
 
 	}
+
+
 
 	void drawTable(double **data, int line_counter)
 	{
@@ -668,13 +720,19 @@ namespace N7 {
 		
 		//setlocale(LC_ALL, "Russian");
 		//Открываем файловый диалог
-		openFileDialog1->RestoreDirectory = true;
+		//openFileDialog1->RestoreDirectory = true;
 		this->openFileDialog1->Filter = "NRM data|*.pmd";
 		openFileDialog1->ShowDialog();		
 		System::String^ path_f = openFileDialog1->FileName;
 		string s2 = "";
 		MarshalString(path_f, s2);
 		ifstream fin(s2);
+		char fname[255];
+		strcpy_s(fname, s2.c_str());
+		char *pch = strrchr(fname, '\\');
+		string filelabel = string(pch);
+		filelabel.erase(0, 1);
+		labelNRM->Text = gcnew System::String(filelabel.c_str());
 		//ofstream fout("testout.txt");//удолить после тестирований
 		int column_counter=0;
 		int line_counter = 0;
@@ -788,6 +846,12 @@ namespace N7 {
 		string s2 = "";
 		MarshalString(path_f, s2);
 		ifstream fin(s2);
+		char fname[255];
+		strcpy_s(fname, s2.c_str());
+		char *pch = strrchr(fname, '\\');
+		string filelabel = string(pch);
+		filelabel.erase(0, 1);
+		labelARM->Text = gcnew System::String(filelabel.c_str());
 		//ofstream fout("testout.txt");//удолить после тестирований
 		int column_counter = 0;
 		int line_counter_RMG = 0;
