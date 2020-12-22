@@ -29,10 +29,26 @@
     <ClInclude Include="MyForm2.h">
       <Filter>Файлы заголовков</Filter>
     </ClInclude>
+    <ClInclude Include="resource.h">
+      <Filter>Файлы заголовков</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="MyForm.resx">
       <Filter>Файлы ресурсов</Filter>
     </EmbeddedResource>
+    <EmbeddedResource Include="MyForm2.resx">
+      <Filter>Файлы ресурсов</Filter>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="N7.rc">
+      <Filter>Файлы ресурсов</Filter>
+    </ResourceCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="..\ico\1.ico">
+      <Filter>Файлы ресурсов</Filter>
+    </Image>
   </ItemGroup>
 </Project>

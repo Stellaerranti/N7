@@ -23,7 +23,7 @@ Class N7.MyForm2: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
   :System.Windows.Forms.Form
     Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
   Methods:
-    Do(Double**, Double**, Int32): PrivateScope, Public, HideBySig
+    Do(Double**, Int32): PrivateScope, Public, HideBySig
 Class N7.MyForm: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
   :System.Windows.Forms.Form
     Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
