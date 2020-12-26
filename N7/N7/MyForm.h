@@ -137,16 +137,16 @@ namespace N7 {
 		/// </summary>
 		void InitializeComponent(void)
 		{
-			System::Windows::Forms::DataVisualization::Charting::ChartArea^  chartArea4 = (gcnew System::Windows::Forms::DataVisualization::Charting::ChartArea());
-			System::Windows::Forms::DataVisualization::Charting::ChartArea^  chartArea5 = (gcnew System::Windows::Forms::DataVisualization::Charting::ChartArea());
-			System::Windows::Forms::DataVisualization::Charting::Legend^  legend3 = (gcnew System::Windows::Forms::DataVisualization::Charting::Legend());
-			System::Windows::Forms::DataVisualization::Charting::Series^  series6 = (gcnew System::Windows::Forms::DataVisualization::Charting::Series());
-			System::Windows::Forms::DataVisualization::Charting::Series^  series7 = (gcnew System::Windows::Forms::DataVisualization::Charting::Series());
-			System::Windows::Forms::DataVisualization::Charting::Series^  series8 = (gcnew System::Windows::Forms::DataVisualization::Charting::Series());
-			System::Windows::Forms::DataVisualization::Charting::Series^  series9 = (gcnew System::Windows::Forms::DataVisualization::Charting::Series());
-			System::Windows::Forms::DataVisualization::Charting::ChartArea^  chartArea6 = (gcnew System::Windows::Forms::DataVisualization::Charting::ChartArea());
-			System::Windows::Forms::DataVisualization::Charting::Legend^  legend4 = (gcnew System::Windows::Forms::DataVisualization::Charting::Legend());
-			System::Windows::Forms::DataVisualization::Charting::Series^  series10 = (gcnew System::Windows::Forms::DataVisualization::Charting::Series());
+			System::Windows::Forms::DataVisualization::Charting::ChartArea^  chartArea1 = (gcnew System::Windows::Forms::DataVisualization::Charting::ChartArea());
+			System::Windows::Forms::DataVisualization::Charting::ChartArea^  chartArea2 = (gcnew System::Windows::Forms::DataVisualization::Charting::ChartArea());
+			System::Windows::Forms::DataVisualization::Charting::Legend^  legend1 = (gcnew System::Windows::Forms::DataVisualization::Charting::Legend());
+			System::Windows::Forms::DataVisualization::Charting::Series^  series1 = (gcnew System::Windows::Forms::DataVisualization::Charting::Series());
+			System::Windows::Forms::DataVisualization::Charting::Series^  series2 = (gcnew System::Windows::Forms::DataVisualization::Charting::Series());
+			System::Windows::Forms::DataVisualization::Charting::Series^  series3 = (gcnew System::Windows::Forms::DataVisualization::Charting::Series());
+			System::Windows::Forms::DataVisualization::Charting::Series^  series4 = (gcnew System::Windows::Forms::DataVisualization::Charting::Series());
+			System::Windows::Forms::DataVisualization::Charting::ChartArea^  chartArea3 = (gcnew System::Windows::Forms::DataVisualization::Charting::ChartArea());
+			System::Windows::Forms::DataVisualization::Charting::Legend^  legend2 = (gcnew System::Windows::Forms::DataVisualization::Charting::Legend());
+			System::Windows::Forms::DataVisualization::Charting::Series^  series5 = (gcnew System::Windows::Forms::DataVisualization::Charting::Series());
 			System::ComponentModel::ComponentResourceManager^  resources = (gcnew System::ComponentModel::ComponentResourceManager(MyForm::typeid));
 			this->openFileDialog1 = (gcnew System::Windows::Forms::OpenFileDialog());
 			this->z1 = (gcnew System::Windows::Forms::DataVisualization::Charting::Chart());
@@ -203,42 +203,42 @@ namespace N7 {
 			// 
 			// z1
 			// 
-			chartArea4->Name = L"ChartArea1";
-			chartArea5->Name = L"ChartArea2";
-			chartArea5->Visible = false;
-			this->z1->ChartAreas->Add(chartArea4);
-			this->z1->ChartAreas->Add(chartArea5);
+			chartArea1->Name = L"ChartArea1";
+			chartArea2->Name = L"ChartArea2";
+			chartArea2->Visible = false;
+			this->z1->ChartAreas->Add(chartArea1);
+			this->z1->ChartAreas->Add(chartArea2);
 			this->z1->Dock = System::Windows::Forms::DockStyle::Fill;
-			legend3->Name = L"Legend1";
-			this->z1->Legends->Add(legend3);
+			legend1->Name = L"Legend1";
+			this->z1->Legends->Add(legend1);
 			this->z1->Location = System::Drawing::Point(6, 6);
 			this->z1->Name = L"z1";
-			series6->ChartArea = L"ChartArea1";
-			series6->ChartType = System::Windows::Forms::DataVisualization::Charting::SeriesChartType::Point;
-			series6->LabelBorderWidth = 5;
-			series6->Legend = L"Legend1";
-			series6->LegendText = L"X,Y";
-			series6->Name = L"XY";
-			series7->ChartArea = L"ChartArea1";
-			series7->ChartType = System::Windows::Forms::DataVisualization::Charting::SeriesChartType::Point;
-			series7->LabelBorderWidth = 5;
-			series7->Legend = L"Legend1";
-			series7->LegendText = L"Z.X";
-			series7->Name = L"ZX";
-			series8->ChartArea = L"ChartArea2";
-			series8->ChartType = System::Windows::Forms::DataVisualization::Charting::SeriesChartType::Point;
-			series8->Legend = L"Legend1";
-			series8->LegendText = L"X,Y";
-			series8->Name = L"XY2";
-			series9->ChartArea = L"ChartArea2";
-			series9->ChartType = System::Windows::Forms::DataVisualization::Charting::SeriesChartType::Point;
-			series9->Legend = L"Legend1";
-			series9->LegendText = L"Z,Y";
-			series9->Name = L"ZY";
-			this->z1->Series->Add(series6);
-			this->z1->Series->Add(series7);
-			this->z1->Series->Add(series8);
-			this->z1->Series->Add(series9);
+			series1->ChartArea = L"ChartArea1";
+			series1->ChartType = System::Windows::Forms::DataVisualization::Charting::SeriesChartType::Point;
+			series1->LabelBorderWidth = 5;
+			series1->Legend = L"Legend1";
+			series1->LegendText = L"X,Y";
+			series1->Name = L"XY";
+			series2->ChartArea = L"ChartArea1";
+			series2->ChartType = System::Windows::Forms::DataVisualization::Charting::SeriesChartType::Point;
+			series2->LabelBorderWidth = 5;
+			series2->Legend = L"Legend1";
+			series2->LegendText = L"Z.X";
+			series2->Name = L"ZX";
+			series3->ChartArea = L"ChartArea2";
+			series3->ChartType = System::Windows::Forms::DataVisualization::Charting::SeriesChartType::Point;
+			series3->Legend = L"Legend1";
+			series3->LegendText = L"X,Y";
+			series3->Name = L"XY2";
+			series4->ChartArea = L"ChartArea2";
+			series4->ChartType = System::Windows::Forms::DataVisualization::Charting::SeriesChartType::Point;
+			series4->Legend = L"Legend1";
+			series4->LegendText = L"Z,Y";
+			series4->Name = L"ZY";
+			this->z1->Series->Add(series1);
+			this->z1->Series->Add(series2);
+			this->z1->Series->Add(series3);
+			this->z1->Series->Add(series4);
 			this->z1->Size = System::Drawing::Size(580, 309);
 			this->z1->TabIndex = 4;
 			this->z1->Text = L"chart1";
@@ -246,18 +246,18 @@ namespace N7 {
 			// 
 			// mh
 			// 
-			chartArea6->Name = L"ChartArea1";
-			this->mh->ChartAreas->Add(chartArea6);
+			chartArea3->Name = L"ChartArea1";
+			this->mh->ChartAreas->Add(chartArea3);
 			this->mh->Dock = System::Windows::Forms::DockStyle::Fill;
-			legend4->Name = L"Legend1";
-			this->mh->Legends->Add(legend4);
+			legend2->Name = L"Legend1";
+			this->mh->Legends->Add(legend2);
 			this->mh->Location = System::Drawing::Point(595, 6);
 			this->mh->Name = L"mh";
-			series10->ChartArea = L"ChartArea1";
-			series10->ChartType = System::Windows::Forms::DataVisualization::Charting::SeriesChartType::Point;
-			series10->Legend = L"Legend1";
-			series10->Name = L"MH";
-			this->mh->Series->Add(series10);
+			series5->ChartArea = L"ChartArea1";
+			series5->ChartType = System::Windows::Forms::DataVisualization::Charting::SeriesChartType::Point;
+			series5->Legend = L"Legend1";
+			series5->Name = L"MH";
+			this->mh->Series->Add(series5);
 			this->mh->Size = System::Drawing::Size(580, 309);
 			this->mh->TabIndex = 6;
 			this->mh->Text = L"chart3";
@@ -828,7 +828,11 @@ namespace N7 {
 		//Открываем файловый диалог
 		//openFileDialog1->RestoreDirectory = true;
 		this->openFileDialog1->Filter = "NRM data|*.pmd";
-		openFileDialog1->ShowDialog();		
+
+		System::Windows::Forms::DialogResult result = openFileDialog1->ShowDialog();
+		if (result != System::Windows::Forms::DialogResult::OK)
+			return;
+			
 		System::String^ path_f = openFileDialog1->FileName;
 		string s2 = "";
 		MarshalString(path_f, s2);
@@ -909,23 +913,24 @@ namespace N7 {
 					if (line_counter == 1)
 					{
 						data[0] = (double*)malloc(5 * sizeof(double));
-						for (int i = 0; i <5; i++)
+						for (int i = 0; i <4; i++)
 						{
 							data[line_counter - 1][i] = values[i];
 							
 						}
+						data[line_counter - 1][4] = sqrt(data[line_counter - 1][3]* data[line_counter - 1][3]+ data[line_counter - 1][2]* data[line_counter - 1][2]+ data[line_counter - 1][1]* data[line_counter - 1][1])*1000;
 						
 					}
 					else
 					{
 						data = (double**)realloc(data, line_counter * sizeof(double*));
 						data[line_counter - 1] = (double*)malloc(5 * sizeof(double));
-						for (int i = 0; i < 5; i++)
+						for (int i = 0; i < 4; i++)
 						{
 							data[line_counter - 1][i] = values[i];
 							
 						}
-						
+						data[line_counter - 1][4] = sqrt(data[line_counter - 1][3] * data[line_counter - 1][3] + data[line_counter - 1][2] * data[line_counter - 1][2] + data[line_counter - 1][1] * data[line_counter - 1][1])*1000;
 					}
 				}
 			}
@@ -947,7 +952,11 @@ namespace N7 {
 	//Открываем файловый диалог
 		openFileDialog1->RestoreDirectory = true;
 		this->openFileDialog1->Filter = "ARM and AFz data|*.rmg";
-		openFileDialog1->ShowDialog();
+		
+		System::Windows::Forms::DialogResult result = openFileDialog1->ShowDialog();
+		if (result != System::Windows::Forms::DialogResult::OK)
+			return;
+			
 		System::String^ path_f = openFileDialog1->FileName;
 		string s2 = "";
 		MarshalString(path_f, s2);
@@ -1274,6 +1283,8 @@ private: System::Void button4_Click(System::Object^  sender, System::EventArgs^ 
 {
 
 }
+		 //изменение графика по нажатию по нему
+
 private: System::Void z1_Click(System::Object^  sender, System::EventArgs^  e) 
 {
 	if (z1->ChartAreas[0]->Visible)
@@ -1292,7 +1303,11 @@ private: System::Void z1_Click(System::Object^  sender, System::EventArgs^  e)
 private: System::Void saveAsToolStripMenuItem_Click(System::Object^  sender, System::EventArgs^  e)
 {
 	saveFileDialog1->Filter = "Telie file|*.pst";
-	saveFileDialog1->ShowDialog();
+	System::Windows::Forms::DialogResult result = saveFileDialog1->ShowDialog();
+	
+	if (result != System::Windows::Forms::DialogResult::OK)
+		return;
+
 	saveFileDialog1->FilterIndex = 2;
 	//saveFileDialog1->RestoreDirectory = true;
 	// получаем выбранный файл
@@ -1322,9 +1337,9 @@ private: System::Void saveAsToolStripMenuItem_Click(System::Object^  sender, Sys
 		}
 	}
 
-	ofstream fout;
+	ofstream fout(s2, ios_base::app);;
 	 
-	fout.open(s2);
+	
 
 	for (int i = 0; i < dataGridView1->RowCount-1; i++)
 	{
