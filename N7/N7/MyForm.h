@@ -1281,10 +1281,131 @@ private: System::Void button3_Click(System::Object^  sender, System::EventArgs^ 
 //удоление строк, номера которых введены в строке
 private: System::Void button4_Click(System::Object^  sender, System::EventArgs^  e) 
 {
+	try
+	{
+		System::String ^t = textBox1->Text;
+		string s = "";
+		MarshalString(t, s);
 
+		string buf;
+		string subbuf1, subbuf2;
+		
+		int a, b, c;
+		
+		int k = 0;
+		int len = s.length();
+
+		int counter = 0;
+		while (k < len)
+		{
+			if (s.find(",") != -1)
+			{
+				buf = s.substr(0, s.find(","));
+				if (buf.find("-") != -1)
+				{
+					subbuf1 = buf.substr(0, buf.find("-"));
+					subbuf2 = buf.substr(buf.find("-") + 1, buf.length());
+					a = stoi(subbuf1);
+					b = stoi(subbuf2);
+					
+					try {
+					while (a <= b)
+					{
+				
+						dataGridView1->Rows->RemoveAt(a-1- counter);
+						counter++;
+						a++;
+					}
+					}
+					catch (...) { MessageBox::Show("Unable to delete this row "); }
+					s = s.substr(s.find(",") + 1, s.length());
+					k = k + buf.length() + 1;
+				}
+				else
+				{
+					a = stoi(buf);
+					s = s.substr(s.find(",") + 1, s.length());
+					k = k + buf.length() + 1;
+					
+					try { dataGridView1->Rows->RemoveAt(a-1- counter); }
+					catch (...) { MessageBox::Show("Unable to delete this row "); }
+					counter++;
+				}
+
+			}
+			else
+			{
+				if (s.find("-") != -1)
+				{
+					subbuf1 = s.substr(0, s.find("-"));
+					subbuf2 = s.substr(s.find("-") + 1, s.length());
+					a = stoi(subbuf1);
+					b = stoi(subbuf2);
+					try {
+						
+					while (a <= b)
+					{
+						 dataGridView1->Rows->RemoveAt(a-1- counter);
+						 counter++;
+						a++;
+					}
+					}
+					catch (...) { MessageBox::Show("Unable to delete this row "); }
+					k = k + s.length() + 1;
+				}
+				else
+				{
+					a = stoi(s);
+					try { dataGridView1->Rows->RemoveAt(a-1- counter); }
+					catch (...) { MessageBox::Show("Unable to delete this row "); }
+					counter++;
+					k = k + s.length() + 1;
+					
+				}
+
+			}
+
+
+
+		}
+
+		double **comp_ore = new double*[dataGridView1->RowCount]; // создание динамического массива 
+
+
+		for (int count = 0; count < dataGridView1->RowCount; count++)
+			comp_ore[count] = new double[dataGridView1->ColumnCount];
+
+
+
+		for (int i = 0; i < dataGridView1->RowCount; i++)
+		{
+
+
+			for (int j = 0; j < dataGridView1->ColumnCount; j++) {
+				String ^ st2;
+				st2 = dataGridView1->Rows[i]->Cells[j]->FormattedValue->ToString();
+				if (st2)
+				{
+					double::TryParse(st2, comp_ore[i][j]);
+				}
+
+
+
+			}
+			//dataGridView1->Rows[i]->HeaderCell->Value = (i + 1).ToString();
+
+		}
+		drawTable(comp_ore, dataGridView1->RowCount - 1);
+
+	}
+	catch (const std::exception&)
+	{
+		MessageBox::Show("Can't delete this rows");
+	}
+	
 }
-		 //изменение графика по нажатию по нему
 
+		 //изменение графика по нажатию по нему
 private: System::Void z1_Click(System::Object^  sender, System::EventArgs^  e) 
 {
 	if (z1->ChartAreas[0]->Visible)
@@ -1385,7 +1506,7 @@ private: System::Void button5_Click(System::Object^  sender, System::EventArgs^ 
 			}
 		}
 		MyForm2 ^F2 = gcnew MyForm2;
-		F2->Do(comp_ore, dataGridView1->RowCount - 1);
+		F2->Do(comp_ore, dataGridView1->RowCount - 1, labelARM->Text, labelNRM->Text);
 		F2->Show();
 	}
 }
@@ -1417,22 +1538,32 @@ private: System::Void button6_Click(System::Object^  sender, System::EventArgs^ 
 
 			}
 		}
-
-		int num = Convert::ToInt32(textBox2->Text);
-		if (num > dataGridView1->RowCount)
+		try
 		{
-			MessageBox::Show("Number out of range");
-		}
-		else
-		{
-			double val = comp_ore[num-1][4];
 
-			for (int i = 0; i < dataGridView1->RowCount-1; i++)
+
+			if ((textBox2->Text) == "")
+				throw std::exception("No such numbers");
+			int num = Convert::ToInt32(textBox2->Text);
+			if (num > dataGridView1->RowCount)
 			{
-				dataGridView1->Rows[i]->Cells[4]->Value = (comp_ore[i][4] - val).ToString("E3");
-				dataGridView1->Rows[i]->Cells[6]->Value = (comp_ore[i][6] - val).ToString("E3");
-				dataGridView1->Rows[i]->Cells[8]->Value = (comp_ore[i][8] - val).ToString("E3");
+				MessageBox::Show("Number out of range");
 			}
+			else
+			{
+				double val = comp_ore[num - 1][4];
+
+				for (int i = 0; i < dataGridView1->RowCount - 1; i++)
+				{
+					dataGridView1->Rows[i]->Cells[4]->Value = (comp_ore[i][4] - val).ToString("E3");
+					dataGridView1->Rows[i]->Cells[6]->Value = (comp_ore[i][6] - val).ToString("E3");
+					dataGridView1->Rows[i]->Cells[8]->Value = (comp_ore[i][8] - val).ToString("E3");
+				}
+			}
+		}
+		catch (const std::exception&)
+		{
+			MessageBox::Show("Invalid input");
 		}
 		
 
@@ -1461,8 +1592,11 @@ private: System::Void button6_Click(System::Object^  sender, System::EventArgs^ 
 
 			}
 		}
-		
-		double val = Convert::ToDouble(textBox2->Text);
+		try
+		{
+			if ((textBox2->Text) == "")
+				throw std::exception("No such numbers");
+				double val = Convert::ToDouble(textBox2->Text);
 
 			for (int i = 0; i < dataGridView1->RowCount - 1; i++)
 			{
@@ -1470,8 +1604,12 @@ private: System::Void button6_Click(System::Object^  sender, System::EventArgs^ 
 				dataGridView1->Rows[i]->Cells[6]->Value = (comp_ore[i][6] - val).ToString("E3");
 				dataGridView1->Rows[i]->Cells[8]->Value = (comp_ore[i][8] - val).ToString("E3");
 			}
-		
 
+		}
+		catch (const std::exception&)
+		{
+			MessageBox::Show("Invalid input");
+		}
 
 
 	}

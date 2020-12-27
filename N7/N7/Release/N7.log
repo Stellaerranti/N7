@@ -1,5 +1,5 @@
 ﻿  MyForm.cpp
-i:\smartgit\smartgit\rep\n7\n7\myform2.h(689): warning C4101: e: неиспользованная локальная переменная
+i:\smartgit\smartgit\rep\n7\n7\myform2.h(694): warning C4101: e: неиспользованная локальная переменная
 i:\smartgit\smartgit\rep\n7\n7\myform.h(874): warning C4996: 'strtok': This function or variable may be unsafe. Consider using strtok_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
   c:\program files (x86)\windows kits\10\include\10.0.17763.0\ucrt\string.h(440): note:  см. объявление "strtok"
 i:\smartgit\smartgit\rep\n7\n7\myform.h(907): warning C4996: 'strtok': This function or variable may be unsafe. Consider using strtok_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
@@ -8,8 +8,6 @@ i:\smartgit\smartgit\rep\n7\n7\myform.h(1006): warning C4996: 'strtok': This fun
   c:\program files (x86)\windows kits\10\include\10.0.17763.0\ucrt\string.h(440): note:  см. объявление "strtok"
 i:\smartgit\smartgit\rep\n7\n7\myform.h(1037): warning C4996: 'strtok': This function or variable may be unsafe. Consider using strtok_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
   c:\program files (x86)\windows kits\10\include\10.0.17763.0\ucrt\string.h(440): note:  см. объявление "strtok"
+i:\smartgit\smartgit\rep\n7\n7\myform.h(1293): warning C4101: c: неиспользованная локальная переменная
 i:\smartgit\smartgit\rep\n7\n7\myform.cpp(6): warning C4829: Возможно, неправильные параметры функции main. Рекомендуемый вариант - "int main(Platform::Array<Platform::String^>^ argv)"
-  MyForm2.cpp
-i:\smartgit\smartgit\rep\n7\n7\myform2.h(689): warning C4101: e: неиспользованная локальная переменная
-  Создание кода...
   N7.vcxproj -> I:\SmartGit\SmartGit\rep\N7\Release\N7.exe
