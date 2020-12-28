@@ -23,12 +23,12 @@ Class N7.MyForm2: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
   :System.Windows.Forms.Form
     Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
   Methods:
-    Do(Double**, Int32, String, String): PrivateScope, Public, HideBySig
-    find_f(Double, Double**, Int32, Int32): PrivateScope, Public, HideBySig
-    find_r_corr(Double**, Int32, Int32): PrivateScope, Public, HideBySig
-    find_b(Double**, Int32, Int32): PrivateScope, Public, HideBySig
-    find_s_b(Double**, Double, Int32, Int32): PrivateScope, Public, HideBySig
-    intersept(Double**, Double, Int32, Int32): PrivateScope, Public, HideBySig
+    Do(Double**, Int32, String, String, String): PrivateScope, Public, HideBySig
+    find_f(Double, Double**, Int32, Int32, Int32): PrivateScope, Public, HideBySig
+    find_r_corr(Double**, Int32, Int32, Int32, Int32): PrivateScope, Public, HideBySig
+    find_b(Double**, Int32, Int32, Int32, Int32): PrivateScope, Public, HideBySig
+    find_s_b(Double**, Double, Int32, Int32, Int32, Int32): PrivateScope, Public, HideBySig
+    intersept(Double**, Double, Int32, Int32, Int32, Int32): PrivateScope, Public, HideBySig
 Class N7.MyForm: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
   :System.Windows.Forms.Form
     Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName

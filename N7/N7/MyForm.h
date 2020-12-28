@@ -12,7 +12,7 @@
 #include <clocale> 
 #include "MyForm2.h"
 
-#define _CRT_SECURE_NO_WARNINGS
+
 namespace N7 {
 
 	using namespace System;
@@ -103,14 +103,25 @@ namespace N7 {
 
 	private: System::Windows::Forms::Label^  label3;
 	private: System::Windows::Forms::Label^  labelARM;
-	private: System::Windows::Forms::RadioButton^  radioButton1;
-	private: System::Windows::Forms::RadioButton^  radioButton2;
+
+
 
 	private: System::Windows::Forms::Button^  button6;
 	private: System::Windows::Forms::TableLayoutPanel^  tableLayoutPanel4;
 	private: System::Windows::Forms::RadioButton^  LN;
 	private: System::Windows::Forms::RadioButton^  V;
 	private: System::Windows::Forms::TextBox^  textBox2;
+	private: System::Windows::Forms::GroupBox^  groupBox1;
+	private: System::Windows::Forms::TableLayoutPanel^  tableLayoutPanel5;
+	private: System::Windows::Forms::GroupBox^  groupBox2;
+	private: System::Windows::Forms::TableLayoutPanel^  tableLayoutPanel6;
+	private: System::Windows::Forms::GroupBox^  groupBox3;
+	private: System::Windows::Forms::TableLayoutPanel^  tableLayoutPanel7;
+	private: System::Windows::Forms::Button^  buttonMone;
+	private: System::Windows::Forms::Button^  button7;
+	private: System::Windows::Forms::Label^  label2;
+	private: System::Windows::Forms::Label^  outputfilelabel;
+	private: System::Windows::Forms::SaveFileDialog^  saveFileOutput;
 
 
 
@@ -168,32 +179,47 @@ namespace N7 {
 			this->M_AFz = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
 			this->tableLayoutPanel1 = (gcnew System::Windows::Forms::TableLayoutPanel());
 			this->tableLayoutPanel2 = (gcnew System::Windows::Forms::TableLayoutPanel());
-			this->button1 = (gcnew System::Windows::Forms::Button());
+			this->groupBox1 = (gcnew System::Windows::Forms::GroupBox());
+			this->tableLayoutPanel5 = (gcnew System::Windows::Forms::TableLayoutPanel());
 			this->button3 = (gcnew System::Windows::Forms::Button());
-			this->button4 = (gcnew System::Windows::Forms::Button());
 			this->textBox1 = (gcnew System::Windows::Forms::TextBox());
 			this->button2 = (gcnew System::Windows::Forms::Button());
-			this->button6 = (gcnew System::Windows::Forms::Button());
+			this->button4 = (gcnew System::Windows::Forms::Button());
+			this->groupBox2 = (gcnew System::Windows::Forms::GroupBox());
+			this->tableLayoutPanel6 = (gcnew System::Windows::Forms::TableLayoutPanel());
+			this->textBox2 = (gcnew System::Windows::Forms::TextBox());
 			this->tableLayoutPanel4 = (gcnew System::Windows::Forms::TableLayoutPanel());
 			this->LN = (gcnew System::Windows::Forms::RadioButton());
 			this->V = (gcnew System::Windows::Forms::RadioButton());
-			this->textBox2 = (gcnew System::Windows::Forms::TextBox());
+			this->button6 = (gcnew System::Windows::Forms::Button());
+			this->groupBox3 = (gcnew System::Windows::Forms::GroupBox());
+			this->tableLayoutPanel7 = (gcnew System::Windows::Forms::TableLayoutPanel());
+			this->button1 = (gcnew System::Windows::Forms::Button());
+			this->buttonMone = (gcnew System::Windows::Forms::Button());
 			this->tableLayoutPanel3 = (gcnew System::Windows::Forms::TableLayoutPanel());
-			this->button5 = (gcnew System::Windows::Forms::Button());
 			this->label1 = (gcnew System::Windows::Forms::Label());
 			this->labelNRM = (gcnew System::Windows::Forms::Label());
 			this->label3 = (gcnew System::Windows::Forms::Label());
 			this->labelARM = (gcnew System::Windows::Forms::Label());
-			this->radioButton1 = (gcnew System::Windows::Forms::RadioButton());
-			this->radioButton2 = (gcnew System::Windows::Forms::RadioButton());
+			this->button7 = (gcnew System::Windows::Forms::Button());
+			this->button5 = (gcnew System::Windows::Forms::Button());
+			this->label2 = (gcnew System::Windows::Forms::Label());
+			this->outputfilelabel = (gcnew System::Windows::Forms::Label());
 			this->saveFileDialog1 = (gcnew System::Windows::Forms::SaveFileDialog());
+			this->saveFileOutput = (gcnew System::Windows::Forms::SaveFileDialog());
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->z1))->BeginInit();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->mh))->BeginInit();
 			this->toolStrip1->SuspendLayout();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->dataGridView1))->BeginInit();
 			this->tableLayoutPanel1->SuspendLayout();
 			this->tableLayoutPanel2->SuspendLayout();
+			this->groupBox1->SuspendLayout();
+			this->tableLayoutPanel5->SuspendLayout();
+			this->groupBox2->SuspendLayout();
+			this->tableLayoutPanel6->SuspendLayout();
 			this->tableLayoutPanel4->SuspendLayout();
+			this->groupBox3->SuspendLayout();
+			this->tableLayoutPanel7->SuspendLayout();
 			this->tableLayoutPanel3->SuspendLayout();
 			this->SuspendLayout();
 			// 
@@ -419,116 +445,160 @@ namespace N7 {
 			// tableLayoutPanel2
 			// 
 			this->tableLayoutPanel2->AutoSize = true;
-			this->tableLayoutPanel2->ColumnCount = 2;
+			this->tableLayoutPanel2->BackgroundImageLayout = System::Windows::Forms::ImageLayout::None;
+			this->tableLayoutPanel2->ColumnCount = 1;
 			this->tableLayoutPanel2->ColumnStyles->Add((gcnew System::Windows::Forms::ColumnStyle(System::Windows::Forms::SizeType::Percent,
-				50)));
-			this->tableLayoutPanel2->ColumnStyles->Add((gcnew System::Windows::Forms::ColumnStyle(System::Windows::Forms::SizeType::Percent,
-				50)));
-			this->tableLayoutPanel2->Controls->Add(this->button1, 0, 0);
-			this->tableLayoutPanel2->Controls->Add(this->button3, 1, 0);
-			this->tableLayoutPanel2->Controls->Add(this->button4, 1, 1);
-			this->tableLayoutPanel2->Controls->Add(this->textBox1, 0, 1);
-			this->tableLayoutPanel2->Controls->Add(this->button2, 0, 2);
-			this->tableLayoutPanel2->Controls->Add(this->button6, 0, 4);
-			this->tableLayoutPanel2->Controls->Add(this->tableLayoutPanel4, 1, 3);
-			this->tableLayoutPanel2->Controls->Add(this->textBox2, 0, 3);
+				100)));
+			this->tableLayoutPanel2->Controls->Add(this->groupBox1, 0, 0);
+			this->tableLayoutPanel2->Controls->Add(this->groupBox2, 0, 1);
+			this->tableLayoutPanel2->Controls->Add(this->groupBox3, 0, 2);
 			this->tableLayoutPanel2->Dock = System::Windows::Forms::DockStyle::Fill;
 			this->tableLayoutPanel2->Location = System::Drawing::Point(1184, 324);
 			this->tableLayoutPanel2->Name = L"tableLayoutPanel2";
-			this->tableLayoutPanel2->RowCount = 5;
-			this->tableLayoutPanel2->RowStyles->Add((gcnew System::Windows::Forms::RowStyle(System::Windows::Forms::SizeType::Percent, 20)));
-			this->tableLayoutPanel2->RowStyles->Add((gcnew System::Windows::Forms::RowStyle(System::Windows::Forms::SizeType::Percent, 20)));
-			this->tableLayoutPanel2->RowStyles->Add((gcnew System::Windows::Forms::RowStyle(System::Windows::Forms::SizeType::Percent, 20)));
-			this->tableLayoutPanel2->RowStyles->Add((gcnew System::Windows::Forms::RowStyle(System::Windows::Forms::SizeType::Percent, 20)));
+			this->tableLayoutPanel2->RowCount = 3;
+			this->tableLayoutPanel2->RowStyles->Add((gcnew System::Windows::Forms::RowStyle(System::Windows::Forms::SizeType::Percent, 40)));
+			this->tableLayoutPanel2->RowStyles->Add((gcnew System::Windows::Forms::RowStyle(System::Windows::Forms::SizeType::Percent, 40)));
 			this->tableLayoutPanel2->RowStyles->Add((gcnew System::Windows::Forms::RowStyle(System::Windows::Forms::SizeType::Percent, 20)));
 			this->tableLayoutPanel2->Size = System::Drawing::Size(288, 310);
 			this->tableLayoutPanel2->TabIndex = 11;
 			// 
-			// button1
+			// groupBox1
 			// 
-			this->button1->Dock = System::Windows::Forms::DockStyle::Fill;
-			this->button1->Location = System::Drawing::Point(3, 3);
-			this->button1->Name = L"button1";
-			this->button1->Size = System::Drawing::Size(138, 56);
-			this->button1->TabIndex = 0;
-			this->button1->Text = L"Change projection";
-			this->button1->UseVisualStyleBackColor = true;
-			this->button1->Click += gcnew System::EventHandler(this, &MyForm::button1_Click);
+			this->groupBox1->AutoSizeMode = System::Windows::Forms::AutoSizeMode::GrowAndShrink;
+			this->groupBox1->Controls->Add(this->tableLayoutPanel5);
+			this->groupBox1->Dock = System::Windows::Forms::DockStyle::Fill;
+			this->groupBox1->FlatStyle = System::Windows::Forms::FlatStyle::System;
+			this->groupBox1->Location = System::Drawing::Point(3, 3);
+			this->groupBox1->Name = L"groupBox1";
+			this->groupBox1->RightToLeft = System::Windows::Forms::RightToLeft::No;
+			this->groupBox1->Size = System::Drawing::Size(282, 118);
+			this->groupBox1->TabIndex = 8;
+			this->groupBox1->TabStop = false;
+			this->groupBox1->Text = L"Removing rows";
+			// 
+			// tableLayoutPanel5
+			// 
+			this->tableLayoutPanel5->CellBorderStyle = System::Windows::Forms::TableLayoutPanelCellBorderStyle::Inset;
+			this->tableLayoutPanel5->ColumnCount = 2;
+			this->tableLayoutPanel5->ColumnStyles->Add((gcnew System::Windows::Forms::ColumnStyle(System::Windows::Forms::SizeType::Percent,
+				50)));
+			this->tableLayoutPanel5->ColumnStyles->Add((gcnew System::Windows::Forms::ColumnStyle(System::Windows::Forms::SizeType::Percent,
+				50)));
+			this->tableLayoutPanel5->Controls->Add(this->button3, 0, 0);
+			this->tableLayoutPanel5->Controls->Add(this->textBox1, 0, 1);
+			this->tableLayoutPanel5->Controls->Add(this->button2, 1, 0);
+			this->tableLayoutPanel5->Controls->Add(this->button4, 1, 1);
+			this->tableLayoutPanel5->Dock = System::Windows::Forms::DockStyle::Fill;
+			this->tableLayoutPanel5->Location = System::Drawing::Point(3, 16);
+			this->tableLayoutPanel5->Name = L"tableLayoutPanel5";
+			this->tableLayoutPanel5->RowCount = 2;
+			this->tableLayoutPanel5->RowStyles->Add((gcnew System::Windows::Forms::RowStyle(System::Windows::Forms::SizeType::Percent, 50)));
+			this->tableLayoutPanel5->RowStyles->Add((gcnew System::Windows::Forms::RowStyle(System::Windows::Forms::SizeType::Percent, 50)));
+			this->tableLayoutPanel5->Size = System::Drawing::Size(276, 99);
+			this->tableLayoutPanel5->TabIndex = 0;
 			// 
 			// button3
 			// 
 			this->button3->Dock = System::Windows::Forms::DockStyle::Fill;
-			this->button3->Location = System::Drawing::Point(147, 3);
+			this->button3->Location = System::Drawing::Point(5, 5);
 			this->button3->Name = L"button3";
-			this->button3->Size = System::Drawing::Size(138, 56);
+			this->button3->Size = System::Drawing::Size(129, 40);
 			this->button3->TabIndex = 2;
 			this->button3->Text = L"Clear table";
 			this->button3->UseVisualStyleBackColor = true;
 			this->button3->Click += gcnew System::EventHandler(this, &MyForm::button3_Click);
 			// 
-			// button4
-			// 
-			this->button4->Dock = System::Windows::Forms::DockStyle::Fill;
-			this->button4->Location = System::Drawing::Point(3, 127);
-			this->button4->Name = L"button4";
-			this->button4->Size = System::Drawing::Size(138, 56);
-			this->button4->TabIndex = 4;
-			this->button4->Text = L"Delete rows";
-			this->button4->UseVisualStyleBackColor = true;
-			this->button4->Click += gcnew System::EventHandler(this, &MyForm::button4_Click);
-			// 
 			// textBox1
 			// 
-			this->tableLayoutPanel2->SetColumnSpan(this->textBox1, 2);
 			this->textBox1->Dock = System::Windows::Forms::DockStyle::Fill;
-			this->textBox1->Location = System::Drawing::Point(3, 65);
+			this->textBox1->Location = System::Drawing::Point(5, 53);
 			this->textBox1->Name = L"textBox1";
-			this->textBox1->Size = System::Drawing::Size(282, 20);
+			this->textBox1->Size = System::Drawing::Size(129, 20);
 			this->textBox1->TabIndex = 3;
 			// 
 			// button2
 			// 
 			this->button2->Dock = System::Windows::Forms::DockStyle::Fill;
-			this->button2->Location = System::Drawing::Point(147, 127);
+			this->button2->Location = System::Drawing::Point(142, 5);
 			this->button2->Name = L"button2";
-			this->button2->Size = System::Drawing::Size(138, 56);
+			this->button2->Size = System::Drawing::Size(129, 40);
 			this->button2->TabIndex = 1;
-			this->button2->Text = L"Delete row";
+			this->button2->Text = L"Delete the selected row";
 			this->button2->UseVisualStyleBackColor = true;
 			this->button2->Click += gcnew System::EventHandler(this, &MyForm::button2_Click);
 			// 
-			// button6
+			// button4
 			// 
-			this->button6->Dock = System::Windows::Forms::DockStyle::Fill;
-			this->button6->Location = System::Drawing::Point(3, 251);
-			this->button6->Name = L"button6";
-			this->button6->Size = System::Drawing::Size(138, 56);
-			this->button6->TabIndex = 6;
-			this->button6->Text = L"remove unmagnetized residue";
-			this->button6->UseVisualStyleBackColor = true;
-			this->button6->Click += gcnew System::EventHandler(this, &MyForm::button6_Click);
+			this->button4->Dock = System::Windows::Forms::DockStyle::Fill;
+			this->button4->Location = System::Drawing::Point(142, 53);
+			this->button4->Name = L"button4";
+			this->button4->Size = System::Drawing::Size(129, 41);
+			this->button4->TabIndex = 4;
+			this->button4->Text = L"Delete rows";
+			this->button4->UseVisualStyleBackColor = true;
+			this->button4->Click += gcnew System::EventHandler(this, &MyForm::button4_Click);
+			// 
+			// groupBox2
+			// 
+			this->groupBox2->Controls->Add(this->tableLayoutPanel6);
+			this->groupBox2->Dock = System::Windows::Forms::DockStyle::Fill;
+			this->groupBox2->Location = System::Drawing::Point(3, 127);
+			this->groupBox2->Name = L"groupBox2";
+			this->groupBox2->Size = System::Drawing::Size(282, 118);
+			this->groupBox2->TabIndex = 9;
+			this->groupBox2->TabStop = false;
+			this->groupBox2->Text = L"Removal of non-magnetized residue";
+			// 
+			// tableLayoutPanel6
+			// 
+			this->tableLayoutPanel6->ColumnCount = 2;
+			this->tableLayoutPanel6->ColumnStyles->Add((gcnew System::Windows::Forms::ColumnStyle(System::Windows::Forms::SizeType::Percent,
+				60)));
+			this->tableLayoutPanel6->ColumnStyles->Add((gcnew System::Windows::Forms::ColumnStyle(System::Windows::Forms::SizeType::Percent,
+				40)));
+			this->tableLayoutPanel6->Controls->Add(this->textBox2, 0, 0);
+			this->tableLayoutPanel6->Controls->Add(this->tableLayoutPanel4, 0, 1);
+			this->tableLayoutPanel6->Controls->Add(this->button6, 1, 1);
+			this->tableLayoutPanel6->Dock = System::Windows::Forms::DockStyle::Fill;
+			this->tableLayoutPanel6->Location = System::Drawing::Point(3, 16);
+			this->tableLayoutPanel6->Name = L"tableLayoutPanel6";
+			this->tableLayoutPanel6->RowCount = 2;
+			this->tableLayoutPanel6->RowStyles->Add((gcnew System::Windows::Forms::RowStyle(System::Windows::Forms::SizeType::Percent, 31.81818F)));
+			this->tableLayoutPanel6->RowStyles->Add((gcnew System::Windows::Forms::RowStyle(System::Windows::Forms::SizeType::Percent, 68.18182F)));
+			this->tableLayoutPanel6->Size = System::Drawing::Size(276, 99);
+			this->tableLayoutPanel6->TabIndex = 0;
+			// 
+			// textBox2
+			// 
+			this->tableLayoutPanel6->SetColumnSpan(this->textBox2, 2);
+			this->textBox2->Dock = System::Windows::Forms::DockStyle::Fill;
+			this->textBox2->Location = System::Drawing::Point(3, 3);
+			this->textBox2->Name = L"textBox2";
+			this->textBox2->Size = System::Drawing::Size(270, 20);
+			this->textBox2->TabIndex = 5;
 			// 
 			// tableLayoutPanel4
 			// 
+			this->tableLayoutPanel4->CellBorderStyle = System::Windows::Forms::TableLayoutPanelCellBorderStyle::Inset;
 			this->tableLayoutPanel4->ColumnCount = 1;
 			this->tableLayoutPanel4->ColumnStyles->Add((gcnew System::Windows::Forms::ColumnStyle(System::Windows::Forms::SizeType::Percent,
-				50)));
+				100)));
 			this->tableLayoutPanel4->Controls->Add(this->LN, 0, 0);
 			this->tableLayoutPanel4->Controls->Add(this->V, 0, 1);
 			this->tableLayoutPanel4->Dock = System::Windows::Forms::DockStyle::Fill;
-			this->tableLayoutPanel4->Location = System::Drawing::Point(147, 189);
+			this->tableLayoutPanel4->Location = System::Drawing::Point(3, 34);
 			this->tableLayoutPanel4->Name = L"tableLayoutPanel4";
 			this->tableLayoutPanel4->RowCount = 2;
 			this->tableLayoutPanel4->RowStyles->Add((gcnew System::Windows::Forms::RowStyle(System::Windows::Forms::SizeType::Percent, 50)));
 			this->tableLayoutPanel4->RowStyles->Add((gcnew System::Windows::Forms::RowStyle(System::Windows::Forms::SizeType::Percent, 50)));
-			this->tableLayoutPanel4->Size = System::Drawing::Size(138, 56);
+			this->tableLayoutPanel4->Size = System::Drawing::Size(159, 62);
 			this->tableLayoutPanel4->TabIndex = 7;
 			// 
 			// LN
 			// 
 			this->LN->AutoSize = true;
 			this->LN->Checked = true;
-			this->LN->Location = System::Drawing::Point(3, 3);
+			this->LN->Location = System::Drawing::Point(5, 5);
 			this->LN->Name = L"LN";
 			this->LN->Size = System::Drawing::Size(95, 19);
 			this->LN->TabIndex = 0;
@@ -539,35 +609,91 @@ namespace N7 {
 			// V
 			// 
 			this->V->AutoSize = true;
-			this->V->Location = System::Drawing::Point(3, 31);
+			this->V->Location = System::Drawing::Point(5, 35);
 			this->V->Name = L"V";
 			this->V->Size = System::Drawing::Size(56, 19);
 			this->V->TabIndex = 1;
 			this->V->Text = L"Value";
 			this->V->UseVisualStyleBackColor = true;
 			// 
-			// textBox2
+			// button6
 			// 
-			this->textBox2->Dock = System::Windows::Forms::DockStyle::Fill;
-			this->textBox2->Location = System::Drawing::Point(3, 189);
-			this->textBox2->Name = L"textBox2";
-			this->textBox2->Size = System::Drawing::Size(138, 20);
-			this->textBox2->TabIndex = 5;
+			this->button6->Dock = System::Windows::Forms::DockStyle::Fill;
+			this->button6->Location = System::Drawing::Point(168, 34);
+			this->button6->Name = L"button6";
+			this->button6->Size = System::Drawing::Size(105, 62);
+			this->button6->TabIndex = 6;
+			this->button6->Text = L"remove unmagnetized residue";
+			this->button6->UseVisualStyleBackColor = true;
+			this->button6->Click += gcnew System::EventHandler(this, &MyForm::button6_Click);
+			// 
+			// groupBox3
+			// 
+			this->groupBox3->Controls->Add(this->tableLayoutPanel7);
+			this->groupBox3->Dock = System::Windows::Forms::DockStyle::Fill;
+			this->groupBox3->Location = System::Drawing::Point(3, 251);
+			this->groupBox3->Name = L"groupBox3";
+			this->groupBox3->Size = System::Drawing::Size(282, 56);
+			this->groupBox3->TabIndex = 10;
+			this->groupBox3->TabStop = false;
+			this->groupBox3->Text = L"Changing ";
+			// 
+			// tableLayoutPanel7
+			// 
+			this->tableLayoutPanel7->CellBorderStyle = System::Windows::Forms::TableLayoutPanelCellBorderStyle::InsetDouble;
+			this->tableLayoutPanel7->ColumnCount = 2;
+			this->tableLayoutPanel7->ColumnStyles->Add((gcnew System::Windows::Forms::ColumnStyle(System::Windows::Forms::SizeType::Percent,
+				50)));
+			this->tableLayoutPanel7->ColumnStyles->Add((gcnew System::Windows::Forms::ColumnStyle(System::Windows::Forms::SizeType::Percent,
+				50)));
+			this->tableLayoutPanel7->Controls->Add(this->button1, 0, 0);
+			this->tableLayoutPanel7->Controls->Add(this->buttonMone, 1, 0);
+			this->tableLayoutPanel7->Dock = System::Windows::Forms::DockStyle::Fill;
+			this->tableLayoutPanel7->Location = System::Drawing::Point(3, 16);
+			this->tableLayoutPanel7->Name = L"tableLayoutPanel7";
+			this->tableLayoutPanel7->RowCount = 1;
+			this->tableLayoutPanel7->RowStyles->Add((gcnew System::Windows::Forms::RowStyle(System::Windows::Forms::SizeType::Percent, 50)));
+			this->tableLayoutPanel7->Size = System::Drawing::Size(276, 37);
+			this->tableLayoutPanel7->TabIndex = 0;
+			// 
+			// button1
+			// 
+			this->button1->Dock = System::Windows::Forms::DockStyle::Fill;
+			this->button1->Location = System::Drawing::Point(6, 6);
+			this->button1->Name = L"button1";
+			this->button1->Size = System::Drawing::Size(127, 25);
+			this->button1->TabIndex = 0;
+			this->button1->Text = L"Change projection";
+			this->button1->UseVisualStyleBackColor = true;
+			this->button1->Click += gcnew System::EventHandler(this, &MyForm::button1_Click);
+			// 
+			// buttonMone
+			// 
+			this->buttonMone->Dock = System::Windows::Forms::DockStyle::Fill;
+			this->buttonMone->Location = System::Drawing::Point(142, 6);
+			this->buttonMone->Name = L"buttonMone";
+			this->buttonMone->Size = System::Drawing::Size(128, 25);
+			this->buttonMone->TabIndex = 1;
+			this->buttonMone->Text = L"Multiplying by -1";
+			this->buttonMone->UseVisualStyleBackColor = true;
+			this->buttonMone->Click += gcnew System::EventHandler(this, &MyForm::buttonMone_Click);
 			// 
 			// tableLayoutPanel3
 			// 
+			this->tableLayoutPanel3->CellBorderStyle = System::Windows::Forms::TableLayoutPanelCellBorderStyle::InsetDouble;
 			this->tableLayoutPanel3->ColumnCount = 2;
 			this->tableLayoutPanel3->ColumnStyles->Add((gcnew System::Windows::Forms::ColumnStyle(System::Windows::Forms::SizeType::Percent,
 				50)));
 			this->tableLayoutPanel3->ColumnStyles->Add((gcnew System::Windows::Forms::ColumnStyle(System::Windows::Forms::SizeType::Percent,
 				50)));
-			this->tableLayoutPanel3->Controls->Add(this->button5, 0, 2);
 			this->tableLayoutPanel3->Controls->Add(this->label1, 0, 0);
 			this->tableLayoutPanel3->Controls->Add(this->labelNRM, 1, 0);
 			this->tableLayoutPanel3->Controls->Add(this->label3, 0, 1);
 			this->tableLayoutPanel3->Controls->Add(this->labelARM, 1, 1);
-			this->tableLayoutPanel3->Controls->Add(this->radioButton1, 1, 2);
-			this->tableLayoutPanel3->Controls->Add(this->radioButton2, 1, 3);
+			this->tableLayoutPanel3->Controls->Add(this->button7, 0, 3);
+			this->tableLayoutPanel3->Controls->Add(this->button5, 1, 3);
+			this->tableLayoutPanel3->Controls->Add(this->label2, 0, 2);
+			this->tableLayoutPanel3->Controls->Add(this->outputfilelabel, 1, 2);
 			this->tableLayoutPanel3->Dock = System::Windows::Forms::DockStyle::Top;
 			this->tableLayoutPanel3->Location = System::Drawing::Point(1184, 6);
 			this->tableLayoutPanel3->Name = L"tableLayoutPanel3";
@@ -576,28 +702,16 @@ namespace N7 {
 			this->tableLayoutPanel3->RowStyles->Add((gcnew System::Windows::Forms::RowStyle(System::Windows::Forms::SizeType::Percent, 25)));
 			this->tableLayoutPanel3->RowStyles->Add((gcnew System::Windows::Forms::RowStyle(System::Windows::Forms::SizeType::Percent, 25)));
 			this->tableLayoutPanel3->RowStyles->Add((gcnew System::Windows::Forms::RowStyle(System::Windows::Forms::SizeType::Percent, 25)));
-			this->tableLayoutPanel3->Size = System::Drawing::Size(288, 100);
+			this->tableLayoutPanel3->Size = System::Drawing::Size(288, 133);
 			this->tableLayoutPanel3->TabIndex = 12;
-			// 
-			// button5
-			// 
-			this->button5->Dock = System::Windows::Forms::DockStyle::Fill;
-			this->button5->Location = System::Drawing::Point(3, 53);
-			this->button5->Name = L"button5";
-			this->tableLayoutPanel3->SetRowSpan(this->button5, 2);
-			this->button5->Size = System::Drawing::Size(138, 44);
-			this->button5->TabIndex = 0;
-			this->button5->Text = L"Calculate";
-			this->button5->UseVisualStyleBackColor = true;
-			this->button5->Click += gcnew System::EventHandler(this, &MyForm::button5_Click);
 			// 
 			// label1
 			// 
 			this->label1->AutoSize = true;
 			this->label1->Dock = System::Windows::Forms::DockStyle::Fill;
-			this->label1->Location = System::Drawing::Point(3, 0);
+			this->label1->Location = System::Drawing::Point(6, 3);
 			this->label1->Name = L"label1";
-			this->label1->Size = System::Drawing::Size(138, 25);
+			this->label1->Size = System::Drawing::Size(133, 29);
 			this->label1->TabIndex = 1;
 			this->label1->Text = L"NRM file";
 			// 
@@ -605,18 +719,18 @@ namespace N7 {
 			// 
 			this->labelNRM->AutoSize = true;
 			this->labelNRM->Dock = System::Windows::Forms::DockStyle::Fill;
-			this->labelNRM->Location = System::Drawing::Point(147, 0);
+			this->labelNRM->Location = System::Drawing::Point(148, 3);
 			this->labelNRM->Name = L"labelNRM";
-			this->labelNRM->Size = System::Drawing::Size(138, 25);
+			this->labelNRM->Size = System::Drawing::Size(134, 29);
 			this->labelNRM->TabIndex = 2;
 			// 
 			// label3
 			// 
 			this->label3->AutoSize = true;
 			this->label3->Dock = System::Windows::Forms::DockStyle::Fill;
-			this->label3->Location = System::Drawing::Point(3, 25);
+			this->label3->Location = System::Drawing::Point(6, 35);
 			this->label3->Name = L"label3";
-			this->label3->Size = System::Drawing::Size(138, 25);
+			this->label3->Size = System::Drawing::Size(133, 29);
 			this->label3->TabIndex = 3;
 			this->label3->Text = L"ARM file";
 			// 
@@ -624,33 +738,51 @@ namespace N7 {
 			// 
 			this->labelARM->AutoSize = true;
 			this->labelARM->Dock = System::Windows::Forms::DockStyle::Fill;
-			this->labelARM->Location = System::Drawing::Point(147, 25);
+			this->labelARM->Location = System::Drawing::Point(148, 35);
 			this->labelARM->Name = L"labelARM";
-			this->labelARM->Size = System::Drawing::Size(138, 25);
+			this->labelARM->Size = System::Drawing::Size(134, 29);
 			this->labelARM->TabIndex = 4;
 			// 
-			// radioButton1
+			// button7
 			// 
-			this->radioButton1->AutoSize = true;
-			this->radioButton1->Checked = true;
-			this->radioButton1->Location = System::Drawing::Point(147, 53);
-			this->radioButton1->Name = L"radioButton1";
-			this->radioButton1->Size = System::Drawing::Size(96, 19);
-			this->radioButton1->TabIndex = 5;
-			this->radioButton1->TabStop = true;
-			this->radioButton1->Text = L"Multiply by -1";
-			this->radioButton1->UseVisualStyleBackColor = true;
+			this->button7->Dock = System::Windows::Forms::DockStyle::Fill;
+			this->button7->Location = System::Drawing::Point(6, 102);
+			this->button7->Name = L"button7";
+			this->button7->Size = System::Drawing::Size(133, 25);
+			this->button7->TabIndex = 5;
+			this->button7->Text = L"Create output file";
+			this->button7->UseVisualStyleBackColor = true;
+			this->button7->Click += gcnew System::EventHandler(this, &MyForm::button7_Click);
 			// 
-			// radioButton2
+			// button5
 			// 
-			this->radioButton2->AutoSize = true;
-			this->radioButton2->Location = System::Drawing::Point(147, 78);
-			this->radioButton2->Name = L"radioButton2";
-			this->radioButton2->Size = System::Drawing::Size(102, 19);
-			this->radioButton2->TabIndex = 6;
-			this->radioButton2->TabStop = true;
-			this->radioButton2->Text = L"Not to multiply";
-			this->radioButton2->UseVisualStyleBackColor = true;
+			this->button5->Dock = System::Windows::Forms::DockStyle::Fill;
+			this->button5->Location = System::Drawing::Point(148, 102);
+			this->button5->Name = L"button5";
+			this->button5->Size = System::Drawing::Size(134, 25);
+			this->button5->TabIndex = 0;
+			this->button5->Text = L"Plot";
+			this->button5->UseVisualStyleBackColor = true;
+			this->button5->Click += gcnew System::EventHandler(this, &MyForm::button5_Click);
+			// 
+			// label2
+			// 
+			this->label2->AutoSize = true;
+			this->label2->Dock = System::Windows::Forms::DockStyle::Fill;
+			this->label2->Location = System::Drawing::Point(6, 67);
+			this->label2->Name = L"label2";
+			this->label2->Size = System::Drawing::Size(133, 29);
+			this->label2->TabIndex = 6;
+			this->label2->Text = L"Output file";
+			// 
+			// outputfilelabel
+			// 
+			this->outputfilelabel->AutoSize = true;
+			this->outputfilelabel->Dock = System::Windows::Forms::DockStyle::Fill;
+			this->outputfilelabel->Location = System::Drawing::Point(148, 67);
+			this->outputfilelabel->Name = L"outputfilelabel";
+			this->outputfilelabel->Size = System::Drawing::Size(134, 29);
+			this->outputfilelabel->TabIndex = 7;
 			// 
 			// MyForm
 			// 
@@ -671,9 +803,16 @@ namespace N7 {
 			this->tableLayoutPanel1->ResumeLayout(false);
 			this->tableLayoutPanel1->PerformLayout();
 			this->tableLayoutPanel2->ResumeLayout(false);
-			this->tableLayoutPanel2->PerformLayout();
+			this->groupBox1->ResumeLayout(false);
+			this->tableLayoutPanel5->ResumeLayout(false);
+			this->tableLayoutPanel5->PerformLayout();
+			this->groupBox2->ResumeLayout(false);
+			this->tableLayoutPanel6->ResumeLayout(false);
+			this->tableLayoutPanel6->PerformLayout();
 			this->tableLayoutPanel4->ResumeLayout(false);
 			this->tableLayoutPanel4->PerformLayout();
+			this->groupBox3->ResumeLayout(false);
+			this->tableLayoutPanel7->ResumeLayout(false);
 			this->tableLayoutPanel3->ResumeLayout(false);
 			this->tableLayoutPanel3->PerformLayout();
 			this->ResumeLayout(false);
@@ -691,7 +830,7 @@ namespace N7 {
 	double **data = (double**)malloc(1 * sizeof(double));
 	double **dataRMG=(double**)malloc(1 * sizeof(double));
 	int line_PMD, line_RMG;
-	
+	String ^path = "";
 
 	void draw(double **data, int line_counter)
 	{
@@ -1392,7 +1531,7 @@ private: System::Void button4_Click(System::Object^  sender, System::EventArgs^ 
 
 
 			}
-			//dataGridView1->Rows[i]->HeaderCell->Value = (i + 1).ToString();
+			dataGridView1->Rows[i]->HeaderCell->Value = (i + 1).ToString();
 
 		}
 		drawTable(comp_ore, dataGridView1->RowCount - 1);
@@ -1497,16 +1636,9 @@ private: System::Void button5_Click(System::Object^  sender, System::EventArgs^ 
 
 			}
 		}
-		if (radioButton1->Checked)
-		{
-			for (int i = 0; i < dataGridView1->RowCount; i++)
-			{
-				comp_ore[i][6] = comp_ore[i][6] * (-1);
-				comp_ore[i][8] = comp_ore[i][8] * (-1);
-			}
-		}
+
 		MyForm2 ^F2 = gcnew MyForm2;
-		F2->Do(comp_ore, dataGridView1->RowCount - 1, labelARM->Text, labelNRM->Text);
+		F2->Do(comp_ore, dataGridView1->RowCount - 1, labelARM->Text, labelNRM->Text, path);
 		F2->Show();
 	}
 }
@@ -1560,6 +1692,23 @@ private: System::Void button6_Click(System::Object^  sender, System::EventArgs^ 
 					dataGridView1->Rows[i]->Cells[8]->Value = (comp_ore[i][8] - val).ToString("E3");
 				}
 			}
+			for (int i = 0; i < dataGridView1->RowCount; i++)
+			{
+				for (int j = 0; j < dataGridView1->ColumnCount; j++) {
+					String ^ st2;
+					st2 = dataGridView1->Rows[i]->Cells[j]->FormattedValue->ToString();
+					if (st2)
+					{
+						double::TryParse(st2, comp_ore[i][j]);
+					}
+
+
+
+				}
+			}
+
+			drawTable(comp_ore, dataGridView1->RowCount - 1);
+
 		}
 		catch (const std::exception&)
 		{
@@ -1604,7 +1753,22 @@ private: System::Void button6_Click(System::Object^  sender, System::EventArgs^ 
 				dataGridView1->Rows[i]->Cells[6]->Value = (comp_ore[i][6] - val).ToString("E3");
 				dataGridView1->Rows[i]->Cells[8]->Value = (comp_ore[i][8] - val).ToString("E3");
 			}
+			for (int i = 0; i < dataGridView1->RowCount; i++)
+			{
+				for (int j = 0; j < dataGridView1->ColumnCount; j++) {
+					String ^ st2;
+					st2 = dataGridView1->Rows[i]->Cells[j]->FormattedValue->ToString();
+					if (st2)
+					{
+						double::TryParse(st2, comp_ore[i][j]);
+					}
 
+
+
+				}
+			}
+
+			drawTable(comp_ore, dataGridView1->RowCount - 1);
 		}
 		catch (const std::exception&)
 		{
@@ -1613,6 +1777,67 @@ private: System::Void button6_Click(System::Object^  sender, System::EventArgs^ 
 
 
 	}
+}
+
+//Домножение таблицы на -1
+private: System::Void buttonMone_Click(System::Object^  sender, System::EventArgs^  e)
+{
+	if (dataGridView1->RowCount == 1)
+	{
+		MessageBox::Show("No rows");
+		return;
+	}
+	double **comp_ore = new double*[dataGridView1->RowCount]; // создание динамического массива 
+	for (int count = 0; count < dataGridView1->RowCount; count++)
+		comp_ore[count] = new double[dataGridView1->ColumnCount];
+
+	for (int i = 0; i < dataGridView1->RowCount; i++)
+	{
+		for (int j = 0; j < dataGridView1->ColumnCount; j++) {
+			String ^ st2;
+			st2 = dataGridView1->Rows[i]->Cells[j]->FormattedValue->ToString();
+			if (st2)
+			{
+				double::TryParse(st2, comp_ore[i][j]);
+			}
+
+
+
+		}
+	}
+
+	for (int i = 0; i < dataGridView1->RowCount - 1; i++)
+	{
+	
+		dataGridView1->Rows[i]->Cells[6]->Value = (comp_ore[i][6]*(-1)).ToString("E3");
+		dataGridView1->Rows[i]->Cells[8]->Value = (comp_ore[i][8]*(-1)).ToString("E3");
+	}
+
+}
+		 //подключение выходного файла
+private: System::Void button7_Click(System::Object^  sender, System::EventArgs^  e)
+{
+	saveFileOutput->Filter = "Result files|*.dmg|All files(*.*)|*.*";
+	System::Windows::Forms::DialogResult result = saveFileOutput->ShowDialog();
+
+	if (result != System::Windows::Forms::DialogResult::OK)
+		return;
+	System::String^ filename = saveFileOutput->FileName;
+
+	string s2 = "";
+	MarshalString(filename, s2);
+	ofstream fout(s2, ios_base::app);
+	char fname[255];
+	strcpy_s(fname, s2.c_str());
+	path = filename;
+	char *pch = strrchr(fname, '\\');
+	string filabel = string(pch);
+	filabel.erase(0, 1);
+
+	outputfilelabel->Text = gcnew System::String(filabel.c_str());
+	fout << "pmd file   |  rmg file  | N |  range  |   slope   | std error |   beta   | f reside |  r squared" << endl;
+
+
 }
 };
 
