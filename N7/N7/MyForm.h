@@ -156,7 +156,6 @@ namespace N7 {
 			System::Windows::Forms::DataVisualization::Charting::Series^  series3 = (gcnew System::Windows::Forms::DataVisualization::Charting::Series());
 			System::Windows::Forms::DataVisualization::Charting::Series^  series4 = (gcnew System::Windows::Forms::DataVisualization::Charting::Series());
 			System::Windows::Forms::DataVisualization::Charting::ChartArea^  chartArea3 = (gcnew System::Windows::Forms::DataVisualization::Charting::ChartArea());
-			System::Windows::Forms::DataVisualization::Charting::Legend^  legend2 = (gcnew System::Windows::Forms::DataVisualization::Charting::Legend());
 			System::Windows::Forms::DataVisualization::Charting::Series^  series5 = (gcnew System::Windows::Forms::DataVisualization::Charting::Series());
 			System::ComponentModel::ComponentResourceManager^  resources = (gcnew System::ComponentModel::ComponentResourceManager(MyForm::typeid));
 			this->openFileDialog1 = (gcnew System::Windows::Forms::OpenFileDialog());
@@ -272,16 +271,19 @@ namespace N7 {
 			// 
 			// mh
 			// 
+			chartArea3->AxisX->Title = L"M";
+			chartArea3->AxisX->TitleFont = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 9.980198F, System::Drawing::FontStyle::Regular,
+				System::Drawing::GraphicsUnit::Point, static_cast<System::Byte>(204)));
+			chartArea3->AxisY->Title = L"H";
+			chartArea3->AxisY->TitleFont = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 9.980198F, System::Drawing::FontStyle::Regular,
+				System::Drawing::GraphicsUnit::Point, static_cast<System::Byte>(204)));
 			chartArea3->Name = L"ChartArea1";
 			this->mh->ChartAreas->Add(chartArea3);
 			this->mh->Dock = System::Windows::Forms::DockStyle::Fill;
-			legend2->Name = L"Legend1";
-			this->mh->Legends->Add(legend2);
 			this->mh->Location = System::Drawing::Point(595, 6);
 			this->mh->Name = L"mh";
 			series5->ChartArea = L"ChartArea1";
 			series5->ChartType = System::Windows::Forms::DataVisualization::Charting::SeriesChartType::Point;
-			series5->Legend = L"Legend1";
 			series5->Name = L"MH";
 			this->mh->Series->Add(series5);
 			this->mh->Size = System::Drawing::Size(580, 309);
@@ -843,16 +845,22 @@ namespace N7 {
 
 		z1->ChartAreas[0]->AxisX->MajorGrid->Enabled = false;
 		z1->ChartAreas[0]->AxisY->MajorGrid->Enabled = false;
+		z1->ChartAreas[0]->AxisX->LabelStyle->Format = "{0:0.#E+0}";
+		z1->ChartAreas[0]->AxisY->LabelStyle->Format = "{0:0.#E+0}";
 		z1->ChartAreas[0]->AxisY->Crossing = 0;
 		z1->ChartAreas[0]->AxisX->Crossing = 0;
 
 		z1->ChartAreas[1]->AxisX->MajorGrid->Enabled = false;
 		z1->ChartAreas[1]->AxisY->MajorGrid->Enabled = false;
+		z1->ChartAreas[1]->AxisX->LabelStyle->Format = "{0:0.#E+0}";
+		z1->ChartAreas[1]->AxisY->LabelStyle->Format = "{0:0.#E+0}";
 		z1->ChartAreas[1]->AxisY->Crossing = 0;
 		z1->ChartAreas[1]->AxisX->Crossing = 0;
 
 		mh->ChartAreas[0]->AxisX->MajorGrid->Enabled = false;
 		mh->ChartAreas[0]->AxisY->MajorGrid->Enabled = false;
+		mh->ChartAreas[0]->AxisX->LabelStyle->Format = "{0:0.#E+0}";
+		mh->ChartAreas[0]->AxisY->LabelStyle->Format = "{0:0.#E+0}";
 		mh->ChartAreas[0]->AxisY->Crossing = 0;
 		mh->ChartAreas[0]->AxisX->Crossing = 0;
 
