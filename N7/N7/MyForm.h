@@ -79,15 +79,15 @@ namespace N7 {
 
 
 
-	private: System::Windows::Forms::DataGridViewTextBoxColumn^  H;
-	private: System::Windows::Forms::DataGridViewTextBoxColumn^  X;
-	private: System::Windows::Forms::DataGridViewTextBoxColumn^  Y;
-	private: System::Windows::Forms::DataGridViewTextBoxColumn^  Z;
-	private: System::Windows::Forms::DataGridViewTextBoxColumn^  M;
-	private: System::Windows::Forms::DataGridViewTextBoxColumn^  ARM;
-	private: System::Windows::Forms::DataGridViewTextBoxColumn^  M_ARM;
-	private: System::Windows::Forms::DataGridViewTextBoxColumn^  AFZ;
-	private: System::Windows::Forms::DataGridViewTextBoxColumn^  M_AFz;
+
+
+
+
+
+
+
+
+
 	private: System::Windows::Forms::TableLayoutPanel^  tableLayoutPanel2;
 	private: System::Windows::Forms::Button^  button2;
 	private: System::Windows::Forms::Button^  button1;
@@ -122,6 +122,18 @@ namespace N7 {
 	private: System::Windows::Forms::Label^  label2;
 	private: System::Windows::Forms::Label^  outputfilelabel;
 	private: System::Windows::Forms::SaveFileDialog^  saveFileOutput;
+	private: System::Windows::Forms::DataGridViewTextBoxColumn^  H;
+	private: System::Windows::Forms::DataGridViewTextBoxColumn^  X;
+	private: System::Windows::Forms::DataGridViewTextBoxColumn^  Y;
+	private: System::Windows::Forms::DataGridViewTextBoxColumn^  Z;
+	private: System::Windows::Forms::DataGridViewTextBoxColumn^  M;
+	private: System::Windows::Forms::DataGridViewTextBoxColumn^  ARM;
+	private: System::Windows::Forms::DataGridViewTextBoxColumn^  M_ARM;
+	private: System::Windows::Forms::DataGridViewTextBoxColumn^  AFZ;
+	private: System::Windows::Forms::DataGridViewTextBoxColumn^  M_AFz;
+private: System::Windows::Forms::ToolStripDropDownButton^  toolStripDropDownButton2;
+
+private: System::Windows::Forms::ToolStripMenuItem^  onOffRowsToolStripMenuItem;
 
 
 
@@ -149,6 +161,8 @@ namespace N7 {
 		void InitializeComponent(void)
 		{
 			System::Windows::Forms::DataVisualization::Charting::ChartArea^  chartArea1 = (gcnew System::Windows::Forms::DataVisualization::Charting::ChartArea());
+			System::Windows::Forms::DataVisualization::Charting::CustomLabel^  customLabel1 = (gcnew System::Windows::Forms::DataVisualization::Charting::CustomLabel());
+			System::Windows::Forms::DataVisualization::Charting::CustomLabel^  customLabel2 = (gcnew System::Windows::Forms::DataVisualization::Charting::CustomLabel());
 			System::Windows::Forms::DataVisualization::Charting::ChartArea^  chartArea2 = (gcnew System::Windows::Forms::DataVisualization::Charting::ChartArea());
 			System::Windows::Forms::DataVisualization::Charting::Legend^  legend1 = (gcnew System::Windows::Forms::DataVisualization::Charting::Legend());
 			System::Windows::Forms::DataVisualization::Charting::Series^  series1 = (gcnew System::Windows::Forms::DataVisualization::Charting::Series());
@@ -166,6 +180,8 @@ namespace N7 {
 			this->openpmdToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
 			this->openrmgToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
 			this->saveAsToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
+			this->toolStripDropDownButton2 = (gcnew System::Windows::Forms::ToolStripDropDownButton());
+			this->onOffRowsToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
 			this->dataGridView1 = (gcnew System::Windows::Forms::DataGridView());
 			this->H = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
 			this->X = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
@@ -228,6 +244,8 @@ namespace N7 {
 			// 
 			// z1
 			// 
+			chartArea1->AxisX->CustomLabels->Add(customLabel1);
+			chartArea1->AxisY->CustomLabels->Add(customLabel2);
 			chartArea1->Name = L"ChartArea1";
 			chartArea2->Name = L"ChartArea2";
 			chartArea2->Visible = false;
@@ -271,6 +289,8 @@ namespace N7 {
 			// 
 			// mh
 			// 
+			chartArea3->AxisX->IsLabelAutoFit = false;
+			chartArea3->AxisX->Minimum = 0;
 			chartArea3->AxisX->Title = L"M";
 			chartArea3->AxisX->TitleFont = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 9.980198F, System::Drawing::FontStyle::Regular,
 				System::Drawing::GraphicsUnit::Point, static_cast<System::Byte>(204)));
@@ -293,7 +313,10 @@ namespace N7 {
 			// toolStrip1
 			// 
 			this->toolStrip1->ImageScalingSize = System::Drawing::Size(17, 17);
-			this->toolStrip1->Items->AddRange(gcnew cli::array< System::Windows::Forms::ToolStripItem^  >(1) { this->toolStripDropDownButton1 });
+			this->toolStrip1->Items->AddRange(gcnew cli::array< System::Windows::Forms::ToolStripItem^  >(2) {
+				this->toolStripDropDownButton1,
+					this->toolStripDropDownButton2
+			});
 			this->toolStrip1->Location = System::Drawing::Point(0, 0);
 			this->toolStrip1->Name = L"toolStrip1";
 			this->toolStrip1->Size = System::Drawing::Size(1478, 25);
@@ -334,6 +357,23 @@ namespace N7 {
 			this->saveAsToolStripMenuItem->Text = L"Save as";
 			this->saveAsToolStripMenuItem->Click += gcnew System::EventHandler(this, &MyForm::saveAsToolStripMenuItem_Click);
 			// 
+			// toolStripDropDownButton2
+			// 
+			this->toolStripDropDownButton2->DisplayStyle = System::Windows::Forms::ToolStripItemDisplayStyle::Text;
+			this->toolStripDropDownButton2->DropDownItems->AddRange(gcnew cli::array< System::Windows::Forms::ToolStripItem^  >(1) { this->onOffRowsToolStripMenuItem });
+			this->toolStripDropDownButton2->Image = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"toolStripDropDownButton2.Image")));
+			this->toolStripDropDownButton2->ImageTransparentColor = System::Drawing::Color::Magenta;
+			this->toolStripDropDownButton2->Name = L"toolStripDropDownButton2";
+			this->toolStripDropDownButton2->Size = System::Drawing::Size(67, 22);
+			this->toolStripDropDownButton2->Text = L"Options";
+			// 
+			// onOffRowsToolStripMenuItem
+			// 
+			this->onOffRowsToolStripMenuItem->Name = L"onOffRowsToolStripMenuItem";
+			this->onOffRowsToolStripMenuItem->Size = System::Drawing::Size(149, 24);
+			this->onOffRowsToolStripMenuItem->Text = L"On/Off rows";
+			this->onOffRowsToolStripMenuItem->Click += gcnew System::EventHandler(this, &MyForm::onOffRowsToolStripMenuItem_Click);
+			// 
 			// dataGridView1
 			// 
 			this->dataGridView1->ColumnHeadersHeightSizeMode = System::Windows::Forms::DataGridViewColumnHeadersHeightSizeMode::AutoSize;
@@ -352,35 +392,35 @@ namespace N7 {
 			// H
 			// 
 			this->H->AutoSizeMode = System::Windows::Forms::DataGridViewAutoSizeColumnMode::Fill;
-			this->H->HeaderText = L"H";
+			this->H->HeaderText = L"H(mT)";
 			this->H->Name = L"H";
 			this->H->SortMode = System::Windows::Forms::DataGridViewColumnSortMode::NotSortable;
 			// 
 			// X
 			// 
 			this->X->AutoSizeMode = System::Windows::Forms::DataGridViewAutoSizeColumnMode::Fill;
-			this->X->HeaderText = L"X";
+			this->X->HeaderText = L"X(Am2)";
 			this->X->Name = L"X";
 			this->X->SortMode = System::Windows::Forms::DataGridViewColumnSortMode::NotSortable;
 			// 
 			// Y
 			// 
 			this->Y->AutoSizeMode = System::Windows::Forms::DataGridViewAutoSizeColumnMode::Fill;
-			this->Y->HeaderText = L"Y";
+			this->Y->HeaderText = L"Y(Am2)";
 			this->Y->Name = L"Y";
 			this->Y->SortMode = System::Windows::Forms::DataGridViewColumnSortMode::NotSortable;
 			// 
 			// Z
 			// 
 			this->Z->AutoSizeMode = System::Windows::Forms::DataGridViewAutoSizeColumnMode::Fill;
-			this->Z->HeaderText = L"Z";
+			this->Z->HeaderText = L"Z(Am2)";
 			this->Z->Name = L"Z";
 			this->Z->SortMode = System::Windows::Forms::DataGridViewColumnSortMode::NotSortable;
 			// 
 			// M
 			// 
 			this->M->AutoSizeMode = System::Windows::Forms::DataGridViewAutoSizeColumnMode::Fill;
-			this->M->HeaderText = L"M";
+			this->M->HeaderText = L"NRM moment(emu)";
 			this->M->Name = L"M";
 			this->M->SortMode = System::Windows::Forms::DataGridViewColumnSortMode::NotSortable;
 			// 
@@ -392,12 +432,12 @@ namespace N7 {
 			this->ARM->ReadOnly = true;
 			this->ARM->Resizable = System::Windows::Forms::DataGridViewTriState::False;
 			this->ARM->SortMode = System::Windows::Forms::DataGridViewColumnSortMode::NotSortable;
-			this->ARM->Width = 40;
+			this->ARM->Visible = false;
 			// 
 			// M_ARM
 			// 
 			this->M_ARM->AutoSizeMode = System::Windows::Forms::DataGridViewAutoSizeColumnMode::Fill;
-			this->M_ARM->HeaderText = L"M";
+			this->M_ARM->HeaderText = L"ARM gained(emu)";
 			this->M_ARM->Name = L"M_ARM";
 			this->M_ARM->SortMode = System::Windows::Forms::DataGridViewColumnSortMode::NotSortable;
 			// 
@@ -409,12 +449,12 @@ namespace N7 {
 			this->AFZ->ReadOnly = true;
 			this->AFZ->Resizable = System::Windows::Forms::DataGridViewTriState::False;
 			this->AFZ->SortMode = System::Windows::Forms::DataGridViewColumnSortMode::NotSortable;
-			this->AFZ->Width = 34;
+			this->AFZ->Visible = false;
 			// 
 			// M_AFz
 			// 
 			this->M_AFz->AutoSizeMode = System::Windows::Forms::DataGridViewAutoSizeColumnMode::Fill;
-			this->M_AFz->HeaderText = L"M";
+			this->M_AFz->HeaderText = L"ARM left(emu)";
 			this->M_AFz->Name = L"M_AFz";
 			this->M_AFz->SortMode = System::Windows::Forms::DataGridViewColumnSortMode::NotSortable;
 			// 
@@ -860,7 +900,7 @@ namespace N7 {
 
 		mh->ChartAreas[0]->AxisX->MajorGrid->Enabled = false;
 		mh->ChartAreas[0]->AxisY->MajorGrid->Enabled = false;
-		mh->ChartAreas[0]->AxisX->LabelStyle->Format = "{0:0.#E+0}";
+		//mh->ChartAreas[0]->AxisX->LabelStyle->Format = "{0:0.#E+0}";
 		mh->ChartAreas[0]->AxisY->LabelStyle->Format = "{0:0.#E+0}";
 		mh->ChartAreas[0]->AxisY->Crossing = 0;
 		mh->ChartAreas[0]->AxisX->Crossing = 0;
@@ -899,9 +939,6 @@ namespace N7 {
 		}
 
 	}
-
-
-
 	void drawTable(double **data, int line_counter)
 	{
 		z1->Series["XY"]->Points->Clear();
@@ -1244,6 +1281,7 @@ namespace N7 {
 		}
 
 	}
+	//Очистка при закрытии
 private: System::Void MyForm_FormClosing(System::Object^  sender, System::Windows::Forms::FormClosingEventArgs^  e) 
 {
 	free(data);
@@ -1851,6 +1889,22 @@ private: System::Void button7_Click(System::Object^  sender, System::EventArgs^ 
 
 
 }
+		 //Подключаем и отключаем желтые столбца
+private: System::Void onOffRowsToolStripMenuItem_Click(System::Object^  sender, System::EventArgs^  e) {
+	if (dataGridView1->Columns[5]->Visible == false)
+	{
+		
+		dataGridView1->Columns[7]->Visible = true;
+		dataGridView1->Columns[5]->Visible = true;
+	}
+	else
+	{
+		dataGridView1->Columns[7]->Visible = false;
+		dataGridView1->Columns[5]->Visible = false;
+	}
+}
+
+
 };
 
 
