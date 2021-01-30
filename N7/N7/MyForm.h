@@ -833,6 +833,7 @@ namespace N7 {
 	double **dataRMG=(double**)malloc(1 * sizeof(double));
 	int line_PMD, line_RMG;
 	String ^path = "";
+	MyForm2 ^F2 = gcnew MyForm2;
 
 	void draw(double **data, int line_counter)
 	{
@@ -1274,7 +1275,7 @@ private: System::Void MyForm_FormClosing(System::Object^  sender, System::Window
 
 	 for(int i =1; i< line_count; i++)
 	 {
-		 dataGridView1->Rows[i - 1]->Cells[0]->Value = (data[i][0]).ToString("E3");
+		 dataGridView1->Rows[i - 1]->Cells[0]->Value = (data[i][0]).ToString();
 		 dataGridView1->Rows[i - 1]->Cells[1]->Value = (data[i][1]).ToString("E3");
 		 dataGridView1->Rows[i - 1]->Cells[2]->Value = (data[i][2]).ToString("E3");
 		 dataGridView1->Rows[i - 1]->Cells[3]->Value = (data[i][3]).ToString("E3");
@@ -1437,7 +1438,7 @@ private: System::Void button4_Click(System::Object^  sender, System::EventArgs^ 
 		string buf;
 		string subbuf1, subbuf2;
 		
-		int a, b, c;
+		int a, b;
 		
 		int k = 0;
 		int len = s.length();
@@ -1645,9 +1646,12 @@ private: System::Void button5_Click(System::Object^  sender, System::EventArgs^ 
 			}
 		}
 
-		MyForm2 ^F2 = gcnew MyForm2;
 		F2->Do(comp_ore, dataGridView1->RowCount - 1, labelARM->Text, labelNRM->Text, path);
 		F2->Show();
+		F2->WindowState= System::Windows::Forms::FormWindowState::Normal;
+		//F2->Activate();
+		F2->BringToFront();
+
 	}
 }
 
