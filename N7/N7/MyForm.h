@@ -1101,9 +1101,28 @@ private: System::Windows::Forms::ToolStripMenuItem^  onOffArrowsToolStripMenuIte
 		else
 			return b;
 	}
-
+	//Номер максимума и минимума
+	int numberofmax(double **data, int len, int ind, int begin)
+	{
+		int a = begin;
+		for (int i = begin; i < len; i++)
+		{
+			if (a < data[i][ind])
+				a =i;
+		}
+		return a;
+	}
+	int numberofmin(double **data, int len, int ind, int begin)
+	{
+		int a = begin;
+		for (int i = begin; i < len; i++)
+		{
+			if (a > data[i][ind])
+				a = i;
+		}
+		return a;
+	}
 	//Графики
-
 	void draw(double **data, int line_counter)
 	{
 		//a,b,c -вспомогательные перменые
@@ -1194,6 +1213,7 @@ private: System::Windows::Forms::ToolStripMenuItem^  onOffArrowsToolStripMenuIte
 		mh->ChartAreas[0]->AxisY->MajorGrid->Enabled = false;
 		//mh->ChartAreas[0]->AxisX->LabelStyle->Format = "{0:0.#E+0}";
 		mh->ChartAreas[0]->AxisY->LabelStyle->Format = "{0:0.#E+0}";
+		mh->ChartAreas[0]->AxisX->Minimum = 0;
 		mh->ChartAreas[0]->AxisY->Crossing = 0;
 		mh->ChartAreas[0]->AxisX->Crossing = 0;
 
@@ -1409,10 +1429,15 @@ private: System::Windows::Forms::ToolStripMenuItem^  onOffArrowsToolStripMenuIte
 		}
 		else
 		{
+			double from, to,maximum;
+			int maxnumber = 0;
+
 			armchart->Series["left"]->Points->Clear();
 			armchart->Series["gained"]->Points->Clear();
 			armchart->Series["left"]->SmartLabelStyle->Enabled = false;
 			armchart->Series["gained"]->SmartLabelStyle->Enabled = false;
+
+			//Первый график
 
 			armchart->ChartAreas[0]->AxisX->MajorGrid->Enabled = false;
 			armchart->ChartAreas[0]->AxisY->MajorGrid->Enabled = false;
@@ -1422,6 +1447,27 @@ private: System::Windows::Forms::ToolStripMenuItem^  onOffArrowsToolStripMenuIte
 			armchart->ChartAreas[0]->AxisY->Crossing = 0;
 			armchart->ChartAreas[0]->AxisX->Crossing = 0;
 
+			from=max(dataRMG, nrmcounter, 0, 0);
+			to = min(dataRMG, nrmcounter, 0, 0);
+			maximum = maxvalue(fabs(from),fabs(to));
+			maxnumber = numberofmax(dataRMG, nrmcounter, 0, 0);
+
+			if ((fabs(from)< fabs(to))&&(to<0))
+			{
+				maximum = (-1)*maximum;
+			}
+
+			string name = " emu";
+			string armgained = "ARMgained ";
+			String^ s = gcnew String(name.c_str());
+			String^ number = Convert::ToString(dataRMG[maxnumber][0]);
+			if ((number->IndexOf("E") != (-1)) && (number->Length > 8))
+				number = number->Remove(4, number->IndexOf("E") - 4);
+			armchart->ChartAreas[0]->AxisY->CustomLabels->Clear();
+			armchart->ChartAreas[0]->AxisY->CustomLabels->Add(9*maximum/10, maximum, gcnew String(armgained.c_str()) + number + s, 9*maximum/10, System::Windows::Forms::DataVisualization::Charting::LabelMarkStyle::None);
+
+			//Второй график
+
 			armchart->ChartAreas[1]->AxisX->MajorGrid->Enabled = false;
 			armchart->ChartAreas[1]->AxisY->MajorGrid->Enabled = false;
 			armchart->ChartAreas[1]->AxisX->LabelStyle->Format = "{0}";
@@ -1430,6 +1476,27 @@ private: System::Windows::Forms::ToolStripMenuItem^  onOffArrowsToolStripMenuIte
 			armchart->ChartAreas[1]->AxisY->Crossing = 0;
 			armchart->ChartAreas[1]->AxisX->Crossing = 0;
 
+			from = max(dataRMG, nrmcounter, 1, 0);
+			to = min(dataRMG, nrmcounter, 1, 0);
+			maximum = maxvalue(fabs(from), fabs(to));
+			maxnumber = numberofmax(dataRMG, nrmcounter, 1, 0);
+
+			if ((fabs(from) < fabs(to)) && (to < 0))
+			{
+				maximum = (-1)*maximum;
+			}
+
+			string AFZ = "ARMleft ";
+			String^ numberAFZ = Convert::ToString(dataRMG[maxnumber][0]);
+			if ((numberAFZ->IndexOf("E") != (-1)) && (numberAFZ->Length > 8))
+				numberAFZ = numberAFZ->Remove(4, numberAFZ->IndexOf("E") - 4);
+			if ((numberAFZ->Length > 8))
+			{
+				numberAFZ = numberAFZ->Substring(0,8);
+			}
+			armchart->ChartAreas[1]->AxisY->CustomLabels->Clear();
+			armchart->ChartAreas[1]->AxisY->CustomLabels->Add(9 * maximum / 10, maximum, gcnew String(AFZ.c_str()) + numberAFZ + s, 9 * maximum / 10, System::Windows::Forms::DataVisualization::Charting::LabelMarkStyle::None);
+					   
 			for (int i = 1; i < nrmcounter+1; i++)
 			{
 				left_point = (gcnew System::Windows::Forms::DataVisualization::Charting::DataPoint());
@@ -1763,7 +1830,7 @@ private: System::Void MyForm_FormClosing(System::Object^  sender, System::Window
 	 }
 
  }
- //заполняем то что получили в RMG файле
+//заполняем то что получили в RMG файле
  void fillGridRMG(double **dataRMG, int line_count)
 
  {
@@ -1793,8 +1860,7 @@ private: System::Void MyForm_FormClosing(System::Object^  sender, System::Window
 	 }
 
  }
-
- //изменение типа графика
+//изменение типа графика
 private: System::Void button1_Click(System::Object^  sender, System::EventArgs^  e)
 {
 
@@ -1813,7 +1879,6 @@ private: System::Void button1_Click(System::Object^  sender, System::EventArgs^ 
 	
 	
 }
-
 //удоление строк
 private: System::Void button2_Click(System::Object^  sender, System::EventArgs^  e)
 {
@@ -1900,7 +1965,7 @@ private: System::Void button2_Click(System::Object^  sender, System::EventArgs^ 
 	button2->Enabled = true;
 
 }
- 
+//Очистка таблицы
 private: System::Void button3_Click(System::Object^  sender, System::EventArgs^  e)
 {
 	dataGridView1->Rows->Clear();
@@ -2032,8 +2097,7 @@ private: System::Void button4_Click(System::Object^  sender, System::EventArgs^ 
 	}
 	
 }
-
-		 //изменение графика по нажатию по нему
+//изменение графика по нажатию по нему
 private: System::Void z1_Click(System::Object^  sender, System::EventArgs^  e) 
 {
 	if (z1->ChartAreas[0]->Visible)
@@ -2097,7 +2161,6 @@ private: System::Void saveAsToolStripMenuItem_Click(System::Object^  sender, Sys
 	fout.close();
 
 }
-
 //Начало рассчёта
 private: System::Void button5_Click(System::Object^  sender, System::EventArgs^  e) 
 {
@@ -2134,7 +2197,6 @@ private: System::Void button5_Click(System::Object^  sender, System::EventArgs^ 
 
 	}
 }
-
 //Удоление неразмагниченного остатка
 private: System::Void button6_Click(System::Object^  sender, System::EventArgs^  e) 
 {
@@ -2399,7 +2461,6 @@ private: System::Void button6_Click(System::Object^  sender, System::EventArgs^ 
 
 	}
 }
-
 //Домножение таблицы на -1
 private: System::Void buttonMone_Click(System::Object^  sender, System::EventArgs^  e)
 {
@@ -2437,7 +2498,7 @@ private: System::Void buttonMone_Click(System::Object^  sender, System::EventArg
 	drawTable(comp_ore, dataGridView1->RowCount - 1);
 
 }
-		 //подключение выходного файла
+//подключение выходного файла
 private: System::Void button7_Click(System::Object^  sender, System::EventArgs^  e)
 {
 	saveFileOutput->Filter = "Result files|*.dmg|All files(*.*)|*.*";
@@ -2462,7 +2523,7 @@ private: System::Void button7_Click(System::Object^  sender, System::EventArgs^ 
 
 
 }
-		 //Подключаем и отключаем желтые столбца
+//Подключаем и отключаем желтые столбца
 private: System::Void onOffRowsToolStripMenuItem_Click(System::Object^  sender, System::EventArgs^  e) {
 	if (dataGridView1->Columns[5]->Visible == false)
 	{
@@ -2476,8 +2537,7 @@ private: System::Void onOffRowsToolStripMenuItem_Click(System::Object^  sender, 
 		dataGridView1->Columns[5]->Visible = false;
 	}
 }
-
-		 //переключение между графиками ARM
+//переключение между графиками ARM
 private: System::Void armchart_Click(System::Object^  sender, System::EventArgs^  e)
 {
 	if (armchart->ChartAreas[0]->Visible)
@@ -2492,7 +2552,7 @@ private: System::Void armchart_Click(System::Object^  sender, System::EventArgs^
 
 	}
 }
-		 //разворачиваем на весь экран при запуске
+//разворачиваем на весь экран при запуске
 private: System::Void MyForm_Load(System::Object^  sender, System::EventArgs^  e) 
 {
 	WindowState = System::Windows::Forms::FormWindowState::Maximized;
