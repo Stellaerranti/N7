@@ -148,6 +148,7 @@ private: System::Windows::Forms::RadioButton^  AFZradio;
 private: System::Windows::Forms::CheckBox^  NRMcheck;
 private: System::Windows::Forms::CheckBox^  ARMcheck;
 private: System::Windows::Forms::CheckBox^  AFZcheck;
+private: System::Windows::Forms::ToolStripMenuItem^  onOffArrowsToolStripMenuItem;
 
 
 
@@ -174,19 +175,19 @@ private: System::Windows::Forms::CheckBox^  AFZcheck;
 		/// </summary>
 		void InitializeComponent(void)
 		{
-			System::Windows::Forms::DataVisualization::Charting::ChartArea^  chartArea6 = (gcnew System::Windows::Forms::DataVisualization::Charting::ChartArea());
-			System::Windows::Forms::DataVisualization::Charting::ChartArea^  chartArea7 = (gcnew System::Windows::Forms::DataVisualization::Charting::ChartArea());
-			System::Windows::Forms::DataVisualization::Charting::Series^  series8 = (gcnew System::Windows::Forms::DataVisualization::Charting::Series());
-			System::Windows::Forms::DataVisualization::Charting::Series^  series9 = (gcnew System::Windows::Forms::DataVisualization::Charting::Series());
-			System::Windows::Forms::DataVisualization::Charting::Series^  series10 = (gcnew System::Windows::Forms::DataVisualization::Charting::Series());
-			System::Windows::Forms::DataVisualization::Charting::Series^  series11 = (gcnew System::Windows::Forms::DataVisualization::Charting::Series());
-			System::Windows::Forms::DataVisualization::Charting::ChartArea^  chartArea8 = (gcnew System::Windows::Forms::DataVisualization::Charting::ChartArea());
-			System::Windows::Forms::DataVisualization::Charting::Series^  series12 = (gcnew System::Windows::Forms::DataVisualization::Charting::Series());
+			System::Windows::Forms::DataVisualization::Charting::ChartArea^  chartArea1 = (gcnew System::Windows::Forms::DataVisualization::Charting::ChartArea());
+			System::Windows::Forms::DataVisualization::Charting::ChartArea^  chartArea2 = (gcnew System::Windows::Forms::DataVisualization::Charting::ChartArea());
+			System::Windows::Forms::DataVisualization::Charting::Series^  series1 = (gcnew System::Windows::Forms::DataVisualization::Charting::Series());
+			System::Windows::Forms::DataVisualization::Charting::Series^  series2 = (gcnew System::Windows::Forms::DataVisualization::Charting::Series());
+			System::Windows::Forms::DataVisualization::Charting::Series^  series3 = (gcnew System::Windows::Forms::DataVisualization::Charting::Series());
+			System::Windows::Forms::DataVisualization::Charting::Series^  series4 = (gcnew System::Windows::Forms::DataVisualization::Charting::Series());
+			System::Windows::Forms::DataVisualization::Charting::ChartArea^  chartArea3 = (gcnew System::Windows::Forms::DataVisualization::Charting::ChartArea());
+			System::Windows::Forms::DataVisualization::Charting::Series^  series5 = (gcnew System::Windows::Forms::DataVisualization::Charting::Series());
 			System::ComponentModel::ComponentResourceManager^  resources = (gcnew System::ComponentModel::ComponentResourceManager(MyForm::typeid));
-			System::Windows::Forms::DataVisualization::Charting::ChartArea^  chartArea9 = (gcnew System::Windows::Forms::DataVisualization::Charting::ChartArea());
-			System::Windows::Forms::DataVisualization::Charting::ChartArea^  chartArea10 = (gcnew System::Windows::Forms::DataVisualization::Charting::ChartArea());
-			System::Windows::Forms::DataVisualization::Charting::Series^  series13 = (gcnew System::Windows::Forms::DataVisualization::Charting::Series());
-			System::Windows::Forms::DataVisualization::Charting::Series^  series14 = (gcnew System::Windows::Forms::DataVisualization::Charting::Series());
+			System::Windows::Forms::DataVisualization::Charting::ChartArea^  chartArea4 = (gcnew System::Windows::Forms::DataVisualization::Charting::ChartArea());
+			System::Windows::Forms::DataVisualization::Charting::ChartArea^  chartArea5 = (gcnew System::Windows::Forms::DataVisualization::Charting::ChartArea());
+			System::Windows::Forms::DataVisualization::Charting::Series^  series6 = (gcnew System::Windows::Forms::DataVisualization::Charting::Series());
+			System::Windows::Forms::DataVisualization::Charting::Series^  series7 = (gcnew System::Windows::Forms::DataVisualization::Charting::Series());
 			this->openFileDialog1 = (gcnew System::Windows::Forms::OpenFileDialog());
 			this->z1 = (gcnew System::Windows::Forms::DataVisualization::Charting::Chart());
 			this->mh = (gcnew System::Windows::Forms::DataVisualization::Charting::Chart());
@@ -197,6 +198,7 @@ private: System::Windows::Forms::CheckBox^  AFZcheck;
 			this->saveAsToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
 			this->toolStripDropDownButton2 = (gcnew System::Windows::Forms::ToolStripDropDownButton());
 			this->onOffRowsToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
+			this->onOffArrowsToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
 			this->dataGridView1 = (gcnew System::Windows::Forms::DataGridView());
 			this->H = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
 			this->X = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
@@ -208,10 +210,6 @@ private: System::Windows::Forms::CheckBox^  AFZcheck;
 			this->AFZ = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
 			this->M_AFz = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
 			this->tableLayoutPanel1 = (gcnew System::Windows::Forms::TableLayoutPanel());
-			this->groupBox3 = (gcnew System::Windows::Forms::GroupBox());
-			this->tableLayoutPanel7 = (gcnew System::Windows::Forms::TableLayoutPanel());
-			this->button1 = (gcnew System::Windows::Forms::Button());
-			this->buttonMone = (gcnew System::Windows::Forms::Button());
 			this->tableLayoutPanel2 = (gcnew System::Windows::Forms::TableLayoutPanel());
 			this->groupBox1 = (gcnew System::Windows::Forms::GroupBox());
 			this->tableLayoutPanel5 = (gcnew System::Windows::Forms::TableLayoutPanel());
@@ -226,6 +224,18 @@ private: System::Windows::Forms::CheckBox^  AFZcheck;
 			this->tableLayoutPanel4 = (gcnew System::Windows::Forms::TableLayoutPanel());
 			this->LN = (gcnew System::Windows::Forms::RadioButton());
 			this->V = (gcnew System::Windows::Forms::RadioButton());
+			this->tableLayoutPanel8 = (gcnew System::Windows::Forms::TableLayoutPanel());
+			this->NRMradio = (gcnew System::Windows::Forms::RadioButton());
+			this->ARMradio = (gcnew System::Windows::Forms::RadioButton());
+			this->AFZradio = (gcnew System::Windows::Forms::RadioButton());
+			this->tableLayoutPanel9 = (gcnew System::Windows::Forms::TableLayoutPanel());
+			this->NRMcheck = (gcnew System::Windows::Forms::CheckBox());
+			this->ARMcheck = (gcnew System::Windows::Forms::CheckBox());
+			this->AFZcheck = (gcnew System::Windows::Forms::CheckBox());
+			this->groupBox3 = (gcnew System::Windows::Forms::GroupBox());
+			this->tableLayoutPanel7 = (gcnew System::Windows::Forms::TableLayoutPanel());
+			this->button1 = (gcnew System::Windows::Forms::Button());
+			this->buttonMone = (gcnew System::Windows::Forms::Button());
 			this->tableLayoutPanel3 = (gcnew System::Windows::Forms::TableLayoutPanel());
 			this->label1 = (gcnew System::Windows::Forms::Label());
 			this->labelNRM = (gcnew System::Windows::Forms::Label());
@@ -238,31 +248,23 @@ private: System::Windows::Forms::CheckBox^  AFZcheck;
 			this->armchart = (gcnew System::Windows::Forms::DataVisualization::Charting::Chart());
 			this->saveFileDialog1 = (gcnew System::Windows::Forms::SaveFileDialog());
 			this->saveFileOutput = (gcnew System::Windows::Forms::SaveFileDialog());
-			this->tableLayoutPanel8 = (gcnew System::Windows::Forms::TableLayoutPanel());
-			this->tableLayoutPanel9 = (gcnew System::Windows::Forms::TableLayoutPanel());
-			this->NRMradio = (gcnew System::Windows::Forms::RadioButton());
-			this->ARMradio = (gcnew System::Windows::Forms::RadioButton());
-			this->AFZradio = (gcnew System::Windows::Forms::RadioButton());
-			this->NRMcheck = (gcnew System::Windows::Forms::CheckBox());
-			this->ARMcheck = (gcnew System::Windows::Forms::CheckBox());
-			this->AFZcheck = (gcnew System::Windows::Forms::CheckBox());
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->z1))->BeginInit();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->mh))->BeginInit();
 			this->toolStrip1->SuspendLayout();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->dataGridView1))->BeginInit();
 			this->tableLayoutPanel1->SuspendLayout();
-			this->groupBox3->SuspendLayout();
-			this->tableLayoutPanel7->SuspendLayout();
 			this->tableLayoutPanel2->SuspendLayout();
 			this->groupBox1->SuspendLayout();
 			this->tableLayoutPanel5->SuspendLayout();
 			this->groupBox2->SuspendLayout();
 			this->tableLayoutPanel6->SuspendLayout();
 			this->tableLayoutPanel4->SuspendLayout();
-			this->tableLayoutPanel3->SuspendLayout();
-			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->armchart))->BeginInit();
 			this->tableLayoutPanel8->SuspendLayout();
 			this->tableLayoutPanel9->SuspendLayout();
+			this->groupBox3->SuspendLayout();
+			this->tableLayoutPanel7->SuspendLayout();
+			this->tableLayoutPanel3->SuspendLayout();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->armchart))->BeginInit();
 			this->SuspendLayout();
 			// 
 			// openFileDialog1
@@ -271,36 +273,36 @@ private: System::Windows::Forms::CheckBox^  AFZcheck;
 			// 
 			// z1
 			// 
-			chartArea6->Name = L"ChartArea1";
-			chartArea7->Name = L"ChartArea2";
-			chartArea7->Visible = false;
-			this->z1->ChartAreas->Add(chartArea6);
-			this->z1->ChartAreas->Add(chartArea7);
+			chartArea1->Name = L"ChartArea1";
+			chartArea2->Name = L"ChartArea2";
+			chartArea2->Visible = false;
+			this->z1->ChartAreas->Add(chartArea1);
+			this->z1->ChartAreas->Add(chartArea2);
 			this->z1->Dock = System::Windows::Forms::DockStyle::Fill;
 			this->z1->Location = System::Drawing::Point(6, 6);
 			this->z1->Name = L"z1";
-			series8->ChartArea = L"ChartArea1";
-			series8->ChartType = System::Windows::Forms::DataVisualization::Charting::SeriesChartType::Point;
-			series8->LabelBorderWidth = 5;
-			series8->LegendText = L"X,Y";
-			series8->Name = L"XY";
-			series9->ChartArea = L"ChartArea1";
-			series9->ChartType = System::Windows::Forms::DataVisualization::Charting::SeriesChartType::Point;
-			series9->LabelBorderWidth = 5;
-			series9->LegendText = L"Z.X";
-			series9->Name = L"ZX";
-			series10->ChartArea = L"ChartArea2";
-			series10->ChartType = System::Windows::Forms::DataVisualization::Charting::SeriesChartType::Point;
-			series10->LegendText = L"X,Y";
-			series10->Name = L"XY2";
-			series11->ChartArea = L"ChartArea2";
-			series11->ChartType = System::Windows::Forms::DataVisualization::Charting::SeriesChartType::Point;
-			series11->LegendText = L"Z,Y";
-			series11->Name = L"ZY";
-			this->z1->Series->Add(series8);
-			this->z1->Series->Add(series9);
-			this->z1->Series->Add(series10);
-			this->z1->Series->Add(series11);
+			series1->ChartArea = L"ChartArea1";
+			series1->ChartType = System::Windows::Forms::DataVisualization::Charting::SeriesChartType::Point;
+			series1->LabelBorderWidth = 5;
+			series1->LegendText = L"X,Y";
+			series1->Name = L"XY";
+			series2->ChartArea = L"ChartArea1";
+			series2->ChartType = System::Windows::Forms::DataVisualization::Charting::SeriesChartType::Point;
+			series2->LabelBorderWidth = 5;
+			series2->LegendText = L"Z.X";
+			series2->Name = L"ZX";
+			series3->ChartArea = L"ChartArea2";
+			series3->ChartType = System::Windows::Forms::DataVisualization::Charting::SeriesChartType::Point;
+			series3->LegendText = L"X,Y";
+			series3->Name = L"XY2";
+			series4->ChartArea = L"ChartArea2";
+			series4->ChartType = System::Windows::Forms::DataVisualization::Charting::SeriesChartType::Point;
+			series4->LegendText = L"Z,Y";
+			series4->Name = L"ZY";
+			this->z1->Series->Add(series1);
+			this->z1->Series->Add(series2);
+			this->z1->Series->Add(series3);
+			this->z1->Series->Add(series4);
 			this->z1->Size = System::Drawing::Size(449, 460);
 			this->z1->TabIndex = 4;
 			this->z1->Text = L"chart1";
@@ -308,24 +310,24 @@ private: System::Windows::Forms::CheckBox^  AFZcheck;
 			// 
 			// mh
 			// 
-			chartArea8->AxisX->IsLabelAutoFit = false;
-			chartArea8->AxisX->Minimum = 0;
-			chartArea8->AxisX->Title = L"M";
-			chartArea8->AxisX->TitleFont = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 9.980198F, System::Drawing::FontStyle::Regular,
+			chartArea3->AxisX->IsLabelAutoFit = false;
+			chartArea3->AxisX->Minimum = 0;
+			chartArea3->AxisX->Title = L"M";
+			chartArea3->AxisX->TitleFont = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 9.980198F, System::Drawing::FontStyle::Regular,
 				System::Drawing::GraphicsUnit::Point, static_cast<System::Byte>(204)));
-			chartArea8->AxisY->TitleFont = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 9.980198F, System::Drawing::FontStyle::Regular,
+			chartArea3->AxisY->TitleFont = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 9.980198F, System::Drawing::FontStyle::Regular,
 				System::Drawing::GraphicsUnit::Point, static_cast<System::Byte>(204)));
-			chartArea8->Name = L"ChartArea1";
-			this->mh->ChartAreas->Add(chartArea8);
+			chartArea3->Name = L"ChartArea1";
+			this->mh->ChartAreas->Add(chartArea3);
 			this->mh->Cursor = System::Windows::Forms::Cursors::Default;
 			this->mh->Dock = System::Windows::Forms::DockStyle::Fill;
 			this->mh->Location = System::Drawing::Point(464, 6);
 			this->mh->Name = L"mh";
-			series12->ChartArea = L"ChartArea1";
-			series12->ChartType = System::Windows::Forms::DataVisualization::Charting::SeriesChartType::Point;
-			series12->Legend = L"Legend1";
-			series12->Name = L"MH";
-			this->mh->Series->Add(series12);
+			series5->ChartArea = L"ChartArea1";
+			series5->ChartType = System::Windows::Forms::DataVisualization::Charting::SeriesChartType::Point;
+			series5->Legend = L"Legend1";
+			series5->Name = L"MH";
+			this->mh->Series->Add(series5);
 			this->mh->Size = System::Drawing::Size(449, 460);
 			this->mh->TabIndex = 6;
 			this->mh->Text = L"chart3";
@@ -380,7 +382,10 @@ private: System::Windows::Forms::CheckBox^  AFZcheck;
 			// toolStripDropDownButton2
 			// 
 			this->toolStripDropDownButton2->DisplayStyle = System::Windows::Forms::ToolStripItemDisplayStyle::Text;
-			this->toolStripDropDownButton2->DropDownItems->AddRange(gcnew cli::array< System::Windows::Forms::ToolStripItem^  >(1) { this->onOffRowsToolStripMenuItem });
+			this->toolStripDropDownButton2->DropDownItems->AddRange(gcnew cli::array< System::Windows::Forms::ToolStripItem^  >(2) {
+				this->onOffRowsToolStripMenuItem,
+					this->onOffArrowsToolStripMenuItem
+			});
 			this->toolStripDropDownButton2->Image = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"toolStripDropDownButton2.Image")));
 			this->toolStripDropDownButton2->ImageTransparentColor = System::Drawing::Color::Magenta;
 			this->toolStripDropDownButton2->Name = L"toolStripDropDownButton2";
@@ -390,9 +395,16 @@ private: System::Windows::Forms::CheckBox^  AFZcheck;
 			// onOffRowsToolStripMenuItem
 			// 
 			this->onOffRowsToolStripMenuItem->Name = L"onOffRowsToolStripMenuItem";
-			this->onOffRowsToolStripMenuItem->Size = System::Drawing::Size(149, 24);
+			this->onOffRowsToolStripMenuItem->Size = System::Drawing::Size(161, 24);
 			this->onOffRowsToolStripMenuItem->Text = L"On/Off rows";
 			this->onOffRowsToolStripMenuItem->Click += gcnew System::EventHandler(this, &MyForm::onOffRowsToolStripMenuItem_Click);
+			// 
+			// onOffArrowsToolStripMenuItem
+			// 
+			this->onOffArrowsToolStripMenuItem->Name = L"onOffArrowsToolStripMenuItem";
+			this->onOffArrowsToolStripMenuItem->Size = System::Drawing::Size(161, 24);
+			this->onOffArrowsToolStripMenuItem->Text = L"On/Off arrows";
+			this->onOffArrowsToolStripMenuItem->Click += gcnew System::EventHandler(this, &MyForm::onOffArrowsToolStripMenuItem_Click);
 			// 
 			// dataGridView1
 			// 
@@ -506,57 +518,6 @@ private: System::Windows::Forms::CheckBox^  AFZcheck;
 			this->tableLayoutPanel1->RowStyles->Add((gcnew System::Windows::Forms::RowStyle(System::Windows::Forms::SizeType::Percent, 45)));
 			this->tableLayoutPanel1->Size = System::Drawing::Size(1584, 858);
 			this->tableLayoutPanel1->TabIndex = 10;
-			// 
-			// groupBox3
-			// 
-			this->groupBox3->Controls->Add(this->tableLayoutPanel7);
-			this->groupBox3->Dock = System::Windows::Forms::DockStyle::Fill;
-			this->groupBox3->Location = System::Drawing::Point(3, 304);
-			this->groupBox3->Name = L"groupBox3";
-			this->groupBox3->Size = System::Drawing::Size(443, 70);
-			this->groupBox3->TabIndex = 10;
-			this->groupBox3->TabStop = false;
-			this->groupBox3->Text = L"Changing ";
-			// 
-			// tableLayoutPanel7
-			// 
-			this->tableLayoutPanel7->CellBorderStyle = System::Windows::Forms::TableLayoutPanelCellBorderStyle::InsetDouble;
-			this->tableLayoutPanel7->ColumnCount = 2;
-			this->tableLayoutPanel7->ColumnStyles->Add((gcnew System::Windows::Forms::ColumnStyle(System::Windows::Forms::SizeType::Percent,
-				50)));
-			this->tableLayoutPanel7->ColumnStyles->Add((gcnew System::Windows::Forms::ColumnStyle(System::Windows::Forms::SizeType::Percent,
-				50)));
-			this->tableLayoutPanel7->Controls->Add(this->button1, 0, 0);
-			this->tableLayoutPanel7->Controls->Add(this->buttonMone, 1, 0);
-			this->tableLayoutPanel7->Dock = System::Windows::Forms::DockStyle::Fill;
-			this->tableLayoutPanel7->Location = System::Drawing::Point(3, 16);
-			this->tableLayoutPanel7->Name = L"tableLayoutPanel7";
-			this->tableLayoutPanel7->RowCount = 1;
-			this->tableLayoutPanel7->RowStyles->Add((gcnew System::Windows::Forms::RowStyle(System::Windows::Forms::SizeType::Percent, 50)));
-			this->tableLayoutPanel7->Size = System::Drawing::Size(437, 51);
-			this->tableLayoutPanel7->TabIndex = 0;
-			// 
-			// button1
-			// 
-			this->button1->Dock = System::Windows::Forms::DockStyle::Fill;
-			this->button1->Location = System::Drawing::Point(6, 6);
-			this->button1->Name = L"button1";
-			this->button1->Size = System::Drawing::Size(208, 39);
-			this->button1->TabIndex = 0;
-			this->button1->Text = L"Change projection";
-			this->button1->UseVisualStyleBackColor = true;
-			this->button1->Click += gcnew System::EventHandler(this, &MyForm::button1_Click);
-			// 
-			// buttonMone
-			// 
-			this->buttonMone->Dock = System::Windows::Forms::DockStyle::Fill;
-			this->buttonMone->Location = System::Drawing::Point(223, 6);
-			this->buttonMone->Name = L"buttonMone";
-			this->buttonMone->Size = System::Drawing::Size(208, 39);
-			this->buttonMone->TabIndex = 1;
-			this->buttonMone->Text = L"Multiplying by -1";
-			this->buttonMone->UseVisualStyleBackColor = true;
-			this->buttonMone->Click += gcnew System::EventHandler(this, &MyForm::buttonMone_Click);
 			// 
 			// tableLayoutPanel2
 			// 
@@ -750,6 +711,176 @@ private: System::Windows::Forms::CheckBox^  AFZcheck;
 			this->V->Text = L"Value";
 			this->V->UseVisualStyleBackColor = true;
 			// 
+			// tableLayoutPanel8
+			// 
+			this->tableLayoutPanel8->CellBorderStyle = System::Windows::Forms::TableLayoutPanelCellBorderStyle::InsetDouble;
+			this->tableLayoutPanel8->ColumnCount = 3;
+			this->tableLayoutPanel6->SetColumnSpan(this->tableLayoutPanel8, 3);
+			this->tableLayoutPanel8->ColumnStyles->Add((gcnew System::Windows::Forms::ColumnStyle(System::Windows::Forms::SizeType::Percent,
+				33.33333F)));
+			this->tableLayoutPanel8->ColumnStyles->Add((gcnew System::Windows::Forms::ColumnStyle(System::Windows::Forms::SizeType::Percent,
+				33.33333F)));
+			this->tableLayoutPanel8->ColumnStyles->Add((gcnew System::Windows::Forms::ColumnStyle(System::Windows::Forms::SizeType::Percent,
+				33.33333F)));
+			this->tableLayoutPanel8->Controls->Add(this->NRMradio, 0, 0);
+			this->tableLayoutPanel8->Controls->Add(this->ARMradio, 1, 0);
+			this->tableLayoutPanel8->Controls->Add(this->AFZradio, 2, 0);
+			this->tableLayoutPanel8->Dock = System::Windows::Forms::DockStyle::Fill;
+			this->tableLayoutPanel8->Location = System::Drawing::Point(3, 100);
+			this->tableLayoutPanel8->Name = L"tableLayoutPanel8";
+			this->tableLayoutPanel8->RowCount = 1;
+			this->tableLayoutPanel8->RowStyles->Add((gcnew System::Windows::Forms::RowStyle(System::Windows::Forms::SizeType::Percent, 100)));
+			this->tableLayoutPanel8->Size = System::Drawing::Size(431, 26);
+			this->tableLayoutPanel8->TabIndex = 8;
+			// 
+			// NRMradio
+			// 
+			this->NRMradio->AutoSize = true;
+			this->NRMradio->Checked = true;
+			this->NRMradio->Dock = System::Windows::Forms::DockStyle::Fill;
+			this->NRMradio->Location = System::Drawing::Point(6, 6);
+			this->NRMradio->Name = L"NRMradio";
+			this->NRMradio->Size = System::Drawing::Size(133, 14);
+			this->NRMradio->TabIndex = 0;
+			this->NRMradio->TabStop = true;
+			this->NRMradio->Text = L"NRM";
+			this->NRMradio->UseVisualStyleBackColor = true;
+			// 
+			// ARMradio
+			// 
+			this->ARMradio->AutoSize = true;
+			this->ARMradio->Dock = System::Windows::Forms::DockStyle::Fill;
+			this->ARMradio->Location = System::Drawing::Point(148, 6);
+			this->ARMradio->Name = L"ARMradio";
+			this->ARMradio->Size = System::Drawing::Size(133, 14);
+			this->ARMradio->TabIndex = 1;
+			this->ARMradio->Text = L"ARM gained";
+			this->ARMradio->UseVisualStyleBackColor = true;
+			// 
+			// AFZradio
+			// 
+			this->AFZradio->AutoSize = true;
+			this->AFZradio->Dock = System::Windows::Forms::DockStyle::Fill;
+			this->AFZradio->Location = System::Drawing::Point(290, 6);
+			this->AFZradio->Name = L"AFZradio";
+			this->AFZradio->Size = System::Drawing::Size(135, 14);
+			this->AFZradio->TabIndex = 2;
+			this->AFZradio->Text = L"ARM left";
+			this->AFZradio->UseVisualStyleBackColor = true;
+			// 
+			// tableLayoutPanel9
+			// 
+			this->tableLayoutPanel9->BackColor = System::Drawing::SystemColors::Control;
+			this->tableLayoutPanel9->CellBorderStyle = System::Windows::Forms::TableLayoutPanelCellBorderStyle::InsetDouble;
+			this->tableLayoutPanel9->ColumnCount = 3;
+			this->tableLayoutPanel6->SetColumnSpan(this->tableLayoutPanel9, 3);
+			this->tableLayoutPanel9->ColumnStyles->Add((gcnew System::Windows::Forms::ColumnStyle(System::Windows::Forms::SizeType::Percent,
+				33.33333F)));
+			this->tableLayoutPanel9->ColumnStyles->Add((gcnew System::Windows::Forms::ColumnStyle(System::Windows::Forms::SizeType::Percent,
+				33.33333F)));
+			this->tableLayoutPanel9->ColumnStyles->Add((gcnew System::Windows::Forms::ColumnStyle(System::Windows::Forms::SizeType::Percent,
+				33.33333F)));
+			this->tableLayoutPanel9->Controls->Add(this->NRMcheck, 0, 0);
+			this->tableLayoutPanel9->Controls->Add(this->ARMcheck, 1, 0);
+			this->tableLayoutPanel9->Controls->Add(this->AFZcheck, 2, 0);
+			this->tableLayoutPanel9->Dock = System::Windows::Forms::DockStyle::Fill;
+			this->tableLayoutPanel9->Location = System::Drawing::Point(3, 132);
+			this->tableLayoutPanel9->Name = L"tableLayoutPanel9";
+			this->tableLayoutPanel9->RowCount = 1;
+			this->tableLayoutPanel9->RowStyles->Add((gcnew System::Windows::Forms::RowStyle(System::Windows::Forms::SizeType::Percent, 100)));
+			this->tableLayoutPanel9->Size = System::Drawing::Size(431, 28);
+			this->tableLayoutPanel9->TabIndex = 9;
+			// 
+			// NRMcheck
+			// 
+			this->NRMcheck->AutoSize = true;
+			this->NRMcheck->Checked = true;
+			this->NRMcheck->CheckState = System::Windows::Forms::CheckState::Checked;
+			this->NRMcheck->Dock = System::Windows::Forms::DockStyle::Fill;
+			this->NRMcheck->Location = System::Drawing::Point(6, 6);
+			this->NRMcheck->Name = L"NRMcheck";
+			this->NRMcheck->Size = System::Drawing::Size(133, 16);
+			this->NRMcheck->TabIndex = 0;
+			this->NRMcheck->Text = L"NRM";
+			this->NRMcheck->UseVisualStyleBackColor = true;
+			// 
+			// ARMcheck
+			// 
+			this->ARMcheck->AutoSize = true;
+			this->ARMcheck->Checked = true;
+			this->ARMcheck->CheckState = System::Windows::Forms::CheckState::Checked;
+			this->ARMcheck->Dock = System::Windows::Forms::DockStyle::Fill;
+			this->ARMcheck->Location = System::Drawing::Point(148, 6);
+			this->ARMcheck->Name = L"ARMcheck";
+			this->ARMcheck->Size = System::Drawing::Size(133, 16);
+			this->ARMcheck->TabIndex = 1;
+			this->ARMcheck->Text = L"ARM gained";
+			this->ARMcheck->UseVisualStyleBackColor = true;
+			// 
+			// AFZcheck
+			// 
+			this->AFZcheck->AutoSize = true;
+			this->AFZcheck->Checked = true;
+			this->AFZcheck->CheckState = System::Windows::Forms::CheckState::Checked;
+			this->AFZcheck->Dock = System::Windows::Forms::DockStyle::Fill;
+			this->AFZcheck->Location = System::Drawing::Point(290, 6);
+			this->AFZcheck->Name = L"AFZcheck";
+			this->AFZcheck->Size = System::Drawing::Size(135, 16);
+			this->AFZcheck->TabIndex = 2;
+			this->AFZcheck->Text = L"ARM left";
+			this->AFZcheck->UseVisualStyleBackColor = true;
+			// 
+			// groupBox3
+			// 
+			this->groupBox3->Controls->Add(this->tableLayoutPanel7);
+			this->groupBox3->Dock = System::Windows::Forms::DockStyle::Fill;
+			this->groupBox3->Location = System::Drawing::Point(3, 304);
+			this->groupBox3->Name = L"groupBox3";
+			this->groupBox3->Size = System::Drawing::Size(443, 70);
+			this->groupBox3->TabIndex = 10;
+			this->groupBox3->TabStop = false;
+			this->groupBox3->Text = L"Changing ";
+			// 
+			// tableLayoutPanel7
+			// 
+			this->tableLayoutPanel7->CellBorderStyle = System::Windows::Forms::TableLayoutPanelCellBorderStyle::InsetDouble;
+			this->tableLayoutPanel7->ColumnCount = 2;
+			this->tableLayoutPanel7->ColumnStyles->Add((gcnew System::Windows::Forms::ColumnStyle(System::Windows::Forms::SizeType::Percent,
+				50)));
+			this->tableLayoutPanel7->ColumnStyles->Add((gcnew System::Windows::Forms::ColumnStyle(System::Windows::Forms::SizeType::Percent,
+				50)));
+			this->tableLayoutPanel7->Controls->Add(this->button1, 0, 0);
+			this->tableLayoutPanel7->Controls->Add(this->buttonMone, 1, 0);
+			this->tableLayoutPanel7->Dock = System::Windows::Forms::DockStyle::Fill;
+			this->tableLayoutPanel7->Location = System::Drawing::Point(3, 16);
+			this->tableLayoutPanel7->Name = L"tableLayoutPanel7";
+			this->tableLayoutPanel7->RowCount = 1;
+			this->tableLayoutPanel7->RowStyles->Add((gcnew System::Windows::Forms::RowStyle(System::Windows::Forms::SizeType::Percent, 50)));
+			this->tableLayoutPanel7->Size = System::Drawing::Size(437, 51);
+			this->tableLayoutPanel7->TabIndex = 0;
+			// 
+			// button1
+			// 
+			this->button1->Dock = System::Windows::Forms::DockStyle::Fill;
+			this->button1->Location = System::Drawing::Point(6, 6);
+			this->button1->Name = L"button1";
+			this->button1->Size = System::Drawing::Size(208, 39);
+			this->button1->TabIndex = 0;
+			this->button1->Text = L"Change projection";
+			this->button1->UseVisualStyleBackColor = true;
+			this->button1->Click += gcnew System::EventHandler(this, &MyForm::button1_Click);
+			// 
+			// buttonMone
+			// 
+			this->buttonMone->Dock = System::Windows::Forms::DockStyle::Fill;
+			this->buttonMone->Location = System::Drawing::Point(223, 6);
+			this->buttonMone->Name = L"buttonMone";
+			this->buttonMone->Size = System::Drawing::Size(208, 39);
+			this->buttonMone->TabIndex = 1;
+			this->buttonMone->Text = L"Multiplying by -1";
+			this->buttonMone->UseVisualStyleBackColor = true;
+			this->buttonMone->Click += gcnew System::EventHandler(this, &MyForm::buttonMone_Click);
+			// 
 			// tableLayoutPanel3
 			// 
 			this->tableLayoutPanel3->CellBorderStyle = System::Windows::Forms::TableLayoutPanelCellBorderStyle::InsetDouble;
@@ -858,146 +989,27 @@ private: System::Windows::Forms::CheckBox^  AFZcheck;
 			// 
 			// armchart
 			// 
-			chartArea9->Name = L"ChartArea1";
-			chartArea10->Name = L"ChartArea2";
-			chartArea10->Visible = false;
-			this->armchart->ChartAreas->Add(chartArea9);
-			this->armchart->ChartAreas->Add(chartArea10);
+			chartArea4->Name = L"ChartArea1";
+			chartArea5->Name = L"ChartArea2";
+			chartArea5->Visible = false;
+			this->armchart->ChartAreas->Add(chartArea4);
+			this->armchart->ChartAreas->Add(chartArea5);
 			this->armchart->Dock = System::Windows::Forms::DockStyle::Fill;
 			this->armchart->Location = System::Drawing::Point(922, 6);
 			this->armchart->Name = L"armchart";
-			series13->ChartArea = L"ChartArea1";
-			series13->ChartType = System::Windows::Forms::DataVisualization::Charting::SeriesChartType::Point;
-			series13->IsVisibleInLegend = false;
-			series13->Name = L"gained";
-			series14->ChartArea = L"ChartArea2";
-			series14->ChartType = System::Windows::Forms::DataVisualization::Charting::SeriesChartType::Point;
-			series14->Name = L"left";
-			this->armchart->Series->Add(series13);
-			this->armchart->Series->Add(series14);
+			series6->ChartArea = L"ChartArea1";
+			series6->ChartType = System::Windows::Forms::DataVisualization::Charting::SeriesChartType::Point;
+			series6->IsVisibleInLegend = false;
+			series6->Name = L"gained";
+			series7->ChartArea = L"ChartArea2";
+			series7->ChartType = System::Windows::Forms::DataVisualization::Charting::SeriesChartType::Point;
+			series7->Name = L"left";
+			this->armchart->Series->Add(series6);
+			this->armchart->Series->Add(series7);
 			this->armchart->Size = System::Drawing::Size(449, 460);
 			this->armchart->TabIndex = 13;
 			this->armchart->Text = L"chart1";
 			this->armchart->Click += gcnew System::EventHandler(this, &MyForm::armchart_Click);
-			// 
-			// tableLayoutPanel8
-			// 
-			this->tableLayoutPanel8->CellBorderStyle = System::Windows::Forms::TableLayoutPanelCellBorderStyle::InsetDouble;
-			this->tableLayoutPanel8->ColumnCount = 3;
-			this->tableLayoutPanel6->SetColumnSpan(this->tableLayoutPanel8, 3);
-			this->tableLayoutPanel8->ColumnStyles->Add((gcnew System::Windows::Forms::ColumnStyle(System::Windows::Forms::SizeType::Percent,
-				33.33333F)));
-			this->tableLayoutPanel8->ColumnStyles->Add((gcnew System::Windows::Forms::ColumnStyle(System::Windows::Forms::SizeType::Percent,
-				33.33333F)));
-			this->tableLayoutPanel8->ColumnStyles->Add((gcnew System::Windows::Forms::ColumnStyle(System::Windows::Forms::SizeType::Percent,
-				33.33333F)));
-			this->tableLayoutPanel8->Controls->Add(this->NRMradio, 0, 0);
-			this->tableLayoutPanel8->Controls->Add(this->ARMradio, 1, 0);
-			this->tableLayoutPanel8->Controls->Add(this->AFZradio, 2, 0);
-			this->tableLayoutPanel8->Dock = System::Windows::Forms::DockStyle::Fill;
-			this->tableLayoutPanel8->Location = System::Drawing::Point(3, 100);
-			this->tableLayoutPanel8->Name = L"tableLayoutPanel8";
-			this->tableLayoutPanel8->RowCount = 1;
-			this->tableLayoutPanel8->RowStyles->Add((gcnew System::Windows::Forms::RowStyle(System::Windows::Forms::SizeType::Percent, 100)));
-			this->tableLayoutPanel8->Size = System::Drawing::Size(431, 26);
-			this->tableLayoutPanel8->TabIndex = 8;
-			// 
-			// tableLayoutPanel9
-			// 
-			this->tableLayoutPanel9->BackColor = System::Drawing::SystemColors::Control;
-			this->tableLayoutPanel9->CellBorderStyle = System::Windows::Forms::TableLayoutPanelCellBorderStyle::InsetDouble;
-			this->tableLayoutPanel9->ColumnCount = 3;
-			this->tableLayoutPanel6->SetColumnSpan(this->tableLayoutPanel9, 3);
-			this->tableLayoutPanel9->ColumnStyles->Add((gcnew System::Windows::Forms::ColumnStyle(System::Windows::Forms::SizeType::Percent,
-				33.33333F)));
-			this->tableLayoutPanel9->ColumnStyles->Add((gcnew System::Windows::Forms::ColumnStyle(System::Windows::Forms::SizeType::Percent,
-				33.33333F)));
-			this->tableLayoutPanel9->ColumnStyles->Add((gcnew System::Windows::Forms::ColumnStyle(System::Windows::Forms::SizeType::Percent,
-				33.33333F)));
-			this->tableLayoutPanel9->Controls->Add(this->NRMcheck, 0, 0);
-			this->tableLayoutPanel9->Controls->Add(this->ARMcheck, 1, 0);
-			this->tableLayoutPanel9->Controls->Add(this->AFZcheck, 2, 0);
-			this->tableLayoutPanel9->Dock = System::Windows::Forms::DockStyle::Fill;
-			this->tableLayoutPanel9->Location = System::Drawing::Point(3, 132);
-			this->tableLayoutPanel9->Name = L"tableLayoutPanel9";
-			this->tableLayoutPanel9->RowCount = 1;
-			this->tableLayoutPanel9->RowStyles->Add((gcnew System::Windows::Forms::RowStyle(System::Windows::Forms::SizeType::Percent, 100)));
-			this->tableLayoutPanel9->Size = System::Drawing::Size(431, 28);
-			this->tableLayoutPanel9->TabIndex = 9;
-			// 
-			// NRMradio
-			// 
-			this->NRMradio->AutoSize = true;
-			this->NRMradio->Checked = true;
-			this->NRMradio->Dock = System::Windows::Forms::DockStyle::Fill;
-			this->NRMradio->Location = System::Drawing::Point(6, 6);
-			this->NRMradio->Name = L"NRMradio";
-			this->NRMradio->Size = System::Drawing::Size(133, 14);
-			this->NRMradio->TabIndex = 0;
-			this->NRMradio->TabStop = true;
-			this->NRMradio->Text = L"NRM";
-			this->NRMradio->UseVisualStyleBackColor = true;
-			// 
-			// ARMradio
-			// 
-			this->ARMradio->AutoSize = true;
-			this->ARMradio->Dock = System::Windows::Forms::DockStyle::Fill;
-			this->ARMradio->Location = System::Drawing::Point(148, 6);
-			this->ARMradio->Name = L"ARMradio";
-			this->ARMradio->Size = System::Drawing::Size(133, 14);
-			this->ARMradio->TabIndex = 1;
-			this->ARMradio->Text = L"ARM gained";
-			this->ARMradio->UseVisualStyleBackColor = true;
-			// 
-			// AFZradio
-			// 
-			this->AFZradio->AutoSize = true;
-			this->AFZradio->Dock = System::Windows::Forms::DockStyle::Fill;
-			this->AFZradio->Location = System::Drawing::Point(290, 6);
-			this->AFZradio->Name = L"AFZradio";
-			this->AFZradio->Size = System::Drawing::Size(135, 14);
-			this->AFZradio->TabIndex = 2;
-			this->AFZradio->Text = L"ARM left";
-			this->AFZradio->UseVisualStyleBackColor = true;
-			// 
-			// NRMcheck
-			// 
-			this->NRMcheck->AutoSize = true;
-			this->NRMcheck->Checked = true;
-			this->NRMcheck->CheckState = System::Windows::Forms::CheckState::Checked;
-			this->NRMcheck->Dock = System::Windows::Forms::DockStyle::Fill;
-			this->NRMcheck->Location = System::Drawing::Point(6, 6);
-			this->NRMcheck->Name = L"NRMcheck";
-			this->NRMcheck->Size = System::Drawing::Size(133, 16);
-			this->NRMcheck->TabIndex = 0;
-			this->NRMcheck->Text = L"NRM";
-			this->NRMcheck->UseVisualStyleBackColor = true;
-			// 
-			// ARMcheck
-			// 
-			this->ARMcheck->AutoSize = true;
-			this->ARMcheck->Checked = true;
-			this->ARMcheck->CheckState = System::Windows::Forms::CheckState::Checked;
-			this->ARMcheck->Dock = System::Windows::Forms::DockStyle::Fill;
-			this->ARMcheck->Location = System::Drawing::Point(148, 6);
-			this->ARMcheck->Name = L"ARMcheck";
-			this->ARMcheck->Size = System::Drawing::Size(133, 16);
-			this->ARMcheck->TabIndex = 1;
-			this->ARMcheck->Text = L"ARM gained";
-			this->ARMcheck->UseVisualStyleBackColor = true;
-			// 
-			// AFZcheck
-			// 
-			this->AFZcheck->AutoSize = true;
-			this->AFZcheck->Checked = true;
-			this->AFZcheck->CheckState = System::Windows::Forms::CheckState::Checked;
-			this->AFZcheck->Dock = System::Windows::Forms::DockStyle::Fill;
-			this->AFZcheck->Location = System::Drawing::Point(290, 6);
-			this->AFZcheck->Name = L"AFZcheck";
-			this->AFZcheck->Size = System::Drawing::Size(135, 16);
-			this->AFZcheck->TabIndex = 2;
-			this->AFZcheck->Text = L"ARM left";
-			this->AFZcheck->UseVisualStyleBackColor = true;
 			// 
 			// MyForm
 			// 
@@ -1017,8 +1029,6 @@ private: System::Windows::Forms::CheckBox^  AFZcheck;
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->dataGridView1))->EndInit();
 			this->tableLayoutPanel1->ResumeLayout(false);
 			this->tableLayoutPanel1->PerformLayout();
-			this->groupBox3->ResumeLayout(false);
-			this->tableLayoutPanel7->ResumeLayout(false);
 			this->tableLayoutPanel2->ResumeLayout(false);
 			this->groupBox1->ResumeLayout(false);
 			this->tableLayoutPanel5->ResumeLayout(false);
@@ -1028,13 +1038,15 @@ private: System::Windows::Forms::CheckBox^  AFZcheck;
 			this->tableLayoutPanel6->PerformLayout();
 			this->tableLayoutPanel4->ResumeLayout(false);
 			this->tableLayoutPanel4->PerformLayout();
-			this->tableLayoutPanel3->ResumeLayout(false);
-			this->tableLayoutPanel3->PerformLayout();
-			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->armchart))->EndInit();
 			this->tableLayoutPanel8->ResumeLayout(false);
 			this->tableLayoutPanel8->PerformLayout();
 			this->tableLayoutPanel9->ResumeLayout(false);
 			this->tableLayoutPanel9->PerformLayout();
+			this->groupBox3->ResumeLayout(false);
+			this->tableLayoutPanel7->ResumeLayout(false);
+			this->tableLayoutPanel3->ResumeLayout(false);
+			this->tableLayoutPanel3->PerformLayout();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->armchart))->EndInit();
 			this->ResumeLayout(false);
 			this->PerformLayout();
 
@@ -1053,7 +1065,6 @@ private: System::Windows::Forms::CheckBox^  AFZcheck;
 	int flag_number = 0;
 	String ^path = "";
 	MyForm2 ^F2 = gcnew MyForm2;
-	//MyForm^ F1 = gcnew MyForm;
 	//Поиск максимума и минимума в массиве
 	double max(double **data, int len, int ind, int begin)
 	{
@@ -1099,6 +1110,12 @@ private: System::Windows::Forms::CheckBox^  AFZcheck;
 		double from,maxx,maxy, axislenght;
 		double to,a,b,c,d;
 
+		z1->Series["XY"]->SmartLabelStyle->Enabled = false;
+		z1->Series["ZX"]->SmartLabelStyle->Enabled = false;
+		z1->Series["XY2"]->SmartLabelStyle->Enabled = false;
+		z1->Series["ZY"]->SmartLabelStyle->Enabled = false;
+		mh->Series["MH"]->SmartLabelStyle->Enabled = false;
+
 		z1->Series["XY"]->Points->Clear();
 		z1->Series["ZX"]->Points->Clear();
 		z1->Series["XY2"]->Points->Clear();
@@ -1132,6 +1149,8 @@ private: System::Windows::Forms::CheckBox^  AFZcheck;
 		String^ yyval = Convert::ToString(axislenght/10);
 		if ((yyval->IndexOf("E") != (-1)) && (yyval->Length > 8))
 		yyval = yyval->Remove(4, yyval->IndexOf("E") - 4);
+		z1->ChartAreas[0]->AxisY->CustomLabels->Clear();
+		z1->ChartAreas[0]->AxisX->CustomLabels->Clear();
 		z1->ChartAreas[0]->AxisY->CustomLabels->Add(8*c/10, c, gcnew String(step.c_str()) +yyval+dim, 8*c/10, System::Windows::Forms::DataVisualization::Charting::LabelMarkStyle::None);
 		z1->ChartAreas[0]->AxisX->CustomLabels->Add(8*b/10,b,gcnew String(yy.c_str()), 8*b/10, System::Windows::Forms::DataVisualization::Charting::LabelMarkStyle::None);
 		z1->ChartAreas[0]->AxisY->CustomLabels->Add((9)*c/10, c,gcnew String(zx.c_str()), 9*c/10, System::Windows::Forms::DataVisualization::Charting::LabelMarkStyle::None);
@@ -1160,6 +1179,8 @@ private: System::Windows::Forms::CheckBox^  AFZcheck;
 		string yz = "Y,Z";
 		string xx = "-X,X";
 			   
+		z1->ChartAreas[1]->AxisY->CustomLabels->Clear();
+		z1->ChartAreas[1]->AxisX->CustomLabels->Clear();
 		z1->ChartAreas[1]->AxisY->CustomLabels->Add((-8) * maxy / 10, (-1)*maxy, gcnew String(step.c_str()) + Convert::ToString(axislenght / 10) + dim, (8) * maxy / 10, System::Windows::Forms::DataVisualization::Charting::LabelMarkStyle::None);
 		z1->ChartAreas[1]->AxisX->CustomLabels->Add(8 * maxx / 10, maxx, gcnew String(yz.c_str()), 8 * maxx / 10, System::Windows::Forms::DataVisualization::Charting::LabelMarkStyle::None);
 		z1->ChartAreas[1]->AxisY->CustomLabels->Add((-9)*maxy / 10, (-1)*maxy, gcnew String(xx.c_str()), 9 * maxy / 10, System::Windows::Forms::DataVisualization::Charting::LabelMarkStyle::None);
@@ -1184,7 +1205,7 @@ private: System::Windows::Forms::CheckBox^  AFZcheck;
 		String^ number = Convert::ToString(data[1][4]);
 		if ((number->IndexOf("E") != (-1)) && (number->Length > 8))
 		number = number->Remove(4, number->IndexOf("E")-4 );
-
+		mh->ChartAreas[0]->AxisY->CustomLabels->Clear();
 		mh->ChartAreas[0]->AxisY->CustomLabels->Add(9 * from / 10, from, gcnew String(h.c_str()) + number + s, 9 * from / 10, System::Windows::Forms::DataVisualization::Charting::LabelMarkStyle::None);
 
 		for (int i = 1; i < line_counter; i++)
@@ -1337,6 +1358,7 @@ private: System::Windows::Forms::CheckBox^  AFZcheck;
 				a_point = (gcnew System::Windows::Forms::DataVisualization::Charting::DataPoint());
 				a_point->SetValueXY(data[i][2], data[i][1]);
 				a_point->Label = dataGridView1->Rows[i]->HeaderCell->Value->ToString();
+				//a_point->L
 				a_point->LabelForeColor = System::Drawing::Color::Gray;
 				z1->Series["XY"]->Points->Add(a_point);
 
@@ -1389,6 +1411,8 @@ private: System::Windows::Forms::CheckBox^  AFZcheck;
 		{
 			armchart->Series["left"]->Points->Clear();
 			armchart->Series["gained"]->Points->Clear();
+			armchart->Series["left"]->SmartLabelStyle->Enabled = false;
+			armchart->Series["gained"]->SmartLabelStyle->Enabled = false;
 
 			armchart->ChartAreas[0]->AxisX->MajorGrid->Enabled = false;
 			armchart->ChartAreas[0]->AxisY->MajorGrid->Enabled = false;
@@ -2133,42 +2157,159 @@ private: System::Void button6_Click(System::Object^  sender, System::EventArgs^ 
 				{
 					double::TryParse(st2, comp_ore[i][j]);
 				}
-
-
-
 			}
 		}
 		try
 		{
-
-
 			if ((textBox2->Text) == "")
 				throw std::exception("No such numbers");
-			int num = Convert::ToInt32(textBox2->Text);
-			if (num > dataGridView1->RowCount)
+			if (textBox2->Text->IndexOf("-") == (-1))
 			{
-				MessageBox::Show("Number out of range");
+				int num = Convert::ToInt32(textBox2->Text);
+				if (num > dataGridView1->RowCount)
+				{
+					MessageBox::Show("Number out of range");
+				}
+				else
+				{
+					double val;
+					if (NRMradio->Checked)
+						val = comp_ore[num - 1][4];
+					if (ARMradio->Checked)
+						val = comp_ore[num - 1][6];
+					if (AFZradio->Checked)
+						val = comp_ore[num - 1][8];
+
+					for (int i = 0; i < dataGridView1->RowCount - 1; i++)
+					{
+						if (NRMcheck->Checked)
+							dataGridView1->Rows[i]->Cells[4]->Value = (comp_ore[i][4] - val).ToString("E3");
+						if (ARMcheck->Checked)
+							dataGridView1->Rows[i]->Cells[6]->Value = (comp_ore[i][6] - val).ToString("E3");
+						if (AFZcheck->Checked)
+							dataGridView1->Rows[i]->Cells[8]->Value = (comp_ore[i][8] - val).ToString("E3");
+					}
+				}
+
 			}
 			else
 			{
-				double val;
-				if(NRMradio->Checked)
-				val = comp_ore[num - 1][4];
-				if(ARMradio->Checked)
-					val = comp_ore[num - 1][6];
+				System::String ^t = textBox2->Text;
+				string s = "";
+				MarshalString(t, s);
+
+				string buf;
+				string subbuf1, subbuf2;
+
+				int a, b;
+				int k = 0;
+				int len = s.length();
+				int divcounter = 0;
+				int sellnumber = 0;
+
+				double value_to_delete = 0;
+				
+				int counter = 0;
+
+				if (NRMradio->Checked)
+					sellnumber = 4;
+				if (ARMradio->Checked)
+					sellnumber = 6;
 				if (AFZradio->Checked)
-					val = comp_ore[num - 1][8];
+					sellnumber = 8;
+
+				while (k < len)
+				{
+					if (s.find(",") != -1)
+					{
+						buf = s.substr(0, s.find(","));
+						if (buf.find("-") != -1)
+						{
+							subbuf1 = buf.substr(0, buf.find("-"));
+							subbuf2 = buf.substr(buf.find("-") + 1, buf.length());
+							a = stoi(subbuf1);
+							b = stoi(subbuf2);
+
+							try {
+								while (a <= b)
+								{
+
+									//dataGridView1->Rows->RemoveAt(a - 1 - counter);
+									value_to_delete= value_to_delete+Convert::ToDouble(dataGridView1->Rows[a - 1]->Cells[sellnumber]->FormattedValue->ToString());
+									counter++;
+									a++;
+								}
+							}
+							catch (...) { MessageBox::Show("Invalid input"); }
+							s = s.substr(s.find(",") + 1, s.length());
+							k = k + buf.length() + 1;
+						}
+						else
+						{
+							a = stoi(buf);
+							s = s.substr(s.find(",") + 1, s.length());
+							k = k + buf.length() + 1;
+
+							try { 
+								value_to_delete = value_to_delete + Convert::ToDouble(dataGridView1->Rows[a - 1]->Cells[sellnumber]->FormattedValue->ToString());
+							}
+							catch (...) { MessageBox::Show("Invalid input"); }
+							counter++;
+						}
+
+					}
+					else
+					{
+						if (s.find("-") != -1)
+						{
+							subbuf1 = s.substr(0, s.find("-"));
+							subbuf2 = s.substr(s.find("-") + 1, s.length());
+							a = stoi(subbuf1);
+							b = stoi(subbuf2);
+							try {
+
+								while (a <= b)
+								{
+									value_to_delete = value_to_delete + Convert::ToDouble(dataGridView1->Rows[a - 1]->Cells[sellnumber]->FormattedValue->ToString());
+									counter++;
+									a++;
+								}
+							}
+							catch (...) { MessageBox::Show("Invalid input"); }
+							k = k + s.length() + 1;
+						}
+						else
+						{
+							a = stoi(s);
+							try {
+								value_to_delete = value_to_delete + Convert::ToDouble(dataGridView1->Rows[a - 1]->Cells[sellnumber]->FormattedValue->ToString());
+							}
+							catch (...) { MessageBox::Show("Invalid input"); }
+							counter++;
+							k = k + s.length() + 1;
+
+						}
+
+					}
+
+
+
+				}
+				value_to_delete = value_to_delete / counter;
 
 				for (int i = 0; i < dataGridView1->RowCount - 1; i++)
 				{
-					if(NRMcheck->Checked)
-					dataGridView1->Rows[i]->Cells[4]->Value = (comp_ore[i][4] - val).ToString("E3");
+					if (NRMcheck->Checked)
+						dataGridView1->Rows[i]->Cells[4]->Value = (comp_ore[i][4] - value_to_delete).ToString("E3");
 					if (ARMcheck->Checked)
-					dataGridView1->Rows[i]->Cells[6]->Value = (comp_ore[i][6] - val).ToString("E3");
+						dataGridView1->Rows[i]->Cells[6]->Value = (comp_ore[i][6] - value_to_delete).ToString("E3");
 					if (AFZcheck->Checked)
-					dataGridView1->Rows[i]->Cells[8]->Value = (comp_ore[i][8] - val).ToString("E3");
+						dataGridView1->Rows[i]->Cells[8]->Value = (comp_ore[i][8] - value_to_delete).ToString("E3");
 				}
+			//конец else				
 			}
+
+
 			for (int i = 0; i < dataGridView1->RowCount; i++)
 			{
 				for (int j = 0; j < dataGridView1->ColumnCount; j++) {
@@ -2220,7 +2361,7 @@ private: System::Void button6_Click(System::Object^  sender, System::EventArgs^ 
 		}
 		try
 		{
-			if ((textBox2->Text) == "")
+			if (((textBox2->Text) == "")||  (textBox2->Text->IndexOf("-") != (-1)))
 				throw std::exception("No such numbers");
 				double val = Convert::ToDouble(textBox2->Text);
 
@@ -2356,7 +2497,30 @@ private: System::Void MyForm_Load(System::Object^  sender, System::EventArgs^  e
 {
 	WindowState = System::Windows::Forms::FormWindowState::Maximized;
 }
-
+//Отключение стрелок на графике
+private: System::Void onOffArrowsToolStripMenuItem_Click(System::Object^  sender, System::EventArgs^  e) 
+{
+	if (z1->Series["XY"]->SmartLabelStyle->Enabled)
+	{
+		z1->Series["XY"]->SmartLabelStyle->Enabled = false;
+		z1->Series["ZX"]->SmartLabelStyle->Enabled = false;
+		z1->Series["XY2"]->SmartLabelStyle->Enabled = false;
+		z1->Series["ZY"]->SmartLabelStyle->Enabled = false;
+		mh->Series["MH"]->SmartLabelStyle->Enabled = false;
+		armchart->Series["left"]->SmartLabelStyle->Enabled = false;
+		armchart->Series["gained"]->SmartLabelStyle->Enabled = false;
+	}
+	else
+	{
+		z1->Series["XY"]->SmartLabelStyle->Enabled = true;
+		z1->Series["ZX"]->SmartLabelStyle->Enabled = true;
+		z1->Series["XY2"]->SmartLabelStyle->Enabled = true;
+		z1->Series["ZY"]->SmartLabelStyle->Enabled = true;
+		mh->Series["MH"]->SmartLabelStyle->Enabled = true;
+		armchart->Series["left"]->SmartLabelStyle->Enabled = true;
+		armchart->Series["gained"]->SmartLabelStyle->Enabled = true;
+	}
+}
 };
 
 
