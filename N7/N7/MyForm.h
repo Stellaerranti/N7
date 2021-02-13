@@ -1888,7 +1888,7 @@ private: System::Void button2_Click(System::Object^  sender, System::EventArgs^ 
 		for (int i = 0; i < dataGridView1->SelectedRows->Count; i++) {
 			int index = dataGridView1->SelectedRows[i]->Index;
 			try {dataGridView1->Rows->RemoveAt(index);}
-			catch (...) { MessageBox::Show("Unable to delete this row "); }
+			catch (...) { MessageBox::Show("Unable to delete this row "); button2->Enabled = true; return; }
 		}
 		double **comp_ore = new double*[dataGridView1->RowCount]; // создание динамического массива 
 		
@@ -1926,14 +1926,14 @@ private: System::Void button2_Click(System::Object^  sender, System::EventArgs^ 
 		try {
 			
 			index = dataGridView1->CurrentCell->RowIndex; }
-		catch (...) {}
+		catch (...) { MessageBox::Show("Unable to delete this row "); button2->Enabled = true; return; }
 		if (index != -1) {
 			try { 
 				dataGridView1->Rows->RemoveAt(index); 
 			
 			
 			}
-			catch (...) { MessageBox::Show("Unable to delete this row "); }
+			catch (...) { MessageBox::Show("Unable to delete this row "); button2->Enabled = true; return; }
 			
 			double **comp_ore = new double*[dataGridView1->RowCount ]; // создание динамического массива 
 			
@@ -1969,7 +1969,13 @@ private: System::Void button2_Click(System::Object^  sender, System::EventArgs^ 
 private: System::Void button3_Click(System::Object^  sender, System::EventArgs^  e)
 {
 	dataGridView1->Rows->Clear();
-	
+	z1->Series["XY"]->Points->Clear();
+	z1->Series["ZX"]->Points->Clear();
+	z1->Series["XY2"]->Points->Clear();
+	z1->Series["ZY"]->Points->Clear();
+	mh->Series["MH"]->Points->Clear();
+	armchart->Series["left"]->Points->Clear();
+	armchart->Series["gained"]->Points->Clear();
 }
 //удоление строк, номера которых введены в строке
 private: System::Void button4_Click(System::Object^  sender, System::EventArgs^  e) 
@@ -2423,7 +2429,8 @@ private: System::Void button6_Click(System::Object^  sender, System::EventArgs^ 
 		}
 		try
 		{
-			if (((textBox2->Text) == "")||  (textBox2->Text->IndexOf("-") != (-1)))
+			if((textBox2->Text) == "")
+			//if (((textBox2->Text) == "")||  (textBox2->Text->IndexOf("-") != (-1)))
 				throw std::exception("No such numbers");
 				double val = Convert::ToDouble(textBox2->Text);
 
@@ -2519,7 +2526,7 @@ private: System::Void button7_Click(System::Object^  sender, System::EventArgs^ 
 	filabel.erase(0, 1);
 
 	outputfilelabel->Text = gcnew System::String(filabel.c_str());
-	fout << "pmd file   |  rmg file  | N |  range  |   slope   | std error |   beta   | f reside |  r squared" << endl;
+	fout << "pmd file rmg file N range slope std error beta f f reside r squared bAA" << endl;
 
 
 }
