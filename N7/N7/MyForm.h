@@ -186,6 +186,7 @@ private: System::Windows::Forms::Button^  resetbutton;
 			System::Windows::Forms::DataVisualization::Charting::Series^  series5 = (gcnew System::Windows::Forms::DataVisualization::Charting::Series());
 			System::ComponentModel::ComponentResourceManager^  resources = (gcnew System::ComponentModel::ComponentResourceManager(MyForm::typeid));
 			System::Windows::Forms::DataVisualization::Charting::ChartArea^  chartArea4 = (gcnew System::Windows::Forms::DataVisualization::Charting::ChartArea());
+			System::Windows::Forms::DataVisualization::Charting::Legend^  legend1 = (gcnew System::Windows::Forms::DataVisualization::Charting::Legend());
 			System::Windows::Forms::DataVisualization::Charting::Series^  series6 = (gcnew System::Windows::Forms::DataVisualization::Charting::Series());
 			System::Windows::Forms::DataVisualization::Charting::Series^  series7 = (gcnew System::Windows::Forms::DataVisualization::Charting::Series());
 			this->openFileDialog1 = (gcnew System::Windows::Forms::OpenFileDialog());
@@ -1008,21 +1009,25 @@ private: System::Windows::Forms::Button^  resetbutton;
 			chartArea4->Name = L"ChartArea1";
 			this->armchart->ChartAreas->Add(chartArea4);
 			this->armchart->Dock = System::Windows::Forms::DockStyle::Fill;
+			legend1->Name = L"Legend1";
+			this->armchart->Legends->Add(legend1);
 			this->armchart->Location = System::Drawing::Point(922, 6);
 			this->armchart->Name = L"armchart";
 			series6->ChartArea = L"ChartArea1";
 			series6->ChartType = System::Windows::Forms::DataVisualization::Charting::SeriesChartType::Point;
-			series6->IsVisibleInLegend = false;
+			series6->Legend = L"Legend1";
+			series6->LegendText = L"ARMgained";
 			series6->Name = L"gained";
 			series7->ChartArea = L"ChartArea1";
 			series7->ChartType = System::Windows::Forms::DataVisualization::Charting::SeriesChartType::Point;
+			series7->Legend = L"Legend1";
+			series7->LegendText = L"ARMleft";
 			series7->Name = L"left";
 			this->armchart->Series->Add(series6);
 			this->armchart->Series->Add(series7);
 			this->armchart->Size = System::Drawing::Size(449, 460);
 			this->armchart->TabIndex = 13;
 			this->armchart->Text = L"chart1";
-
 			// 
 			// MyForm
 			// 
@@ -1141,10 +1146,8 @@ private: System::Windows::Forms::Button^  resetbutton;
 		//a,b,c -вспомогательные перменые
 		double from,maxx,maxy, axislenght;
 		double to,a,b,c,d;
-
 		z1->ChartAreas[0]->Visible = true;
 		mh->ChartAreas[0]->Visible = true;
-		
 		z1->Series["XY"]->SmartLabelStyle->Enabled = false;
 		z1->Series["ZX"]->SmartLabelStyle->Enabled = false;
 		z1->Series["XY2"]->SmartLabelStyle->Enabled = false;
@@ -1282,7 +1285,10 @@ private: System::Windows::Forms::Button^  resetbutton;
 	{
 		double from, maxx, maxy, axislenght;
 		double to, a, b, c, d;
-		
+		double maximum, max2;
+		int maxnumber = 0;
+		int minnuber2 = 0;
+
 		armchart->Series["left"]->Points->Clear();
 		armchart->Series["gained"]->Points->Clear();
 
@@ -1383,6 +1389,46 @@ private: System::Windows::Forms::Button^  resetbutton;
 		mh->ChartAreas[0]->AxisY->CustomLabels->Clear();
 		mh->ChartAreas[0]->AxisY->CustomLabels->Add(9*from/10, from, gcnew String(h.c_str()) + number + s,9*from/10, System::Windows::Forms::DataVisualization::Charting::LabelMarkStyle::None);
 
+		//третий график
+		from = max(dataRMG, line_counter, 0, 0);
+		to = min(dataRMG, line_counter, 0, 0);
+		//maximum = maxvalue(fabs(from), fabs(to));
+		maxnumber = numberofmin(dataRMG, line_counter, 0, 0);
+		minnuber2 = numberofmin(dataRMG, line_counter, 1, 0);
+		/*if ((fabs(from) < fabs(to)) && (to < 0))
+		{
+			maximum = (-1)*maximum;
+		}*/
+
+
+
+		string name1 = " emu";
+		//string armgained = "minimum ";
+		String^ s1 = gcnew String(name1.c_str());
+		String^ number1 = "";
+		if (dataRMG[maxnumber][0] < dataRMG[minnuber2][1])
+		{
+			number1 = Convert::ToString(dataRMG[maxnumber][0]);
+			maximum = dataRMG[maxnumber][0];
+		}
+		else {
+			number1 = Convert::ToString(dataRMG[minnuber2][1]);
+			maximum = dataRMG[minnuber2][1];
+		}
+
+		if ((number1->IndexOf("E") != (-1)) && (number1->Length > 8))
+			number1 = number1->Remove(4, number1->IndexOf("E") - 4);
+		if (number1->Length > 8)
+		{
+			number1 = number1->Substring(0, 8);
+		}
+		armchart->ChartAreas[0]->AxisY->CustomLabels->Clear();
+		//armchart->ChartAreas[0]->AxisY->CustomLabels->Add(4*maximum/10, maximum, gcnew String(armgained.c_str()) + number + s,4*maximum/10, System::Windows::Forms::DataVisualization::Charting::LabelMarkStyle::None);
+		armchart->ChartAreas[0]->AxisY->LabelStyle->Angle = -90;
+		armchart->ChartAreas[0]->AxisY->CustomLabels->Add( maximum , maxvalue(fabs(from), fabs(to)), number1 + s1,fabs(maximum- maxvalue(fabs(from), fabs(to))), System::Windows::Forms::DataVisualization::Charting::LabelMarkStyle::None);
+
+
+
 			for (int i = 0; i < line_counter; i++)
 			{
 				a_point = (gcnew System::Windows::Forms::DataVisualization::Charting::DataPoint());
@@ -1439,11 +1485,11 @@ private: System::Windows::Forms::Button^  resetbutton;
 		}
 		else
 		{
-			double from, to,maximum;
+			double from, to,maximum,max2;
 			int maxnumber = 0;
-
+			int minnuber2 = 0;
+			
 			armchart->ChartAreas[0]->Visible = true;
-
 			armchart->Series["left"]->Points->Clear();
 			armchart->Series["gained"]->Points->Clear();
 			armchart->Series["left"]->SmartLabelStyle->Enabled = false;
@@ -1462,24 +1508,41 @@ private: System::Windows::Forms::Button^  resetbutton;
 			from=max(dataRMG, nrmcounter, 0, 0);
 			to = min(dataRMG, nrmcounter, 0, 0);
 			maximum = maxvalue(fabs(from),fabs(to));
-			maxnumber = numberofmax(dataRMG, nrmcounter, 0, 0);
-
+			maxnumber = numberofmin(dataRMG, nrmcounter, 0, 0);
+			minnuber2= numberofmin(dataRMG, nrmcounter, 1, 0);
 			if ((fabs(from)< fabs(to))&&(to<0))
 			{
 				maximum = (-1)*maximum;
 			}
 
+
+
 			string name = " emu";
-			string armgained = "ARMleft ";
+			//string armgained = "minimum ";
 			String^ s = gcnew String(name.c_str());
-			String^ number = Convert::ToString(dataRMG[maxnumber][0]);
+			String^ number = "";
+			if (dataRMG[maxnumber][0] < dataRMG[minnuber2][1])
+			{
+				number = Convert::ToString(dataRMG[maxnumber][0]);
+			}
+			else {
+				number = Convert::ToString(dataRMG[minnuber2][1]);
+			}
+
 			if ((number->IndexOf("E") != (-1)) && (number->Length > 8))
 				number = number->Remove(4, number->IndexOf("E") - 4);
+			if (number->Length > 8)
+			{
+				number = number->Substring(0,8);
+			}
 			armchart->ChartAreas[0]->AxisY->CustomLabels->Clear();
-			armchart->ChartAreas[0]->AxisY->CustomLabels->Add(9*maximum/10, maximum, gcnew String(armgained.c_str()) + number + s, 9*maximum/10, System::Windows::Forms::DataVisualization::Charting::LabelMarkStyle::None);
-
+			//armchart->ChartAreas[0]->AxisY->CustomLabels->Add(4*maximum/10, maximum, gcnew String(armgained.c_str()) + number + s,4*maximum/10, System::Windows::Forms::DataVisualization::Charting::LabelMarkStyle::None);
+			armchart->ChartAreas[0]->AxisY->LabelStyle->Angle = -90;
+			armchart->ChartAreas[0]->AxisY->CustomLabels->Add(7 * maximum / 10, maximum,  number + s, 7 * maximum / 10, System::Windows::Forms::DataVisualization::Charting::LabelMarkStyle::None);
+			
 			//Второй график
 
+			/*
 			from = max(dataRMG, nrmcounter, 1, 0);
 			to = min(dataRMG, nrmcounter, 1, 0);
 			maximum = maxvalue(fabs(from), fabs(to));
@@ -1490,7 +1553,7 @@ private: System::Windows::Forms::Button^  resetbutton;
 				maximum = (-1)*maximum;
 			}
 
-			string AFZ = "ARMgained ";
+			//string AFZ = "ARMgained ";
 			String^ numberAFZ = Convert::ToString(dataRMG[maxnumber][0]);
 			if ((numberAFZ->IndexOf("E") != (-1)) && (numberAFZ->Length > 8))
 				numberAFZ = numberAFZ->Remove(4, numberAFZ->IndexOf("E") - 4);
@@ -1498,9 +1561,10 @@ private: System::Windows::Forms::Button^  resetbutton;
 			{
 				numberAFZ = numberAFZ->Substring(0,8);
 			}
-			armchart->ChartAreas[0]->AxisY->CustomLabels->Clear();
-			armchart->ChartAreas[0]->AxisY->CustomLabels->Add(9 * maximum / 10, maximum, gcnew String(AFZ.c_str()) + numberAFZ + s, 9 * maximum / 10, System::Windows::Forms::DataVisualization::Charting::LabelMarkStyle::None);
-					   
+			//armchart->ChartAreas[0]->AxisY->CustomLabels->Clear();
+			//armchart->ChartAreas[0]->AxisY->CustomLabels->Add(9 * maximum / 10, maximum, gcnew String(AFZ.c_str()) + numberAFZ + s, 9 * maximum / 10, System::Windows::Forms::DataVisualization::Charting::LabelMarkStyle::None);
+			//armchart->ChartAreas[0]->AxisY->CustomLabels->Add(9 * maximum / 10, maximum, numberAFZ + s, 9 * maximum / 10, System::Windows::Forms::DataVisualization::Charting::LabelMarkStyle::None);
+			*/
 			for (int i = 1; i < nrmcounter+1; i++)
 			{
 				left_point = (gcnew System::Windows::Forms::DataVisualization::Charting::DataPoint());
@@ -1638,6 +1702,7 @@ private: System::Windows::Forms::Button^  resetbutton;
 			this->Cursor = System::Windows::Forms::Cursors::Default;
 			line_PMD = line_counter-1;
 			drawARM(data, dataRMG, line_PMD, line_RMG);
+			
 		}
 
 	}
@@ -1702,10 +1767,6 @@ private: System::Windows::Forms::Button^  resetbutton;
 					char *buf = strtok(p, " ,=");
 					while ((column_counter < 5) && (buf != NULL)) //переводим все числа из символов-чисел в числа-числа
 					{
-
-						//cout << buf << endl;
-
-						//if ((buf != NULL) && (isdigit(buf[0])))
 						if ((buf != NULL))
 						{
 
@@ -1746,6 +1807,7 @@ private: System::Windows::Forms::Button^  resetbutton;
 						dataRMG = (double**)realloc(dataRMG, (line_counter_RMG + 1) * sizeof(double*));
 						dataRMG[line_counter_RMG - 1] = (double*)malloc(2 * sizeof(double));
 						dataRMG[line_counter_RMG - 1][0] = values[4];
+						
 					}
 					else
 					{
@@ -1781,6 +1843,7 @@ private: System::Windows::Forms::Button^  resetbutton;
 				}
 
 					flagline++;
+					double a = values[0];
 			}
 			//Конец цикла 
 			fin.close();
@@ -1790,6 +1853,7 @@ private: System::Windows::Forms::Button^  resetbutton;
 			line_RMG = line_counter_RMG;
 
 			drawARM(data,dataRMG,  line_PMD, line_RMG);
+			
 		}
 
 
@@ -1977,13 +2041,11 @@ private: System::Void button3_Click(System::Object^  sender, System::EventArgs^ 
 	z1->ChartAreas[1]->Visible = false;
 	mh->ChartAreas[0]->Visible = false;
 	armchart->ChartAreas[0]->Visible = false;
-	
-	//z1->Series["ZX"]->Points->Clear();
-	//z1->Series["XY2"]->Points->Clear();
-	//z1->Series["ZY"]->Points->Clear();
-	//mh->Series["MH"]->Points->Clear();
-	//armchart->Series["left"]->Points->Clear();
-	//armchart->Series["gained"]->Points->Clear();
+
+	labelARM->Text = " ";
+	labelNRM->Text = " ";
+	line_PMD = 0;
+	line_RMG = 0;
 }
 //удоление строк, номера которых введены в строке
 private: System::Void button4_Click(System::Object^  sender, System::EventArgs^  e) 
@@ -2593,7 +2655,7 @@ private: System::Void resetbutton_Click(System::Object^  sender, System::EventAr
 	else {
 
 		dataGridView1->Rows->Clear();
-		fillGridPMD(data, line_PMD);
+		fillGridPMD(data, line_PMD+1);
 		fillGridRMG(dataRMG, line_RMG);
 		draw(data, line_PMD);
 		drawARM(data, dataRMG, line_PMD, line_RMG);
