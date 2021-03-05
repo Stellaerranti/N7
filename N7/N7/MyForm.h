@@ -1485,6 +1485,7 @@ private: System::Windows::Forms::Button^  resetbutton;
 		}
 		else
 		{
+			check(data, dataRMG);
 			double from, to,maximum,max2;
 			int maxnumber = 0;
 			int minnuber2 = 0;
@@ -1580,6 +1581,18 @@ private: System::Windows::Forms::Button^  resetbutton;
 				armchart->Series["gained"]->Points->Add(gained_point);
 			}
 		}
+	}
+	void check(double **data, double **dataRMG)
+	{
+		int flag = 0;
+		for (int i = 1; i < line_RMG+1; i++)
+		{
+			if ((data[i][0] != dataRMG[i - 1][2]) && (data[i][0] * 10 != dataRMG[i - 1][2]))
+				flag++;
+				
+		}
+		if(flag !=0)
+			MessageBox::Show("Warning! Different fields in RMG and PMD files!");
 	}
 	//Открываем pmd
 	private: System::Void openpmdToolStripMenuItem_Click(System::Object^  sender, System::EventArgs^  e)
@@ -1801,11 +1814,12 @@ private: System::Windows::Forms::Button^  resetbutton;
 					if (flagRMG == 1)
 					{
 						line_counter_RMG++;
-						dataRMG[0] = (double*)malloc(2 * sizeof(double));
+						dataRMG[0] = (double*)malloc(3 * sizeof(double));
 						dataRMG[line_counter_RMG - 1][0] = 0;
+						dataRMG[line_counter_RMG - 1][2] = values[0];
 						line_counter_RMG++;
 						dataRMG = (double**)realloc(dataRMG, (line_counter_RMG + 1) * sizeof(double*));
-						dataRMG[line_counter_RMG - 1] = (double*)malloc(2 * sizeof(double));
+						dataRMG[line_counter_RMG - 1] = (double*)malloc(3 * sizeof(double));
 						dataRMG[line_counter_RMG - 1][0] = values[4];
 						
 					}
@@ -1815,8 +1829,9 @@ private: System::Windows::Forms::Button^  resetbutton;
 						{
 							line_counter_RMG++;
 							dataRMG = (double**)realloc(dataRMG, (line_counter_RMG +1)* sizeof(double*));
-							dataRMG[line_counter_RMG - 1] = (double*)malloc(2 * sizeof(double));
+							dataRMG[line_counter_RMG - 1] = (double*)malloc(3 * sizeof(double));
 							dataRMG[line_counter_RMG - 1][0] = values[4];
+							dataRMG[line_counter_RMG - 1][2] = values[0];
 						}
 						if (bi == AFz)
 						{
@@ -1843,7 +1858,7 @@ private: System::Windows::Forms::Button^  resetbutton;
 				}
 
 					flagline++;
-					double a = values[0];
+					
 			}
 			//Конец цикла 
 			fin.close();
