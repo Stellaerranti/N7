@@ -1094,6 +1094,18 @@ private: System::Windows::Forms::Button^  resetbutton;
 		}
 		return a;
 	}
+	double max_axis(double x, double y)
+	{
+		if (x > y) { return x; }
+		if (y > x) { return y; }
+		if (y == x) { return x; }
+	}
+	double min_axis(double x, double y)
+	{
+		if (x > y) { return y; }
+		if (y > x) { return x; }
+		if (y == x) { return x; }
+	}
 	double min(double **data, int len, int ind, int begin)
 	{
 		double a = data[begin][ind];
@@ -1279,6 +1291,8 @@ private: System::Windows::Forms::Button^  resetbutton;
 			MH_point->LabelForeColor = System::Drawing::Color::Gray;
 			mh->Series["MH"]->Points->Add(MH_point);
 		}
+
+
 
 	}
 	void drawTable(double **data, int line_counter)
@@ -1474,6 +1488,8 @@ private: System::Windows::Forms::Button^  resetbutton;
 				gained_point->LabelForeColor = System::Drawing::Color::Gray;
 				armchart->Series["gained"]->Points->Add(gained_point);
 			}
+
+
 		
 			
 	}
@@ -1580,6 +1596,7 @@ private: System::Windows::Forms::Button^  resetbutton;
 				gained_point->LabelForeColor = System::Drawing::Color::Gray;
 				armchart->Series["gained"]->Points->Add(gained_point);
 			}
+
 		}
 	}
 	void check(double **data, double **dataRMG)

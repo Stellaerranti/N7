@@ -1,35 +1,37 @@
 ﻿  MyForm.cpp
-i:\smartgit\smartgit\rep\n7\n7\myform2.h(1471): warning C4101: e: неиспользованная локальная переменная
-i:\smartgit\smartgit\rep\n7\n7\myform.h(1192): warning C4244: аргумент: преобразование "double" в "int", возможна потеря данных
-i:\smartgit\smartgit\rep\n7\n7\myform.h(1193): warning C4244: аргумент: преобразование "double" в "int", возможна потеря данных
-i:\smartgit\smartgit\rep\n7\n7\myform.h(1194): warning C4244: аргумент: преобразование "double" в "int", возможна потеря данных
-i:\smartgit\smartgit\rep\n7\n7\myform.h(1222): warning C4244: аргумент: преобразование "double" в "int", возможна потеря данных
-i:\smartgit\smartgit\rep\n7\n7\myform.h(1223): warning C4244: аргумент: преобразование "double" в "int", возможна потеря данных
-i:\smartgit\smartgit\rep\n7\n7\myform.h(1224): warning C4244: аргумент: преобразование "double" в "int", возможна потеря данных
-i:\smartgit\smartgit\rep\n7\n7\myform.h(1248): warning C4244: аргумент: преобразование "double" в "int", возможна потеря данных
-i:\smartgit\smartgit\rep\n7\n7\myform.h(1148): warning C4101: to: неиспользованная локальная переменная
-i:\smartgit\smartgit\rep\n7\n7\myform.h(1337): warning C4244: аргумент: преобразование "double" в "int", возможна потеря данных
-i:\smartgit\smartgit\rep\n7\n7\myform.h(1338): warning C4244: аргумент: преобразование "double" в "int", возможна потеря данных
-i:\smartgit\smartgit\rep\n7\n7\myform.h(1339): warning C4244: аргумент: преобразование "double" в "int", возможна потеря данных
-i:\smartgit\smartgit\rep\n7\n7\myform.h(1365): warning C4244: аргумент: преобразование "double" в "int", возможна потеря данных
-i:\smartgit\smartgit\rep\n7\n7\myform.h(1366): warning C4244: аргумент: преобразование "double" в "int", возможна потеря данных
-i:\smartgit\smartgit\rep\n7\n7\myform.h(1367): warning C4244: аргумент: преобразование "double" в "int", возможна потеря данных
-i:\smartgit\smartgit\rep\n7\n7\myform.h(1390): warning C4244: аргумент: преобразование "double" в "int", возможна потеря данных
-i:\smartgit\smartgit\rep\n7\n7\myform.h(1428): warning C4244: аргумент: преобразование "double" в "int", возможна потеря данных
-i:\smartgit\smartgit\rep\n7\n7\myform.h(1288): warning C4101: max2: неиспользованная локальная переменная
-i:\smartgit\smartgit\rep\n7\n7\myform.h(1542): warning C4244: аргумент: преобразование "double" в "int", возможна потеря данных
-i:\smartgit\smartgit\rep\n7\n7\myform.h(1489): warning C4101: max2: неиспользованная локальная переменная
-i:\smartgit\smartgit\rep\n7\n7\myform.h(1648): warning C4996: 'strtok': This function or variable may be unsafe. Consider using strtok_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+i:\smartgit\rep\n7\n7\myform2.h(1474): warning C4101: e: неиспользованная локальная переменная
+i:\smartgit\rep\n7\n7\myform.h(1204): warning C4244: аргумент: преобразование "double" в "int", возможна потеря данных
+i:\smartgit\rep\n7\n7\myform.h(1205): warning C4244: аргумент: преобразование "double" в "int", возможна потеря данных
+i:\smartgit\rep\n7\n7\myform.h(1206): warning C4244: аргумент: преобразование "double" в "int", возможна потеря данных
+i:\smartgit\rep\n7\n7\myform.h(1234): warning C4244: аргумент: преобразование "double" в "int", возможна потеря данных
+i:\smartgit\rep\n7\n7\myform.h(1235): warning C4244: аргумент: преобразование "double" в "int", возможна потеря данных
+i:\smartgit\rep\n7\n7\myform.h(1236): warning C4244: аргумент: преобразование "double" в "int", возможна потеря данных
+i:\smartgit\rep\n7\n7\myform.h(1260): warning C4244: аргумент: преобразование "double" в "int", возможна потеря данных
+i:\smartgit\rep\n7\n7\myform.h(1160): warning C4101: to: неиспользованная локальная переменная
+i:\smartgit\rep\n7\n7\myform.h(1351): warning C4244: аргумент: преобразование "double" в "int", возможна потеря данных
+i:\smartgit\rep\n7\n7\myform.h(1352): warning C4244: аргумент: преобразование "double" в "int", возможна потеря данных
+i:\smartgit\rep\n7\n7\myform.h(1353): warning C4244: аргумент: преобразование "double" в "int", возможна потеря данных
+i:\smartgit\rep\n7\n7\myform.h(1379): warning C4244: аргумент: преобразование "double" в "int", возможна потеря данных
+i:\smartgit\rep\n7\n7\myform.h(1380): warning C4244: аргумент: преобразование "double" в "int", возможна потеря данных
+i:\smartgit\rep\n7\n7\myform.h(1381): warning C4244: аргумент: преобразование "double" в "int", возможна потеря данных
+i:\smartgit\rep\n7\n7\myform.h(1404): warning C4244: аргумент: преобразование "double" в "int", возможна потеря данных
+i:\smartgit\rep\n7\n7\myform.h(1442): warning C4244: аргумент: преобразование "double" в "int", возможна потеря данных
+i:\smartgit\rep\n7\n7\myform.h(1302): warning C4101: max2: неиспользованная локальная переменная
+i:\smartgit\rep\n7\n7\myform.h(1558): warning C4244: аргумент: преобразование "double" в "int", возможна потеря данных
+i:\smartgit\rep\n7\n7\myform.h(1505): warning C4101: max2: неиспользованная локальная переменная
+i:\smartgit\rep\n7\n7\myform.h(1674): warning C4996: 'strtok': This function or variable may be unsafe. Consider using strtok_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
   c:\program files (x86)\windows kits\10\include\10.0.17763.0\ucrt\string.h(440): note:  см. объявление "strtok"
-i:\smartgit\smartgit\rep\n7\n7\myform.h(1681): warning C4996: 'strtok': This function or variable may be unsafe. Consider using strtok_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+i:\smartgit\rep\n7\n7\myform.h(1707): warning C4996: 'strtok': This function or variable may be unsafe. Consider using strtok_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
   c:\program files (x86)\windows kits\10\include\10.0.17763.0\ucrt\string.h(440): note:  см. объявление "strtok"
-i:\smartgit\smartgit\rep\n7\n7\myform.h(1780): warning C4996: 'strtok': This function or variable may be unsafe. Consider using strtok_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+i:\smartgit\rep\n7\n7\myform.h(1806): warning C4996: 'strtok': This function or variable may be unsafe. Consider using strtok_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
   c:\program files (x86)\windows kits\10\include\10.0.17763.0\ucrt\string.h(440): note:  см. объявление "strtok"
-i:\smartgit\smartgit\rep\n7\n7\myform.h(1807): warning C4996: 'strtok': This function or variable may be unsafe. Consider using strtok_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+i:\smartgit\rep\n7\n7\myform.h(1833): warning C4996: 'strtok': This function or variable may be unsafe. Consider using strtok_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
   c:\program files (x86)\windows kits\10\include\10.0.17763.0\ucrt\string.h(440): note:  см. объявление "strtok"
-i:\smartgit\smartgit\rep\n7\n7\myform.cpp(6): warning C4829: Возможно, неправильные параметры функции main. Рекомендуемый вариант - "int main(Platform::Array<Platform::String^>^ argv)"
+i:\smartgit\rep\n7\n7\myform.cpp(6): warning C4829: Возможно, неправильные параметры функции main. Рекомендуемый вариант - "int main(Platform::Array<Platform::String^>^ argv)"
   MyForm2.cpp
-i:\smartgit\smartgit\rep\n7\n7\myform2.h(1471): warning C4101: e: неиспользованная локальная переменная
+i:\smartgit\rep\n7\n7\myform2.h(1474): warning C4101: e: неиспользованная локальная переменная
   Создание кода...
+i:\smartgit\rep\n7\n7\myform.h(1102): warning C4715: N7::MyForm::max_axis: значение возвращается не при всех путях выполнения
+i:\smartgit\rep\n7\n7\myform.h(1108): warning C4715: N7::MyForm::min_axis: значение возвращается не при всех путях выполнения
   .NETFramework,Version=v4.6.1.AssemblyAttributes.cpp
-  N7.vcxproj -> I:\SmartGit\SmartGit\rep\N7\Release\N7.exe
+  N7.vcxproj -> I:\SmartGit\rep\N7\Release\N7.exe
