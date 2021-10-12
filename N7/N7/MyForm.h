@@ -363,21 +363,21 @@ private: System::Windows::Forms::Button^  resetbutton;
 			// openpmdToolStripMenuItem
 			// 
 			this->openpmdToolStripMenuItem->Name = L"openpmdToolStripMenuItem";
-			this->openpmdToolStripMenuItem->Size = System::Drawing::Size(143, 24);
+			this->openpmdToolStripMenuItem->Size = System::Drawing::Size(187, 24);
 			this->openpmdToolStripMenuItem->Text = L"Open .pmd";
 			this->openpmdToolStripMenuItem->Click += gcnew System::EventHandler(this, &MyForm::openpmdToolStripMenuItem_Click);
 			// 
 			// openrmgToolStripMenuItem
 			// 
 			this->openrmgToolStripMenuItem->Name = L"openrmgToolStripMenuItem";
-			this->openrmgToolStripMenuItem->Size = System::Drawing::Size(143, 24);
+			this->openrmgToolStripMenuItem->Size = System::Drawing::Size(187, 24);
 			this->openrmgToolStripMenuItem->Text = L"Open .rmg";
 			this->openrmgToolStripMenuItem->Click += gcnew System::EventHandler(this, &MyForm::openrmgToolStripMenuItem_Click);
 			// 
 			// saveAsToolStripMenuItem
 			// 
 			this->saveAsToolStripMenuItem->Name = L"saveAsToolStripMenuItem";
-			this->saveAsToolStripMenuItem->Size = System::Drawing::Size(143, 24);
+			this->saveAsToolStripMenuItem->Size = System::Drawing::Size(187, 24);
 			this->saveAsToolStripMenuItem->Text = L"Save as";
 			this->saveAsToolStripMenuItem->Click += gcnew System::EventHandler(this, &MyForm::saveAsToolStripMenuItem_Click);
 			// 
@@ -1631,11 +1631,20 @@ private: System::Windows::Forms::Button^  resetbutton;
 			int flag_count = 0;
 			int flag = 0;
 			while (getline(fin, str))
-			{ // пока не достигнут конец файла класть очередную строку в переменную 
+			{ 
+				// пока не достигнут конец файла класть очередную строку в переменную 
 				// райне непри€тно и криво переводим строку в массив
-				if (((str[0] == 'M')||(str[0] == 'T'))&&(line_counter >= 1))//ј это удол€ем ћ и “ что бы удобнее перевести значение напр€женности
+			if (((str[0] == 'M')||(str[0] == 'T')||(str[0]=='N'))&&(line_counter >= 1))//ј это удол€ем ћ и “ что бы удобнее перевести значение напр€женности
 				{
-					str.erase(0,1);
+					//обрабатываем случай с NRM и T020 в заголовке
+					if ((str[0] == 'N') || (str[0] == 'T'))
+					{
+					str.replace(0, int(str.find_first_of(' ', 0)), "M000");
+					}
+					
+					str.erase(0, 1);
+					
+					
 				}
 
 				char p[255];
@@ -1756,9 +1765,9 @@ private: System::Windows::Forms::Button^  resetbutton;
 			int flagRMG = 0;
 			int flagline = 0;
 			int line_AFz = 0;
-			string ARM = "ARM";
-			string AFz = "AFz";
-			string NRM = "NRM";
+			string ARM = "AR";
+			string AFz = "AF";
+			string NRM = "NR";
 
 			while (getline(fin, str))
 			{ // пока не достигнут конец файла класть очередную строку в переменную 
@@ -1770,7 +1779,7 @@ private: System::Windows::Forms::Button^  resetbutton;
 				
 				double *values = NULL;
 				strcpy_s(p, str.c_str());		// ак иначе перевести string в char € без пон€ти€	
-				string bi = str.substr(0, 3);
+				string bi = str.substr(0, 2);
 				
 			
 				column_counter = 0;
