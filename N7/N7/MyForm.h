@@ -233,11 +233,6 @@ private: System::Windows::Forms::Button^  resetbutton;
 			this->NRMcheck = (gcnew System::Windows::Forms::CheckBox());
 			this->ARMcheck = (gcnew System::Windows::Forms::CheckBox());
 			this->AFZcheck = (gcnew System::Windows::Forms::CheckBox());
-			this->groupBox3 = (gcnew System::Windows::Forms::GroupBox());
-			this->tableLayoutPanel7 = (gcnew System::Windows::Forms::TableLayoutPanel());
-			this->button1 = (gcnew System::Windows::Forms::Button());
-			this->buttonMone = (gcnew System::Windows::Forms::Button());
-			this->resetbutton = (gcnew System::Windows::Forms::Button());
 			this->tableLayoutPanel3 = (gcnew System::Windows::Forms::TableLayoutPanel());
 			this->label1 = (gcnew System::Windows::Forms::Label());
 			this->labelNRM = (gcnew System::Windows::Forms::Label());
@@ -248,6 +243,11 @@ private: System::Windows::Forms::Button^  resetbutton;
 			this->label2 = (gcnew System::Windows::Forms::Label());
 			this->outputfilelabel = (gcnew System::Windows::Forms::Label());
 			this->armchart = (gcnew System::Windows::Forms::DataVisualization::Charting::Chart());
+			this->groupBox3 = (gcnew System::Windows::Forms::GroupBox());
+			this->tableLayoutPanel7 = (gcnew System::Windows::Forms::TableLayoutPanel());
+			this->button1 = (gcnew System::Windows::Forms::Button());
+			this->resetbutton = (gcnew System::Windows::Forms::Button());
+			this->buttonMone = (gcnew System::Windows::Forms::Button());
 			this->saveFileDialog1 = (gcnew System::Windows::Forms::SaveFileDialog());
 			this->saveFileOutput = (gcnew System::Windows::Forms::SaveFileDialog());
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->z1))->BeginInit();
@@ -263,10 +263,10 @@ private: System::Windows::Forms::Button^  resetbutton;
 			this->tableLayoutPanel4->SuspendLayout();
 			this->tableLayoutPanel8->SuspendLayout();
 			this->tableLayoutPanel9->SuspendLayout();
-			this->groupBox3->SuspendLayout();
-			this->tableLayoutPanel7->SuspendLayout();
 			this->tableLayoutPanel3->SuspendLayout();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->armchart))->BeginInit();
+			this->groupBox3->SuspendLayout();
+			this->tableLayoutPanel7->SuspendLayout();
 			this->SuspendLayout();
 			// 
 			// openFileDialog1
@@ -305,7 +305,7 @@ private: System::Windows::Forms::Button^  resetbutton;
 			this->z1->Series->Add(series2);
 			this->z1->Series->Add(series3);
 			this->z1->Series->Add(series4);
-			this->z1->Size = System::Drawing::Size(449, 460);
+			this->z1->Size = System::Drawing::Size(449, 480);
 			this->z1->TabIndex = 4;
 			this->z1->Text = L"chart1";
 			this->z1->Click += gcnew System::EventHandler(this, &MyForm::z1_Click);
@@ -330,7 +330,7 @@ private: System::Windows::Forms::Button^  resetbutton;
 			series5->Legend = L"Legend1";
 			series5->Name = L"MH";
 			this->mh->Series->Add(series5);
-			this->mh->Size = System::Drawing::Size(449, 460);
+			this->mh->Size = System::Drawing::Size(449, 480);
 			this->mh->TabIndex = 6;
 			this->mh->Text = L"chart3";
 			// 
@@ -363,21 +363,21 @@ private: System::Windows::Forms::Button^  resetbutton;
 			// openpmdToolStripMenuItem
 			// 
 			this->openpmdToolStripMenuItem->Name = L"openpmdToolStripMenuItem";
-			this->openpmdToolStripMenuItem->Size = System::Drawing::Size(187, 24);
+			this->openpmdToolStripMenuItem->Size = System::Drawing::Size(143, 24);
 			this->openpmdToolStripMenuItem->Text = L"Open .pmd";
 			this->openpmdToolStripMenuItem->Click += gcnew System::EventHandler(this, &MyForm::openpmdToolStripMenuItem_Click);
 			// 
 			// openrmgToolStripMenuItem
 			// 
 			this->openrmgToolStripMenuItem->Name = L"openrmgToolStripMenuItem";
-			this->openrmgToolStripMenuItem->Size = System::Drawing::Size(187, 24);
+			this->openrmgToolStripMenuItem->Size = System::Drawing::Size(143, 24);
 			this->openrmgToolStripMenuItem->Text = L"Open .rmg";
 			this->openrmgToolStripMenuItem->Click += gcnew System::EventHandler(this, &MyForm::openrmgToolStripMenuItem_Click);
 			// 
 			// saveAsToolStripMenuItem
 			// 
 			this->saveAsToolStripMenuItem->Name = L"saveAsToolStripMenuItem";
-			this->saveAsToolStripMenuItem->Size = System::Drawing::Size(187, 24);
+			this->saveAsToolStripMenuItem->Size = System::Drawing::Size(143, 24);
 			this->saveAsToolStripMenuItem->Text = L"Save as";
 			this->saveAsToolStripMenuItem->Click += gcnew System::EventHandler(this, &MyForm::saveAsToolStripMenuItem_Click);
 			// 
@@ -417,10 +417,10 @@ private: System::Windows::Forms::Button^  resetbutton;
 			});
 			this->tableLayoutPanel1->SetColumnSpan(this->dataGridView1, 2);
 			this->dataGridView1->Dock = System::Windows::Forms::DockStyle::Fill;
-			this->dataGridView1->Location = System::Drawing::Point(6, 475);
+			this->dataGridView1->Location = System::Drawing::Point(6, 495);
 			this->dataGridView1->Name = L"dataGridView1";
 			this->dataGridView1->RowHeadersBorderStyle = System::Windows::Forms::DataGridViewHeaderBorderStyle::Sunken;
-			this->dataGridView1->Size = System::Drawing::Size(907, 377);
+			this->dataGridView1->Size = System::Drawing::Size(907, 393);
 			this->dataGridView1->TabIndex = 9;
 			// 
 			// H
@@ -511,6 +511,7 @@ private: System::Windows::Forms::Button^  resetbutton;
 			this->tableLayoutPanel1->Controls->Add(this->mh, 1, 0);
 			this->tableLayoutPanel1->Controls->Add(this->tableLayoutPanel3, 3, 0);
 			this->tableLayoutPanel1->Controls->Add(this->armchart, 2, 0);
+			this->tableLayoutPanel1->Controls->Add(this->groupBox3, 3, 1);
 			this->tableLayoutPanel1->Dock = System::Windows::Forms::DockStyle::Fill;
 			this->tableLayoutPanel1->ForeColor = System::Drawing::SystemColors::ActiveCaptionText;
 			this->tableLayoutPanel1->Location = System::Drawing::Point(0, 25);
@@ -518,7 +519,7 @@ private: System::Windows::Forms::Button^  resetbutton;
 			this->tableLayoutPanel1->RowCount = 2;
 			this->tableLayoutPanel1->RowStyles->Add((gcnew System::Windows::Forms::RowStyle(System::Windows::Forms::SizeType::Percent, 55)));
 			this->tableLayoutPanel1->RowStyles->Add((gcnew System::Windows::Forms::RowStyle(System::Windows::Forms::SizeType::Percent, 45)));
-			this->tableLayoutPanel1->Size = System::Drawing::Size(1584, 858);
+			this->tableLayoutPanel1->Size = System::Drawing::Size(1584, 894);
 			this->tableLayoutPanel1->TabIndex = 10;
 			// 
 			// tableLayoutPanel2
@@ -530,15 +531,13 @@ private: System::Windows::Forms::Button^  resetbutton;
 				100)));
 			this->tableLayoutPanel2->Controls->Add(this->groupBox1, 0, 0);
 			this->tableLayoutPanel2->Controls->Add(this->groupBox2, 0, 1);
-			this->tableLayoutPanel2->Controls->Add(this->groupBox3, 0, 2);
 			this->tableLayoutPanel2->Dock = System::Windows::Forms::DockStyle::Fill;
-			this->tableLayoutPanel2->Location = System::Drawing::Point(922, 475);
+			this->tableLayoutPanel2->Location = System::Drawing::Point(922, 495);
 			this->tableLayoutPanel2->Name = L"tableLayoutPanel2";
-			this->tableLayoutPanel2->RowCount = 3;
+			this->tableLayoutPanel2->RowCount = 2;
 			this->tableLayoutPanel2->RowStyles->Add((gcnew System::Windows::Forms::RowStyle(System::Windows::Forms::SizeType::Percent, 25)));
 			this->tableLayoutPanel2->RowStyles->Add((gcnew System::Windows::Forms::RowStyle(System::Windows::Forms::SizeType::Percent, 60)));
-			this->tableLayoutPanel2->RowStyles->Add((gcnew System::Windows::Forms::RowStyle(System::Windows::Forms::SizeType::Percent, 15)));
-			this->tableLayoutPanel2->Size = System::Drawing::Size(449, 377);
+			this->tableLayoutPanel2->Size = System::Drawing::Size(449, 393);
 			this->tableLayoutPanel2->TabIndex = 11;
 			// 
 			// groupBox1
@@ -550,7 +549,7 @@ private: System::Windows::Forms::Button^  resetbutton;
 			this->groupBox1->Location = System::Drawing::Point(3, 3);
 			this->groupBox1->Name = L"groupBox1";
 			this->groupBox1->RightToLeft = System::Windows::Forms::RightToLeft::No;
-			this->groupBox1->Size = System::Drawing::Size(443, 88);
+			this->groupBox1->Size = System::Drawing::Size(443, 109);
 			this->groupBox1->TabIndex = 8;
 			this->groupBox1->TabStop = false;
 			this->groupBox1->Text = L"Removing rows";
@@ -573,7 +572,7 @@ private: System::Windows::Forms::Button^  resetbutton;
 			this->tableLayoutPanel5->RowCount = 2;
 			this->tableLayoutPanel5->RowStyles->Add((gcnew System::Windows::Forms::RowStyle(System::Windows::Forms::SizeType::Percent, 50)));
 			this->tableLayoutPanel5->RowStyles->Add((gcnew System::Windows::Forms::RowStyle(System::Windows::Forms::SizeType::Percent, 50)));
-			this->tableLayoutPanel5->Size = System::Drawing::Size(437, 69);
+			this->tableLayoutPanel5->Size = System::Drawing::Size(437, 90);
 			this->tableLayoutPanel5->TabIndex = 0;
 			// 
 			// button3
@@ -581,7 +580,7 @@ private: System::Windows::Forms::Button^  resetbutton;
 			this->button3->Dock = System::Windows::Forms::DockStyle::Fill;
 			this->button3->Location = System::Drawing::Point(5, 5);
 			this->button3->Name = L"button3";
-			this->button3->Size = System::Drawing::Size(209, 25);
+			this->button3->Size = System::Drawing::Size(209, 36);
 			this->button3->TabIndex = 2;
 			this->button3->Text = L"Clear table";
 			this->button3->UseVisualStyleBackColor = true;
@@ -590,7 +589,7 @@ private: System::Windows::Forms::Button^  resetbutton;
 			// textBox1
 			// 
 			this->textBox1->Dock = System::Windows::Forms::DockStyle::Fill;
-			this->textBox1->Location = System::Drawing::Point(5, 38);
+			this->textBox1->Location = System::Drawing::Point(5, 49);
 			this->textBox1->Name = L"textBox1";
 			this->textBox1->Size = System::Drawing::Size(209, 20);
 			this->textBox1->TabIndex = 3;
@@ -600,7 +599,7 @@ private: System::Windows::Forms::Button^  resetbutton;
 			this->button2->Dock = System::Windows::Forms::DockStyle::Fill;
 			this->button2->Location = System::Drawing::Point(222, 5);
 			this->button2->Name = L"button2";
-			this->button2->Size = System::Drawing::Size(210, 25);
+			this->button2->Size = System::Drawing::Size(210, 36);
 			this->button2->TabIndex = 1;
 			this->button2->Text = L"Delete the selected row";
 			this->button2->UseVisualStyleBackColor = true;
@@ -609,9 +608,9 @@ private: System::Windows::Forms::Button^  resetbutton;
 			// button4
 			// 
 			this->button4->Dock = System::Windows::Forms::DockStyle::Fill;
-			this->button4->Location = System::Drawing::Point(222, 38);
+			this->button4->Location = System::Drawing::Point(222, 49);
 			this->button4->Name = L"button4";
-			this->button4->Size = System::Drawing::Size(210, 26);
+			this->button4->Size = System::Drawing::Size(210, 36);
 			this->button4->TabIndex = 4;
 			this->button4->Text = L"Delete rows";
 			this->button4->UseVisualStyleBackColor = true;
@@ -621,9 +620,9 @@ private: System::Windows::Forms::Button^  resetbutton;
 			// 
 			this->groupBox2->Controls->Add(this->tableLayoutPanel6);
 			this->groupBox2->Dock = System::Windows::Forms::DockStyle::Fill;
-			this->groupBox2->Location = System::Drawing::Point(3, 97);
+			this->groupBox2->Location = System::Drawing::Point(3, 118);
 			this->groupBox2->Name = L"groupBox2";
-			this->groupBox2->Size = System::Drawing::Size(443, 220);
+			this->groupBox2->Size = System::Drawing::Size(443, 272);
 			this->groupBox2->TabIndex = 9;
 			this->groupBox2->TabStop = false;
 			this->groupBox2->Text = L"Removal of non-magnetized residue";
@@ -647,10 +646,10 @@ private: System::Windows::Forms::Button^  resetbutton;
 			this->tableLayoutPanel6->Name = L"tableLayoutPanel6";
 			this->tableLayoutPanel6->RowCount = 4;
 			this->tableLayoutPanel6->RowStyles->Add((gcnew System::Windows::Forms::RowStyle(System::Windows::Forms::SizeType::Percent, 15)));
-			this->tableLayoutPanel6->RowStyles->Add((gcnew System::Windows::Forms::RowStyle(System::Windows::Forms::SizeType::Percent, 45)));
-			this->tableLayoutPanel6->RowStyles->Add((gcnew System::Windows::Forms::RowStyle(System::Windows::Forms::SizeType::Percent, 20)));
-			this->tableLayoutPanel6->RowStyles->Add((gcnew System::Windows::Forms::RowStyle(System::Windows::Forms::SizeType::Percent, 20)));
-			this->tableLayoutPanel6->Size = System::Drawing::Size(437, 201);
+			this->tableLayoutPanel6->RowStyles->Add((gcnew System::Windows::Forms::RowStyle(System::Windows::Forms::SizeType::Percent, 26.48221F)));
+			this->tableLayoutPanel6->RowStyles->Add((gcnew System::Windows::Forms::RowStyle(System::Windows::Forms::SizeType::Percent, 28.06324F)));
+			this->tableLayoutPanel6->RowStyles->Add((gcnew System::Windows::Forms::RowStyle(System::Windows::Forms::SizeType::Percent, 31.2253F)));
+			this->tableLayoutPanel6->Size = System::Drawing::Size(437, 253);
 			this->tableLayoutPanel6->TabIndex = 0;
 			// 
 			// textBox2
@@ -665,9 +664,9 @@ private: System::Windows::Forms::Button^  resetbutton;
 			// button6
 			// 
 			this->button6->Dock = System::Windows::Forms::DockStyle::Fill;
-			this->button6->Location = System::Drawing::Point(293, 33);
+			this->button6->Location = System::Drawing::Point(293, 40);
 			this->button6->Name = L"button6";
-			this->button6->Size = System::Drawing::Size(141, 84);
+			this->button6->Size = System::Drawing::Size(141, 60);
 			this->button6->TabIndex = 6;
 			this->button6->Text = L"remove unmagnetized residue";
 			this->button6->UseVisualStyleBackColor = true;
@@ -683,12 +682,12 @@ private: System::Windows::Forms::Button^  resetbutton;
 			this->tableLayoutPanel4->Controls->Add(this->LN, 0, 0);
 			this->tableLayoutPanel4->Controls->Add(this->V, 0, 1);
 			this->tableLayoutPanel4->Dock = System::Windows::Forms::DockStyle::Fill;
-			this->tableLayoutPanel4->Location = System::Drawing::Point(3, 33);
+			this->tableLayoutPanel4->Location = System::Drawing::Point(3, 40);
 			this->tableLayoutPanel4->Name = L"tableLayoutPanel4";
 			this->tableLayoutPanel4->RowCount = 2;
 			this->tableLayoutPanel4->RowStyles->Add((gcnew System::Windows::Forms::RowStyle(System::Windows::Forms::SizeType::Percent, 50)));
 			this->tableLayoutPanel4->RowStyles->Add((gcnew System::Windows::Forms::RowStyle(System::Windows::Forms::SizeType::Percent, 50)));
-			this->tableLayoutPanel4->Size = System::Drawing::Size(284, 84);
+			this->tableLayoutPanel4->Size = System::Drawing::Size(284, 60);
 			this->tableLayoutPanel4->TabIndex = 7;
 			// 
 			// LN
@@ -706,7 +705,7 @@ private: System::Windows::Forms::Button^  resetbutton;
 			// V
 			// 
 			this->V->AutoSize = true;
-			this->V->Location = System::Drawing::Point(5, 46);
+			this->V->Location = System::Drawing::Point(5, 34);
 			this->V->Name = L"V";
 			this->V->Size = System::Drawing::Size(56, 19);
 			this->V->TabIndex = 1;
@@ -729,11 +728,11 @@ private: System::Windows::Forms::Button^  resetbutton;
 			this->tableLayoutPanel8->Controls->Add(this->ARMradio, 1, 0);
 			this->tableLayoutPanel8->Controls->Add(this->AFZradio, 2, 0);
 			this->tableLayoutPanel8->Dock = System::Windows::Forms::DockStyle::Fill;
-			this->tableLayoutPanel8->Location = System::Drawing::Point(3, 123);
+			this->tableLayoutPanel8->Location = System::Drawing::Point(3, 106);
 			this->tableLayoutPanel8->Name = L"tableLayoutPanel8";
 			this->tableLayoutPanel8->RowCount = 1;
 			this->tableLayoutPanel8->RowStyles->Add((gcnew System::Windows::Forms::RowStyle(System::Windows::Forms::SizeType::Percent, 100)));
-			this->tableLayoutPanel8->Size = System::Drawing::Size(431, 34);
+			this->tableLayoutPanel8->Size = System::Drawing::Size(431, 64);
 			this->tableLayoutPanel8->TabIndex = 8;
 			// 
 			// NRMradio
@@ -743,7 +742,7 @@ private: System::Windows::Forms::Button^  resetbutton;
 			this->NRMradio->Dock = System::Windows::Forms::DockStyle::Fill;
 			this->NRMradio->Location = System::Drawing::Point(6, 6);
 			this->NRMradio->Name = L"NRMradio";
-			this->NRMradio->Size = System::Drawing::Size(133, 22);
+			this->NRMradio->Size = System::Drawing::Size(133, 52);
 			this->NRMradio->TabIndex = 0;
 			this->NRMradio->TabStop = true;
 			this->NRMradio->Text = L"NRM";
@@ -755,7 +754,7 @@ private: System::Windows::Forms::Button^  resetbutton;
 			this->ARMradio->Dock = System::Windows::Forms::DockStyle::Fill;
 			this->ARMradio->Location = System::Drawing::Point(148, 6);
 			this->ARMradio->Name = L"ARMradio";
-			this->ARMradio->Size = System::Drawing::Size(133, 22);
+			this->ARMradio->Size = System::Drawing::Size(133, 52);
 			this->ARMradio->TabIndex = 1;
 			this->ARMradio->Text = L"ARM gained";
 			this->ARMradio->UseVisualStyleBackColor = true;
@@ -766,7 +765,7 @@ private: System::Windows::Forms::Button^  resetbutton;
 			this->AFZradio->Dock = System::Windows::Forms::DockStyle::Fill;
 			this->AFZradio->Location = System::Drawing::Point(290, 6);
 			this->AFZradio->Name = L"AFZradio";
-			this->AFZradio->Size = System::Drawing::Size(135, 22);
+			this->AFZradio->Size = System::Drawing::Size(135, 52);
 			this->AFZradio->TabIndex = 2;
 			this->AFZradio->Text = L"ARM left";
 			this->AFZradio->UseVisualStyleBackColor = true;
@@ -787,11 +786,11 @@ private: System::Windows::Forms::Button^  resetbutton;
 			this->tableLayoutPanel9->Controls->Add(this->ARMcheck, 1, 0);
 			this->tableLayoutPanel9->Controls->Add(this->AFZcheck, 2, 0);
 			this->tableLayoutPanel9->Dock = System::Windows::Forms::DockStyle::Fill;
-			this->tableLayoutPanel9->Location = System::Drawing::Point(3, 163);
+			this->tableLayoutPanel9->Location = System::Drawing::Point(3, 176);
 			this->tableLayoutPanel9->Name = L"tableLayoutPanel9";
 			this->tableLayoutPanel9->RowCount = 1;
 			this->tableLayoutPanel9->RowStyles->Add((gcnew System::Windows::Forms::RowStyle(System::Windows::Forms::SizeType::Percent, 100)));
-			this->tableLayoutPanel9->Size = System::Drawing::Size(431, 35);
+			this->tableLayoutPanel9->Size = System::Drawing::Size(431, 74);
 			this->tableLayoutPanel9->TabIndex = 9;
 			// 
 			// NRMcheck
@@ -802,7 +801,7 @@ private: System::Windows::Forms::Button^  resetbutton;
 			this->NRMcheck->Dock = System::Windows::Forms::DockStyle::Fill;
 			this->NRMcheck->Location = System::Drawing::Point(6, 6);
 			this->NRMcheck->Name = L"NRMcheck";
-			this->NRMcheck->Size = System::Drawing::Size(133, 23);
+			this->NRMcheck->Size = System::Drawing::Size(133, 62);
 			this->NRMcheck->TabIndex = 0;
 			this->NRMcheck->Text = L"NRM";
 			this->NRMcheck->UseVisualStyleBackColor = true;
@@ -815,7 +814,7 @@ private: System::Windows::Forms::Button^  resetbutton;
 			this->ARMcheck->Dock = System::Windows::Forms::DockStyle::Fill;
 			this->ARMcheck->Location = System::Drawing::Point(148, 6);
 			this->ARMcheck->Name = L"ARMcheck";
-			this->ARMcheck->Size = System::Drawing::Size(133, 23);
+			this->ARMcheck->Size = System::Drawing::Size(133, 62);
 			this->ARMcheck->TabIndex = 1;
 			this->ARMcheck->Text = L"ARM gained";
 			this->ARMcheck->UseVisualStyleBackColor = true;
@@ -828,75 +827,10 @@ private: System::Windows::Forms::Button^  resetbutton;
 			this->AFZcheck->Dock = System::Windows::Forms::DockStyle::Fill;
 			this->AFZcheck->Location = System::Drawing::Point(290, 6);
 			this->AFZcheck->Name = L"AFZcheck";
-			this->AFZcheck->Size = System::Drawing::Size(135, 23);
+			this->AFZcheck->Size = System::Drawing::Size(135, 62);
 			this->AFZcheck->TabIndex = 2;
 			this->AFZcheck->Text = L"ARM left";
 			this->AFZcheck->UseVisualStyleBackColor = true;
-			// 
-			// groupBox3
-			// 
-			this->groupBox3->Controls->Add(this->tableLayoutPanel7);
-			this->groupBox3->Dock = System::Windows::Forms::DockStyle::Fill;
-			this->groupBox3->Location = System::Drawing::Point(3, 323);
-			this->groupBox3->Name = L"groupBox3";
-			this->groupBox3->Size = System::Drawing::Size(443, 51);
-			this->groupBox3->TabIndex = 10;
-			this->groupBox3->TabStop = false;
-			this->groupBox3->Text = L"Changing ";
-			// 
-			// tableLayoutPanel7
-			// 
-			this->tableLayoutPanel7->CellBorderStyle = System::Windows::Forms::TableLayoutPanelCellBorderStyle::InsetDouble;
-			this->tableLayoutPanel7->ColumnCount = 3;
-			this->tableLayoutPanel7->ColumnStyles->Add((gcnew System::Windows::Forms::ColumnStyle(System::Windows::Forms::SizeType::Percent,
-				33.33333F)));
-			this->tableLayoutPanel7->ColumnStyles->Add((gcnew System::Windows::Forms::ColumnStyle(System::Windows::Forms::SizeType::Percent,
-				33.33333F)));
-			this->tableLayoutPanel7->ColumnStyles->Add((gcnew System::Windows::Forms::ColumnStyle(System::Windows::Forms::SizeType::Percent,
-				33.33333F)));
-			this->tableLayoutPanel7->Controls->Add(this->button1, 0, 0);
-			this->tableLayoutPanel7->Controls->Add(this->buttonMone, 1, 0);
-			this->tableLayoutPanel7->Controls->Add(this->resetbutton, 2, 0);
-			this->tableLayoutPanel7->Dock = System::Windows::Forms::DockStyle::Fill;
-			this->tableLayoutPanel7->Location = System::Drawing::Point(3, 16);
-			this->tableLayoutPanel7->Name = L"tableLayoutPanel7";
-			this->tableLayoutPanel7->RowCount = 1;
-			this->tableLayoutPanel7->RowStyles->Add((gcnew System::Windows::Forms::RowStyle(System::Windows::Forms::SizeType::Percent, 100)));
-			this->tableLayoutPanel7->Size = System::Drawing::Size(437, 32);
-			this->tableLayoutPanel7->TabIndex = 0;
-			// 
-			// button1
-			// 
-			this->button1->Dock = System::Windows::Forms::DockStyle::Fill;
-			this->button1->Location = System::Drawing::Point(6, 6);
-			this->button1->Name = L"button1";
-			this->button1->Size = System::Drawing::Size(135, 20);
-			this->button1->TabIndex = 0;
-			this->button1->Text = L"Change projection";
-			this->button1->UseVisualStyleBackColor = true;
-			this->button1->Click += gcnew System::EventHandler(this, &MyForm::button1_Click);
-			// 
-			// buttonMone
-			// 
-			this->buttonMone->Dock = System::Windows::Forms::DockStyle::Fill;
-			this->buttonMone->Location = System::Drawing::Point(150, 6);
-			this->buttonMone->Name = L"buttonMone";
-			this->buttonMone->Size = System::Drawing::Size(135, 20);
-			this->buttonMone->TabIndex = 1;
-			this->buttonMone->Text = L"Multiplying by -1";
-			this->buttonMone->UseVisualStyleBackColor = true;
-			this->buttonMone->Click += gcnew System::EventHandler(this, &MyForm::buttonMone_Click);
-			// 
-			// resetbutton
-			// 
-			this->resetbutton->Dock = System::Windows::Forms::DockStyle::Fill;
-			this->resetbutton->Location = System::Drawing::Point(294, 6);
-			this->resetbutton->Name = L"resetbutton";
-			this->resetbutton->Size = System::Drawing::Size(137, 20);
-			this->resetbutton->TabIndex = 2;
-			this->resetbutton->Text = L"Reset table";
-			this->resetbutton->UseVisualStyleBackColor = true;
-			this->resetbutton->Click += gcnew System::EventHandler(this, &MyForm::resetbutton_Click);
 			// 
 			// tableLayoutPanel3
 			// 
@@ -1017,23 +951,90 @@ private: System::Windows::Forms::Button^  resetbutton;
 			series6->ChartType = System::Windows::Forms::DataVisualization::Charting::SeriesChartType::Point;
 			series6->Legend = L"Legend1";
 			series6->LegendText = L"ARMgained";
+			series6->MarkerColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(255)), static_cast<System::Int32>(static_cast<System::Byte>(128)),
+				static_cast<System::Int32>(static_cast<System::Byte>(0)));
 			series6->Name = L"gained";
 			series7->ChartArea = L"ChartArea1";
 			series7->ChartType = System::Windows::Forms::DataVisualization::Charting::SeriesChartType::Point;
 			series7->Legend = L"Legend1";
 			series7->LegendText = L"ARMleft";
+			series7->MarkerColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(0)), static_cast<System::Int32>(static_cast<System::Byte>(0)),
+				static_cast<System::Int32>(static_cast<System::Byte>(192)));
 			series7->Name = L"left";
 			this->armchart->Series->Add(series6);
 			this->armchart->Series->Add(series7);
-			this->armchart->Size = System::Drawing::Size(449, 460);
+			this->armchart->Size = System::Drawing::Size(449, 480);
 			this->armchart->TabIndex = 13;
 			this->armchart->Text = L"chart1";
+			// 
+			// groupBox3
+			// 
+			this->groupBox3->Controls->Add(this->tableLayoutPanel7);
+			this->groupBox3->Dock = System::Windows::Forms::DockStyle::Top;
+			this->groupBox3->Location = System::Drawing::Point(1380, 495);
+			this->groupBox3->Name = L"groupBox3";
+			this->groupBox3->Size = System::Drawing::Size(198, 198);
+			this->groupBox3->TabIndex = 10;
+			this->groupBox3->TabStop = false;
+			this->groupBox3->Text = L"Changing ";
+			// 
+			// tableLayoutPanel7
+			// 
+			this->tableLayoutPanel7->CellBorderStyle = System::Windows::Forms::TableLayoutPanelCellBorderStyle::InsetDouble;
+			this->tableLayoutPanel7->ColumnCount = 1;
+			this->tableLayoutPanel7->ColumnStyles->Add((gcnew System::Windows::Forms::ColumnStyle(System::Windows::Forms::SizeType::Percent,
+				100)));
+			this->tableLayoutPanel7->Controls->Add(this->button1, 0, 0);
+			this->tableLayoutPanel7->Controls->Add(this->resetbutton, 0, 2);
+			this->tableLayoutPanel7->Controls->Add(this->buttonMone, 0, 1);
+			this->tableLayoutPanel7->Dock = System::Windows::Forms::DockStyle::Fill;
+			this->tableLayoutPanel7->Location = System::Drawing::Point(3, 16);
+			this->tableLayoutPanel7->Name = L"tableLayoutPanel7";
+			this->tableLayoutPanel7->RowCount = 3;
+			this->tableLayoutPanel7->RowStyles->Add((gcnew System::Windows::Forms::RowStyle(System::Windows::Forms::SizeType::Percent, 33.33333F)));
+			this->tableLayoutPanel7->RowStyles->Add((gcnew System::Windows::Forms::RowStyle(System::Windows::Forms::SizeType::Percent, 33.33333F)));
+			this->tableLayoutPanel7->RowStyles->Add((gcnew System::Windows::Forms::RowStyle(System::Windows::Forms::SizeType::Percent, 33.33333F)));
+			this->tableLayoutPanel7->Size = System::Drawing::Size(192, 179);
+			this->tableLayoutPanel7->TabIndex = 0;
+			// 
+			// button1
+			// 
+			this->button1->Dock = System::Windows::Forms::DockStyle::Fill;
+			this->button1->Location = System::Drawing::Point(6, 6);
+			this->button1->Name = L"button1";
+			this->button1->Size = System::Drawing::Size(180, 49);
+			this->button1->TabIndex = 0;
+			this->button1->Text = L"Change projection";
+			this->button1->UseVisualStyleBackColor = true;
+			this->button1->Click += gcnew System::EventHandler(this, &MyForm::button1_Click);
+			// 
+			// resetbutton
+			// 
+			this->resetbutton->Dock = System::Windows::Forms::DockStyle::Fill;
+			this->resetbutton->Location = System::Drawing::Point(6, 122);
+			this->resetbutton->Name = L"resetbutton";
+			this->resetbutton->Size = System::Drawing::Size(180, 51);
+			this->resetbutton->TabIndex = 2;
+			this->resetbutton->Text = L"Reset table";
+			this->resetbutton->UseVisualStyleBackColor = true;
+			this->resetbutton->Click += gcnew System::EventHandler(this, &MyForm::resetbutton_Click);
+			// 
+			// buttonMone
+			// 
+			this->buttonMone->Dock = System::Windows::Forms::DockStyle::Fill;
+			this->buttonMone->Location = System::Drawing::Point(6, 64);
+			this->buttonMone->Name = L"buttonMone";
+			this->buttonMone->Size = System::Drawing::Size(180, 49);
+			this->buttonMone->TabIndex = 1;
+			this->buttonMone->Text = L"Multiplying by -1";
+			this->buttonMone->UseVisualStyleBackColor = true;
+			this->buttonMone->Click += gcnew System::EventHandler(this, &MyForm::buttonMone_Click);
 			// 
 			// MyForm
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
-			this->ClientSize = System::Drawing::Size(1584, 883);
+			this->ClientSize = System::Drawing::Size(1584, 919);
 			this->Controls->Add(this->tableLayoutPanel1);
 			this->Controls->Add(this->toolStrip1);
 			this->Icon = (cli::safe_cast<System::Drawing::Icon^>(resources->GetObject(L"$this.Icon")));
@@ -1060,11 +1061,11 @@ private: System::Windows::Forms::Button^  resetbutton;
 			this->tableLayoutPanel8->PerformLayout();
 			this->tableLayoutPanel9->ResumeLayout(false);
 			this->tableLayoutPanel9->PerformLayout();
-			this->groupBox3->ResumeLayout(false);
-			this->tableLayoutPanel7->ResumeLayout(false);
 			this->tableLayoutPanel3->ResumeLayout(false);
 			this->tableLayoutPanel3->PerformLayout();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->armchart))->EndInit();
+			this->groupBox3->ResumeLayout(false);
+			this->tableLayoutPanel7->ResumeLayout(false);
 			this->ResumeLayout(false);
 			this->PerformLayout();
 
@@ -1159,6 +1160,7 @@ private: System::Windows::Forms::Button^  resetbutton;
 		double from,maxx,maxy, axislenght;
 		double to,a,b,c,d;
 		z1->ChartAreas[0]->Visible = true;
+		z1->ChartAreas[1]->Visible = false;
 		mh->ChartAreas[0]->Visible = true;
 		z1->Series["XY"]->SmartLabelStyle->Enabled = false;
 		z1->Series["ZX"]->SmartLabelStyle->Enabled = false;
@@ -1204,9 +1206,9 @@ private: System::Windows::Forms::Button^  resetbutton;
 		z1->ChartAreas[0]->AxisY->CustomLabels->Add(8*c/10, c, gcnew String(step.c_str()) +yyval+dim, 8*c/10, System::Windows::Forms::DataVisualization::Charting::LabelMarkStyle::None);
 		z1->ChartAreas[0]->AxisX->CustomLabels->Add(8*b/10,b,gcnew String(yy.c_str()), 8*b/10, System::Windows::Forms::DataVisualization::Charting::LabelMarkStyle::None);
 		z1->ChartAreas[0]->AxisY->CustomLabels->Add((9)*c/10, c,gcnew String(zx.c_str()), 9*c/10, System::Windows::Forms::DataVisualization::Charting::LabelMarkStyle::None);
-		z1->ChartAreas[0]->IsSameFontSizeForAllAxes = true;
-		z1->ChartAreas[0]->AxisX->Interval = axislenght/10;
-		z1->ChartAreas[0]->AxisY->Interval = axislenght/10;
+		//z1->ChartAreas[0]->IsSameFontSizeForAllAxes = true;
+		//z1->ChartAreas[0]->AxisX->Interval = axislenght/10;
+		//z1->ChartAreas[0]->AxisY->Interval = axislenght/10;
 
 		//второй график
 
@@ -1235,8 +1237,8 @@ private: System::Windows::Forms::Button^  resetbutton;
 		z1->ChartAreas[1]->AxisX->CustomLabels->Add(8 * maxx / 10, maxx, gcnew String(yz.c_str()), 8 * maxx / 10, System::Windows::Forms::DataVisualization::Charting::LabelMarkStyle::None);
 		z1->ChartAreas[1]->AxisY->CustomLabels->Add((-9)*maxy / 10, (-1)*maxy, gcnew String(xx.c_str()), 9 * maxy / 10, System::Windows::Forms::DataVisualization::Charting::LabelMarkStyle::None);
 
-		z1->ChartAreas[1]->AxisX->Interval = axislenght / 10;
-		z1->ChartAreas[1]->AxisY->Interval = axislenght / 10;
+		//z1->ChartAreas[1]->AxisX->Interval = axislenght / 10;
+		//z1->ChartAreas[1]->AxisY->Interval = axislenght / 10;
 		
 		//Третий график
 
@@ -1258,6 +1260,11 @@ private: System::Windows::Forms::Button^  resetbutton;
 		number = number->Remove(4, number->IndexOf("E")-4 );
 		mh->ChartAreas[0]->AxisY->CustomLabels->Clear();
 		mh->ChartAreas[0]->AxisY->CustomLabels->Add(9 * from / 10, from, gcnew String(h.c_str()) + number + s, 9 * from / 10, System::Windows::Forms::DataVisualization::Charting::LabelMarkStyle::None);
+
+		z1->ChartAreas[1]->AxisX->Maximum = max_axis(max(data, line_counter, 2, 1), (-1.)*max(data, line_counter, 3, 1));
+		z1->ChartAreas[1]->AxisX->Minimum = min_axis(min(data, line_counter, 2, 1), (-1.)*min(data, line_counter, 3, 1));
+
+		
 
 		for (int i = 1; i < line_counter; i++)
 		{
@@ -1352,8 +1359,8 @@ private: System::Windows::Forms::Button^  resetbutton;
 		z1->ChartAreas[0]->AxisX->CustomLabels->Add(8 * b / 10, b, gcnew String(yy.c_str()), 8 * b / 10, System::Windows::Forms::DataVisualization::Charting::LabelMarkStyle::None);
 		z1->ChartAreas[0]->AxisY->CustomLabels->Add((9)*c / 10, c, gcnew String(zx.c_str()), 9 * c / 10, System::Windows::Forms::DataVisualization::Charting::LabelMarkStyle::None);
 		z1->ChartAreas[0]->IsSameFontSizeForAllAxes = true;
-		z1->ChartAreas[0]->AxisX->Interval = axislenght / 10;
-		z1->ChartAreas[0]->AxisY->Interval = axislenght / 10;
+		//z1->ChartAreas[0]->AxisX->Interval = axislenght / 10;
+		//z1->ChartAreas[0]->AxisY->Interval = axislenght / 10;
 
 		//второй график
 
@@ -1380,8 +1387,8 @@ private: System::Windows::Forms::Button^  resetbutton;
 		z1->ChartAreas[1]->AxisX->CustomLabels->Add(8 * maxx / 10, maxx, gcnew String(yz.c_str()), 8 * maxx / 10, System::Windows::Forms::DataVisualization::Charting::LabelMarkStyle::None);
 		z1->ChartAreas[1]->AxisY->CustomLabels->Add((-9)*maxy / 10, (-1)*maxy, gcnew String(xx.c_str()), 9 * maxy / 10, System::Windows::Forms::DataVisualization::Charting::LabelMarkStyle::None);
 
-		z1->ChartAreas[1]->AxisX->Interval = axislenght / 10;
-		z1->ChartAreas[1]->AxisY->Interval = axislenght / 10;
+		//z1->ChartAreas[1]->AxisX->Interval = axislenght / 10;
+		//z1->ChartAreas[1]->AxisY->Interval = axislenght / 10;
 
 		mh->ChartAreas[0]->AxisX->MajorGrid->Enabled = false;
 		mh->ChartAreas[0]->AxisY->MajorGrid->Enabled = false;
@@ -1509,6 +1516,7 @@ private: System::Windows::Forms::Button^  resetbutton;
 			armchart->ChartAreas[0]->Visible = true;
 			armchart->Series["left"]->Points->Clear();
 			armchart->Series["gained"]->Points->Clear();
+			
 			armchart->Series["left"]->SmartLabelStyle->Enabled = false;
 			armchart->Series["gained"]->SmartLabelStyle->Enabled = false;
 
@@ -1516,11 +1524,13 @@ private: System::Windows::Forms::Button^  resetbutton;
 
 			armchart->ChartAreas[0]->AxisX->MajorGrid->Enabled = false;
 			armchart->ChartAreas[0]->AxisY->MajorGrid->Enabled = false;
-			armchart->ChartAreas[0]->AxisX->LabelStyle->Format = "{0}";
+			armchart->ChartAreas[0]->AxisX->LabelStyle->Format = "{0:0.#E+0}";
 			armchart->ChartAreas[0]->AxisX->Minimum = 0;
 			armchart->ChartAreas[0]->AxisY->LabelStyle->Format = "{0:0.#E+0}";
 			armchart->ChartAreas[0]->AxisY->Crossing = 0;
 			armchart->ChartAreas[0]->AxisX->Crossing = 0;
+
+
 
 			from=max(dataRMG, nrmcounter, 0, 0);
 			to = min(dataRMG, nrmcounter, 0, 0);
@@ -1557,43 +1567,20 @@ private: System::Windows::Forms::Button^  resetbutton;
 			armchart->ChartAreas[0]->AxisY->LabelStyle->Angle = -90;
 			armchart->ChartAreas[0]->AxisY->CustomLabels->Add(7 * maximum / 10, maximum,  number + s, 7 * maximum / 10, System::Windows::Forms::DataVisualization::Charting::LabelMarkStyle::None);
 			
-			//Второй график
-
-			/*
-			from = max(dataRMG, nrmcounter, 1, 0);
-			to = min(dataRMG, nrmcounter, 1, 0);
-			maximum = maxvalue(fabs(from), fabs(to));
-			maxnumber = numberofmax(dataRMG, nrmcounter, 1, 0);
-
-			if ((fabs(from) < fabs(to)) && (to < 0))
-			{
-				maximum = (-1)*maximum;
-			}
-
-			//string AFZ = "ARMgained ";
-			String^ numberAFZ = Convert::ToString(dataRMG[maxnumber][0]);
-			if ((numberAFZ->IndexOf("E") != (-1)) && (numberAFZ->Length > 8))
-				numberAFZ = numberAFZ->Remove(4, numberAFZ->IndexOf("E") - 4);
-			if ((numberAFZ->Length > 8))
-			{
-				numberAFZ = numberAFZ->Substring(0,8);
-			}
-			//armchart->ChartAreas[0]->AxisY->CustomLabels->Clear();
-			//armchart->ChartAreas[0]->AxisY->CustomLabels->Add(9 * maximum / 10, maximum, gcnew String(AFZ.c_str()) + numberAFZ + s, 9 * maximum / 10, System::Windows::Forms::DataVisualization::Charting::LabelMarkStyle::None);
-			//armchart->ChartAreas[0]->AxisY->CustomLabels->Add(9 * maximum / 10, maximum, numberAFZ + s, 9 * maximum / 10, System::Windows::Forms::DataVisualization::Charting::LabelMarkStyle::None);
-			*/
 			for (int i = 1; i < nrmcounter+1; i++)
 			{
 				left_point = (gcnew System::Windows::Forms::DataVisualization::Charting::DataPoint());
 				left_point->SetValueXY(data[i][0], dataRMG[i-1][0]);
 				left_point->Label = i.ToString();
 				left_point->LabelForeColor = System::Drawing::Color::Gray;
+				//left_point->Color = System::Drawing::Color::Blue;
 				armchart->Series["left"]->Points->Add(left_point);
 				
 				gained_point = (gcnew System::Windows::Forms::DataVisualization::Charting::DataPoint());
 				gained_point->SetValueXY(data[i][0], dataRMG[i - 1][1]);
 				gained_point->Label = i.ToString();
 				gained_point->LabelForeColor = System::Drawing::Color::Gray;
+				//gained_point->Color = System::Drawing::Color::Orange;
 				armchart->Series["gained"]->Points->Add(gained_point);
 			}
 
