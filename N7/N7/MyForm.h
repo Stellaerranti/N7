@@ -1262,10 +1262,12 @@ private: System::Windows::Forms::Button^  resetbutton;
 		mh->ChartAreas[0]->AxisY->CustomLabels->Add(9 * from / 10, from, gcnew String(h.c_str()) + number + s, 9 * from / 10, System::Windows::Forms::DataVisualization::Charting::LabelMarkStyle::None);
 
 		z1->ChartAreas[1]->AxisX->Maximum = max_axis(max(data, line_counter, 2, 1), (-1.)*max(data, line_counter, 3, 1));
-		z1->ChartAreas[1]->AxisX->Minimum = min_axis(min(data, line_counter, 2, 1), (-1.)*min(data, line_counter, 3, 1));
+		z1->ChartAreas[1]->AxisX->Minimum = min_axis(min(data, line_counter, 2, 1), min(data, line_counter, 3, 1));
 
+		//z1->ChartAreas[0]->AxisX->Maximum = max(data, line_counter, 2, 1);
+		z1->ChartAreas[1]->AxisY->Minimum = min_axis(min(data, line_counter, 2, 1), (-1.)*max(data, line_counter, 3, 1));
+		//z1->ChartAreas[0]->AxisY->Minimum = min_axis(min(data, line_counter, 2, 1), (-1.)*min(data, line_counter, 3, 1));
 		
-
 		for (int i = 1; i < line_counter; i++)
 		{
 			a_point = (gcnew System::Windows::Forms::DataVisualization::Charting::DataPoint());
