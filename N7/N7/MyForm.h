@@ -150,6 +150,13 @@ private: System::Windows::Forms::CheckBox^  ARMcheck;
 private: System::Windows::Forms::CheckBox^  AFZcheck;
 private: System::Windows::Forms::ToolStripMenuItem^  onOffArrowsToolStripMenuItem;
 private: System::Windows::Forms::Button^  resetbutton;
+private: System::Windows::Forms::SaveFileDialog^  saveFileDialog2;
+private: System::Windows::Forms::ToolStripDropDownButton^  toolStripDropDownButton3;
+private: System::Windows::Forms::ToolStripMenuItem^  zijderveld1ToolStripMenuItem;
+
+private: System::Windows::Forms::ToolStripMenuItem^  magnetizationToolStripMenuItem;
+private: System::Windows::Forms::ToolStripMenuItem^  aRMToolStripMenuItem;
+
 
 
 
@@ -200,6 +207,10 @@ private: System::Windows::Forms::Button^  resetbutton;
 			this->toolStripDropDownButton2 = (gcnew System::Windows::Forms::ToolStripDropDownButton());
 			this->onOffRowsToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
 			this->onOffArrowsToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
+			this->toolStripDropDownButton3 = (gcnew System::Windows::Forms::ToolStripDropDownButton());
+			this->zijderveld1ToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
+			this->magnetizationToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
+			this->aRMToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
 			this->dataGridView1 = (gcnew System::Windows::Forms::DataGridView());
 			this->H = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
 			this->X = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
@@ -250,6 +261,7 @@ private: System::Windows::Forms::Button^  resetbutton;
 			this->buttonMone = (gcnew System::Windows::Forms::Button());
 			this->saveFileDialog1 = (gcnew System::Windows::Forms::SaveFileDialog());
 			this->saveFileOutput = (gcnew System::Windows::Forms::SaveFileDialog());
+			this->saveFileDialog2 = (gcnew System::Windows::Forms::SaveFileDialog());
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->z1))->BeginInit();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->mh))->BeginInit();
 			this->toolStrip1->SuspendLayout();
@@ -337,9 +349,9 @@ private: System::Windows::Forms::Button^  resetbutton;
 			// toolStrip1
 			// 
 			this->toolStrip1->ImageScalingSize = System::Drawing::Size(17, 17);
-			this->toolStrip1->Items->AddRange(gcnew cli::array< System::Windows::Forms::ToolStripItem^  >(2) {
+			this->toolStrip1->Items->AddRange(gcnew cli::array< System::Windows::Forms::ToolStripItem^  >(3) {
 				this->toolStripDropDownButton1,
-					this->toolStripDropDownButton2
+					this->toolStripDropDownButton2, this->toolStripDropDownButton3
 			});
 			this->toolStrip1->Location = System::Drawing::Point(0, 0);
 			this->toolStrip1->Name = L"toolStrip1";
@@ -407,6 +419,40 @@ private: System::Windows::Forms::Button^  resetbutton;
 			this->onOffArrowsToolStripMenuItem->Size = System::Drawing::Size(161, 24);
 			this->onOffArrowsToolStripMenuItem->Text = L"On/Off arrows";
 			this->onOffArrowsToolStripMenuItem->Click += gcnew System::EventHandler(this, &MyForm::onOffArrowsToolStripMenuItem_Click);
+			// 
+			// toolStripDropDownButton3
+			// 
+			this->toolStripDropDownButton3->DisplayStyle = System::Windows::Forms::ToolStripItemDisplayStyle::Text;
+			this->toolStripDropDownButton3->DropDownItems->AddRange(gcnew cli::array< System::Windows::Forms::ToolStripItem^  >(3) {
+				this->zijderveld1ToolStripMenuItem,
+					this->magnetizationToolStripMenuItem, this->aRMToolStripMenuItem
+			});
+			this->toolStripDropDownButton3->Image = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"toolStripDropDownButton3.Image")));
+			this->toolStripDropDownButton3->ImageTransparentColor = System::Drawing::Color::Magenta;
+			this->toolStripDropDownButton3->Name = L"toolStripDropDownButton3";
+			this->toolStripDropDownButton3->Size = System::Drawing::Size(59, 22);
+			this->toolStripDropDownButton3->Text = L"Export";
+			// 
+			// zijderveld1ToolStripMenuItem
+			// 
+			this->zijderveld1ToolStripMenuItem->Name = L"zijderveld1ToolStripMenuItem";
+			this->zijderveld1ToolStripMenuItem->Size = System::Drawing::Size(187, 24);
+			this->zijderveld1ToolStripMenuItem->Text = L"Zijderveld 1";
+			this->zijderveld1ToolStripMenuItem->Click += gcnew System::EventHandler(this, &MyForm::zijderveld1ToolStripMenuItem_Click);
+			// 
+			// magnetizationToolStripMenuItem
+			// 
+			this->magnetizationToolStripMenuItem->Name = L"magnetizationToolStripMenuItem";
+			this->magnetizationToolStripMenuItem->Size = System::Drawing::Size(187, 24);
+			this->magnetizationToolStripMenuItem->Text = L"Magnetization";
+			this->magnetizationToolStripMenuItem->Click += gcnew System::EventHandler(this, &MyForm::magnetizationToolStripMenuItem_Click);
+			// 
+			// aRMToolStripMenuItem
+			// 
+			this->aRMToolStripMenuItem->Name = L"aRMToolStripMenuItem";
+			this->aRMToolStripMenuItem->Size = System::Drawing::Size(187, 24);
+			this->aRMToolStripMenuItem->Text = L"ARM";
+			this->aRMToolStripMenuItem->Click += gcnew System::EventHandler(this, &MyForm::aRMToolStripMenuItem_Click);
 			// 
 			// dataGridView1
 			// 
@@ -2706,6 +2752,41 @@ private: System::Void V_CheckedChanged(System::Object^  sender, System::EventArg
 		ARMradio->Enabled = true;
 		AFZradio->Enabled = true;
 	}
+}
+		 //Сохранение графиков
+private: System::Void zijderveld1ToolStripMenuItem_Click(System::Object^  sender, System::EventArgs^  e)
+{
+	saveFileDialog2->Filter = "Tiff|*.tiff";
+	System::Windows::Forms::DialogResult result = saveFileDialog2->ShowDialog();
+
+	if (result != System::Windows::Forms::DialogResult::OK)
+		return;
+	System::String^ path_f = saveFileDialog2->FileName;
+
+	z1->SaveImage(path_f, System::Drawing::Imaging::ImageFormat::Tiff);
+
+}
+private: System::Void magnetizationToolStripMenuItem_Click(System::Object^  sender, System::EventArgs^  e) 
+{
+	saveFileDialog2->Filter = "Tiff|*.tiff";
+	System::Windows::Forms::DialogResult result = saveFileDialog2->ShowDialog();
+
+	if (result != System::Windows::Forms::DialogResult::OK)
+		return;
+	System::String^ path_f = saveFileDialog2->FileName;
+
+	mh->SaveImage(path_f, System::Drawing::Imaging::ImageFormat::Tiff);
+}
+private: System::Void aRMToolStripMenuItem_Click(System::Object^  sender, System::EventArgs^  e)
+{
+	saveFileDialog2->Filter = "Tiff|*.tiff";
+	System::Windows::Forms::DialogResult result = saveFileDialog2->ShowDialog();
+
+	if (result != System::Windows::Forms::DialogResult::OK)
+		return;
+	System::String^ path_f = saveFileDialog2->FileName;
+
+	armchart->SaveImage(path_f, System::Drawing::Imaging::ImageFormat::Tiff);
 }
 };
 
