@@ -958,8 +958,7 @@ private: System::Windows::Forms::Button^  resetbutton;
 			series7->ChartType = System::Windows::Forms::DataVisualization::Charting::SeriesChartType::Point;
 			series7->Legend = L"Legend1";
 			series7->LegendText = L"ARMleft";
-			series7->MarkerColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(0)), static_cast<System::Int32>(static_cast<System::Byte>(0)),
-				static_cast<System::Int32>(static_cast<System::Byte>(192)));
+			series7->MarkerColor = System::Drawing::Color::Blue;
 			series7->Name = L"left";
 			this->armchart->Series->Add(series6);
 			this->armchart->Series->Add(series7);
@@ -1486,13 +1485,13 @@ private: System::Windows::Forms::Button^  resetbutton;
 				mh->Series["MH"]->Points->Add(MH_point);
 
 				left_point = (gcnew System::Windows::Forms::DataVisualization::Charting::DataPoint());
-				left_point->SetValueXY(data[i][0], data[i][6]);
+				left_point->SetValueXY(data[i][0], data[i][8]);
 				left_point->Label = dataGridView1->Rows[i]->HeaderCell->Value->ToString();
 				left_point->LabelForeColor = System::Drawing::Color::Gray;
 				armchart->Series["left"]->Points->Add(left_point);
 
 				gained_point = (gcnew System::Windows::Forms::DataVisualization::Charting::DataPoint());
-				gained_point->SetValueXY(data[i][0], data[i][8]);
+				gained_point->SetValueXY(data[i][0], data[i][6]);
 				gained_point->Label = dataGridView1->Rows[i]->HeaderCell->Value->ToString();
 				gained_point->LabelForeColor = System::Drawing::Color::Gray;
 				armchart->Series["gained"]->Points->Add(gained_point);
@@ -1572,17 +1571,17 @@ private: System::Windows::Forms::Button^  resetbutton;
 			for (int i = 1; i < nrmcounter+1; i++)
 			{
 				left_point = (gcnew System::Windows::Forms::DataVisualization::Charting::DataPoint());
-				left_point->SetValueXY(data[i][0], dataRMG[i-1][0]);
+				left_point->SetValueXY(data[i][0], dataRMG[i-1][1]);
 				left_point->Label = i.ToString();
 				left_point->LabelForeColor = System::Drawing::Color::Gray;
-				//left_point->Color = System::Drawing::Color::Blue;
+				//left_point->Color = System::Drawing::Color::Orange;
 				armchart->Series["left"]->Points->Add(left_point);
 				
 				gained_point = (gcnew System::Windows::Forms::DataVisualization::Charting::DataPoint());
-				gained_point->SetValueXY(data[i][0], dataRMG[i - 1][1]);
+				gained_point->SetValueXY(data[i][0], dataRMG[i - 1][0]);
 				gained_point->Label = i.ToString();
 				gained_point->LabelForeColor = System::Drawing::Color::Gray;
-				//gained_point->Color = System::Drawing::Color::Orange;
+				//gained_point->Color = System::Drawing::Color::Blue;
 				armchart->Series["gained"]->Points->Add(gained_point);
 			}
 
