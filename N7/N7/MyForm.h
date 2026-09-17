@@ -183,19 +183,19 @@ private: System::Windows::Forms::ToolStripMenuItem^  aRMToolStripMenuItem;
 		/// </summary>
 		void InitializeComponent(void)
 		{
-			System::Windows::Forms::DataVisualization::Charting::ChartArea^  chartArea1 = (gcnew System::Windows::Forms::DataVisualization::Charting::ChartArea());
-			System::Windows::Forms::DataVisualization::Charting::ChartArea^  chartArea2 = (gcnew System::Windows::Forms::DataVisualization::Charting::ChartArea());
-			System::Windows::Forms::DataVisualization::Charting::Series^  series1 = (gcnew System::Windows::Forms::DataVisualization::Charting::Series());
-			System::Windows::Forms::DataVisualization::Charting::Series^  series2 = (gcnew System::Windows::Forms::DataVisualization::Charting::Series());
-			System::Windows::Forms::DataVisualization::Charting::Series^  series3 = (gcnew System::Windows::Forms::DataVisualization::Charting::Series());
-			System::Windows::Forms::DataVisualization::Charting::Series^  series4 = (gcnew System::Windows::Forms::DataVisualization::Charting::Series());
-			System::Windows::Forms::DataVisualization::Charting::ChartArea^  chartArea3 = (gcnew System::Windows::Forms::DataVisualization::Charting::ChartArea());
-			System::Windows::Forms::DataVisualization::Charting::Series^  series5 = (gcnew System::Windows::Forms::DataVisualization::Charting::Series());
-			System::ComponentModel::ComponentResourceManager^  resources = (gcnew System::ComponentModel::ComponentResourceManager(MyForm::typeid));
-			System::Windows::Forms::DataVisualization::Charting::ChartArea^  chartArea4 = (gcnew System::Windows::Forms::DataVisualization::Charting::ChartArea());
-			System::Windows::Forms::DataVisualization::Charting::Legend^  legend1 = (gcnew System::Windows::Forms::DataVisualization::Charting::Legend());
-			System::Windows::Forms::DataVisualization::Charting::Series^  series6 = (gcnew System::Windows::Forms::DataVisualization::Charting::Series());
-			System::Windows::Forms::DataVisualization::Charting::Series^  series7 = (gcnew System::Windows::Forms::DataVisualization::Charting::Series());
+			System::Windows::Forms::DataVisualization::Charting::ChartArea^ chartArea1 = (gcnew System::Windows::Forms::DataVisualization::Charting::ChartArea());
+			System::Windows::Forms::DataVisualization::Charting::ChartArea^ chartArea2 = (gcnew System::Windows::Forms::DataVisualization::Charting::ChartArea());
+			System::Windows::Forms::DataVisualization::Charting::Series^ series1 = (gcnew System::Windows::Forms::DataVisualization::Charting::Series());
+			System::Windows::Forms::DataVisualization::Charting::Series^ series2 = (gcnew System::Windows::Forms::DataVisualization::Charting::Series());
+			System::Windows::Forms::DataVisualization::Charting::Series^ series3 = (gcnew System::Windows::Forms::DataVisualization::Charting::Series());
+			System::Windows::Forms::DataVisualization::Charting::Series^ series4 = (gcnew System::Windows::Forms::DataVisualization::Charting::Series());
+			System::Windows::Forms::DataVisualization::Charting::ChartArea^ chartArea3 = (gcnew System::Windows::Forms::DataVisualization::Charting::ChartArea());
+			System::Windows::Forms::DataVisualization::Charting::Series^ series5 = (gcnew System::Windows::Forms::DataVisualization::Charting::Series());
+			System::ComponentModel::ComponentResourceManager^ resources = (gcnew System::ComponentModel::ComponentResourceManager(MyForm::typeid));
+			System::Windows::Forms::DataVisualization::Charting::ChartArea^ chartArea4 = (gcnew System::Windows::Forms::DataVisualization::Charting::ChartArea());
+			System::Windows::Forms::DataVisualization::Charting::Legend^ legend1 = (gcnew System::Windows::Forms::DataVisualization::Charting::Legend());
+			System::Windows::Forms::DataVisualization::Charting::Series^ series6 = (gcnew System::Windows::Forms::DataVisualization::Charting::Series());
+			System::Windows::Forms::DataVisualization::Charting::Series^ series7 = (gcnew System::Windows::Forms::DataVisualization::Charting::Series());
 			this->openFileDialog1 = (gcnew System::Windows::Forms::OpenFileDialog());
 			this->z1 = (gcnew System::Windows::Forms::DataVisualization::Charting::Chart());
 			this->mh = (gcnew System::Windows::Forms::DataVisualization::Charting::Chart());
@@ -369,27 +369,27 @@ private: System::Windows::Forms::ToolStripMenuItem^  aRMToolStripMenuItem;
 			this->toolStripDropDownButton1->Image = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"toolStripDropDownButton1.Image")));
 			this->toolStripDropDownButton1->ImageTransparentColor = System::Drawing::Color::Magenta;
 			this->toolStripDropDownButton1->Name = L"toolStripDropDownButton1";
-			this->toolStripDropDownButton1->Size = System::Drawing::Size(40, 22);
+			this->toolStripDropDownButton1->Size = System::Drawing::Size(38, 22);
 			this->toolStripDropDownButton1->Text = L"File";
 			// 
 			// openpmdToolStripMenuItem
 			// 
 			this->openpmdToolStripMenuItem->Name = L"openpmdToolStripMenuItem";
-			this->openpmdToolStripMenuItem->Size = System::Drawing::Size(143, 24);
+			this->openpmdToolStripMenuItem->Size = System::Drawing::Size(134, 22);
 			this->openpmdToolStripMenuItem->Text = L"Open .pmd";
 			this->openpmdToolStripMenuItem->Click += gcnew System::EventHandler(this, &MyForm::openpmdToolStripMenuItem_Click);
 			// 
 			// openrmgToolStripMenuItem
 			// 
 			this->openrmgToolStripMenuItem->Name = L"openrmgToolStripMenuItem";
-			this->openrmgToolStripMenuItem->Size = System::Drawing::Size(143, 24);
+			this->openrmgToolStripMenuItem->Size = System::Drawing::Size(134, 22);
 			this->openrmgToolStripMenuItem->Text = L"Open .rmg";
 			this->openrmgToolStripMenuItem->Click += gcnew System::EventHandler(this, &MyForm::openrmgToolStripMenuItem_Click);
 			// 
 			// saveAsToolStripMenuItem
 			// 
 			this->saveAsToolStripMenuItem->Name = L"saveAsToolStripMenuItem";
-			this->saveAsToolStripMenuItem->Size = System::Drawing::Size(143, 24);
+			this->saveAsToolStripMenuItem->Size = System::Drawing::Size(134, 22);
 			this->saveAsToolStripMenuItem->Text = L"Save as";
 			this->saveAsToolStripMenuItem->Click += gcnew System::EventHandler(this, &MyForm::saveAsToolStripMenuItem_Click);
 			// 
@@ -403,20 +403,20 @@ private: System::Windows::Forms::ToolStripMenuItem^  aRMToolStripMenuItem;
 			this->toolStripDropDownButton2->Image = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"toolStripDropDownButton2.Image")));
 			this->toolStripDropDownButton2->ImageTransparentColor = System::Drawing::Color::Magenta;
 			this->toolStripDropDownButton2->Name = L"toolStripDropDownButton2";
-			this->toolStripDropDownButton2->Size = System::Drawing::Size(67, 22);
+			this->toolStripDropDownButton2->Size = System::Drawing::Size(62, 22);
 			this->toolStripDropDownButton2->Text = L"Options";
 			// 
 			// onOffRowsToolStripMenuItem
 			// 
 			this->onOffRowsToolStripMenuItem->Name = L"onOffRowsToolStripMenuItem";
-			this->onOffRowsToolStripMenuItem->Size = System::Drawing::Size(161, 24);
+			this->onOffRowsToolStripMenuItem->Size = System::Drawing::Size(150, 22);
 			this->onOffRowsToolStripMenuItem->Text = L"On/Off rows";
 			this->onOffRowsToolStripMenuItem->Click += gcnew System::EventHandler(this, &MyForm::onOffRowsToolStripMenuItem_Click);
 			// 
 			// onOffArrowsToolStripMenuItem
 			// 
 			this->onOffArrowsToolStripMenuItem->Name = L"onOffArrowsToolStripMenuItem";
-			this->onOffArrowsToolStripMenuItem->Size = System::Drawing::Size(161, 24);
+			this->onOffArrowsToolStripMenuItem->Size = System::Drawing::Size(150, 22);
 			this->onOffArrowsToolStripMenuItem->Text = L"On/Off arrows";
 			this->onOffArrowsToolStripMenuItem->Click += gcnew System::EventHandler(this, &MyForm::onOffArrowsToolStripMenuItem_Click);
 			// 
@@ -430,27 +430,27 @@ private: System::Windows::Forms::ToolStripMenuItem^  aRMToolStripMenuItem;
 			this->toolStripDropDownButton3->Image = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"toolStripDropDownButton3.Image")));
 			this->toolStripDropDownButton3->ImageTransparentColor = System::Drawing::Color::Magenta;
 			this->toolStripDropDownButton3->Name = L"toolStripDropDownButton3";
-			this->toolStripDropDownButton3->Size = System::Drawing::Size(59, 22);
+			this->toolStripDropDownButton3->Size = System::Drawing::Size(54, 22);
 			this->toolStripDropDownButton3->Text = L"Export";
 			// 
 			// zijderveld1ToolStripMenuItem
 			// 
 			this->zijderveld1ToolStripMenuItem->Name = L"zijderveld1ToolStripMenuItem";
-			this->zijderveld1ToolStripMenuItem->Size = System::Drawing::Size(187, 24);
+			this->zijderveld1ToolStripMenuItem->Size = System::Drawing::Size(150, 22);
 			this->zijderveld1ToolStripMenuItem->Text = L"Zijderveld 1";
 			this->zijderveld1ToolStripMenuItem->Click += gcnew System::EventHandler(this, &MyForm::zijderveld1ToolStripMenuItem_Click);
 			// 
 			// magnetizationToolStripMenuItem
 			// 
 			this->magnetizationToolStripMenuItem->Name = L"magnetizationToolStripMenuItem";
-			this->magnetizationToolStripMenuItem->Size = System::Drawing::Size(187, 24);
+			this->magnetizationToolStripMenuItem->Size = System::Drawing::Size(150, 22);
 			this->magnetizationToolStripMenuItem->Text = L"Magnetization";
 			this->magnetizationToolStripMenuItem->Click += gcnew System::EventHandler(this, &MyForm::magnetizationToolStripMenuItem_Click);
 			// 
 			// aRMToolStripMenuItem
 			// 
 			this->aRMToolStripMenuItem->Name = L"aRMToolStripMenuItem";
-			this->aRMToolStripMenuItem->Size = System::Drawing::Size(187, 24);
+			this->aRMToolStripMenuItem->Size = System::Drawing::Size(150, 22);
 			this->aRMToolStripMenuItem->Text = L"ARM";
 			this->aRMToolStripMenuItem->Click += gcnew System::EventHandler(this, &MyForm::aRMToolStripMenuItem_Click);
 			// 
@@ -742,7 +742,7 @@ private: System::Windows::Forms::ToolStripMenuItem^  aRMToolStripMenuItem;
 			this->LN->Checked = true;
 			this->LN->Location = System::Drawing::Point(5, 5);
 			this->LN->Name = L"LN";
-			this->LN->Size = System::Drawing::Size(95, 19);
+			this->LN->Size = System::Drawing::Size(83, 17);
 			this->LN->TabIndex = 0;
 			this->LN->TabStop = true;
 			this->LN->Text = L"Line number";
@@ -753,7 +753,7 @@ private: System::Windows::Forms::ToolStripMenuItem^  aRMToolStripMenuItem;
 			this->V->AutoSize = true;
 			this->V->Location = System::Drawing::Point(5, 34);
 			this->V->Name = L"V";
-			this->V->Size = System::Drawing::Size(56, 19);
+			this->V->Size = System::Drawing::Size(52, 17);
 			this->V->TabIndex = 1;
 			this->V->Text = L"Value";
 			this->V->UseVisualStyleBackColor = true;
